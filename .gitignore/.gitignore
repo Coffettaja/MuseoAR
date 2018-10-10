@@ -6,6 +6,13 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+MuseoAR/[Ll]ibrary/
+MuseoAR/[Tt]emp/
+MuseoAR/[Oo]bj/
+MuseoAR/[Bb]uild/
+MuseoAR/[Bb]uilds/
+MuseoAR/Assets/AssetStoreTools*
+
 # Visual Studio cache directory
 .vs/
 
