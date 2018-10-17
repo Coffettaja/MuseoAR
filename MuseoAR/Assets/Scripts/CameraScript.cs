@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// @haeejuut 10.17.2018
+/// </summary>
 public class CameraScript : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
 
-        /* @haeejuut
+        /*
          * Sends a ray from camera (script as camera component) center.
          * Starts Coroutine on hit.
         */
