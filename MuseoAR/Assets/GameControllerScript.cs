@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour {
 
-    public Dictionary<string, bool> sceneDict;
+    [System.Serializable]
+    public struct SceneDictItem
+    {
+        public string name;
+        public bool completed;
+    }
+
+    public SceneDictItem[] sceneDict;
 
     private string _currentScene;
     
@@ -22,9 +29,21 @@ public class GameControllerScript : MonoBehaviour {
 		
 	}
 
+    private void setSceneDictValue(string name, bool value)
+    {
+        for (int i = 0; i < sceneDict.Length; i++)
+        {
+            if (sceneDict[i].name == name)
+            {
+                sceneDict[i].completed = value;
+                return;
+            }
+        }
+    }
+
     public void MarkSceneCompleted(string name)
     {
-        sceneDict[name] = true;
+        setSceneDictValue(name, true);
     }
 
     public void LoadSceneWithName(string name)
