@@ -13,9 +13,10 @@ public class ManagerScript : MonoBehaviour {
     private int amount;
     private GameObject[] EnemyList;
     private GameObject ImageTarget;
+
 	// Use this for initialization
 	void Start () {
-        amount = 3;
+        amount = 4;
         ImageTarget = gameObject.transform.parent.gameObject;
         EnemyList = new GameObject[amount + 1];
         SpawnEnemies(amount);
@@ -30,15 +31,15 @@ public class ManagerScript : MonoBehaviour {
     /// <param name="amount"></param>
     private void SpawnEnemies(int amount)
     {
-        float x = 0;
+        float x = -1;
         for (int i = 0; i < amount; i++)
         {
             GameObject enemyGO = EnemyList[i] = Instantiate<GameObject>(EnemyPrefab);
             enemyGO.transform.localPosition = new Vector3(x, 0, 0);
+            x += .5f;
             enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
             // Set as children for ImageTarget, for AR's sake
             enemyGO.transform.SetParent(ImageTarget.transform);
-            x += .5f;
         }
     }
 }

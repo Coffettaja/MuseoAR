@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour {
     public bool destroyed = false;
     public float waitTime = 3f;
 
-    private float speed = 5f;
+    private float speed = 7f;
     private float minDistance = 1.0f;
     private bool swi;
 
@@ -42,10 +42,11 @@ public class EnemyScript : MonoBehaviour {
             transform.Translate(Vector3.right * Time.deltaTime * speed);
         else
             transform.Translate(-Vector3.right * Time.deltaTime * speed);
-
-        yield return new WaitForSeconds(waitTime);
-        transform.Translate(Vector3.forward * Time.deltaTime * (speed + 4.0f));
         swi = !swi;
+
+        // Towards the player (camera)
+        yield return new WaitForSeconds(waitTime);
+        transform.Translate(Vector3.forward * Time.deltaTime * (speed + 2.0f));
         
         StartCoroutine(MoveEnemy());
     }
