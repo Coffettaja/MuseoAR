@@ -25,19 +25,25 @@ public class CameraScript : MonoBehaviour {
 
     /// <summary>
     /// If you hit the target for 1 second, it will change color to red.
+    /// After 0.5 seconds the target will be destroyed.
     /// Functionality of hit objects can be implemented in this dummy.
     /// </summary>
     /// <param name="hit"></param>
     /// <returns></returns>
     IEnumerator LockOnTarget(RaycastHit hit)
     {
+        // Checks if camera center stays on object
         Transform wanha = hit.transform;
         yield return new WaitForSeconds(1);
         Transform uusi = hit.transform;
-        if (wanha == uusi)
+        if (wanha && uusi && wanha == uusi)
         {
-            MeshRenderer m_rend = hit.transform.GetComponent<MeshRenderer>();
+            GameObject destroyable = hit.transform.gameObject;
+            MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
             m_rend.material.color = Color.red;
+            yield return new WaitForSeconds(.5f);
+            // Do stuff to object destroyable
+            Destroy(destroyable);
         }
     }
 }
