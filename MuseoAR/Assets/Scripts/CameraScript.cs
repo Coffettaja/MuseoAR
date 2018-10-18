@@ -32,7 +32,7 @@ public class CameraScript : MonoBehaviour {
     /// <returns></returns>
     IEnumerator LockOnTarget(RaycastHit hit)
     {
-        
+        // Checks if camera center stays on object
         Transform wanha = hit.transform;
         yield return new WaitForSeconds(1);
         Transform uusi = hit.transform;
@@ -42,6 +42,7 @@ public class CameraScript : MonoBehaviour {
             MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
             m_rend.material.color = Color.red;
             yield return new WaitForSeconds(.5f);
+            // Do stuff to object destroyable
             Destroy(destroyable);
         }
     }

@@ -24,20 +24,25 @@ public class EnemyScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Liikuttaa vihollisobjektia jossa skripti on kiinni
+    /// Moves this object left and right and towards the camera.
+    /// Destroys object if it is too close to the camera.
     /// </summary>
     /// <returns></returns>
     private IEnumerator MoveEnemy()
     {
+        // Distance check
         if (Vector3.Distance(transform.position, Camera.main.transform.position) < minDistance)
         {
             Destroy(gameObject);
         }
         yield return new WaitForSeconds(waitTime);
+
+        // Switch for left and right movement
         if (swi)
             transform.Translate(Vector3.right * Time.deltaTime * speed);
         else
             transform.Translate(-Vector3.right * Time.deltaTime * speed);
+
         yield return new WaitForSeconds(waitTime);
         transform.Translate(Vector3.forward * Time.deltaTime * (speed + 4.0f));
         swi = !swi;
