@@ -8,7 +8,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     private TrackableBehaviour _trackableBehaviour;
     private GameControllerScript _gameController;
     public string sceneName;
-
+    
 	// Use this for initialization
 	void Start () {
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -30,9 +30,14 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     {
         if(newStatus == TrackableBehaviour.Status.TRACKED)
         {
-            _gameController.LoadSceneWithName(sceneName);
+            
         }
         
+    }
+
+    public void LoadScene()
+    {
+        _gameController.LoadSceneWithName(sceneName);
     }
 
     public TrackableBehaviour.Status getCurrent()
