@@ -6,7 +6,6 @@ using Vuforia;
 public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     private TrackableBehaviour _trackableBehaviour;
-    private GameControllerScript _gameController;
     public string sceneName;
     
 	// Use this for initialization
@@ -18,7 +17,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
         }
 
-        _gameController = GameObject.Find("gameController").GetComponent<GameControllerScript>();
+        GameControllerScript.gameManagerInstance = GameObject.Find("gameManager").GetComponent<GameControllerScript>();
 	}
 	
 	// Update is called once per frame
@@ -37,7 +36,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     public void LoadScene()
     {
-        _gameController.LoadSceneWithName(sceneName);
+        GameControllerScript.gameManagerInstance.LoadSceneWithName(sceneName);
     }
 
     public TrackableBehaviour.Status getCurrent()

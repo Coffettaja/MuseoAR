@@ -12,6 +12,8 @@ public class GameControllerScript : MonoBehaviour {
         public bool completed;
     }
 
+    public static GameControllerScript gameManagerInstance;
+
     public SceneDictItem[] sceneDict;
 
     private string _currentScene;
@@ -19,15 +21,14 @@ public class GameControllerScript : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        if (gameManagerInstance == null)
+        {
+            gameManagerInstance = this;
+        } else if (gameManagerInstance != this)
+        {
+            Destroy(gameObject);
+        }
     }
-    // Use this for initialization
-    void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void setSceneDictValue(string name, bool value)
     {
@@ -39,6 +40,24 @@ public class GameControllerScript : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    private bool GetSceneDictValue(string name)
+    {
+        for (int i = 0; i < sceneDict.Length; i++)
+        {
+            if (sceneDict[i].name == name)
+            {
+                return sceneDict[i].completed;
+            }
+        }
+
+        return false;
+    }
+
+    public bool IsSceneCompleted(string name)
+    {
+        return GetSceneDictValue(name);
     }
 
     public void MarkSceneCompleted(string name)

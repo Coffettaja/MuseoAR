@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,17 +35,22 @@ public class TargetScript : MonoBehaviour {
         Vector3 screenPoint = Camera.main.WorldToScreenPoint(targetFill.rectTransform.position);
         Ray ray = Camera.main.ScreenPointToRay(screenPoint);
         RaycastHit hit;
-        if ( Physics.Raycast(ray, out hit) )
+        if ( Physics.Raycast(ray, out hit, Mathf.Infinity) )
         {
-            if(hit.collider.gameObject.tag == "marker")
+            Debug.Log(hit.collider.gameObject.name);
+            if(hit.collider.gameObject.tag == "Marker")
             {
+                Debug.Log("Marker hit!");
                 targetedMarker = hit.collider.gameObject.GetComponent<TrackableScript>();
-                StartCoroutine(c);
+                StartCoroutine("FillCoroutine", 2.0f);
             }
         }
         else
         {
+            //Stop animations and reset the fill sprite to small
+            StopAllCoroutines();
             targetedMarker = null;
+            targetFill.transform.localScale = fillScale * 0; 
         }
 	}
 
@@ -61,7 +67,7 @@ public class TargetScript : MonoBehaviour {
             targetFill.color = new Color(col.r, col.b, col.g, 0.75f * t);
             yield return null;
         }
-        StartCoroutine(c2);
+        StartCoroutine("AfterPulse", 0.5f);
     }
 
     //
