@@ -33,10 +33,10 @@ public class CameraScript : MonoBehaviour {
     IEnumerator LockOnTarget(RaycastHit hit)
     {
         // Checks if camera center stays on object
-        Transform wanha = hit.transform;
+        Transform previousAimpoint = hit.transform;
         yield return new WaitForSeconds(1);
-        Transform uusi = hit.transform;
-        if (wanha && uusi && wanha == uusi)
+        Transform currentAimpoint = hit.transform;
+        if (previousAimpoint && currentAimpoint && previousAimpoint == currentAimpoint)
         {
             GameObject destroyable = hit.transform.gameObject;
             MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
