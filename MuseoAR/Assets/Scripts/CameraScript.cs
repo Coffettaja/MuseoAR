@@ -16,17 +16,18 @@ public class CameraScript : MonoBehaviour {
          * Starts Coroutine on hit.
         */
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+
+        /* Commented out for testing collider based shooting
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
             StartCoroutine(LockOnTarget(hit));
-        }
+        }*/
 	}
 
     /// <summary>
     /// If you hit the target for 1 second, it will change color to red.
-    /// After 0.5 seconds the target will be destroyed.
-    /// Functionality of hit objects can be implemented in this dummy.
+    /// Then it will tell the object to die.
     /// </summary>
     /// <param name="hit"></param>
     /// <returns></returns>
@@ -38,12 +39,8 @@ public class CameraScript : MonoBehaviour {
         Transform currentAimpoint = hit.transform;
         if (previousAimpoint && currentAimpoint && previousAimpoint == currentAimpoint)
         {
-            GameObject destroyable = hit.transform.gameObject;
-            MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
-            m_rend.material.color = Color.red;
-            yield return new WaitForSeconds(.5f);
-            // Do stuff to object destroyable
-            Destroy(destroyable);
+            GameObject hitTarget = hit.transform.gameObject;
+            hitTarget.GetComponent<EnemyScript>().die();
         }
     }
 }

@@ -70,6 +70,6 @@ public class ManagerScript : MonoBehaviour {
         {
             Destroy(enemy);
         }
-        //SpawnEnemies();
+        SpawnEnemies();
     }
 }

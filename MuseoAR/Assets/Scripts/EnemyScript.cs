@@ -24,6 +24,20 @@ public class EnemyScript : MonoBehaviour {
     }
 
     /// <summary>
+    /// Tells the enemy to die. Enemy then informs the manager to add points to score.
+    /// </summary>
+    public void die()
+    {
+        //Turn the enemy red
+        MeshRenderer m_rend = GetComponent<MeshRenderer>();
+        m_rend.material.color = Color.red;
+
+        Destroy(this.gameObject, 1.0f);
+
+        //TODO: Add points to score
+    }
+
+    /// <summary>
     /// Moves this object left and right and towards the camera.
     /// Destroys object if it is too close to the camera.
     /// </summary>
@@ -50,4 +64,5 @@ public class EnemyScript : MonoBehaviour {
         
         StartCoroutine(MoveEnemy());
     }
+    
 }
