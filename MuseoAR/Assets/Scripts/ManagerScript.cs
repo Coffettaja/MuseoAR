@@ -15,7 +15,7 @@ public class ManagerScript : MonoBehaviour {
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
     
-    private GameObject[] EnemyList;
+    public GameObject[] EnemyList;
     private GameObject ImageTarget;
 
 	// Use this for initialization
@@ -44,7 +44,8 @@ public class ManagerScript : MonoBehaviour {
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
-                GameObject enemyGO = EnemyList[i] = Instantiate<GameObject>(EnemyPrefab);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab);
+                EnemyList[j * enemiesOnRow + i] = enemyGO;
                 enemyGO.transform.localPosition = new Vector3(x, y, z);
                 x += enemySpacing;
                 enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
@@ -69,6 +70,6 @@ public class ManagerScript : MonoBehaviour {
         {
             Destroy(enemy);
         }
-        SpawnEnemies();
+        //SpawnEnemies();
     }
 }
