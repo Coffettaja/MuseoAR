@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 /// <summary>
 /// @haeejuut 10.17.2018
@@ -8,7 +9,7 @@ using UnityEngine;
 /// 
 /// Spawns enemies and manages a list of them. Can reset.
 /// </summary>
-public class ManagerScript : MonoBehaviour {
+public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     public GameObject EnemyPrefab;
     public int enemiesOnRow = 4;
@@ -18,11 +19,32 @@ public class ManagerScript : MonoBehaviour {
     public GameObject[] EnemyList;
     private GameObject ImageTarget;
 
+    private bool enemiesSpawned = false;
+
+    private TrackableBehaviour _trackableBehaviour;
+ 
 	// Use this for initialization
 	void Start () {
-        ImageTarget = gameObject.transform.parent.gameObject;
-        SpawnEnemies();
+        ImageTarget = gameObject;
+        //SpawnEnemies();
+
+        _trackableBehaviour = GetComponent<TrackableBehaviour>();
+        if(_trackableBehaviour)
+        {
+            _trackableBehaviour.RegisterTrackableEventHandler(this);
+        }
 	}
+
+    public void Update()
+    {
+        foreach(GameObject enemy in EnemyList)
+        {
+            if (enemy != null && enemy.GetComponent<EnemyScript>().TouchingPlane)
+            {
+                Debug.Log("Game over loser!");
+            }            
+        }
+    }
 
     /// <summary>
     /// Spawns enemyprefabs on incremental x-positions and adds the instantiated enemies
@@ -71,5 +93,15 @@ public class ManagerScript : MonoBehaviour {
             Destroy(enemy);
         }
         //SpawnEnemies();
+    }
+
+    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    {
+        Debug.Log(newStatus);
+        if(newStatus == TrackableBehaviour.Status.TRACKED && !enemiesSpawned)
+        {
+            enemiesSpawned = true;
+            SpawnEnemies();
+        }
     }
 }

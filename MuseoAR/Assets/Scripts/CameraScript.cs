@@ -39,11 +39,20 @@ public class CameraScript : MonoBehaviour {
         if (previousAimpoint && currentAimpoint && previousAimpoint == currentAimpoint)
         {
             GameObject destroyable = hit.transform.gameObject;
-            MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
-            m_rend.material.color = Color.red;
+            if (destroyable.tag == "enemy")
+            {
+                MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
+                m_rend.material.color = Color.red;
+            }
+            //MeshRenderer m_rend = destroyable.GetComponent<MeshRenderer>();
+            //m_rend.material.color = Color.red;
             yield return new WaitForSeconds(.5f);
-            // Do stuff to object destroyable
-            Destroy(destroyable);
+            // null check here feels reduntand, but sometimes the gameobject
+            // gets destroyed before we reach this part 
+            if(destroyable && destroyable.tag == "enemy")
+            {
+                Destroy(destroyable);
+            }
         }
     }
 }
