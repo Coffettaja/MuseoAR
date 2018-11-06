@@ -18,7 +18,6 @@ public class SphereScript : MonoBehaviour {
         StartCoroutine(startDissolve());
         videoSphere.GetComponent<VideoPlayer>().Prepare();
         //videoSphere.transform.GetChild(0).gameObject.SetActive(false);
-
     }
 
     public TrackableBehaviour tb;
