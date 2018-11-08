@@ -23,6 +23,10 @@ public class SphereScript : MonoBehaviour {
         videoSphere.GetComponent<VideoPlayer>().Prepare();
     }
     
+    /// <summary>
+    /// Sets video- and dissolvespheres active when imageTarget is found.
+    /// Uses rotation of device when spheres are active.
+    /// </summary>
     private void Update()
     {
         if (tb.CurrentStatus == TrackableBehaviour.Status.TRACKED)
@@ -38,7 +42,8 @@ public class SphereScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Dissolves the material of the meshrenderer 
+    /// Dissolves the material of the meshrenderer, uses a noice texture for the pattern.
+    /// Use dissolveAmount and timeToDissolve to change the dissolve-effect.
     /// </summary>
     /// <returns></returns>
     public IEnumerator startDissolve()
@@ -53,7 +58,7 @@ public class SphereScript : MonoBehaviour {
     }
     
     /// <summary>
-    /// Restart the dissolve effect to test values (dissolveAmount, timeToDissolve)
+    /// Restarts the dissolve effect to test values (dissolveAmount, timeToDissolve).
     /// </summary>
     public void restartDissolve()
     {
@@ -62,12 +67,13 @@ public class SphereScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Exit from the spheres
+    /// Exits from the spheres into "regular" camera mode.
     /// </summary>
     public void exitTracking()
     {
         dissolvingSphere.SetActive(false);
         videoSphere.SetActive(false);
+        // Video must be prepared again for it work neater on sphere reload
         videoSphere.GetComponent<VideoPlayer>().Prepare();
         rend.material.SetFloat("_DissolvePercentage", 0);
     }
