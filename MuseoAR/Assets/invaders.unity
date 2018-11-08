@@ -113,42 +113,46 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &138874167
+--- !u!1 &160388850
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 138874168}
-  - component: {fileID: 138874169}
+  - component: {fileID: 160388851}
+  - component: {fileID: 160388854}
+  - component: {fileID: 160388852}
+  - component: {fileID: 160388853}
+  - component: {fileID: 160388855}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: GameOverPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &138874168
+--- !u!4 &160388851
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 138874167}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 160388850}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.0000001499, z: -1.92}
+  m_LocalScale: {x: 0.864141, y: 1, z: 0.37128964}
   m_Children: []
   m_Father: {fileID: 1659534212}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &138874169
-MonoBehaviour:
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!23 &160388852
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 138874167}
+  m_GameObject: {fileID: 160388850}
   m_Enabled: 1
+<<<<<<< HEAD
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29ee28533a54dee4c878a6a3a59fb3eb, type: 3}
   m_Name: 
@@ -159,6 +163,69 @@ MonoBehaviour:
   enemyRows: 2
   enemySpacing: 0.5
   EnemyList: []
+=======
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &160388853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160388850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220447e-16, z: 10.000004}
+  m_Center: {x: 0, y: -0.00000047683716, z: 5.684342e-14}
+--- !u!33 &160388854
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160388850}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &160388855
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160388850}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> origin/museum_invaders
 --- !u!1 &192793888
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,6 +946,7 @@ GameObject:
   - component: {fileID: 1659534211}
   - component: {fileID: 1659534210}
   - component: {fileID: 1659534209}
+  - component: {fileID: 1659534213}
   - component: {fileID: 1659534208}
   - component: {fileID: 1659534207}
   m_Layer: 0
@@ -981,10 +1049,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 138874168}
+  - {fileID: 160388851}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1659534213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659534206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ee28533a54dee4c878a6a3a59fb3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 1363631581538552, guid: b2fe17a161d79714daa6cf6e63b53e26,
+    type: 2}
+  enemiesOnRow: 4
+  enemyRows: 2
+  enemySpacing: 0.5
+  EnemyList: []
 --- !u!1 &1710065277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1124,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 138874169}
+        - m_Target: {fileID: 0}
           m_MethodName: ResetGame
           m_Mode: 1
           m_Arguments:
