@@ -9,11 +9,12 @@ public class SphereScript : MonoBehaviour {
     public float timeToDissolve, dissolveAmount;
 
     private MeshRenderer rend;
-    private GameObject videoSphere, dissolvingSphere;
+    private GameObject videoSphere, dissolvingSphere, GameController;
     private Camera cam;
+    private GameControllerScript GameCTRL;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         rend = transform.GetChild(1).GetComponent<MeshRenderer>();
         videoSphere = transform.GetChild(0).gameObject;
         dissolvingSphere = transform.GetChild(1).gameObject;
@@ -21,6 +22,7 @@ public class SphereScript : MonoBehaviour {
         // aloitetaan dissolve kun objekti aktiivinen
         StartCoroutine(startDissolve());
         videoSphere.GetComponent<VideoPlayer>().Prepare();
+        GameCTRL = FindObjectOfType<GameControllerScript>();
     }
     
     /// <summary>
@@ -76,5 +78,11 @@ public class SphereScript : MonoBehaviour {
         // Video must be prepared again for it work neater on sphere reload
         videoSphere.GetComponent<VideoPlayer>().Prepare();
         rend.material.SetFloat("_DissolvePercentage", 0);
+        GameCTRL.MarkSceneCompleted("360VideoScene");
+    }
+
+    public void exitScene()
+    {
+        GameCTRL.LoadTopLevelScene();
     }
 }
