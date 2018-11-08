@@ -7,11 +7,11 @@ PlayerSettings:
   productGUID: 6da2422faf5d97b4586459aa6381975b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: MuseoAR
   productName: MuseoAR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -158,10 +158,14 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+<<<<<<< HEAD
     Android: com.myCompany.myProductName
+=======
+    Android: com.MuseoAR.MuseoAR
+>>>>>>> 1615a51ccdf34cecdef7afdeb51cdfc818eef34c
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 16
+  AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -246,7 +250,11 @@ PlayerSettings:
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 0
+<<<<<<< HEAD
   AndroidIsGame: 1
+=======
+  AndroidIsGame: 0
+>>>>>>> 1615a51ccdf34cecdef7afdeb51cdfc818eef34c
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
