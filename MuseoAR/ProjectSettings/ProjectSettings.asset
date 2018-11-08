@@ -7,11 +7,11 @@ PlayerSettings:
   productGUID: 6da2422faf5d97b4586459aa6381975b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: MuseoAR
   productName: MuseoAR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -157,10 +157,11 @@ PlayerSettings:
   resolutionScalingMode: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Android: com.MuseoAR.MuseoAR
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 16
+  AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -244,8 +245,8 @@ PlayerSettings:
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
-  AndroidTVCompatibility: 1
-  AndroidIsGame: 1
+  AndroidTVCompatibility: 0
+  AndroidIsGame: 0
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
@@ -261,6 +262,8 @@ PlayerSettings:
   m_BuildTargetVRSettings: []
   m_BuildTargetEnableVuforiaSettings:
   - m_BuildTarget: Standalone
+    m_Enabled: 1
+  - m_BuildTarget: Android
     m_Enabled: 1
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
