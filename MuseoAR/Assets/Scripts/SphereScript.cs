@@ -5,9 +5,13 @@ using UnityEngine.Video;
 
 public class SphereScript : MonoBehaviour {
 
-    MeshRenderer rend;
-    GameObject videoSphere, dissolvingSphere;
-    Camera cam;
+    public TrackableBehaviour tb;
+    public float timeToDissolve, dissolveAmount;
+
+    private MeshRenderer rend;
+    private GameObject videoSphere, dissolvingSphere;
+    private Camera cam;
+
 	// Use this for initialization
 	void Start () {
         rend = transform.GetChild(1).GetComponent<MeshRenderer>();
@@ -17,10 +21,8 @@ public class SphereScript : MonoBehaviour {
         // aloitetaan dissolve kun objekti aktiivinen
         StartCoroutine(startDissolve());
         videoSphere.GetComponent<VideoPlayer>().Prepare();
-        //videoSphere.transform.GetChild(0).gameObject.SetActive(false);
     }
-
-    public TrackableBehaviour tb;
+    
     private void Update()
     {
         if (tb.CurrentStatus == TrackableBehaviour.Status.TRACKED)
@@ -45,8 +47,28 @@ public class SphereScript : MonoBehaviour {
             yield break;
         
         var dispercentage = rend.material.GetFloat("_DissolvePercentage");
-        rend.material.SetFloat("_DissolvePercentage", dispercentage + .003f);
-        yield return new WaitForSecondsRealtime(.001f);
+        rend.material.SetFloat("_DissolvePercentage", dispercentage + dissolveAmount);
+        yield return new WaitForSecondsRealtime(timeToDissolve);
         StartCoroutine(startDissolve());
+    }
+    
+    /// <summary>
+    /// Restart the dissolve effect to test values (dissolveAmount, timeToDissolve)
+    /// </summary>
+    public void restartDissolve()
+    {
+        rend.material.SetFloat("_DissolvePercentage", 0);
+        StartCoroutine(startDissolve());
+    }
+
+    /// <summary>
+    /// Exit from the spheres
+    /// </summary>
+    public void exitTracking()
+    {
+        dissolvingSphere.SetActive(false);
+        videoSphere.SetActive(false);
+        videoSphere.GetComponent<VideoPlayer>().Prepare();
+        rend.material.SetFloat("_DissolvePercentage", 0);
     }
 }
