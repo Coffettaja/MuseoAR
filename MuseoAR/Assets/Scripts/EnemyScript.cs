@@ -30,6 +30,7 @@ public class EnemyScript : MonoBehaviour {
 
     private void Awake()
     {
+        Debug.Log("kissa!");
         swi = true;
         StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
