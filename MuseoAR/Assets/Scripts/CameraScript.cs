@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour {
 
 	// Use this for initialization
 	private void Start () {
-        Application.targetFrameRate = 240;
+        //Application.targetFrameRate = 240;
 	}
 
     private void Update()
