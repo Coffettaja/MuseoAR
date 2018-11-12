@@ -9,8 +9,8 @@ using UnityEngine;
 /// </summary>
 public class ProjectileScript : MonoBehaviour {
 
-    public float speed ;
-    public float lifetime;
+    public float speed = 2.0f;
+    public float lifetime = 4.0f;
 
     private Rigidbody rb;
     private float aliveTime;
