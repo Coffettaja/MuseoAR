@@ -68,21 +68,21 @@ public class SphereScript : MonoBehaviour {
         StartCoroutine(startDissolve());
     }
 
-    /// <summary>
-    /// Exits from the spheres into "regular" camera mode.
-    /// </summary>
-    public void exitTracking()
-    {
-        dissolvingSphere.SetActive(false);
-        videoSphere.SetActive(false);
-        // Video must be prepared again for it work neater on sphere reload
-        videoSphere.GetComponent<VideoPlayer>().Prepare();
-        rend.material.SetFloat("_DissolvePercentage", 0);
-        GameCTRL.MarkSceneCompleted("360VideoScene");
-    }
+    ///// <summary>
+    ///// Exits from the spheres into "regular" camera mode.
+    ///// </summary>
+    //public void exitTracking()
+    //{
+    //    dissolvingSphere.SetActive(false);
+    //    videoSphere.SetActive(false);
+    //    // Video must be prepared again for it work neater on sphere reload
+    //    videoSphere.GetComponent<VideoPlayer>().Prepare();
+    //    rend.material.SetFloat("_DissolvePercentage", 0);
+    //    GameCTRL.MarkSceneCompleted("360VideoScene");
+    //}
 
-    public void exitScene()
-    {
-        GameCTRL.LoadTopLevelScene();
-    }
+    //public void exitScene()
+    //{
+    //    GameCTRL.LoadTopLevelScene();
+    //}
 }

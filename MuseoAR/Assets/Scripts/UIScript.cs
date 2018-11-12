@@ -13,11 +13,13 @@ public class UIScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         infoPanel = GameObject.Find("InfoPanel");
+        Debug.Log(infoPanel.name);
         infoHeader = GameObject.Find("TextHeader").GetComponent<Text>();
         infoText = GameObject.Find("TextInfoBox").GetComponent<Text>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
 	}
 }
