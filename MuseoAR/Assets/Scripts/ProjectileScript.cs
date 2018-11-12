@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class ProjectileScript : MonoBehaviour {
 
-    public float speed;
+    public float speed ;
     public float lifetime;
 
     private Rigidbody rb;

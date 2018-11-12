@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// @haeejuut 10.17.2018
 /// </summary>
-public class CameraScript : MonoBehaviour {
+public class InvadersCameraScript : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
