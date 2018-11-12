@@ -15,6 +15,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
+    public float enemyStartY = 0.0f;
     
     public GameObject[] EnemyList;
     private GameObject ImageTarget;
@@ -58,7 +59,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
 
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
-        float y = 0.0f;
+        float y = enemyStartY;
         float z = 0.0f;
 
         for (int j = 0; j < enemyRows; j++)
