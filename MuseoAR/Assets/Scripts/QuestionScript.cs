@@ -7,10 +7,11 @@ using Newtonsoft.Json;
 
 public class QuestionScript : MonoBehaviour {
 
-
+    
     public GameObject questionTextGO;
 
     private List<Question> questionList;
+
     // Use this for initialization
     void Start() {
         questionList = new List<Question>();
@@ -24,7 +25,7 @@ public class QuestionScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Gets a random (non-asked?) Question from the list of questions
+    /// Gets a random (TODO: non-asked) Question from the list of questions
     /// </summary>
     /// <returns></returns>
     private Question getQuestion()
@@ -54,7 +55,7 @@ public class QuestionScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Debug printing for questionList. Prints all questions in list.
+    /// Debug printing, prints all questions in questionList to log.
     /// </summary>
     private void printQuestionList()
     {
@@ -63,6 +64,7 @@ public class QuestionScript : MonoBehaviour {
         {
             Debug.Log("Question #" + i);
             Debug.Log(q.ToString());
+            i++;
         }
     }
 
@@ -73,15 +75,26 @@ public class QuestionScript : MonoBehaviour {
     private void drawQuestion(Question que)
     {
         // jonkunlainen typewriter putkitushässäkkä
-        questionTextGO.GetComponent<Text>().text = que.question;
-        var ansList = questionTextGO.GetComponentsInChildren<Text>();
-        GameObject.Find("TextAnswerA").GetComponent<Text>().text = que.answerA;
-        GameObject.Find("TextAnswerB").GetComponent<Text>().text = que.answerB;
-        GameObject.Find("TextAnswerC").GetComponent<Text>().text = que.answerC;
+        var tque = questionTextGO.GetComponent<Text>();
+        tque.text = que.question;
+        var A = GameObject.Find("TextAnswerA").GetComponent<Text>();
+        var B = GameObject.Find("TextAnswerB").GetComponent<Text>();
+        var C = GameObject.Find("TextAnswerC").GetComponent<Text>();
+        A.text = que.answerA;
+        B.text = que.answerB;
+        C.text = que.answerC;
+
+        // tee jotain oikealle? ei ehkä tähän
+        if (que.correct == 0)
+            A.color = Color.green;
+        if (que.correct == 1)
+            B.color = Color.green;
+        if (que.correct == 2)
+            C.color = Color.green;
     }
 
     /// <summary>
-    /// Question class for storing questiondata
+    /// Question class for storing questiondata.
     /// </summary>
     [Serializable]
     public class Question
@@ -94,7 +107,7 @@ public class QuestionScript : MonoBehaviour {
 
         public override string ToString()
         {
-            return string.Format("\nQ: {0}, #0: {1}, #1: {2}, #2: {3}, CORRECT: {4}",
+            return string.Format("Q: {0}, #0: {1}, #1: {2}, #2: {3}, CORRECT: {4}",
                                  question, answerA, answerB, answerC, correct);
         }
     }
