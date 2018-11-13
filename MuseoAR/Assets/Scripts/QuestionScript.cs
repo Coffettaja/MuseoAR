@@ -17,19 +17,20 @@ public class QuestionScript : MonoBehaviour {
         questionTextGO = GameObject.Find("TextQuestion");
         fromJsonToList();
         // hae kysymys kysymyspankista
-        // Question question = getQuestion();
+        Question question = getQuestion();
         // piirrä kysymys canvasille
-        //drawQuestion(question);
+        drawQuestion(question);
         // odota vastausta
     }
 
     /// <summary>
-    /// Gets a Question from the
+    /// Gets a random (non-asked?) Question from the list of questions
     /// </summary>
     /// <returns></returns>
     private Question getQuestion()
     {
-        return questionList[0];
+        var rng = UnityEngine.Random.Range(0, questionList.Count);
+        return questionList[rng];
     }
 
     /// <summary>
@@ -44,12 +45,9 @@ public class QuestionScript : MonoBehaviour {
 
         foreach (var q in questionArr)
         {
+            // new object and values from token
             Question que = new Question();
-            que.question = q.Value<string>("question");
-            que.answerA = q.Value<string>("answerA");
-            que.answerB = q.Value<string>("answerB");
-            que.answerC = q.Value<string>("answerC");
-            que.correct = q.Value<int>("correct");
+            que = q.ToObject<Question>();
             questionList.Add(que);
         }
         printQuestionList();
@@ -82,6 +80,9 @@ public class QuestionScript : MonoBehaviour {
         GameObject.Find("TextAnswerC").GetComponent<Text>().text = que.answerC;
     }
 
+    /// <summary>
+    /// Question class for storing questiondata
+    /// </summary>
     [Serializable]
     public class Question
     {
