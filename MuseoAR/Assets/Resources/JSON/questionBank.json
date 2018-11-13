@@ -1,0 +1,25 @@
+{
+  "questions": [
+    {
+      "question": "onko x",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 0
+    },
+    {
+      "question": "onko y",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko z",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 2
+    }
+  ]
+}
