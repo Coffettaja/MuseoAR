@@ -513,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tb: {fileID: 2073228476}
   timeToDissolve: 0.01
-  dissolveAmount: 0.001
+  dissolveAmount: 0.005
 --- !u!4 &515887678
 Transform:
   m_ObjectHideFlags: 0
@@ -822,11 +822,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 713427786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0b77d8c878067429d2ffb7a424c2b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ac3ce14f072e7c46b714c3206825ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testHeader: asdsad
-  testText: sadsad
+  testHeader: header
+  testText: teksti
 --- !u!114 &713427788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1224819179}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8367ef736a6ce4fb9acd9701bd2df5d4, type: 3}
   m_Name: 
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 2
+  mWorldCenterMode: 3
   mWorldCenter: {fileID: 0}
 --- !u!81 &1224819184
 AudioListener:

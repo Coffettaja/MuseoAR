@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-        Application.targetFrameRate = 240;
+	private void Start () {
+        //Application.targetFrameRate = 240;
 	}
 
     private void Update()
