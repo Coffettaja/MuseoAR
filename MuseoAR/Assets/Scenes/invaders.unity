@@ -503,6 +503,7 @@ MonoBehaviour:
   projectile: {fileID: 1385723486779962, guid: 26502ae94d4f07d4888b922de664c722, type: 2}
   projectileSpawnLeft: {fileID: 1838440585}
   projectileSpawnRight: {fileID: 1268172257}
+  imageTarget: {fileID: 1659534212}
 --- !u!1 &1258347519
 GameObject:
   m_ObjectHideFlags: 0
