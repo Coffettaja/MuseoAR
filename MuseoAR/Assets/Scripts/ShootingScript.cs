@@ -13,6 +13,7 @@ public class ShootingScript : MonoBehaviour {
     public GameObject projectile;
     public Transform projectileSpawnLeft;
     public Transform projectileSpawnRight;
+    public Transform imageTarget;
 
     private float nextShoot = 0.0f;
     private bool shootFromLeft = true;
@@ -35,7 +36,7 @@ public class ShootingScript : MonoBehaviour {
             }
 
             nextShoot = Time.time + rateOfFire;
-            Instantiate(projectile, currentShotOrigin.position, currentShotOrigin.rotation);
+            Instantiate(projectile, currentShotOrigin.position, currentShotOrigin.rotation, imageTarget);
         }
     }
 }
