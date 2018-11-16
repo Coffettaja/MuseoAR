@@ -42,10 +42,16 @@ public class EnemyScript : MonoBehaviour {
         //Turn the enemy red
         MeshRenderer m_rend = GetComponent<MeshRenderer>();
         m_rend.material.color = Color.red;
-
+        addPoints();
         Destroy(this.gameObject, 1.0f);
 
         //TODO: Add points to score
+    }
+
+    private void addPoints()
+    {
+        ManagerScript manager = transform.parent.GetComponent<ManagerScript>();
+        manager.Score += 100;
     }
 
     /// <summary>
