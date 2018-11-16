@@ -18,7 +18,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
     public float enemyStartY = 0.0f;
     
     public GameObject[] EnemyList;
-    private GameObject ImageTarget;
+    private GameObject imageTarget;
 
     private bool enemiesSpawned = false;
 
@@ -26,7 +26,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
  
 	// Use this for initialization
 	void Start () {
-        ImageTarget = gameObject;
+        imageTarget = gameObject;
         //SpawnEnemies();
 
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -67,13 +67,11 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab);
+                Vector3 spawnPoint = new Vector3(x, y, z);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform.position + spawnPoint, imageTarget.transform.rotation, imageTarget.transform);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
-                enemyGO.transform.localPosition = new Vector3(x, y, z);
                 x += enemySpacing;
                 enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
-                // Set as children for ImageTarget, for AR's sake
-                enemyGO.transform.SetParent(ImageTarget.transform);
             }
             //Reset x to the start of a row
             x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
