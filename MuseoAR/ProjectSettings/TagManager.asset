@@ -4,9 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Marker
-  - Map
-  - MapItem
+  - enemy
   layers:
   - Default
   - TransparentFX

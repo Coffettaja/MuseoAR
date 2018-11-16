@@ -262,7 +262,7 @@ Transform:
   m_LocalPosition: {x: 14, y: 21, z: 0.557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1408708742}
+  - {fileID: 1408708743}
   - {fileID: 373301935}
   - {fileID: 1721419111}
   m_Father: {fileID: 0}
@@ -770,7 +770,7 @@ Transform:
   m_LocalScale: {x: 0.39888337, y: 0.39888337, z: 0.39888337}
   m_Children: []
   m_Father: {fileID: 1408708742}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &936116662
 MeshRenderer:
@@ -906,6 +906,10 @@ Transform:
   m_PrefabParentObject: {fileID: 4413673609368570, guid: 782a856edc3b2cc48b9c89aa64b860e2,
     type: 2}
   m_PrefabInternal: {fileID: 1408708741}
+--- !u!4 &1408708743 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1408708741}
 --- !u!1 &1455873384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,10 +1015,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535323307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c051f1244222d40a96f1814f5283e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a7738b68637d7a498d2860088fa4bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: toinenScene
+  sceneName: invaders
 --- !u!23 &1535323310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1412,10 +1416,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1919795675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c051f1244222d40a96f1814f5283e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a7738b68637d7a498d2860088fa4bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: kolmasScene
+  sceneName: 360VideoScene
 --- !u!1 &2045451559
 GameObject:
   m_ObjectHideFlags: 0
