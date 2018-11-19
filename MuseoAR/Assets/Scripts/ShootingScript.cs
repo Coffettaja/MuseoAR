@@ -20,6 +20,18 @@ public class ShootingScript : MonoBehaviour {
 
     private Transform currentShotOrigin;
 
+    public void Update()
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            Transform aimpoint = hit.transform;
+            projectileSpawnLeft.LookAt(aimpoint);
+            projectileSpawnRight.LookAt(aimpoint);
+        };
+    }
+
     public void shoot()
     {
         if (Time.time > nextShoot)
