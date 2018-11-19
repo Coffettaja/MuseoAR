@@ -9,7 +9,7 @@ using Vuforia;
 /// 
 /// Spawns enemies and manages a list of them. Can reset.
 /// </summary>
-public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
+public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     public GameObject EnemyPrefab;
     public int enemiesOnRow = 4;
@@ -18,8 +18,9 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
     public float enemyStartY = 0.0f;
     
     public GameObject[] EnemyList;
-    private GameObject imageTarget;
+    public Transform ARCamera;
 
+    private GameObject imageTarget;
     private bool enemiesSpawned = false;
 
     private TrackableBehaviour _trackableBehaviour;
@@ -57,6 +58,8 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
         //Better functionality would be to have a dynamic list object instead of array.
         EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
 
+
+
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
         float y = enemyStartY;
@@ -68,7 +71,8 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 Vector3 spawnPoint = new Vector3(x, y, z);
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform.position + spawnPoint, imageTarget.transform.rotation, imageTarget.transform);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform);
+                enemyGO.transform.position = spawnPoint;
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
                 enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
@@ -77,7 +81,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
             x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
             //Update the y and z for the next row
             y += enemySpacing;            
-            z += enemySpacing;   //For some reason you have to add to make z smaller
+            //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
     }
 
