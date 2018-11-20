@@ -65,7 +65,7 @@ public class EnemyScript : MonoBehaviour {
             else
                 transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
             yield return new WaitForSeconds(tickSpeed);
-        }        
+        }
         moveRight = !moveRight;
 
         // Downwards

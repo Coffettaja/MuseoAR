@@ -11,6 +11,7 @@ public class ShootingScript : MonoBehaviour {
 
     public float rateOfFire = 2.0f;
     public GameObject projectile;
+    public Transform aimPoint;
     public Transform projectileSpawnLeft;
     public Transform projectileSpawnRight;
     public Transform imageTarget;
@@ -26,9 +27,9 @@ public class ShootingScript : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Transform aimpoint = hit.transform;
-            projectileSpawnLeft.LookAt(aimpoint);
-            projectileSpawnRight.LookAt(aimpoint);
+            aimPoint.position = hit.point;
+            projectileSpawnLeft.LookAt(aimPoint);
+            projectileSpawnRight.LookAt(aimPoint);
         };
     }
 

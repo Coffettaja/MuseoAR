@@ -16,9 +16,9 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
     public float enemyStartY = 0.0f;
+    public Transform GameOverPlane;
     
     public GameObject[] EnemyList;
-    public Transform ARCamera;
 
     private GameObject imageTarget;
     private bool enemiesSpawned = false;
@@ -58,8 +58,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         //Better functionality would be to have a dynamic list object instead of array.
         EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
 
-
-
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
         float y = enemyStartY;
@@ -71,7 +69,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 Vector3 spawnPoint = new Vector3(x, y, z);
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, GameOverPlane);
                 enemyGO.transform.position = spawnPoint;
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
