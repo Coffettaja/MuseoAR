@@ -380,7 +380,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 595619334}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &498995622
 GameObject:
@@ -555,7 +555,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1838440585}
-  - {fileID: 1268172257}
   - {fileID: 220538506}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -585,8 +584,7 @@ MonoBehaviour:
   rateOfFire: 1.5
   projectile: {fileID: 1385723486779962, guid: 26502ae94d4f07d4888b922de664c722, type: 2}
   aimPoint: {fileID: 220538506}
-  projectileSpawnLeft: {fileID: 1838440585}
-  projectileSpawnRight: {fileID: 1268172257}
+  projectileSpawn: {fileID: 1838440585}
   imageTarget: {fileID: 1659534212}
 --- !u!21 &1144603244
 Material:
@@ -678,34 +676,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1268172256
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1268172257}
-  m_Layer: 0
-  m_Name: ProjectileSpawnRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1268172257
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1268172256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.087, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 595619334}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473504557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838440585}
   m_Layer: 0
-  m_Name: ProjectileSpawnLeft
+  m_Name: ProjectileSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1423,7 +1393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838440584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.087, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 595619334}

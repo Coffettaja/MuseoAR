@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tickSpeed: 0.3
-  movementSpeed: 0
-  movementTicks: 4
+  movementSpeed: 6
+  movementTicks: 6
