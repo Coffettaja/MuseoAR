@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/init.unity
+    path: 
     guid: 8f4fb308a43fe43408d9a9fc2628aa36
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/invaders.unity
+    guid: 1ad5da5e10f1da64b94480bf3f8857cd

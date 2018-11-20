@@ -499,8 +499,8 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 3
-  mWorldCenter: {fileID: 0}
+  mWorldCenterMode: 0
+  mWorldCenter: {fileID: 1659534211}
 --- !u!81 &595619332
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   enemyRows: 2
   enemySpacing: 0.5
   enemyStartY: 1
-  SpawnPoint: {fileID: 0}
+  SpawnPoint: {fileID: 99154036}
   EnemyList: []
 --- !u!1 &1686115268
 GameObject:
