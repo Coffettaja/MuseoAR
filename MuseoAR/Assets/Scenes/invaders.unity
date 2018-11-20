@@ -1085,7 +1085,7 @@ MonoBehaviour:
   enemyRows: 2
   enemySpacing: 0.5
   enemyStartY: 1
-  SpawnPoint: {fileID: 99154036}
+  SpawnPoint: {fileID: 0}
   EnemyList: []
 --- !u!1 &1686115268
 GameObject:
