@@ -15,8 +15,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
-    public float enemyStartY = 0.0f;
-    public Transform GameOverPlane;
+    public float enemyStartY = 2.0f;
+    public Transform SpawnPoint;
     
     public GameObject[] EnemyList;
 
@@ -68,9 +68,9 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
-                Vector3 spawnPoint = new Vector3(x, y, z);
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, GameOverPlane);
-                enemyGO.transform.position = spawnPoint;
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
+                Vector3 displacement = new Vector3(x, y, z);
+                enemyGO.transform.localPosition += displacement;
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
                 enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
