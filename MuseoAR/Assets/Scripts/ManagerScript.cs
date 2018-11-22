@@ -20,13 +20,30 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
     public GameObject[] EnemyList;
     private GameObject imageTarget;
 
+    private int _score;
+
+    
+    public int Score
+    {
+        get
+        {
+            return _score;
+        }
+        set
+        {
+            _score = value;
+        }
+    }
+
     private bool enemiesSpawned = false;
 
     private TrackableBehaviour _trackableBehaviour;
  
 	// Use this for initialization
 	void Start () {
-        imageTarget = gameObject;
+
+        _score = 0;
+	    imageTarget = gameObject;
         //SpawnEnemies();
 
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
