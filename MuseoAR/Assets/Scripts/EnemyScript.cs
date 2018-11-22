@@ -20,13 +20,16 @@ public class EnemyScript : MonoBehaviour {
     private bool moveRight;
     private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
-
+    private ManagerScript _manager;
     private void Awake()
     {
         moveRight = true;
         StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
         gameOverHeight = GameObject.Find("GameOverPlane").transform.localPosition.z;
+
+        _manager = GameObject.Find("ARCamera").GetComponent<ManagerScript>();
+
     }
 
     private void Update()
@@ -78,7 +81,7 @@ public class EnemyScript : MonoBehaviour {
         transform.Translate(Vector3.down * Time.deltaTime * movementSpeed);
         if(transform.localPosition.z - radius < gameOverHeight)
         {
-            Debug.Log("Game Over Loser!");
+            _manager.GameOver();
         }
         else
         {

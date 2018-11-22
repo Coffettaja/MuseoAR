@@ -22,6 +22,7 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     private int _score;
 
+    private GameObject _gameOverPopup;
     
     public int Score
     {
@@ -51,6 +52,9 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
         {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
         }
+	    
+	    _gameOverPopup = GameObject.Find("GameOverPopup");
+	    _gameOverPopup.active = false;
 	}
 
     public void Update()
@@ -111,6 +115,11 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
         SpawnEnemies();
     }
 
+    public void ReturnToMainScene()
+    {
+        GameControllerScript.gameManagerInstance.LoadTopLevelScene();
+    }
+
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
     {
         Debug.Log(newStatus);
@@ -119,5 +128,10 @@ public class ManagerScript : MonoBehaviour, ITrackableEventHandler {
             enemiesSpawned = true;
             SpawnEnemies();
         }
+    }
+
+    public void GameOver()
+    {
+        _gameOverPopup.SetActive(true);
     }
 }
