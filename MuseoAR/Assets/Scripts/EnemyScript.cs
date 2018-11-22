@@ -8,19 +8,20 @@ public class EnemyScript : MonoBehaviour {
     public float tickSpeed = 0.3f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 4; //How many ticks the enemies move to one direction
-    public bool TouchingPlane
-    {
-        get
-        {
-            return _touchingPlane;
-        }
-    }
+//    public bool TouchingPlane
+//    {
+//        get
+//        {
+//            return _touchingPlane;
+//        }
+//    }
 
     private float gameOverHeight; //The z cordinate which causes game over when reached by enemy
     private bool moveRight;
-    private bool _touchingPlane = false;
+//    private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
-    private ManagerScript _manager;
+    private InvadersManagerScript _manager;
+    
     private void Awake()
     {
         moveRight = true;
@@ -28,7 +29,7 @@ public class EnemyScript : MonoBehaviour {
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
         gameOverHeight = GameObject.Find("GameOverPlane").transform.localPosition.z;
 
-        _manager = GameObject.Find("ARCamera").GetComponent<ManagerScript>();
+        _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
 
     }
 
@@ -47,14 +48,11 @@ public class EnemyScript : MonoBehaviour {
         m_rend.material.color = Color.red;
         addPoints();
         Destroy(this.gameObject, 1.0f);
-
-        //TODO: Add points to score
     }
 
     private void addPoints()
     {
-        ManagerScript manager = transform.parent.GetComponent<ManagerScript>();
-        manager.Score += 100;
+        _manager.Score += 100;
     }
 
     /// <summary>
@@ -74,7 +72,7 @@ public class EnemyScript : MonoBehaviour {
             else
                 transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
             yield return new WaitForSeconds(tickSpeed);
-        }        
+        }
         moveRight = !moveRight;
 
         // Downwards

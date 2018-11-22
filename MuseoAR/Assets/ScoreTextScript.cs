@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class ScoreTextScript : MonoBehaviour {
 
 
-    ManagerScript manager;
+    InvadersManagerScript manager;
     Text scoreText;
 
 	// Use this for initialization
 	void Start () {
         scoreText = GetComponent<Text>();
-        manager = GameObject.Find("ImageTarget").GetComponent<ManagerScript>();
+        manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
 	}
 	
 	// Update is called once per frame
