@@ -10,28 +10,66 @@ public class GameControllerScript : MonoBehaviour {
     {
         public string name;
         public bool completed;
+
+        public SceneDictItem(string name, bool completed)
+        {
+            this.name = name;
+            this.completed = completed;
+        }
     }
 
-    public static GameControllerScript gameManagerInstance;
+    private bool _shuttingDown = false;
+    private static object _lock = new object();
+    private static GameControllerScript _instance;
+    public static GameControllerScript Instance
+    {
+        get {
+            lock (_lock)
+            {
+                if (_instance == null)
+                {
+                    _instance = (GameControllerScript)FindObjectOfType(
+                        typeof(GameControllerScript));
+                    if (_instance == null)
+                    {
+                        GameObject singletonObject = new GameObject();
+                        _instance = singletonObject.AddComponent<GameControllerScript>();
+                        singletonObject.name = typeof(GameControllerScript).ToString() + " (Singleton)";
+                        DontDestroyOnLoad(singletonObject);
+                    }
+                }
+            }
+            return _instance;
+        }
+    }
 
-    public SceneDictItem[] sceneDict;
+    private void OnDestroy()
+    {
+        _shuttingDown = true;
+    }
+
+
+    public SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
 
     private string _currentScene;
-    
+
+
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        if (gameManagerInstance == null)
-        {
-            gameManagerInstance = this;
-        } else if (gameManagerInstance != this)
-        {
-            Destroy(gameObject);
-        }
+        //    DontDestroyOnLoad(gameObject);
+        //    if (gameManagerInstance == null)
+        //    {
+        //        gameManagerInstance = this;
+        //    } else if (gameManagerInstance != this)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        _currentScene = SceneManager.GetActiveScene().name;
     }
 
     private void setSceneDictValue(string name, bool value)
     {
+        Debug.Log("Marking scene " + name + " completed");
         for (int i = 0; i < sceneDict.Length; i++)
         {
             if (sceneDict[i].name == name)

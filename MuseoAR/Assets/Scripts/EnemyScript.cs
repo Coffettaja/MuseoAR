@@ -8,27 +8,26 @@ public class EnemyScript : MonoBehaviour {
     public float tickSpeed = 0.3f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 4; //How many ticks the enemies move to one direction
-//    public bool TouchingPlane
-//    {
-//        get
-//        {
-//            return _touchingPlane;
-//        }
-//    }
+
+    private Rigidbody rb;
 
     private float gameOverHeight; //The z cordinate which causes game over when reached by enemy
     private bool moveRight;
 //    private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
     private InvadersManagerScript _manager;
-    
+
+    private int movesToDirection = 0;
+    private float timeSinceLastMove = 0;
+
+    private bool moving = true;
+
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         moveRight = true;
-        StartCoroutine(MoveEnemy());
+        //StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
-        gameOverHeight = GameObject.Find("GameOverPlane").transform.localPosition.z;
-
         _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
 
     }
@@ -36,6 +35,30 @@ public class EnemyScript : MonoBehaviour {
     private void Update()
     {
         //transform.LookAt(Camera.main.transform, Camera.main.transform.up);
+    }
+
+    private void FixedUpdate()
+    {
+        timeSinceLastMove += Time.deltaTime;
+        if(moving && timeSinceLastMove >= tickSpeed)
+        {
+            timeSinceLastMove = 0;
+            if (moveRight)
+                rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
+            //transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+            else
+                rb.MovePosition(transform.position - Vector3.right * Time.deltaTime * movementSpeed);
+            //transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
+
+            movesToDirection++;
+            if (movesToDirection >= movementTicks)
+            {
+                movesToDirection = 0;
+                moveRight = !moveRight;
+
+                transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
+            }
+        }
     }
 
     /// <summary>
@@ -48,11 +71,27 @@ public class EnemyScript : MonoBehaviour {
         m_rend.material.color = Color.red;
         addPoints();
         Destroy(this.gameObject, 1.0f);
+        _manager.CheckIfStageCompleted();
     }
 
     private void addPoints()
     {
         _manager.Score += 100;
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name == "GameOverPlane")
+        {
+            _manager.GameOver();
+        }
+    }
+
+    public void Stop()
+    {
+        moving = false;
     }
 
     /// <summary>
@@ -68,24 +107,18 @@ public class EnemyScript : MonoBehaviour {
         for(int i = 0; i <= movementTicks; i++)
         {
             if (moveRight)
-                transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+                rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
+            //transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
             else
-                transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
+                rb.MovePosition(transform.position -Vector3.right * Time.deltaTime * movementSpeed);
+            //transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
             yield return new WaitForSeconds(tickSpeed);
         }
         moveRight = !moveRight;
 
         // Downwards
-        transform.Translate(Vector3.down * Time.deltaTime * movementSpeed);
-        if(transform.localPosition.z - radius < gameOverHeight)
-        {
-            _manager.GameOver();
-        }
-        else
-        {
-            StartCoroutine(MoveEnemy());
-        }
-        
+        transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
+        StartCoroutine(MoveEnemy());       
         
     }
     

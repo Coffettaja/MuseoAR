@@ -17,7 +17,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
         }
 
-        GameControllerScript.gameManagerInstance = GameObject.Find("gameManager").GetComponent<GameControllerScript>();
+        //GameControllerScript.gameManagerInstance = GameObject.Find("gameManager").GetComponent<GameControllerScript>();
 	}
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     public void LoadScene()
     {
-        GameControllerScript.gameManagerInstance.LoadSceneWithName(sceneName);
+        GameControllerScript.Instance.LoadSceneWithName(sceneName);
     }
 
     public TrackableBehaviour.Status getCurrent()

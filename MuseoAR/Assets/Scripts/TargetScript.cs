@@ -10,8 +10,8 @@ using UnityEngine.UI;
 /// </summary>
 public class TargetScript : MonoBehaviour {
 
-    Image targetFrame;
-    Image targetFill;
+    RawImage targetFrame;
+    RawImage targetFill;
 
     Vector3 fillScale;
     IEnumerator c;
@@ -21,8 +21,8 @@ public class TargetScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        targetFrame = GetComponent<Image>();
-        targetFill = transform.Find("TargetFill").GetComponent<Image>();        
+        targetFrame = GetComponent<RawImage>();
+        targetFill = transform.Find("TargetFill").GetComponent<RawImage>();        
         fillScale = targetFill.transform.localScale;
 
         //targetFill.CrossFadeAlpha(1, 2.0f, false);

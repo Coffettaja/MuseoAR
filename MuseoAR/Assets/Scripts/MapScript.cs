@@ -23,7 +23,7 @@ public class MapScript : MonoBehaviour
 	{
 		foreach (GameObject item in mapItems)
 		{
-			if (GameControllerScript.gameManagerInstance.IsSceneCompleted(item.name))
+			if (GameControllerScript.Instance.IsSceneCompleted(item.name))
 			{
 				item.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
 			}

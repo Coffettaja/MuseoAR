@@ -11,7 +11,6 @@ public class SphereScript : MonoBehaviour {
     private MeshRenderer rend;
     private GameObject videoSphere, dissolvingSphere, GameController;
     private Camera cam;
-    private GameControllerScript GameCTRL;
 
 	// Use this for initialization
 	void Awake () {
@@ -22,7 +21,6 @@ public class SphereScript : MonoBehaviour {
         // aloitetaan dissolve kun objekti aktiivinen
         StartCoroutine(startDissolve());
         videoSphere.GetComponent<VideoPlayer>().Prepare();
-        GameCTRL = FindObjectOfType<GameControllerScript>();
     }
     
     /// <summary>
@@ -81,8 +79,8 @@ public class SphereScript : MonoBehaviour {
     //    GameCTRL.MarkSceneCompleted("360VideoScene");
     //}
 
-    //public void exitScene()
-    //{
-    //    GameCTRL.LoadTopLevelScene();
-    //}
+    public void exitScene()
+    {
+        GameControllerScript.Instance.LoadTopLevelScene();
+    }
 }

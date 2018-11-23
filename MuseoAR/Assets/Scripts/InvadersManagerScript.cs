@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
+//using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 
 /// <summary>
@@ -13,6 +14,7 @@ using Vuforia;
 public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     public GameObject EnemyPrefab;
+    public GameObject GameOverPlanePrefab;
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
@@ -26,15 +28,19 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     public float Score
     {
         get { return _score; }
-        set { _score = value; }
+        set { _score = value; _scoreText.text = "" + _score;
+        }
     }
 
     private GameObject imageTarget;
+    private GameObject _gameOverPlane;
     private bool enemiesSpawned = false;
+    private bool gameOver = false;
 
     private TrackableBehaviour _trackableBehaviour;
     private GameObject _gameOverPopup;
     private GameObject _outOfFocusPopup;
+    private Text _scoreText;
  
 	// Use this for initialization
 	void Start () {
@@ -44,6 +50,9 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 	    _gameOverPopup = GameObject.Find("GameOverPopup");
 	    _gameOverPopup.SetActive(false);
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
+        _outOfFocusPopup = GameObject.Find("OutOfFocusImg");
+        _outOfFocusPopup.SetActive(false);
+        _scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
         if(_trackableBehaviour)
         {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
@@ -67,6 +76,12 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     /// </summary>
     private void SpawnEnemies()
     {
+
+        //Spawn the game over plane
+        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
+        plane.name = "GameOverPlane";
+        plane.transform.localPosition += new Vector3(0, 0, 1);
+        
         //Creates a new list of enemies to ensure that the list is of correct size.
         //Better functionality would be to have a dynamic list object instead of array.
         EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
@@ -74,7 +89,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
         float y = enemyStartY;
-        float z = 0.0f;
+        float z = 1.0f;
 
         for (int j = 0; j < enemyRows; j++)
         {
@@ -108,24 +123,58 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         }
         SpawnEnemies();
     }
-
+    //Tell all the enemies to stop and show the popup screen about game over
     public void GameOver()
     {
+        gameOver = true;
+        foreach(GameObject go in EnemyList)
+        {
+            //Make sure to ignore empty indexes
+            if(go != null)
+            {
+                go.GetComponent<EnemyScript>().Stop();
+            }
+        }
         _gameOverPopup.SetActive(true);
+        Text text;
+        text =  _gameOverPopup.transform.Find("Text").GetComponent<Text>();
+        text.text = "Game Over! Final Score: " + _score;
+
+    }
+
+    public void CheckIfStageCompleted()
+    {
+        bool stageCompleted = true;
+        foreach(GameObject go in EnemyList)
+        {
+            if(go != null)
+            {
+                stageCompleted = false;
+                break;
+            }
+        }
+
+        if(stageCompleted)
+        {
+            SpawnEnemies();
+        }
     }
 
     
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
     {
         Debug.Log(newStatus);
-        if(newStatus == TrackableBehaviour.Status.TRACKED && !enemiesSpawned)
+        if(newStatus == TrackableBehaviour.Status.TRACKED)
         {
             _outOfFocusPopup.SetActive(false);
-            enemiesSpawned = true;
-            SpawnEnemies();
+            if(!enemiesSpawned)
+            {
+                enemiesSpawned = true;
+                SpawnEnemies();
+            }
         } 
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
-                 newStatus == TrackableBehaviour.Status.NOT_FOUND)
+                 newStatus == TrackableBehaviour.Status.NOT_FOUND && !gameOver)
         {
             _outOfFocusPopup.SetActive(true);
         }

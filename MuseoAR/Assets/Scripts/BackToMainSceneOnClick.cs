@@ -17,6 +17,6 @@ public class BackToMainSceneOnClick : MonoBehaviour
 
 	void ReturnToMainSceneOnClick()
 	{
-		GameControllerScript.gameManagerInstance.LoadTopLevelScene();
+		GameControllerScript.Instance.LoadTopLevelScene();
 	}
 }
