@@ -9,7 +9,6 @@ public class QuestionScript : MonoBehaviour {
 
     #region Properties
     public GameObject questionTextGO;
-    public Sprite correctSprite, incorrectSprite;
 
     private int correctCounter = 0, questionCounter = 0;
     private Question currentQuestion;
@@ -60,7 +59,9 @@ public class QuestionScript : MonoBehaviour {
     /// </summary>
     public void quit()
     {
-        Application.Quit(); //Call Mikko's upper scene after exiting this scene
+        //Call upper scene after exiting this scene
+        GameControllerScript.Instance.LoadTopLevelScene();
+        // Application.Quit(); 
     }
 #endregion
 
@@ -142,10 +143,6 @@ public class QuestionScript : MonoBehaviour {
     /// <param name="que"></param>
     private void drawQuestion(Question que)
     {
-        // Clear the markers from answers
-        A.transform.GetChild(1).GetComponent<Image>().sprite = null;
-        B.transform.GetChild(1).GetComponent<Image>().sprite = null;
-        C.transform.GetChild(1).GetComponent<Image>().sprite = null;
 
         // jonkunlainen typewriter putkitushässäkkä
         var tque = questionTextGO.GetComponent<Text>();
@@ -166,30 +163,18 @@ public class QuestionScript : MonoBehaviour {
             panelA_Color.color = Color.green;
             panelB_Color.color = Color.red;
             panelC_Color.color = Color.red;
-
-            A.transform.GetChild(1).GetComponent<Image>().sprite = correctSprite;
-            B.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
-            C.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
         }
         else if (currentQuestion.correct == 1)
         {
             panelA_Color.color = Color.red;
             panelB_Color.color = Color.green;
             panelC_Color.color = Color.red;
-
-            A.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
-            B.transform.GetChild(1).GetComponent<Image>().sprite = correctSprite;
-            C.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
         }
         else if (currentQuestion.correct == 2)
         {
             panelA_Color.color = Color.red;
             panelB_Color.color = Color.red;
             panelC_Color.color = Color.green;
-
-            A.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
-            B.transform.GetChild(1).GetComponent<Image>().sprite = incorrectSprite;
-            C.transform.GetChild(1).GetComponent<Image>().sprite = correctSprite;
         }
 
         if (currentQuestion.correct == answerInd)

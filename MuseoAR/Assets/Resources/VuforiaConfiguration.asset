@@ -44,9 +44,13 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
+    - SpaceInvaders
     - quizDB
+    - VuforiaMars_Images
     dataSetsToActivate:
+    - SpaceInvaders
     - quizDB
+    - VuforiaMars_Images
   videoBackground:
     clippingMode: 0
     numDivisions: 2
@@ -55,8 +59,8 @@ MonoBehaviour:
     matteShader: {fileID: 15310, guid: 0000000000000000f000000000000000, type: 0}
     videoBackgroundEnabled: 1
   deviceTracker:
-    autoInitTracker: 0
-    autoStartTracker: 0
+    autoInitTracker: 1
+    autoStartTracker: 1
     trackingMode: 0
     posePrediction: 0
     modelCorrectionMode: 0
