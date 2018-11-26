@@ -39,7 +39,6 @@ public class RoomButtonScript : MonoBehaviour
 		_room.transform.localPosition = targetPos;
 		_room.GetComponent<MapScript>().UpdateItems();
 
-		_buttonText.text = "HIDE ME YOUR ROOMS!";
 		_button.onClick.RemoveListener(ShowRoom);
 		_button.onClick.AddListener(HideRoom);
 	}
@@ -49,7 +48,6 @@ public class RoomButtonScript : MonoBehaviour
 		Debug.Log("Moving map to start position " + startPos);
 		_room.transform.localPosition = startPos;
 
-		_buttonText.text = "SHOW ME YOUR ROOMS!";
 		_button.onClick.RemoveListener(HideRoom);
 		_button.onClick.AddListener(ShowRoom);
 	}
