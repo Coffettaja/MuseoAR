@@ -6,6 +6,11 @@ TagManager:
   tags:
   - enemy
   - MarkerABC
+  - MapItem
+  - Marker
+  - Map
+  - Decoration
+  - DecorationList
   layers:
   - Default
   - TransparentFX

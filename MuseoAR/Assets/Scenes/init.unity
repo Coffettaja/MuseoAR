@@ -382,8 +382,9 @@ GameObject:
   - component: {fileID: 446235513}
   - component: {fileID: 446235515}
   - component: {fileID: 446235514}
+  - component: {fileID: 446235516}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: InfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,6 +443,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 446235512}
+--- !u!114 &446235516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446235512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27e374b4e0e39b4ebd1d447907ce614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &483245071
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +938,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 818203065}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1185,6 +1197,7 @@ GameObject:
   - component: {fileID: 984729470}
   - component: {fileID: 984729469}
   - component: {fileID: 984729468}
+  - component: {fileID: 984729471}
   m_Layer: 5
   m_Name: InfoButton
   m_TagString: Untagged
@@ -1284,6 +1297,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984729466}
+--- !u!114 &984729471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984729466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27e374b4e0e39b4ebd1d447907ce614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065996244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f27b69d57fe83e24b8ed207ad463df65, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f27b69d57fe83e24b8ed207ad463df65, type: 3}
