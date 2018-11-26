@@ -1,0 +1,88 @@
+{
+  "questions": [
+    {
+      "question": "onko x",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 0
+    },
+    {
+      "question": "onko y",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko z",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 2
+    },
+    {
+      "question": "onko a",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko b",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko c",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko d",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko e",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko f",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko asd",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko fasd",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    },
+    {
+      "question": "onko g",
+      "answerA": "on",
+      "answerB": "ei",
+      "answerC": "aina",
+      "correct": 1
+    }
+  ]
+}
