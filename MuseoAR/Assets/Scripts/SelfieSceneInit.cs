@@ -8,14 +8,18 @@ using Vuforia;
 /// and returning to back camera when returning to the main scene.
 /// </summary>
 public class SelfieSceneInit : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start () {
-        ChangeToFrontCamera();
+        Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
+        //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
+        //ChangeToFrontCamera();
+        Invoke("ChangeToFrontCamera", 0.5f);
+        Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -30,14 +34,10 @@ public class SelfieSceneInit : MonoBehaviour {
     }
 
     private void RestartCamera(CameraDevice.CameraDirection newDir)
-    {
+    {        
         CameraDevice.Instance.Stop();
         CameraDevice.Instance.Deinit();
-        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
         CameraDevice.Instance.Init(newDir);
         CameraDevice.Instance.Start();
-        TrackerManager.Instance.GetTracker<ObjectTracker>().Start();
-        VuforiaUnity.OnPause();
-        VuforiaUnity.OnResume();
     }
 }
