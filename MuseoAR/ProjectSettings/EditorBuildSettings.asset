@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/invaders.unity
     guid: 1ad5da5e10f1da64b94480bf3f8857cd
   - enabled: 1
-    path: Assets/Scenes/quizScene.unity
-    guid: d346ab344d0d3b74f96acd64d99a7e21
-  - enabled: 1
     path: Assets/Scenes/360VideoScene.unity
     guid: ef63536d0b81dad49b1f6226c69bb71b
+  - enabled: 1
+    path: Assets/Scenes/quizScene.unity
+    guid: ac7ae45f06769a545b177a8af4fd7376
