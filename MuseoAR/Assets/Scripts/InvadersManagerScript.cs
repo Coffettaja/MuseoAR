@@ -59,16 +59,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         }
 	}
 
-    public void Update()
-    {
-//        foreach(GameObject enemy in EnemyList)
-//        {
-//            if (enemy != null && enemy.GetComponent<EnemyScript>().TouchingPlane)
-//            {
-//                Debug.Log("Game over loser!");
-//            }            
-//        }
-    }
 
     /// <summary>
     /// Spawns enemyprefabs on incremental x-positions and adds the instantiated enemies
@@ -80,8 +70,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         //Spawn the game over plane
         GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
         plane.name = "GameOverPlane";
-        plane.transform.localPosition += new Vector3(0, 0, 1);
-        
+
         //Creates a new list of enemies to ensure that the list is of correct size.
         //Better functionality would be to have a dynamic list object instead of array.
         EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];

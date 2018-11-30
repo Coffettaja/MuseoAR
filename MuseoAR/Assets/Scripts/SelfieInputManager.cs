@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class SelfieInputManager : MonoBehaviour
@@ -9,6 +10,14 @@ public class SelfieInputManager : MonoBehaviour
 
     Camera cam;
     GameObject m_draggedObject;
+
+    //Graphic Raycast members to be used 
+    //when removing decorations
+    GraphicRaycaster m_graphicRaycaster;
+    PointerEventData m_pointerEventData;
+    EventSystem m_eventSystem;
+
+    private bool dragging;
     //This should only be used by DecorationListItem
     //When instantiating new decorations
     public GameObject DraggedObject
@@ -28,11 +37,13 @@ public class SelfieInputManager : MonoBehaviour
     Vector3 prevPos;
     Vector3 newPos;
 
-    public GameObject decorationPrefab;
     // Use this for initialization
     void Start()
     {
         cam = GetComponent<Camera>();
+
+        m_graphicRaycaster = GameObject.Find("Canvas").GetComponent<GraphicRaycaster>();
+        m_eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
     }
 
     // Update is called once per frame
@@ -50,17 +61,9 @@ public class SelfieInputManager : MonoBehaviour
                 if (hit.collider.gameObject.tag == "Decoration")
                 {
                     m_draggedObject = hit.collider.gameObject;
-                    Debug.Log("Dragging " + m_draggedObject);
                     prevPos = cam.ScreenToWorldPoint(mousePos);
-                    Debug.Log(prevPos);
+                    dragging = true;
                 }
-                //if (hit.collider.gameObject.tag == "DecorationList")
-                //{
-                //    Sprite sprite = hit.collider.gameObject.GetComponent<Image>().sprite;
-                //    GameObject newDecoration = Instantiate<GameObject>(decorationPrefab);
-                //    newDecoration.GetComponent<SpriteRenderer>().sprite = sprite;
-                //    draggedObject = newDecoration;
-                //}
             }
         }
         if (Input.GetMouseButton(0))
@@ -77,6 +80,14 @@ public class SelfieInputManager : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            m_pointerEventData = new PointerEventData(m_eventSystem);
+            m_pointerEventData.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            m_graphicRaycaster.Raycast(m_pointerEventData, results);
+            foreach(RaycastResult result in results)
+            {
+
+            }
             m_draggedObject = null;
         }
 #elif UNITY_ANDROID
