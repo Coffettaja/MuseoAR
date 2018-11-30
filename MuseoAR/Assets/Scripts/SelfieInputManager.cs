@@ -17,7 +17,7 @@ public class SelfieInputManager : MonoBehaviour
     PointerEventData m_pointerEventData;
     EventSystem m_eventSystem;
 
-    private bool dragging;
+    public bool dragging;
     //This should only be used by DecorationListItem
     //When instantiating new decorations
     public GameObject DraggedObject
@@ -86,7 +86,10 @@ public class SelfieInputManager : MonoBehaviour
             m_graphicRaycaster.Raycast(m_pointerEventData, results);
             foreach(RaycastResult result in results)
             {
-
+                if(result.gameObject.name == "RemoveZone")
+                {
+                    Destroy(result.gameObject);
+                }
             }
             m_draggedObject = null;
         }
