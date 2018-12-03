@@ -17,11 +17,13 @@ public class QuestionScript : MonoBehaviour {
     private List<Question> questionList;
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
 
-#endregion
+    #endregion
 
     #region Unity Monobehaviour
+    
     // Use this for initialization
     void Start() {
+        // quiz related inits
         pointsGO = GameObject.Find("TextPoints");
         A = GameObject.Find("PanelAnswerA");
         B = GameObject.Find("PanelAnswerB");
@@ -37,9 +39,10 @@ public class QuestionScript : MonoBehaviour {
     }
 
     private void Update()
-    {
+    {        
         pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
     }
+
 #endregion
 
     #region Formatting methods
@@ -48,11 +51,22 @@ public class QuestionScript : MonoBehaviour {
     /// </summary>
     public void restart()
     {
+        // reset breadcrumb images
+        var blobchildren = blobGrid.GetComponentsInChildren<UnityEngine.UI.Image>();
+        foreach (var child in blobchildren)
+        {
+            child.sprite = blobEmpty;
+        }
+
         var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
         go.SetActive(false);
+
+        // reset index counters and used question list
         correctCounter = 0;
         questionCounter = 0;
         usedQuestions.Clear();
+
+        // get a new question
         getQuestion();
     }
 
