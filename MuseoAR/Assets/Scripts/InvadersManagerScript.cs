@@ -25,6 +25,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     private float _score;
 
+    private int m_level = 0;
+
     public float Score
     {
         get { return _score; }
@@ -72,22 +74,24 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     /// into the EnemyList array.
     /// </summary>
     private void SpawnEnemies()
-    {        
+    {
+        int enemyRowsOnLevel = (int) enemyRows + (m_level / 2);
         //Creates a new list of enemies to ensure that the list is of correct size.
         //Better functionality would be to have a dynamic list object instead of array.
-        EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
+        EnemyList = new GameObject[enemiesOnRow * enemyRowsOnLevel + 1];
 
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
         float y = enemyStartY;
         float z = 1.0f;
 
-        for (int j = 0; j < enemyRows; j++)
+        for (int j = 0; j < enemyRowsOnLevel; j++)
         {
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
+                enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
                 Vector3 displacement = new Vector3(x, y, z);
                 enemyGO.transform.localPosition += displacement;
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
@@ -127,8 +131,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             }
         }
         _gameOverPopup.SetActive(true);
-        Text text;
-        text =  _gameOverPopup.transform.Find("Text").GetComponent<Text>();
+        Text text =  _gameOverPopup.transform.Find("Text").GetComponent<Text>();
         text.text = "Game Over! Final Score: " + _score;
 
     }
@@ -147,7 +150,23 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
         if(stageCompleted)
         {
-            SpawnEnemies();
+            m_level++;
+            Invoke("SpawnEnemies", 1.0f);
+        }
+    }
+
+    /// <summary>
+    /// Removes gameobject from enemylist.
+    /// Called by enemyscript when an enemy dies.
+    /// </summary>
+    public void RemoveEnemyFromList(GameObject deadObject)
+    {
+        for (int i = 0; i < EnemyList.Length; i++)
+        {
+            if(EnemyList[i] == deadObject)
+            {
+                EnemyList[i] = null;
+            }
         }
     }
 

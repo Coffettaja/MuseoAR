@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class BackToMainSceneOnClick : MonoBehaviour
 {
 
-	private Button button;
 	// Use this for initialization
 	void Start ()
 	{
-		button = GetComponent<Button>();
+		Button button = GetComponent<Button>();
 		button.onClick.AddListener(ReturnToMainSceneOnClick);
 	}
 
