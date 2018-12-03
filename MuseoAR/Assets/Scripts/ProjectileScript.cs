@@ -23,8 +23,12 @@ public class ProjectileScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<EnemyScript>().die();
-        Destroy(this.gameObject);
+        if(other.gameObject.tag == "enemy")
+        {
+            other.GetComponent<EnemyScript>().die();
+            Destroy(this.gameObject);
+        }
+
     }
 
 

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
     
-    public float tickSpeed = 0.3f;  //How long between movement ticks
+    public float tickSpeed = 0.8f;  //How long between movement ticks
     public float movementSpeed = 7f;
-    public int movementTicks = 4; //How many ticks the enemies move to one direction
+    public int movementTicks = 6; //How many ticks the enemies move to one direction
 
     private Rigidbody rb;
 
@@ -32,10 +32,6 @@ public class EnemyScript : MonoBehaviour {
 
     }
 
-    private void Update()
-    {
-        //transform.LookAt(Camera.main.transform, Camera.main.transform.up);
-    }
 
     private void FixedUpdate()
     {
@@ -70,6 +66,7 @@ public class EnemyScript : MonoBehaviour {
         MeshRenderer m_rend = GetComponent<MeshRenderer>();
         m_rend.material.color = Color.red;
         addPoints();
+        _manager.RemoveEnemyFromList(gameObject);
         Destroy(this.gameObject, 1.0f);
         _manager.CheckIfStageCompleted();
     }
