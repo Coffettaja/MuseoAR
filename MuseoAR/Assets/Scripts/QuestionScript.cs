@@ -9,10 +9,11 @@ public class QuestionScript : MonoBehaviour {
 
     #region Properties
     public GameObject questionTextGO;
+    public Sprite blobYes, blobNo, blobEmpty;
 
     private int correctCounter = 0, questionCounter = 0;
     private Question currentQuestion;
-    private GameObject A, B, C, pointsGO;
+    private GameObject A, B, C, pointsGO, blobGrid;
     private List<Question> questionList;
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
 
@@ -28,6 +29,7 @@ public class QuestionScript : MonoBehaviour {
         questionList = new List<Question>();
         usedQuestions = new List<int>();
         questionTextGO = GameObject.Find("TextQuestion");
+        blobGrid = GameObject.Find("BlobGrid");
         fromJsonToList();
         // hae kysymys kysymyspankista
         getQuestion();
@@ -181,11 +183,17 @@ public class QuestionScript : MonoBehaviour {
         {
             // Answered correctly
             correctCounter++;
+            // Change the blob image on breadcrumb panel
+            var blob = blobGrid.transform.GetChild(questionCounter - 1);
+            blob.GetComponent<Image>().sprite = blobYes;
             Debug.Log("voitit pelin");
         }
         else
         {
             // Answered poorly
+            // Change the blob image on breadcrumb panel
+            var blob = blobGrid.transform.GetChild(questionCounter - 1);
+            blob.GetComponent<Image>().sprite = blobNo;
             Debug.Log("hihihii kutittaa");
         }
 
