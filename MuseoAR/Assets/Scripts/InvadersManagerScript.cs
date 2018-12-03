@@ -59,15 +59,12 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         }
 	}
 
-    public void Update()
+    private void SpawnGameOverPlane()
     {
-//        foreach(GameObject enemy in EnemyList)
-//        {
-//            if (enemy != null && enemy.GetComponent<EnemyScript>().TouchingPlane)
-//            {
-//                Debug.Log("Game over loser!");
-//            }            
-//        }
+        //Spawn the game over plane
+        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
+        plane.name = "GameOverPlane";
+        plane.transform.localPosition += new Vector3(0, 0, 1);
     }
 
     /// <summary>
@@ -75,13 +72,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     /// into the EnemyList array.
     /// </summary>
     private void SpawnEnemies()
-    {
-
-        //Spawn the game over plane
-        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
-        plane.name = "GameOverPlane";
-        plane.transform.localPosition += new Vector3(0, 0, 1);
-        
+    {        
         //Creates a new list of enemies to ensure that the list is of correct size.
         //Better functionality would be to have a dynamic list object instead of array.
         EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
@@ -171,6 +162,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             {
                 enemiesSpawned = true;
                 SpawnEnemies();
+                SpawnGameOverPlane();
             }
         } 
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
