@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DecotrationTrayToggle : MonoBehaviour {
 
-    private Button m_button;
     private GameObject m_decorationTray;
 
     private Vector3 m_trayDownPos;
@@ -17,8 +16,9 @@ public class DecotrationTrayToggle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         
-        m_button = GetComponent<Button>();
-        m_button.onClick.AddListener(ToggleTray);
+        Button button = GetComponent<Button>();
+        button.onClick.AddListener(ToggleTray);
+
         m_decorationTray = GameObject.Find("DecorationTray");
         RectTransform rt = m_decorationTray.GetComponent<RectTransform>();
         m_trayDownPos = m_decorationTray.transform.position;

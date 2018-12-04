@@ -17,6 +17,7 @@ public class SelfieInputManager : MonoBehaviour
     PointerEventData m_pointerEventData;
     EventSystem m_eventSystem;
 
+    [HideInInspector]
     public bool dragging;
     //This should only be used by DecorationListItem
     //When instantiating new decorations
@@ -88,7 +89,7 @@ public class SelfieInputManager : MonoBehaviour
             {
                 if(result.gameObject.name == "RemoveZone")
                 {
-                    Destroy(result.gameObject);
+                    Destroy(m_draggedObject);
                 }
             }
             m_draggedObject = null;

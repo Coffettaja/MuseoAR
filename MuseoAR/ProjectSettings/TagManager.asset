@@ -11,6 +11,7 @@ TagManager:
   - Map
   - Decoration
   - DecorationList
+  - RemoveZone
   layers:
   - Default
   - TransparentFX

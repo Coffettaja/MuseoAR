@@ -28,8 +28,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     public float Score
     {
         get { return _score; }
-        set { _score = value; _scoreText.text = "" + _score;
-        }
+        set { _score = value; _scoreText.text = "" + _score; }
     }
 
     private GameObject imageTarget;
