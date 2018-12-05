@@ -15,6 +15,7 @@ public class QuestionScript : MonoBehaviour {
     private int correctCounter = 0, questionCounter = 0, tracking = 0;
     private Question currentQuestion;
     private GameObject A, B, C, pointsGO, blobGrid;
+    private GameObject[] ABC;
     private List<Question> questionList;
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
 
@@ -31,7 +32,7 @@ public class QuestionScript : MonoBehaviour {
         A = GameObject.Find("PanelAnswerA");
         B = GameObject.Find("PanelAnswerB");
         C = GameObject.Find("PanelAnswerC");
-        Debug.Log(A.name);
+        ABC = new GameObject[] { A, B, C };
         questionTextGO = GameObject.Find("TextQuestion");
         questionList = new List<Question>();
         usedQuestions = new List<int>();
@@ -103,6 +104,9 @@ public class QuestionScript : MonoBehaviour {
     public void getQuestion()
     {
         var go = GameObject.Find("ButtonContinue");
+        A.GetComponent<Button>().interactable = true;
+        B.GetComponent<Button>().interactable = true;
+        C.GetComponent<Button>().interactable = true;
 
         // reset panel images
         var panelA = A.transform.GetChild(0).GetComponent<Image>();
@@ -208,17 +212,23 @@ public class QuestionScript : MonoBehaviour {
         {
             A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
             A.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+            B.GetComponent<Button>().interactable = false;
+            C.GetComponent<Button>().interactable = false;
         }            
         if (answerInd == 1)
         {
             B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
             B.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+            A.GetComponent<Button>().interactable = false;
+            C.GetComponent<Button>().interactable = false;
         }
             
         if (answerInd == 2)
         {
             C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
             C.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+            A.GetComponent<Button>().interactable = false;
+            B.GetComponent<Button>().interactable = false;
         }
             
         // Show graphically the wrong answers
@@ -256,7 +266,7 @@ public class QuestionScript : MonoBehaviour {
             Debug.Log("hihihii kutittaa");
         }
 
-        var continueButton = GameObject.Find("ButtonContinue");
+        var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(4).gameObject;
         continueButton.SetActive(true);
     }
     #endregion
