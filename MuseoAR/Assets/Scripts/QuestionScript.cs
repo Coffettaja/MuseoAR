@@ -70,8 +70,10 @@ public class QuestionScript : MonoBehaviour {
             child.sprite = blobEmpty;
         }
 
+        // disable chalkboard
         var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        go.SetActive(false);
+        if (go)
+            go.SetActive(false);
 
         // reset index counters and used question list
         correctCounter = 0;
@@ -118,7 +120,7 @@ public class QuestionScript : MonoBehaviour {
         B.transform.GetChild(1).GetComponent<Text>().color = Color.white;
         C.transform.GetChild(1).GetComponent<Text>().color = Color.white;
 
-        if (questionCounter >= 1)
+        if (questionCounter >= 1 || go)
         {
             go.SetActive(false);
 
