@@ -7,37 +7,54 @@ using UnityEngine.SceneManagement;
 
 public class QuestionScript : MonoBehaviour {
 
-    #region Properties
-    public GameObject questionTextGO;
+    #region Properties    
+    public Sprite blobYes, blobNo, blobEmpty, answerYes, answerNo;
+    public Vuforia.TrackableBehaviour tb;
 
-    private int correctCounter = 0, questionCounter = 0;
+    private GameObject questionTextGO;
+    private int correctCounter = 0, questionCounter = 0, tracking = 0;
     private Question currentQuestion;
-    private GameObject A, B, C, pointsGO;
+    private GameObject A, B, C, pointsGO, blobGrid;
     private List<Question> questionList;
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
 
-#endregion
+    #endregion
 
     #region Unity Monobehaviour
-    // Use this for initialization
-    void Start() {
+
+    private void init()
+    {
+        Debug.Log("init");
+        tracking = 1;
+        // quiz related inits
         pointsGO = GameObject.Find("TextPoints");
         A = GameObject.Find("PanelAnswerA");
         B = GameObject.Find("PanelAnswerB");
         C = GameObject.Find("PanelAnswerC");
+        Debug.Log(A.name);
+        questionTextGO = GameObject.Find("TextQuestion");
         questionList = new List<Question>();
         usedQuestions = new List<int>();
         questionTextGO = GameObject.Find("TextQuestion");
+        blobGrid = GameObject.Find("BlobGrid");
         fromJsonToList();
         // hae kysymys kysymyspankista
         getQuestion();
-        // odota vastausta
+        // odota vastausta   
     }
 
     private void Update()
     {
-        pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
+        if (tb.CurrentStatus == Vuforia.TrackableBehaviour.Status.TRACKED)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            if (tracking == 0)
+                init();
+        }
+        if (pointsGO)
+            pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
     }
+
 #endregion
 
     #region Formatting methods
@@ -46,11 +63,24 @@ public class QuestionScript : MonoBehaviour {
     /// </summary>
     public void restart()
     {
-        var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        go.SetActive(false);
+        // reset breadcrumb images
+        var blobchildren = blobGrid.GetComponentsInChildren<Image>();
+        foreach (var child in blobchildren)
+        {
+            child.sprite = blobEmpty;
+        }
+
+        // disable chalkboard
+        var chalkBoard = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
+        if (chalkBoard)
+            chalkBoard.SetActive(false);
+
+        // reset index counters and used question list
         correctCounter = 0;
         questionCounter = 0;
         usedQuestions.Clear();
+
+        // get a new question
         getQuestion();
     }
 
@@ -73,14 +103,24 @@ public class QuestionScript : MonoBehaviour {
     public void getQuestion()
     {
         var go = GameObject.Find("ButtonContinue");
-        var panelA_Color = A.GetComponent<Image>();
-        var panelB_Color = B.GetComponent<Image>();
-        var panelC_Color = C.GetComponent<Image>();
-        panelA_Color.color = Color.grey;
-        panelB_Color.color = Color.grey;
-        panelC_Color.color = Color.grey;
 
-        if (questionCounter >= 1)
+        // reset panel images
+        var panelA = A.transform.GetChild(0).GetComponent<Image>();
+        var panelB = B.transform.GetChild(0).GetComponent<Image>();
+        var panelC = C.transform.GetChild(0).GetComponent<Image>();
+        panelA.sprite = answerYes;
+        panelB.sprite = answerYes;
+        panelC.sprite = answerYes;
+
+        A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
+        B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
+        C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
+
+        A.transform.GetChild(1).GetComponent<Text>().color = Color.white;
+        B.transform.GetChild(1).GetComponent<Text>().color = Color.white;
+        C.transform.GetChild(1).GetComponent<Text>().color = Color.white;
+
+        if (questionCounter >= 1 || go)
         {
             go.SetActive(false);
 
@@ -112,12 +152,12 @@ public class QuestionScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// Shows the Gameover canvas with feedback
     /// </summary>
     private void showResults()
     {
-        var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        go.SetActive(true);
+        var continueButton = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
+        continueButton.SetActive(true);
         string performance = "";
 
         if (correctCounter <= 3)
@@ -133,7 +173,7 @@ public class QuestionScript : MonoBehaviour {
             performance = "Mahtavaa!";
         }
 
-        go.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
+        continueButton.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
 
     }
 
@@ -143,54 +183,81 @@ public class QuestionScript : MonoBehaviour {
     /// <param name="que"></param>
     private void drawQuestion(Question que)
     {
-
         // jonkunlainen typewriter putkitushässäkkä
         var tque = questionTextGO.GetComponent<Text>();
         tque.text = que.question;
-        A.transform.GetChild(0).GetComponent<Text>().text = que.answerA;
-        B.transform.GetChild(0).GetComponent<Text>().text = que.answerB;
-        C.transform.GetChild(0).GetComponent<Text>().text = que.answerC;
+        A.transform.GetChild(1).GetComponent<Text>().text = que.answerA;
+        B.transform.GetChild(1).GetComponent<Text>().text = que.answerB;
+        C.transform.GetChild(1).GetComponent<Text>().text = que.answerC;
     }
 
+    /// <summary>
+    /// Shows the selected answer of <answerInd>, overlays wrong answers with image <answerNo>.
+    /// Updates breadcrumb UI. Enables continue button.
+    /// </summary>
+    /// <param name="answerInd"></param>
     public void selectAnswer(int answerInd)
     {
-        var panelA_Color = A.GetComponent<Image>();
-        var panelB_Color = B.GetComponent<Image>();
-        var panelC_Color = C.GetComponent<Image>();
+        var panelA = A.transform.GetChild(0).GetComponent<Image>();
+        var panelB = B.transform.GetChild(0).GetComponent<Image>();
+        var panelC = C.transform.GetChild(0).GetComponent<Image>();
 
+        // Set color of selected answer
+        var color_selected = Color.cyan;
+        if (answerInd == 0)
+        {
+            A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
+            A.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+        }            
+        if (answerInd == 1)
+        {
+            B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
+            B.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+        }
+            
+        if (answerInd == 2)
+        {
+            C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
+            C.transform.GetChild(1).GetComponent<Text>().color = color_selected;
+        }
+            
+        // Show graphically the wrong answers
         if (currentQuestion.correct == 0)
         {
-            panelA_Color.color = Color.green;
-            panelB_Color.color = Color.red;
-            panelC_Color.color = Color.red;
+            panelB.sprite = answerNo;
+            panelC.sprite = answerNo;
         }
         else if (currentQuestion.correct == 1)
         {
-            panelA_Color.color = Color.red;
-            panelB_Color.color = Color.green;
-            panelC_Color.color = Color.red;
+            panelA.sprite = answerNo;
+            panelC.sprite = answerNo;
         }
         else if (currentQuestion.correct == 2)
         {
-            panelA_Color.color = Color.red;
-            panelB_Color.color = Color.red;
-            panelC_Color.color = Color.green;
+            panelA.sprite = answerNo;
+            panelB.sprite = answerNo;
         }
 
         if (currentQuestion.correct == answerInd)
         {
             // Answered correctly
             correctCounter++;
+            // Change the blob image on breadcrumb panel
+            var blob = blobGrid.transform.GetChild(questionCounter - 1);
+            blob.GetComponent<Image>().sprite = blobYes;
             Debug.Log("voitit pelin");
         }
         else
         {
             // Answered poorly
+            // Change the blob image on breadcrumb panel
+            var blob = blobGrid.transform.GetChild(questionCounter - 1);
+            blob.GetComponent<Image>().sprite = blobNo;
             Debug.Log("hihihii kutittaa");
         }
 
-        var x = GameObject.Find("ChalkBoard").transform.GetChild(4).gameObject;
-        x.SetActive(true);
+        var continueButton = GameObject.Find("ButtonContinue");
+        continueButton.SetActive(true);
     }
     #endregion
 
