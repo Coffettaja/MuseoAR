@@ -4,21 +4,19 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Script for the camera button. Attaches onClick listener that takes a screenshot of the screen
+/// and triggers the native share function
+/// </summary>
 public class ScreenshotAndShare : MonoBehaviour {
 
-    private Button m_screenshotButton;
 
 	// Use this for initialization
 	void Start () {
-        m_screenshotButton = GetComponent<Button>();
-        m_screenshotButton.onClick.AddListener(StartScreenshotCoroutine);
+        Button screenshotButton = GetComponent<Button>();
+        screenshotButton.onClick.AddListener(StartScreenshotCoroutine);
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void StartScreenshotCoroutine()
     {
         StartCoroutine("TakeAndShare");
@@ -31,6 +29,7 @@ public class ScreenshotAndShare : MonoBehaviour {
         //Direct example from https://github.com/yasirkula/UnityNativeShare on how to share screenshot with API, should work well with other approaches later on too
         
         //Texture2D ss = new Texture2D(Screen.width, (int)screenHeight, TextureFormat.RGB24, false);
+        //TODO: Hide the UI while takign screenshot
         Texture2D ss = ScreenCapture.CaptureScreenshotAsTexture();
         //ss.ReadPixels(new Rect(0, startHeight, Screen.width, screenHeight), 0, 0);
         //ss.Apply();

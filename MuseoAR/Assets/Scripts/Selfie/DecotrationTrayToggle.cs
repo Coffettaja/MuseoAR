@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DecotrationTrayToggle : MonoBehaviour {
-
+public class DecotrationTrayToggle : MonoBehaviour
+{
     private GameObject m_decorationTray;
 
     private Vector3 m_trayDownPos;
@@ -13,6 +13,7 @@ public class DecotrationTrayToggle : MonoBehaviour {
     public float moveSpeed = 0.5f;
 
     private bool m_trayUp;
+    
 	// Use this for initialization
 	void Start () {
         
@@ -22,9 +23,11 @@ public class DecotrationTrayToggle : MonoBehaviour {
         m_decorationTray = GameObject.Find("DecorationTray");
         RectTransform rt = m_decorationTray.GetComponent<RectTransform>();
         m_trayDownPos = m_decorationTray.transform.position;
-        m_trayUpPos = m_trayDownPos + Vector3.up*rt.rect.height;
+	    m_trayUpPos = m_trayDownPos + Vector3.up*(rt.rect.size.y);
 
         m_trayUp = false;
+	    
+	    
 	}
     
     private void ToggleTray()

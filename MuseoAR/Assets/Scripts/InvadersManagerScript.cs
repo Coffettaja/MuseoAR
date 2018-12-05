@@ -125,7 +125,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         }
         _gameOverPopup.SetActive(true);
         Text text;
-        text =  _gameOverPopup.transform.Find("Text").GetComponent<Text>();
+        text = _gameOverPopup.transform.Find("Text").GetComponent<Text>();
         text.text = "Game Over! Final Score: " + _score;
 
     }

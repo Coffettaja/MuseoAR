@@ -92,6 +92,8 @@ public class SelfieInputManager : MonoBehaviour
                     Destroy(m_draggedObject);
                 }
             }
+
+            dragging = false;
             m_draggedObject = null;
         }
 #elif UNITY_ANDROID
