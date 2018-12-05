@@ -98,32 +98,23 @@ public class QuestionScript : MonoBehaviour {
 
     #region Question related methods
     /// <summary>
-    /// Gets a random (TODO: non-asked) Question from the list of questions.
+    /// Gets a random Question from the list of questions. Registers questions as answered and excludes those.
     /// Calls the drawQuestion with the randomized question.
     /// </summary>
     public void getQuestion()
     {
+        // Reset panel values and text colors for answers
+        foreach (var ans in ABC)
+        {
+            ans.GetComponent<Button>().interactable = true;
+            var img = ans.transform.GetChild(0).GetComponent<Image>();
+            img.sprite = answerYes;
+            var text = ans.transform.GetChild(1).GetComponent<Text>();
+            text.fontStyle = FontStyle.Normal;
+            text.color = Color.white;
+        }
+
         var go = GameObject.Find("ButtonContinue");
-        A.GetComponent<Button>().interactable = true;
-        B.GetComponent<Button>().interactable = true;
-        C.GetComponent<Button>().interactable = true;
-
-        // reset panel images
-        var panelA = A.transform.GetChild(0).GetComponent<Image>();
-        var panelB = B.transform.GetChild(0).GetComponent<Image>();
-        var panelC = C.transform.GetChild(0).GetComponent<Image>();
-        panelA.sprite = answerYes;
-        panelB.sprite = answerYes;
-        panelC.sprite = answerYes;
-
-        A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
-        B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
-        C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Normal;
-
-        A.transform.GetChild(1).GetComponent<Text>().color = Color.white;
-        B.transform.GetChild(1).GetComponent<Text>().color = Color.white;
-        C.transform.GetChild(1).GetComponent<Text>().color = Color.white;
-
         if (questionCounter >= 1 || go)
         {
             go.SetActive(false);
@@ -134,6 +125,7 @@ public class QuestionScript : MonoBehaviour {
             showResults();
         }
 
+        // Register and handle used questions
         int rng = 0;
         if (usedQuestions.Count >= 0)
         {
@@ -202,9 +194,9 @@ public class QuestionScript : MonoBehaviour {
     /// <param name="answerInd"></param>
     public void selectAnswer(int answerInd)
     {
-        var panelA = A.transform.GetChild(0).GetComponent<Image>();
-        var panelB = B.transform.GetChild(0).GetComponent<Image>();
-        var panelC = C.transform.GetChild(0).GetComponent<Image>();
+        var imgA = A.transform.GetChild(0).GetComponent<Image>();
+        var imgB = B.transform.GetChild(0).GetComponent<Image>();
+        var imgC = C.transform.GetChild(0).GetComponent<Image>();
 
         // Set color of selected answer
         var color_selected = Color.cyan;
@@ -234,18 +226,18 @@ public class QuestionScript : MonoBehaviour {
         // Show graphically the wrong answers
         if (currentQuestion.correct == 0)
         {
-            panelB.sprite = answerNo;
-            panelC.sprite = answerNo;
+            imgB.sprite = answerNo;
+            imgC.sprite = answerNo;
         }
         else if (currentQuestion.correct == 1)
         {
-            panelA.sprite = answerNo;
-            panelC.sprite = answerNo;
+            imgA.sprite = answerNo;
+            imgC.sprite = answerNo;
         }
         else if (currentQuestion.correct == 2)
         {
-            panelA.sprite = answerNo;
-            panelB.sprite = answerNo;
+            imgA.sprite = answerNo;
+            imgB.sprite = answerNo;
         }
 
         if (currentQuestion.correct == answerInd)
