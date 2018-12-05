@@ -25,7 +25,6 @@ public class QuestionScript : MonoBehaviour {
 
     private void init()
     {
-        Debug.Log("init");
         tracking = 1;
         // quiz related inits
         pointsGO = GameObject.Find("TextPoints");
@@ -90,9 +89,7 @@ public class QuestionScript : MonoBehaviour {
     /// </summary>
     public void quit()
     {
-        //Call upper scene after exiting this scene
         GameControllerScript.Instance.LoadTopLevelScene();
-        // Application.Quit(); 
     }
 #endregion
 
@@ -272,16 +269,14 @@ public class QuestionScript : MonoBehaviour {
         // parsing the json into token array
         Debug.Log(Application.dataPath);
         TextAsset ladattava = Resources.Load<TextAsset>("questionBank");
-        //string jsonString = System.IO.File.ReadAllText(Application.dataPath + "/Resources/JSON/questionBank.json");
         rootQuestion root = JsonUtility.FromJson<rootQuestion>(ladattava.text);
- 
 
+        // new object and values from token
         foreach (var q in root.questions)
-        {
-            // new object and values from token
+        {            
             questionList.Add(q);
         }
-        printQuestionList();
+        // printQuestionList();
     }
 
     /// <summary>
