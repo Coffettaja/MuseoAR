@@ -71,9 +71,9 @@ public class QuestionScript : MonoBehaviour {
         }
 
         // disable chalkboard
-        var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        if (go)
-            go.SetActive(false);
+        var chalkBoard = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
+        if (chalkBoard)
+            chalkBoard.SetActive(false);
 
         // reset index counters and used question list
         correctCounter = 0;
@@ -152,12 +152,12 @@ public class QuestionScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// 
+    /// Shows the Gameover canvas with feedback
     /// </summary>
     private void showResults()
     {
-        var go = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        go.SetActive(true);
+        var continueButton = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
+        continueButton.SetActive(true);
         string performance = "";
 
         if (correctCounter <= 3)
@@ -173,7 +173,7 @@ public class QuestionScript : MonoBehaviour {
             performance = "Mahtavaa!";
         }
 
-        go.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
+        continueButton.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
 
     }
 
@@ -191,31 +191,37 @@ public class QuestionScript : MonoBehaviour {
         C.transform.GetChild(1).GetComponent<Text>().text = que.answerC;
     }
 
+    /// <summary>
+    /// Shows the selected answer of <answerInd>, overlays wrong answers with image <answerNo>.
+    /// Updates breadcrumb UI. Enables continue button.
+    /// </summary>
+    /// <param name="answerInd"></param>
     public void selectAnswer(int answerInd)
     {
         var panelA = A.transform.GetChild(0).GetComponent<Image>();
         var panelB = B.transform.GetChild(0).GetComponent<Image>();
         var panelC = C.transform.GetChild(0).GetComponent<Image>();
 
-        var colori = Color.cyan;
+        // Set color of selected answer
+        var color_selected = Color.cyan;
         if (answerInd == 0)
         {
             A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            A.transform.GetChild(1).GetComponent<Text>().color = colori;
+            A.transform.GetChild(1).GetComponent<Text>().color = color_selected;
         }            
         if (answerInd == 1)
         {
             B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            B.transform.GetChild(1).GetComponent<Text>().color = colori;
+            B.transform.GetChild(1).GetComponent<Text>().color = color_selected;
         }
             
         if (answerInd == 2)
         {
             C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            C.transform.GetChild(1).GetComponent<Text>().color = colori;
+            C.transform.GetChild(1).GetComponent<Text>().color = color_selected;
         }
             
-
+        // Show graphically the wrong answers
         if (currentQuestion.correct == 0)
         {
             panelB.sprite = answerNo;
@@ -250,8 +256,8 @@ public class QuestionScript : MonoBehaviour {
             Debug.Log("hihihii kutittaa");
         }
 
-        var x = GameObject.Find("ChalkBoard").transform.GetChild(4).gameObject;
-        x.SetActive(true);
+        var continueButton = GameObject.Find("ButtonContinue");
+        continueButton.SetActive(true);
     }
     #endregion
 
