@@ -17,7 +17,7 @@ public class BonusEnemyScript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        Vector3 height = Mathf.Sin(Time.time) * Vector3.up;
+        Vector3 height = Mathf.Sin(Time.time*2) * Vector3.up;
         Vector3 moveVector = height + Vector3.right;
         transform.Translate(moveVector * Time.deltaTime * MoveSpeed, Space.World);
 	}
