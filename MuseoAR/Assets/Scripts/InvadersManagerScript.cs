@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Vuforia;
 
 /// <summary>
@@ -30,7 +31,10 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     public int Score
     {
         get { return _score; }
-        set { _score = value; _scoreText.text = "" + _score;
+        set
+        {
+            _score = value;
+            _scoreText.text = "" + _score;
         }
     }
 
@@ -129,7 +133,10 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             Destroy(enemy);
         }
         m_level = 0;
+        Score = 0;
         SpawnEnemies();
+        _gameOverPopup.SetActive(false);
+        //SceneManager.LoadScene("invaders");
     }
     //Tell all the enemies to stop and show the popup screen about game over
     public void GameOver()
