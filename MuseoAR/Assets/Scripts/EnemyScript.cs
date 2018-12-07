@@ -73,7 +73,7 @@ public class EnemyScript : MonoBehaviour {
 
     private void addPoints()
     {
-        _manager.Score += 100;
+        _manager.Score += 500;
     }
 
 

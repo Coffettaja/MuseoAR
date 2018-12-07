@@ -14,6 +14,7 @@ using Vuforia;
 public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     public GameObject EnemyPrefab;
+    public GameObject BonusEnemyPrefab;
     public GameObject GameOverPlanePrefab;
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
@@ -23,21 +24,23 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     
     public GameObject[] EnemyList;
 
-    private float _score;
-
+    private int _score;
     private int m_level = 0;
 
-    public float Score
+    public int Score
     {
         get { return _score; }
         set { _score = value; _scoreText.text = "" + _score;
         }
     }
 
+    private float m_bonusSpawnTime;
+
     private GameObject imageTarget;
     private GameObject _gameOverPlane;
     private bool enemiesSpawned = false;
     private bool gameOver = false;
+ 
 
     private TrackableBehaviour _trackableBehaviour;
     private GameObject _gameOverPopup;
@@ -104,8 +107,17 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             y += enemySpacing;            
             //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
+        SpawnBonusEnemy();
     }
 
+    private void SpawnBonusEnemy()
+    {
+        //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
+        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
+        bonus.transform.localPosition += new Vector3(-5, 0, 2);
+    }
+
+    
     /// <summary>
     /// Resets the game to the starting position using the values given in initialization.
     /// </summary>
@@ -116,6 +128,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         {
             Destroy(enemy);
         }
+        m_level = 0;
         SpawnEnemies();
     }
     //Tell all the enemies to stop and show the popup screen about game over
@@ -152,6 +165,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         {
             m_level++;
             Invoke("SpawnEnemies", 1.0f);
+            //Invoke("SpawnBonusEnemy", 10);
         }
     }
 
