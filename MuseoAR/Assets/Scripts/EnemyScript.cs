@@ -79,7 +79,6 @@ public class EnemyScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.name == "GameOverPlane")
         {
             _manager.GameOver();

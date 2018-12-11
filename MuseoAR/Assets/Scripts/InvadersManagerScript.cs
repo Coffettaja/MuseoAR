@@ -170,6 +170,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
         if(stageCompleted)
         {
+            Debug.Log("Stage completed!");
             m_level++;
             Invoke("SpawnEnemies", 1.0f);
             //Invoke("SpawnBonusEnemy", 10);
