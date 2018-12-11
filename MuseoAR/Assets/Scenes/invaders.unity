@@ -1722,7 +1722,7 @@ MonoBehaviour:
     type: 2}
   BonusEnemyPrefab: {fileID: 1398113695095358, guid: 52256668fd4708a42945c5c40b0b907a,
     type: 2}
-  GameOverPlanePrefab: {fileID: 1715045425744858, guid: fb8539137ef3c3847898cd06f8b3969e,
+  GameOverPlanePrefab: {fileID: 1906048478922678, guid: b28c9a90b0195594eae2d8316fbc1052,
     type: 2}
   enemiesOnRow: 4
   enemyRows: 2
