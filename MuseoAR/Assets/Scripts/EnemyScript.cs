@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour {
     public int movementTicks = 6; //How many ticks the enemies move to one direction
 
     private Rigidbody rb;
+    private ParticleSystem deathAnim;
 
     private float gameOverHeight; //The z cordinate which causes game over when reached by enemy
     private bool moveRight;
@@ -29,7 +30,7 @@ public class EnemyScript : MonoBehaviour {
         //StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
         _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
-
+        deathAnim = GetComponent<ParticleSystem>();
     }
 
 
@@ -62,12 +63,18 @@ public class EnemyScript : MonoBehaviour {
     /// </summary>
     public void die()
     {
-        //Turn the enemy red
-        MeshRenderer m_rend = GetComponent<MeshRenderer>();
-        m_rend.material.color = Color.red;
+        ////Turn the enemy red
+        //MeshRenderer m_rend = GetComponent<MeshRenderer>();
+        //m_rend.material.color = Color.red;
+
         addPoints();
         _manager.RemoveEnemyFromList(gameObject);
-        Destroy(this.gameObject, 1.0f);
+
+        //Explodes enemy
+        Debug.Log("Osu");
+        deathAnim.Play();
+        Destroy(this.gameObject);
+
         _manager.CheckIfStageCompleted();
     }
 
