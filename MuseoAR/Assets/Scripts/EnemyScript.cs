@@ -76,10 +76,9 @@ public class EnemyScript : MonoBehaviour {
         _manager.Score += 500;
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "GameOverPlane")
+        if (other.gameObject.name == "GameOverPlane")
         {
             _manager.GameOver();
         }
