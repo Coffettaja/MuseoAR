@@ -12,25 +12,42 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler {
 
     SelfieInputManager m_inputManager;
     Button m_button;
-    Object m_decorationPrefab;
-    Sprite m_decorationSprite;
+    public GameObject DecorationPrefab;
+
+    public Sprite m_decorationSprite;
+    public Sprite m_deactivatedSprite;
+
+    string m_activatingScene;
 
     // Use this for initialization
-	void Start () {
+	void Start ()
+    {
         m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
         m_button = GetComponent<Button>();
         //m_button.onClick.AddListener(InstantiateNewDecoration);
         m_decorationSprite = GetComponent<Image>().sprite;
-        m_decorationPrefab = Resources.Load("Prefabs/Decoration");
+        if(DecorationActive())
+        {
+            GetComponent<Image>().sprite = m_decorationSprite;
+        } else
+        {
+            GetComponent<Image>().sprite = m_deactivatedSprite;
+        }
 	}
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Kissa");
-        GameObject newDecoration = Instantiate(m_decorationPrefab) as GameObject;
-        newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
-        //newDecoration.transform.position = eventData.position;
-        m_inputManager.DraggedObject = newDecoration;
+        if(DecorationActive())
+        {
+            GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
+            newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
+            m_inputManager.DraggedObject = newDecoration;
+        }
+    }
+
+    bool DecorationActive()
+    {
+        return GameControllerScript.Instance.IsSceneCompleted(m_activatingScene);
     }
 	
 }
