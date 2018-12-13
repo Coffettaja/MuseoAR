@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - MarkerABC
+  - strike
   layers:
   - Default
   - TransparentFX

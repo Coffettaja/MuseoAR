@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 public class QuestionScript : MonoBehaviour {
 
     #region Properties    
-    public Sprite blobYes, blobNo, blobEmpty, answerYes, answerNo;
+    public Sprite blobYes, blobNo, blobEmpty, answerDummy;
+    public Sprite answerNo, selectedSprite, arrowSprite;
     public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
-    private int correctCounter = 0, questionCounter = 0, tracking = 0;
+    private int correctCounter = 0, questionCounter = 0, tracking = 0, striking = 0;
+    private int answer_index;
     private Question currentQuestion;
     private GameObject A, B, C, pointsGO, blobGrid;
     private GameObject[] ABC;
@@ -26,7 +28,7 @@ public class QuestionScript : MonoBehaviour {
     private void init()
     {
         tracking = 1;
-        // quiz related inits
+        // quiz related inits        
         pointsGO = GameObject.Find("TextPoints");
         A = GameObject.Find("PanelAnswerA");
         B = GameObject.Find("PanelAnswerB");
@@ -51,6 +53,7 @@ public class QuestionScript : MonoBehaviour {
             if (tracking == 0)
                 init();
         }
+
         if (pointsGO)
             pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
     }
@@ -105,21 +108,23 @@ public class QuestionScript : MonoBehaviour {
         {
             ans.GetComponent<Button>().interactable = true;
             var img = ans.transform.GetChild(0).GetComponent<Image>();
-            img.sprite = answerYes;
+            img.sprite = answerDummy;
+            var arrow = ans.transform.GetChild(2).gameObject;
+            arrow.SetActive(false);
             var text = ans.transform.GetChild(1).GetComponent<Text>();
             text.fontStyle = FontStyle.Normal;
-            text.color = Color.white;
+            text.color = Color.white;            
         }
 
         var go = GameObject.Find("ButtonContinue");
-        if (questionCounter >= 1 || go)
+        if (questionCounter >= 10)
+        {
+            Debug.Log("Nyt ollaan ShowResults ehtolohkossa");
+            showResults();
+        }
+        else if (questionCounter >= 1 || go)
         {
             go.SetActive(false);
-
-        }
-        if (questionCounter >= 10) 
-        {
-            showResults();
         }
 
         // Register and handle used questions
@@ -141,6 +146,7 @@ public class QuestionScript : MonoBehaviour {
         Question valittu = questionList[rng];
         currentQuestion = valittu;
         questionCounter++;
+        Debug.Log("Kysymys numero" + questionCounter);
         drawQuestion(valittu);        
     }
 
@@ -149,8 +155,9 @@ public class QuestionScript : MonoBehaviour {
     /// </summary>
     private void showResults()
     {
-        var continueButton = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
-        continueButton.SetActive(true);
+        Debug.Log("Nyt ollaan ShowResults-lohkossa");
+        var header = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
+        header.SetActive(true);
         string performance = "";
 
         if (correctCounter <= 3)
@@ -166,7 +173,7 @@ public class QuestionScript : MonoBehaviour {
             performance = "Mahtavaa!";
         }
 
-        continueButton.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
+        header.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
 
     }
 
@@ -183,68 +190,91 @@ public class QuestionScript : MonoBehaviour {
         B.transform.GetChild(1).GetComponent<Text>().text = que.answerB;
         C.transform.GetChild(1).GetComponent<Text>().text = que.answerC;
     }
-
+    
     /// <summary>
-    /// Shows the selected answer of <answerInd>, overlays wrong answers with image <answerNo>.
-    /// Updates breadcrumb UI. Enables continue button.
+    /// Shows the selected answer of <answerInd>.
     /// </summary>
     /// <param name="answerInd"></param>
     public void selectAnswer(int answerInd)
     {
+        answer_index = answerInd;
+        // Show graphically the selected answer        
+        if (answerInd == 0)
+        {
+            A.transform.GetChild(2).gameObject.SetActive(true);
+            B.GetComponent<Button>().interactable = false;
+            C.GetComponent<Button>().interactable = false;
+        }
+        if (answerInd == 1)
+        {            
+            A.GetComponent<Button>().interactable = false;
+            B.transform.GetChild(2).gameObject.SetActive(true);
+            C.GetComponent<Button>().interactable = false;
+        }
+
+        if (answerInd == 2)
+        {            
+            A.GetComponent<Button>().interactable = false;
+            B.GetComponent<Button>().interactable = false;
+            C.transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        // Delay showing correct answer
+        Invoke("setCorrectAndContinue", 1);
+    }
+
+    /// <summary>
+    /// Shows the correct answer as boxed and dims the wrong answers.
+    /// Updates blobs in UI. Enables continuebutton.
+    /// </summary>
+    private void setCorrectAndContinue()
+    {
+        // Image variables
         var imgA = A.transform.GetChild(0).GetComponent<Image>();
         var imgB = B.transform.GetChild(0).GetComponent<Image>();
         var imgC = C.transform.GetChild(0).GetComponent<Image>();
+        Color tmp = imgB.color;
 
-        // Set color of selected answer
-        var color_selected = Color.cyan;
-        if (answerInd == 0)
-        {
-            A.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            A.transform.GetChild(1).GetComponent<Text>().color = color_selected;
-            B.GetComponent<Button>().interactable = false;
-            C.GetComponent<Button>().interactable = false;
-        }            
-        if (answerInd == 1)
-        {
-            B.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            B.transform.GetChild(1).GetComponent<Text>().color = color_selected;
-            A.GetComponent<Button>().interactable = false;
-            C.GetComponent<Button>().interactable = false;
-        }
-            
-        if (answerInd == 2)
-        {
-            C.transform.GetChild(1).GetComponent<Text>().fontStyle = FontStyle.Bold;
-            C.transform.GetChild(1).GetComponent<Text>().color = color_selected;
-            A.GetComponent<Button>().interactable = false;
-            B.GetComponent<Button>().interactable = false;
-        }
-            
-        // Show graphically the wrong answers
+        //Show graphically the right answer
         if (currentQuestion.correct == 0)
         {
-            imgB.sprite = answerNo;
-            imgC.sprite = answerNo;
+            imgA.sprite = selectedSprite;
+            for (int i = 0; i < 70; i++)
+            {
+                tmp.a -= .01f;
+                B.transform.GetChild(1).GetComponent<Text>().color = tmp;
+                C.transform.GetChild(1).GetComponent<Text>().color = tmp;
+            }
         }
         else if (currentQuestion.correct == 1)
         {
-            imgA.sprite = answerNo;
-            imgC.sprite = answerNo;
+            imgB.sprite = selectedSprite;
+            for (int i = 0; i < 70; i++)
+            {
+                tmp.a -= .01f;
+                A.transform.GetChild(1).GetComponent<Text>().color = tmp;
+                C.transform.GetChild(1).GetComponent<Text>().color = tmp;
+            }
         }
         else if (currentQuestion.correct == 2)
         {
-            imgA.sprite = answerNo;
-            imgB.sprite = answerNo;
+            imgC.sprite = selectedSprite;
+            for (int i = 0; i < 70; i++)
+            {
+                tmp.a -= .01f;
+                A.transform.GetChild(1).GetComponent<Text>().color = tmp;
+                B.transform.GetChild(1).GetComponent<Text>().color = tmp;
+            }
         }
 
-        if (currentQuestion.correct == answerInd)
+        // Check if correct, update blob in UI
+        if (currentQuestion.correct == answer_index)
         {
             // Answered correctly
             correctCounter++;
             // Change the blob image on breadcrumb panel
             var blob = blobGrid.transform.GetChild(questionCounter - 1);
             blob.GetComponent<Image>().sprite = blobYes;
-            Debug.Log("voitit pelin");
         }
         else
         {
@@ -252,10 +282,9 @@ public class QuestionScript : MonoBehaviour {
             // Change the blob image on breadcrumb panel
             var blob = blobGrid.transform.GetChild(questionCounter - 1);
             blob.GetComponent<Image>().sprite = blobNo;
-            Debug.Log("hihihii kutittaa");
         }
 
-        var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(4).gameObject;
+        var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(7).gameObject;
         continueButton.SetActive(true);
     }
     #endregion
