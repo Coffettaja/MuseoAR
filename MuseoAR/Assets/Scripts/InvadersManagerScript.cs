@@ -3,7 +3,6 @@ using System.Collections.Generic;
 //using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Vuforia;
 
 /// <summary>
@@ -15,7 +14,6 @@ using Vuforia;
 public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
     public GameObject EnemyPrefab;
-    public GameObject BonusEnemyPrefab;
     public GameObject GameOverPlanePrefab;
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
@@ -25,26 +23,18 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     
     public GameObject[] EnemyList;
 
-    private int _score;
-    private int m_level = 0;
+    private float _score;
 
-    public int Score
+    public float Score
     {
         get { return _score; }
-        set
-        {
-            _score = value;
-            _scoreText.text = "" + _score;
-        }
+        set { _score = value; _scoreText.text = "" + _score; }
     }
-
-    private float m_bonusSpawnTime;
 
     private GameObject imageTarget;
     private GameObject _gameOverPlane;
     private bool enemiesSpawned = false;
     private bool gameOver = false;
- 
 
     private TrackableBehaviour _trackableBehaviour;
     private GameObject _gameOverPopup;
@@ -68,13 +58,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         }
 	}
 
-    private void SpawnGameOverPlane()
-    {
-        //Spawn the game over plane
-        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
-        plane.name = "GameOverPlane";
-        plane.transform.localPosition += new Vector3(0, 0, 1);
-    }
 
     /// <summary>
     /// Spawns enemyprefabs on incremental x-positions and adds the instantiated enemies
@@ -82,23 +65,26 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
     /// </summary>
     private void SpawnEnemies()
     {
-        int enemyRowsOnLevel = (int) enemyRows + (m_level / 2);
+
+        //Spawn the game over plane
+        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
+        plane.name = "GameOverPlane";
+
         //Creates a new list of enemies to ensure that the list is of correct size.
         //Better functionality would be to have a dynamic list object instead of array.
-        EnemyList = new GameObject[enemiesOnRow * enemyRowsOnLevel + 1];
+        EnemyList = new GameObject[enemiesOnRow * enemyRows + 1];
 
         //Calculate the first spawn point
         float x = -(enemiesOnRow-1)*enemySpacing/2.0f;
         float y = enemyStartY;
         float z = 1.0f;
 
-        for (int j = 0; j < enemyRowsOnLevel; j++)
+        for (int j = 0; j < enemyRows; j++)
         {
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
-                enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
                 Vector3 displacement = new Vector3(x, y, z);
                 enemyGO.transform.localPosition += displacement;
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
@@ -111,17 +97,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             y += enemySpacing;            
             //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
-        SpawnBonusEnemy();
     }
 
-    private void SpawnBonusEnemy()
-    {
-        //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
-        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
-        bonus.transform.localPosition += new Vector3(-5, 0, 2);
-    }
-
-    
     /// <summary>
     /// Resets the game to the starting position using the values given in initialization.
     /// </summary>
@@ -132,11 +109,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
         {
             Destroy(enemy);
         }
-        m_level = 0;
-        Score = 0;
         SpawnEnemies();
-        _gameOverPopup.SetActive(false);
-        //SceneManager.LoadScene("invaders");
     }
     //Tell all the enemies to stop and show the popup screen about game over
     public void GameOver()
@@ -151,7 +124,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             }
         }
         _gameOverPopup.SetActive(true);
-        Text text =  _gameOverPopup.transform.Find("Text").GetComponent<Text>();
+        Text text;
+        text = _gameOverPopup.transform.Find("Text").GetComponent<Text>();
         text.text = "Game Over! Final Score: " + _score;
 
     }
@@ -170,25 +144,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
 
         if(stageCompleted)
         {
-            Debug.Log("Stage completed!");
-            m_level++;
-            Invoke("SpawnEnemies", 1.0f);
-            //Invoke("SpawnBonusEnemy", 10);
-        }
-    }
-
-    /// <summary>
-    /// Removes gameobject from enemylist.
-    /// Called by enemyscript when an enemy dies.
-    /// </summary>
-    public void RemoveEnemyFromList(GameObject deadObject)
-    {
-        for (int i = 0; i < EnemyList.Length; i++)
-        {
-            if(EnemyList[i] == deadObject)
-            {
-                EnemyList[i] = null;
-            }
+            SpawnEnemies();
         }
     }
 
@@ -203,7 +159,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler {
             {
                 enemiesSpawned = true;
                 SpawnEnemies();
-                SpawnGameOverPlane();
             }
         } 
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
