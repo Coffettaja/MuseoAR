@@ -6,7 +6,16 @@ TagManager:
   tags:
   - enemy
   - MarkerABC
+<<<<<<< HEAD
   - strike
+=======
+  - MapItem
+  - Marker
+  - Map
+  - Decoration
+  - DecorationList
+  - RemoveZone
+>>>>>>> 2c4c699f24ff7a33c0981f52ad4d78e5c8fc3292
   layers:
   - Default
   - TransparentFX

@@ -14,8 +14,6 @@ public class TargetScript : MonoBehaviour {
     RawImage targetFill;
 
     Vector3 fillScale;
-    IEnumerator c;
-    IEnumerator c2;
 
     TrackableScript targetedMarker;
 
@@ -26,8 +24,8 @@ public class TargetScript : MonoBehaviour {
         fillScale = targetFill.transform.localScale;
 
         //targetFill.CrossFadeAlpha(1, 2.0f, false);
-        c = FillCoroutine(2.0f);
-        c2 = AfterPulse(0.5f);
+        //c = FillCoroutine(2.0f);
+        //c2 = AfterPulse(0.5f);
     }
 	
 	// Update is called once per frame
