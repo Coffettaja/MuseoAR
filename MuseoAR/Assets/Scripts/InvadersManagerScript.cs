@@ -101,8 +101,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             {
                 GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
                 enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
-                Vector3 displacement = new Vector3(x, y, z);
-                enemyGO.transform.localPosition += displacement;
+                enemyGO.transform.localPosition += new Vector3(x, y, z);
+                enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
                 enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);

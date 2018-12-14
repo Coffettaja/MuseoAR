@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour {
     public float tickSpeed = 0.8f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 6; //How many ticks the enemies move to one direction
+    public GameObject deathEffect;
 
     private Rigidbody rb;
 
@@ -16,6 +17,7 @@ public class EnemyScript : MonoBehaviour {
 //    private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
     private InvadersManagerScript _manager;
+    private GameObject imageTarget;
 
     private int movesToDirection = 0;
     private float timeSinceLastMove = 0;
@@ -28,8 +30,8 @@ public class EnemyScript : MonoBehaviour {
         moveRight = true;
         //StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
-        _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
-
+        imageTarget = GameObject.Find("ImageTarget");
+        _manager = imageTarget.GetComponent<InvadersManagerScript>();
     }
 
 
@@ -62,12 +64,23 @@ public class EnemyScript : MonoBehaviour {
     /// </summary>
     public void die()
     {
-        //Turn the enemy red
-        MeshRenderer m_rend = GetComponent<MeshRenderer>();
-        m_rend.material.color = Color.red;
         addPoints();
+
+        //Create and animate the enemy's death effect
+        Transform transform = GetComponent<Transform>();
+        GameObject boom = Instantiate(deathEffect, transform.position, transform.rotation, imageTarget.transform);
+        ParticleSystem ps = boom.GetComponent<ParticleSystem>();
+        ps.Play();
+        var em = ps.emission;
+        em.enabled = true;
+
+        //Destroy the Particle System so it doesn't linger on indefinetely
+        Destroy(boom, 1.0f);
+
+        //Destroy the enemy
         _manager.RemoveEnemyFromList(gameObject);
-        Destroy(this.gameObject, 1.0f);
+        Destroy(this.gameObject);
+
         _manager.CheckIfStageCompleted();
     }
 
