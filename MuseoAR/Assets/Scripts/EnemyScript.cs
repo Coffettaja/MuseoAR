@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour {
 //    private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
     private InvadersManagerScript _manager;
-    public GameObject imageTarget;
+    private GameObject imageTarget;
 
     private int movesToDirection = 0;
     private float timeSinceLastMove = 0;
@@ -31,8 +31,7 @@ public class EnemyScript : MonoBehaviour {
         //StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
         imageTarget = GameObject.Find("ImageTarget");
-        //_manager = imageTarget.GetComponent<InvadersManagerScript>();
-        _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
+        _manager = imageTarget.GetComponent<InvadersManagerScript>();
     }
 
 
@@ -67,22 +66,19 @@ public class EnemyScript : MonoBehaviour {
     {
         addPoints();
 
-        ////Explodes enemy
-        //deathParticleS.Play();
-        //var em = deathParticleS.emission;
-        //em.enabled = true;
-
+        //Create and animate the enemy's death effect
         Transform transform = GetComponent<Transform>();
         GameObject boom = Instantiate(deathEffect, transform.position, transform.rotation, imageTarget.transform);
         ParticleSystem ps = boom.GetComponent<ParticleSystem>();
         ps.Play();
         var em = ps.emission;
         em.enabled = true;
+
+        //Destroy the Particle System so it doesn't linger on indefinetely
         Destroy(boom, 1.0f);
 
-        //Destroy
+        //Destroy the enemy
         _manager.RemoveEnemyFromList(gameObject);
-        //Destroy(this.gameObject, 1.0f);        
         Destroy(this.gameObject);
 
         _manager.CheckIfStageCompleted();

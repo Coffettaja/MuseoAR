@@ -128,3 +128,4 @@ MonoBehaviour:
   movementTicks: 4
   deathEffect: {fileID: 1488473495704836, guid: 1b44ce44b9ab38f4ba633feac68946e9,
     type: 2}
+  imageTarget: {fileID: 0}
