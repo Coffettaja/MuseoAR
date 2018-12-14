@@ -8,15 +8,16 @@ public class EnemyScript : MonoBehaviour {
     public float tickSpeed = 0.8f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 6; //How many ticks the enemies move to one direction
+    public GameObject deathEffect;
 
     private Rigidbody rb;
-    private ParticleSystem deathAnim;
 
     private float gameOverHeight; //The z cordinate which causes game over when reached by enemy
     private bool moveRight;
 //    private bool _touchingPlane = false;
     private float radius;   //Distance from the center of the mesh to it's bottom
     private InvadersManagerScript _manager;
+    public GameObject imageTarget;
 
     private int movesToDirection = 0;
     private float timeSinceLastMove = 0;
@@ -29,8 +30,9 @@ public class EnemyScript : MonoBehaviour {
         moveRight = true;
         //StartCoroutine(MoveEnemy());
         radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
+        imageTarget = GameObject.Find("ImageTarget");
+        //_manager = imageTarget.GetComponent<InvadersManagerScript>();
         _manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
-        deathAnim = GetComponent<ParticleSystem>();
     }
 
 
@@ -63,16 +65,24 @@ public class EnemyScript : MonoBehaviour {
     /// </summary>
     public void die()
     {
-        ////Turn the enemy red
-        //MeshRenderer m_rend = GetComponent<MeshRenderer>();
-        //m_rend.material.color = Color.red;
-
         addPoints();
-        _manager.RemoveEnemyFromList(gameObject);
 
-        //Explodes enemy
-        Debug.Log("Osu");
-        deathAnim.Play();
+        ////Explodes enemy
+        //deathParticleS.Play();
+        //var em = deathParticleS.emission;
+        //em.enabled = true;
+
+        Transform transform = GetComponent<Transform>();
+        GameObject boom = Instantiate(deathEffect, transform.position, transform.rotation, imageTarget.transform);
+        ParticleSystem ps = boom.GetComponent<ParticleSystem>();
+        ps.Play();
+        var em = ps.emission;
+        em.enabled = true;
+        Destroy(boom, 1.0f);
+
+        //Destroy
+        _manager.RemoveEnemyFromList(gameObject);
+        //Destroy(this.gameObject, 1.0f);        
         Destroy(this.gameObject);
 
         _manager.CheckIfStageCompleted();

@@ -565,11 +565,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 581079928}
---- !u!4 &582598859 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26,
-    type: 2}
-  m_PrefabInternal: {fileID: 727130169}
 --- !u!1 &595619329
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,48 +695,6 @@ MonoBehaviour:
   aimPoint: {fileID: 220538506}
   projectileSpawn: {fileID: 1838440585}
   imageTarget: {fileID: 1659534212}
---- !u!1001 &727130169
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1659534212}
-    m_Modifications:
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4831641649884352, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b2fe17a161d79714daa6cf6e63b53e26, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &803497677
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +855,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b3853975db99421e806fd3d287f83bff, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -1751,7 +1704,6 @@ Transform:
   m_Children:
   - {fileID: 92113592}
   - {fileID: 99154036}
-  - {fileID: 582598859}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
