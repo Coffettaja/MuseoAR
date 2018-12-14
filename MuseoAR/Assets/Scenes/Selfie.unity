@@ -148,7 +148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -60.30005}
+  m_AnchoredPosition: {x: 0, y: -60.299988}
   m_SizeDelta: {x: 612, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &27196394
@@ -1062,6 +1062,7 @@ MonoBehaviour:
   m_decorationSprite: {fileID: 21300000, guid: 8cce6235a894f4242a139f3cb24f8f4b, type: 3}
   m_deactivatedSprite: {fileID: 21300000, guid: 40a674aeb2ebb7f46b9cc6582a91656e,
     type: 3}
+  m_activatingScene: quizScene
 --- !u!1 &1641484109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1190,7 @@ MonoBehaviour:
   m_decorationSprite: {fileID: 21300000, guid: 5d87295b06816c24482daa03f6965d56, type: 3}
   m_deactivatedSprite: {fileID: 21300000, guid: 9d68889220c4a1f409954fe9967b937d,
     type: 3}
+  m_activatingScene: invaders
 --- !u!1 &1963666444
 GameObject:
   m_ObjectHideFlags: 0
