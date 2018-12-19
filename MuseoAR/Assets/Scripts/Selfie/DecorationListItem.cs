@@ -17,7 +17,7 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler {
     public Sprite m_decorationSprite;
     public Sprite m_deactivatedSprite;
 
-    string m_activatingScene;
+    public string m_activatingScene;
 
     // Use this for initialization
 	void Start ()

@@ -17,7 +17,7 @@ public class GameControllerScript : MonoBehaviour {
             this.completed = completed;
         }
     }
-
+    
     private bool _shuttingDown = false;
     private static object _lock = new object();
     private static GameControllerScript _instance;

@@ -10,17 +10,20 @@ using UnityEngine.UI;
 /// </summary>
 public class TargetScript : MonoBehaviour {
 
-    RawImage targetFrame;
-    RawImage targetFill;
+    Image targetFrame;
+    Image targetFill;
 
     Vector3 fillScale;
+
+    public Sprite frameSprite;
+    public Sprite frameHighlightSprite;
 
     TrackableScript targetedMarker;
 
 	// Use this for initialization
 	void Start () {
-        targetFrame = GetComponent<RawImage>();
-        targetFill = transform.Find("TargetFill").GetComponent<RawImage>();        
+        targetFrame = GetComponent<Image>();
+        targetFill = transform.Find("TargetFill").GetComponent<Image>();        
         fillScale = targetFill.transform.localScale;
 
         //targetFill.CrossFadeAlpha(1, 2.0f, false);
@@ -35,17 +38,17 @@ public class TargetScript : MonoBehaviour {
         RaycastHit hit;
         if ( Physics.Raycast(ray, out hit, Mathf.Infinity) )
         {
-            Debug.Log(hit.collider.gameObject.name);
             if(hit.collider.gameObject.tag == "Marker")
             {
-                Debug.Log("Marker hit!");
                 targetedMarker = hit.collider.gameObject.GetComponent<TrackableScript>();
+                targetFrame.sprite = frameHighlightSprite;
                 StartCoroutine("FillCoroutine", 2.0f);
             }
         }
         else
         {
             //Stop animations and reset the fill sprite to small
+            targetFrame.sprite = frameSprite;
             StopAllCoroutines();
             targetedMarker = null;
             targetFill.transform.localScale = fillScale * 0; 
