@@ -14,12 +14,13 @@ public class ShootingScript : MonoBehaviour {
     public Transform aimPoint;
     public Transform projectileSpawn;
     public Transform imageTarget;
+    public GameObject aimPlane;
 
     private float nextShoot = 0.0f;
-    private bool shootFromLeft = true;
     
     public void Update()
     {
+        //Raycasts to aimplane and then aims the projectile spawn to point at the aimpoint
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))

@@ -107,7 +107,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1363631581538552}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
@@ -128,4 +128,4 @@ MonoBehaviour:
   movementTicks: 4
   deathEffect: {fileID: 1488473495704836, guid: 1b44ce44b9ab38f4ba633feac68946e9,
     type: 2}
-  imageTarget: {fileID: 0}
+  pointsValue: 200
