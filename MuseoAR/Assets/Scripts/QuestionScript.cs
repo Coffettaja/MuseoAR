@@ -9,7 +9,7 @@ public class QuestionScript : MonoBehaviour {
 
     #region Properties    
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
-    public Sprite answerNo, correctSprite, arrowSprite;
+    public Sprite correctSprite, arrowSprite;
     public GameObject fpGO;
     public Vuforia.TrackableBehaviour tb;
 
