@@ -9,7 +9,8 @@ public class QuestionScript : MonoBehaviour {
 
     #region Properties    
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
-    public Sprite answerNo, selectedSprite, arrowSprite;
+    public Sprite correctSprite, arrowSprite;
+    public GameObject fpGO;
     public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
@@ -71,7 +72,7 @@ public class QuestionScript : MonoBehaviour {
         foreach (var child in blobchildren)
         {
             child.sprite = blobEmpty;
-        }
+        }        
 
         // disable chalkboard
         var chalkBoard = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
@@ -125,6 +126,13 @@ public class QuestionScript : MonoBehaviour {
         else if (questionCounter >= 1 || go)
         {
             go.SetActive(false);
+        }
+
+        // kill the print
+        var prints = GameObject.FindGameObjectsWithTag("Fingerprint");
+        foreach (var fp in prints)
+        {
+            Destroy(fp);
         }
 
         // Register and handle used questions
@@ -198,25 +206,21 @@ public class QuestionScript : MonoBehaviour {
     public void selectAnswer(int answerInd)
     {
         answer_index = answerInd;
-        // Show graphically the selected answer        
-        if (answerInd == 0)
-        {
-            A.transform.GetChild(2).gameObject.SetActive(true);
-            B.GetComponent<Button>().interactable = false;
-            C.GetComponent<Button>().interactable = false;
-        }
-        if (answerInd == 1)
-        {            
-            A.GetComponent<Button>().interactable = false;
-            B.transform.GetChild(2).gameObject.SetActive(true);
-            C.GetComponent<Button>().interactable = false;
-        }
 
-        if (answerInd == 2)
-        {            
-            A.GetComponent<Button>().interactable = false;
-            B.GetComponent<Button>().interactable = false;
-            C.transform.GetChild(2).gameObject.SetActive(true);
+        // Show graphically the selected answer        
+        // Make a fingerprint at pressed position
+        Vector3 pos = Input.mousePosition;
+        var prints = GameObject.FindGameObjectsWithTag("Fingerprint");
+        foreach (var fp in prints)
+        {
+            Destroy(fp);
+        }
+        Instantiate(fpGO, pos, Quaternion.identity, ABC[answerInd].transform);
+        
+        for (int i = 0; i < ABC.Length; i++)
+        {
+            if (i != answerInd)
+                ABC[i].GetComponent<Button>().interactable = false;
         }
 
         // Delay showing correct answer
@@ -233,37 +237,25 @@ public class QuestionScript : MonoBehaviour {
         var imgA = A.transform.GetChild(0).GetComponent<Image>();
         var imgB = B.transform.GetChild(0).GetComponent<Image>();
         var imgC = C.transform.GetChild(0).GetComponent<Image>();
+        Image[] images = new Image[] { imgA, imgB, imgC };
         Color tmp = imgB.color;
 
         //Show graphically the right answer
-        if (currentQuestion.correct == 0)
+        for (int i = 0; i < ABC.Length; i++)
         {
-            imgA.sprite = selectedSprite;
-            for (int i = 0; i < 70; i++)
+            tmp.a = 1;
+            if (currentQuestion.correct == i)
             {
-                tmp.a -= .01f;
-                B.transform.GetChild(1).GetComponent<Text>().color = tmp;
-                C.transform.GetChild(1).GetComponent<Text>().color = tmp;
+                images[i].sprite = correctSprite;                
             }
-        }
-        else if (currentQuestion.correct == 1)
-        {
-            imgB.sprite = selectedSprite;
-            for (int i = 0; i < 70; i++)
+            else
             {
-                tmp.a -= .01f;
-                A.transform.GetChild(1).GetComponent<Text>().color = tmp;
-                C.transform.GetChild(1).GetComponent<Text>().color = tmp;
-            }
-        }
-        else if (currentQuestion.correct == 2)
-        {
-            imgC.sprite = selectedSprite;
-            for (int i = 0; i < 70; i++)
-            {
-                tmp.a -= .01f;
-                A.transform.GetChild(1).GetComponent<Text>().color = tmp;
-                B.transform.GetChild(1).GetComponent<Text>().color = tmp;
+                // Change alphas of noncorrect answers
+                for (int j = 0; j < 70; j++)
+                {
+                    tmp.a -= .01f;
+                    ABC[i].transform.GetChild(1).GetComponent<Text>().color = tmp;
+                }                
             }
         }
 
