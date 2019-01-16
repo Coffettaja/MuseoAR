@@ -93,7 +93,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
 
     private void SpawnGameOverPlane()
     {
-        //Spawn the game over blocks
+        //Spawn the "Game Over" blocks
         GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
         blocks.name = "GameOverPlane";
         blocks.transform.localPosition += new Vector3(0, gameOverBlockHeight, 1);
@@ -134,7 +134,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             y += enemySpacing;
             //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
-        SpawnBonusEnemy();
+        
+        //SpawnBonusEnemy();
     }
 
     private void SpawnBonusEnemy()
