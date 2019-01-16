@@ -11,7 +11,7 @@ public class QuestionScript : MonoBehaviour {
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
     public Sprite correctSprite, arrowSprite;
     public GameObject fpGO;
-    public Vuforia.TrackableBehaviour tb;
+    //public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
     private int correctCounter = 0, questionCounter = 0, tracking = 0, striking = 0;
@@ -29,6 +29,7 @@ public class QuestionScript : MonoBehaviour {
     private void init()
     {
         tracking = 1;
+        transform.GetChild(0).gameObject.SetActive(true);        
         // quiz related inits        
         pointsGO = GameObject.Find("TextPoints");
         A = GameObject.Find("PanelAnswerA");
@@ -48,12 +49,8 @@ public class QuestionScript : MonoBehaviour {
 
     private void Update()
     {
-        if (tb.CurrentStatus == Vuforia.TrackableBehaviour.Status.TRACKED)
-        {
-            transform.GetChild(0).gameObject.SetActive(true);
-            if (tracking == 0)
+        if (tracking == 0)
                 init();
-        }
 
         if (pointsGO)
             pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
