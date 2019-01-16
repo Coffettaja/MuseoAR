@@ -23,12 +23,15 @@ public class ProjectileScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        //If the projectile hits an enemy, it destroys that enemy and disappears.
+        //If it hits anything else, it also disappears
         if(other.gameObject.tag == "enemy")
         {
             other.GetComponent<EnemyScript>().die();
             other.GetComponent<BoxCollider>().enabled = false;
             Destroy(this.gameObject);
         }
+
 
     }
 

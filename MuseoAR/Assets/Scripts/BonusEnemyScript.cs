@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusEnemyScript : MonoBehaviour {
+public class BonusEnemyScript : EnemyScript {
 
-    public float MoveSpeed = 5.0f;
+    public float MoveSpeed = 4.0f;
 
     private InvadersManagerScript m_manager;
 
-	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
+        pointsValue = 1000;
         m_manager = GameObject.Find("ImageTarget").GetComponent<InvadersManagerScript>();
 	}
 	
@@ -21,17 +21,4 @@ public class BonusEnemyScript : MonoBehaviour {
         Vector3 moveVector = height + Vector3.right;
         transform.Translate(moveVector * Time.deltaTime * MoveSpeed, Space.World);
 	}
-
-    public void die()
-    {
-        MeshRenderer m_rend = GetComponent<MeshRenderer>();
-        m_rend.material.color = Color.red;
-        AddPoints();
-        Destroy(this.gameObject, 1.0f);
-    }
-
-    private void AddPoints()
-    {
-        m_manager.Score += 100;
-    }
 }

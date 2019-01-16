@@ -9,53 +9,57 @@ public class EnemyScript : MonoBehaviour {
     public float movementSpeed = 7f;
     public int movementTicks = 6; //How many ticks the enemies move to one direction
     public GameObject deathEffect;
+    public int pointsValue = 200;
 
     private Rigidbody rb;
-
-    private float gameOverHeight; //The z cordinate which causes game over when reached by enemy
-    private bool moveRight;
-//    private bool _touchingPlane = false;
-    private float radius;   //Distance from the center of the mesh to it's bottom
     private InvadersManagerScript _manager;
     private GameObject imageTarget;
 
+    private float gameOverHeight; //The z cordinate which causes game over when reached by enemy    
+    //Käytetäänkö radiusta enää mihinkään?
+    private float radius;   //Distance from the center of the mesh to it's bottom    
+    private bool moving = true;
+    private bool moveRight;
     private int movesToDirection = 0;
     private float timeSinceLastMove = 0;
-
-    private bool moving = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         moveRight = true;
         //StartCoroutine(MoveEnemy());
-        radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2;
+        radius = GetComponent<MeshFilter>().mesh.bounds.size.z/2; 
         imageTarget = GameObject.Find("ImageTarget");
         _manager = imageTarget.GetComponent<InvadersManagerScript>();
     }
-
 
     private void FixedUpdate()
     {
         timeSinceLastMove += Time.deltaTime;
         if(moving && timeSinceLastMove >= tickSpeed)
         {
-            timeSinceLastMove = 0;
-            if (moveRight)
-                rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
-            //transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
-            else
-                rb.MovePosition(transform.position - Vector3.right * Time.deltaTime * movementSpeed);
-            //transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
+            moveEnemy();
+        }
+    }
 
-            movesToDirection++;
-            if (movesToDirection >= movementTicks)
-            {
-                movesToDirection = 0;
-                moveRight = !moveRight;
+    /// <summary>
+    /// Moves this enemy left and right and towards the game over boxes.
+    /// </summary>
+    private void moveEnemy()
+    {
+        timeSinceLastMove = 0;
+        if (moveRight)
+            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
+        else
+            rb.MovePosition(transform.position - Vector3.right * Time.deltaTime * movementSpeed);
 
-                transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
-            }
+        movesToDirection++;
+        if (movesToDirection >= movementTicks)
+        {
+            movesToDirection = 0;
+            moveRight = !moveRight;
+
+            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
         }
     }
 
@@ -65,17 +69,7 @@ public class EnemyScript : MonoBehaviour {
     public void die()
     {
         addPoints();
-
-        //Create and animate the enemy's death effect
-        Transform transform = GetComponent<Transform>();
-        GameObject boom = Instantiate(deathEffect, transform.position, transform.rotation, imageTarget.transform);
-        ParticleSystem ps = boom.GetComponent<ParticleSystem>();
-        ps.Play();
-        var em = ps.emission;
-        em.enabled = true;
-
-        //Destroy the Particle System so it doesn't linger on indefinetely
-        Destroy(boom, 1.0f);
+        explode();
 
         //Destroy the enemy
         _manager.RemoveEnemyFromList(gameObject);
@@ -84,9 +78,23 @@ public class EnemyScript : MonoBehaviour {
         _manager.CheckIfStageCompleted();
     }
 
-    private void addPoints()
+    private void explode()
     {
-        _manager.Score += 500;
+        //Create and animate the enemy's death effect
+        Transform transform = GetComponent<Transform>();
+        GameObject explosion = Instantiate(deathEffect, transform.position, transform.rotation, imageTarget.transform);
+        ParticleSystem ps = explosion.GetComponent<ParticleSystem>();
+        ps.Play();
+        var em = ps.emission;
+        em.enabled = true;
+
+        //Destroy the Particle System so it doesn't linger on indefinetely
+        Destroy(explosion, 1.0f);
+    }
+
+    protected void addPoints()
+    {
+        _manager.Score += pointsValue;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -102,32 +110,6 @@ public class EnemyScript : MonoBehaviour {
         moving = false;
     }
 
-    /// <summary>
-    /// Moves this object left and right and towards the camera.
-    /// Destroys object if it is too close to the camera.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator MoveEnemy()
-    {
-        yield return new WaitForSeconds(tickSpeed);
 
-        // Switch for left and right movement
-        for(int i = 0; i <= movementTicks; i++)
-        {
-            if (moveRight)
-                rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
-            //transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
-            else
-                rb.MovePosition(transform.position -Vector3.right * Time.deltaTime * movementSpeed);
-            //transform.Translate(-Vector3.right * Time.deltaTime * movementSpeed);
-            yield return new WaitForSeconds(tickSpeed);
-        }
-        moveRight = !moveRight;
-
-        // Downwards
-        transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
-        StartCoroutine(MoveEnemy());       
-        
-    }
     
 }

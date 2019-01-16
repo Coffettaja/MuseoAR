@@ -22,6 +22,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
     public float enemyStartY = 2.0f;
+    public float gameOverBlockHeight = 0.0f;
     public Transform SpawnPoint;
 
     public GameObject[] EnemyList;
@@ -56,8 +57,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     void Start()
     {
         imageTarget = gameObject;
-        //SpawnEnemies();
-
         _gameOverPopup = GameObject.Find("GameOverPopup");
         _gameOverPopup.SetActive(false);
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -70,12 +69,34 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         }
     }
 
+    //If the marker is found for the first time, starts the game
+    //otherwise display the not-tracked-icon.
+    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    {
+        Debug.Log(newStatus);        
+        if (newStatus == TrackableBehaviour.Status.TRACKED)
+        {
+            _outOfFocusPopup.SetActive(false);
+            if (!enemiesSpawned)
+            {
+                enemiesSpawned = true;
+                SpawnEnemies();
+                SpawnGameOverPlane();
+            }
+        }
+        else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
+                 newStatus == TrackableBehaviour.Status.NOT_FOUND && !gameOver)
+        {
+            _outOfFocusPopup.SetActive(true);
+        }
+    }
+
     private void SpawnGameOverPlane()
     {
-        //Spawn the game over plane
-        GameObject plane = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
-        plane.name = "GameOverPlane";
-        plane.transform.localPosition += new Vector3(0, 0, 1);
+        //Spawn the "Game Over" blocks
+        GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
+        blocks.name = "GameOverPlane";
+        blocks.transform.localPosition += new Vector3(0, gameOverBlockHeight, 1);
     }
 
     /// <summary>
@@ -113,14 +134,15 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             y += enemySpacing;
             //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
-        SpawnBonusEnemy();
+        
+        //SpawnBonusEnemy();
     }
 
     private void SpawnBonusEnemy()
     {
         //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
         GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
-        bonus.transform.localPosition += new Vector3(-5, 0, 2);
+        bonus.transform.localPosition += new Vector3(-5, 0, 1.5f);
     }
 
 
@@ -195,23 +217,5 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     }
 
 
-    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
-    {
-        Debug.Log(newStatus);
-        if (newStatus == TrackableBehaviour.Status.TRACKED)
-        {
-            _outOfFocusPopup.SetActive(false);
-            if (!enemiesSpawned)
-            {
-                enemiesSpawned = true;
-                SpawnEnemies();
-                SpawnGameOverPlane();
-            }
-        }
-        else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
-                 newStatus == TrackableBehaviour.Status.NOT_FOUND && !gameOver)
-        {
-            _outOfFocusPopup.SetActive(true);
-        }
-    }
+
 }
