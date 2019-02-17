@@ -9,8 +9,17 @@ public class GameControllerScript : MonoBehaviour {
     public struct SceneDictItem
     {
         public string name;
+
+        // Used for example for marking the status on the map and unlocking selfie items.
         public bool completed;
 
+        /// <summary>
+        /// Sets the name and completed status for the SceneDictItem.
+        /// Currently, if a scene is completed, it just means that the user has
+        /// entered the scene at least once and returned back to the main scene.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="completed"></param>
         public SceneDictItem(string name, bool completed)
         {
             this.name = name;
@@ -24,6 +33,7 @@ public class GameControllerScript : MonoBehaviour {
     public static GameControllerScript Instance
     {
         get {
+            // Locks down the thread until the the Singleton instance has been created.
             lock (_lock)
             {
                 if (_instance == null)
@@ -48,7 +58,7 @@ public class GameControllerScript : MonoBehaviour {
         _shuttingDown = true;
     }
 
-
+    // To keep track of the completed status of a scene, it has to be added here first.
     public SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
 
     private string _currentScene;
@@ -102,6 +112,7 @@ public class GameControllerScript : MonoBehaviour {
     {
         setSceneDictValue(name, true);
     }
+  
 
     public void LoadSceneWithName(string name)
     {
@@ -109,7 +120,10 @@ public class GameControllerScript : MonoBehaviour {
         SceneManager.LoadScene(name);
     }
 
-    public void LoadTopLevelScene()
+  /// <summary>
+  /// Marks the current scene completed and then loads the main scene (named "init").
+  /// </summary>
+  public void LoadTopLevelScene()
     {
         MarkSceneCompleted(_currentScene);
         LoadSceneWithName("init");
