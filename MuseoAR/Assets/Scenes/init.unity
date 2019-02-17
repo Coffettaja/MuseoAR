@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -169,6 +169,11 @@ Transform:
   m_Father: {fileID: 1574711661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -139.29599, y: 0, z: 0}
+--- !u!224 &91687675 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+    type: 2}
+  m_PrefabInternal: {fileID: 360866610}
 --- !u!43 &143602226
 Mesh:
   m_ObjectHideFlags: 0
@@ -509,6 +514,116 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.57894737, y: 0, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &360866610
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2045451563}
+    m_Modifications:
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504385869375608, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504385869375608, guid: 9b28966c56e4e264a86f2b2f526ec93e,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9b28966c56e4e264a86f2b2f526ec93e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &373301934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1533,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 984729469}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &984729469
@@ -2028,7 +2154,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5309f3e1fc5641c481e3b08104858e1b, type: 3}
+        m_Texture: {fileID: 2800000, guid: e9d17dfaf60d4534b0e1a8c2e420ded2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2260,7 +2386,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2279,6 +2405,7 @@ RectTransform:
   - {fileID: 984729467}
   - {fileID: 446235513}
   - {fileID: 2075151321}
+  - {fileID: 91687675}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -16,7 +16,7 @@ public class SelfieSceneButton : MonoBehaviour {
         noticeBang = transform.Find("NoticeBang").gameObject;
         noticeBang.SetActive(false);
         rt = GetComponent<RectTransform>();
-        Debug.Log(PlayerPrefs.GetString("DecorUnlock"));
+        //Debug.Log(PlayerPrefs.GetString("DecorUnlock"));
         GetComponent<Button>().onClick.AddListener(LoadSelfieScene);
         if(PlayerPrefs.GetString("DecorUnlock") != "")
         {

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fingerprint
+  - MapItem
+  - Marker
+  - Map
+  - ScoreDisplay
   layers:
   - Default
   - TransparentFX

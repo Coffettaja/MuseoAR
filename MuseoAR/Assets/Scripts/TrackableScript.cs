@@ -37,7 +37,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     {
         if(newStatus == TrackableBehaviour.Status.TRACKED)
         {
-            
+
         }
         
     }
