@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2377,11 +2377,9 @@ MonoBehaviour:
   blobNo: {fileID: 21300000, guid: 95e053b879970fd46b8872d9bb98d63e, type: 3}
   blobEmpty: {fileID: 21300000, guid: ee11c98d465c82a44af05610b2dd335e, type: 3}
   answerDummy: {fileID: 21300000, guid: 485d9a9828e397048a00e31fe9afa8b4, type: 3}
-  answerNo: {fileID: 21300000, guid: f918a5989cf2d40459136b746d5a9506, type: 3}
   correctSprite: {fileID: 21300000, guid: 507539b14aa730f45b79893573e1d189, type: 3}
   arrowSprite: {fileID: 21300000, guid: d409642cf0e4c5b488945a1fb8b43698, type: 3}
-  fpGO: {fileID: 1145481232645218, guid: a5f1966fe49f5db428e97b5a938179b5, type: 2}
-  tb: {fileID: 614459680}
+  fpGO: {fileID: 1145481232645218, guid: a41022eef1368f5438196ecbc80e7147, type: 2}
 --- !u!4 &1215400633
 Transform:
   m_ObjectHideFlags: 0
