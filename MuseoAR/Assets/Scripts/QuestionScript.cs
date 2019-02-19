@@ -10,7 +10,7 @@ public class QuestionScript : MonoBehaviour {
     #region Properties    
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
     public Sprite correctSprite, arrowSprite;
-    public GameObject fpGO;
+    public GameObject fingerprintGO;
     //public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
@@ -212,7 +212,7 @@ public class QuestionScript : MonoBehaviour {
         {
             Destroy(fp);
         }
-        Instantiate(fpGO, pos, Quaternion.identity, ABC[answerInd].transform);
+        Instantiate(fingerprintGO, pos, Quaternion.identity, ABC[answerInd].transform);
         
         for (int i = 0; i < ABC.Length; i++)
         {

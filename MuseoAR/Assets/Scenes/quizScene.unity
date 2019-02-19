@@ -2379,7 +2379,8 @@ MonoBehaviour:
   answerDummy: {fileID: 21300000, guid: 485d9a9828e397048a00e31fe9afa8b4, type: 3}
   correctSprite: {fileID: 21300000, guid: 507539b14aa730f45b79893573e1d189, type: 3}
   arrowSprite: {fileID: 21300000, guid: d409642cf0e4c5b488945a1fb8b43698, type: 3}
-  fpGO: {fileID: 1145481232645218, guid: a41022eef1368f5438196ecbc80e7147, type: 2}
+  fingerprintGO: {fileID: 1145481232645218, guid: a41022eef1368f5438196ecbc80e7147,
+    type: 2}
 --- !u!4 &1215400633
 Transform:
   m_ObjectHideFlags: 0
