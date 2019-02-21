@@ -41,7 +41,7 @@ public class EnemyScript : MonoBehaviour {
         var em = ps.emission;
         em.enabled = true;
 
-        //Destroy the Particle System so it doesn't linger on indefinetely
+        //Destroy the Particle System so it doesn't linger on indefinitely
         Destroy(explosion, 1.0f);
     }
 
