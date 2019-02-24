@@ -9,6 +9,7 @@ TagManager:
   - Marker
   - Map
   - ScoreDisplay
+  - Canvas
   layers:
   - Default
   - TransparentFX
