@@ -27,7 +27,7 @@ public class ProjectileScript : MonoBehaviour {
         //If it hits anything else, it also disappears
         if(other.gameObject.tag == "enemy")
         {
-            other.GetComponent<EnemyScript>().die();
+            other.GetComponent<EnemyScript>().Die();
             other.GetComponent<BoxCollider>().enabled = false;
             Destroy(this.gameObject);
         }

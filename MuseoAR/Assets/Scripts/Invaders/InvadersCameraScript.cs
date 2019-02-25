@@ -44,7 +44,7 @@ public class InvadersCameraScript : MonoBehaviour {
         if (previousAimpoint && currentAimpoint && previousAimpoint == currentAimpoint)
         {
             GameObject hitTarget = hit.transform.gameObject;
-            hitTarget.GetComponent<EnemyScript>().die();
+            hitTarget.GetComponent<EnemyScript>().Die();
         }
     }
 }
