@@ -1,0 +1,109 @@
+{
+  "questions": [
+    {
+      "question": "Ketä pidetään Suomen kansakoulun isänä?",
+      "answerA": "Elias Lönnrotia",
+      "answerB": "J.V. Snellmania",
+      "answerC": "Uno Cygnaeusta",
+      "correct": 2
+    },
+    {
+      "question": "Mihin kaupunkiin perustettiin maamme ensimmäinen suomenkielinen opettajaseminaari?",
+      "answerA": "Turkuun",
+      "answerB": "Jyväskylään",
+      "answerC": "Viipuriin",
+      "correct": 1
+    },
+    {
+      "question": "Millä nimellä kutsuttiin koulua, jota käytiin ennen kansakoulujen perustamista?",
+      "answerA": "Kulkukoulu",
+      "answerB": "Kiertokoulu",
+      "answerC": "Välikoulu",
+      "correct": 1
+    },
+    {
+      "question": "Mihin perustettiin ensimmäinen kansakoulu Keski-Suomessa?",
+      "answerA": "Jämsään",
+      "answerB": "Pihtiputaalle",
+      "answerC": "Konginkankaalle",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista oli 1800-luvun kansakoulun oppiaine?",
+      "answerA": "Voimistelu",
+      "answerB": "Liikunta",
+      "answerC": "Jumppa",
+      "correct": 0
+    },
+    {
+      "question": "Mikä seuraavista EI ollut 1800-luvun kansakoulun oppiaine?",
+      "answerA": "Käsityöt",
+      "answerB": "Kotitalous",
+      "answerC": "Kuvaamataito",
+      "correct": 1
+    },
+    {
+      "question": "Mitä opetettiin äidinkielen ja kirjoituksen tunnilla?",
+      "answerA": "Tekstausta",
+      "answerB": "Kaunokirjoitusta",
+      "answerC": "Fraktuuraa",
+      "correct": 1
+    },
+    {
+      "question": "Mikä toimi valonlähteenä kansakoululuokassa?",
+      "answerA": "Sähkölamppu",
+      "answerB": "Öljylamppu",
+      "answerC": "Kynttilä",
+      "correct": 1
+    },
+    {
+      "question": "Mikä soitin löytyi usein kansakoululuokasta?",
+      "answerA": "Kantele",
+      "answerB": "Haitari",
+      "answerC": "Harmooni",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista oli Jyväskylässä toimiva kirjapaino, jossa tehtiin suomenkielisiä oppikirjoja kansakouluihin?",
+      "answerA": "Otava",
+      "answerB": "Karisto",
+      "answerC": "Weilin&Göös",
+      "correct": 2
+    },
+    {
+      "question": "Mikä on telluurio?",
+      "answerA": "Maan ja kuun liikettä havainnollistava vanha opetusväline",
+      "answerB": "Avaruutta ja taivaankappaleita käsittelevä vanha oppiaine",
+      "answerC": "1800-luvulla voimassa ollut näkemys maailmankaikkeudesta",
+      "correct": 0
+    },
+    {
+      "question": "Mikä viljelykasvi näkyy mustapohjaisessa opetustaulussa?",
+      "answerA": "Vehnä",
+      "answerB": "Ohra",
+      "answerC": "Ruis",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista eläimistä esiintyy luokassa näkyvässä opetustaulussa?",
+      "answerA": "Lammas",
+      "answerB": "Kana",
+      "answerC": "Sika",
+      "correct": 2
+    },
+    {
+      "question": "Mikä on nimeltään kivikynä, jota entisajan kansakoulun oppilaat käyttivät?",
+      "answerA": "Kihveli",
+      "answerB": "Rihveli",
+      "answerC": "Kehveli",
+      "correct": 1
+    },
+    {
+      "question": "Mitä ammattia varten ainevihon omistaja Alina Ahlund opiskeli? (sininen ainevihko löytyy pulpetilta)",
+      "answerA": "Sairaanhoitaja",
+      "answerB": "Opettaja",
+      "answerC": "Toimittaja",
+      "correct": 1
+    }
+  ]
+}

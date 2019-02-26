@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="quiz_mrkr" size="16.000000 16.000000" />
     <ImageTarget name="Quiz_Marker" size="1.000000 1.000000" />
     <ImageTarget name="IMG_1093" size="1.000000 0.750000" />
     <ImageTarget name="asd" size="1.000000 1.002786" />
