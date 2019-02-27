@@ -1,109 +1,116 @@
 {
   "questions": [
     {
-      "question": "Ketä pidetään Suomen kansakoulun isänä?",
-      "answerA": "Elias Lönnrotia",
-      "answerB": "J.V. Snellmania",
-      "answerC": "Uno Cygnaeusta",
-      "correct": 2
-    },
-    {
-      "question": "Mihin kaupunkiin perustettiin maamme ensimmäinen suomenkielinen opettajaseminaari?",
-      "answerA": "Turkuun",
-      "answerB": "Jyväskylään",
-      "answerC": "Viipuriin",
+      "question": "Minkä ikäryhmän vuosikymmenenä 1960-lukua yleisesti pidetään?",
+      "answerA": "Lasten",
+      "answerB": "Nuorten",
+      "answerC": "Aikuisten",
       "correct": 1
     },
     {
-      "question": "Millä nimellä kutsuttiin koulua, jota käytiin ennen kansakoulujen perustamista?",
-      "answerA": "Kulkukoulu",
-      "answerB": "Kiertokoulu",
-      "answerC": "Välikoulu",
+      "question": "Mikä seuraavista alakulttuurien edustajista liittyy 1960-lukuun?",
+      "answerA": "Punkkari",
+      "answerB": "Hippi",
+      "answerC": "Gootti",
       "correct": 1
     },
     {
-      "question": "Mihin perustettiin ensimmäinen kansakoulu Keski-Suomessa?",
-      "answerA": "Jämsään",
-      "answerB": "Pihtiputaalle",
-      "answerC": "Konginkankaalle",
-      "correct": 2
+      "question": "Mikä vempain soitti musiikkia 1960-luvun baareissa ja huoltoasemilla?",
+      "answerA": "Grammari",
+      "answerB": "Jukebox",
+      "answerC": "Kasettisoitin",
+      "correct": 1
     },
     {
-      "question": "Mikä seuraavista oli 1800-luvun kansakoulun oppiaine?",
-      "answerA": "Voimistelu",
-      "answerB": "Liikunta",
-      "answerC": "Jumppa",
+      "question": "Mikä oli 1960-luvun tunnetuin yhtye?",
+      "answerA": "The Crickets",
+      "answerB": "The Beatles",
+      "answerC": "The Shadows",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli Jyväskylässä 1960-luvulla toiminut yhtye?",
+      "answerA": "Goldy",
+      "answerB": "Silvery",
+      "answerC": "Bronzy",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu 1960-luvun tanssityyli?",
+      "answerA": "Twist",
+      "answerB": "Disco",
+      "answerC": "Charleston",
       "correct": 0
     },
     {
-      "question": "Mikä seuraavista EI ollut 1800-luvun kansakoulun oppiaine?",
-      "answerA": "Käsityöt",
-      "answerB": "Kotitalous",
-      "answerC": "Kuvaamataito",
+      "question": "Millä nimellä kutsutaan 1960-luvulla nuorison suosiossa ollutta musiikkia, jota soitettiin kahdella sähkökitaralla, bassolla ja rummuilla?",
+      "answerA": "Sähkölankamusiikki",
+      "answerB": "Rautalankamusiikki",
+      "answerC": "Puhelinlankamusiikki",
       "correct": 1
     },
     {
-      "question": "Mitä opetettiin äidinkielen ja kirjoituksen tunnilla?",
-      "answerA": "Tekstausta",
-      "answerB": "Kaunokirjoitusta",
-      "answerC": "Fraktuuraa",
-      "correct": 1
-    },
-    {
-      "question": "Mikä toimi valonlähteenä kansakoululuokassa?",
-      "answerA": "Sähkölamppu",
-      "answerB": "Öljylamppu",
-      "answerC": "Kynttilä",
-      "correct": 1
-    },
-    {
-      "question": "Mikä soitin löytyi usein kansakoululuokasta?",
-      "answerA": "Kantele",
-      "answerB": "Haitari",
-      "answerC": "Harmooni",
+      "question": "Jos et pitänyt pop- ja rockmusiikista, mitä musiikkityyliä todennäköisesti fanitit 1960-luvulla?",
+      "answerA": "Humppaa",
+      "answerB": "Polkkaa",
+      "answerC": "Tangoa",
       "correct": 2
     },
     {
-      "question": "Mikä seuraavista oli Jyväskylässä toimiva kirjapaino, jossa tehtiin suomenkielisiä oppikirjoja kansakouluihin?",
-      "answerA": "Otava",
-      "answerB": "Karisto",
-      "answerC": "Weilin&Göös",
-      "correct": 2
-    },
-    {
-      "question": "Mikä on telluurio?",
-      "answerA": "Maan ja kuun liikettä havainnollistava vanha opetusväline",
-      "answerB": "Avaruutta ja taivaankappaleita käsittelevä vanha oppiaine",
-      "answerC": "1800-luvulla voimassa ollut näkemys maailmankaikkeudesta",
-      "correct": 0
-    },
-    {
-      "question": "Mikä viljelykasvi näkyy mustapohjaisessa opetustaulussa?",
-      "answerA": "Vehnä",
-      "answerB": "Ohra",
-      "answerC": "Ruis",
-      "correct": 2
-    },
-    {
-      "question": "Mikä seuraavista eläimistä esiintyy luokassa näkyvässä opetustaulussa?",
-      "answerA": "Lammas",
-      "answerB": "Kana",
-      "answerC": "Sika",
-      "correct": 2
-    },
-    {
-      "question": "Mikä on nimeltään kivikynä, jota entisajan kansakoulun oppilaat käyttivät?",
-      "answerA": "Kihveli",
-      "answerB": "Rihveli",
-      "answerC": "Kehveli",
+      "question": "Mikä löytyi muotitietoisen 1960-luvun tytön vaatekaapista?",
+      "answerA": "Kellohame",
+      "answerB": "Minihame",
+      "answerC": "Farkkuhame",
       "correct": 1
     },
     {
-      "question": "Mitä ammattia varten ainevihon omistaja Alina Ahlund opiskeli? (sininen ainevihko löytyy pulpetilta)",
-      "answerA": "Sairaanhoitaja",
-      "answerB": "Opettaja",
-      "answerC": "Toimittaja",
+      "question": "Mikä seuraavista esineistä löytyi 1960-luvun nuoren huoneesta?",
+      "answerA": "Tietokone",
+      "answerB": "Stereot",
+      "answerC": "Levysoitin",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista esineistä EI kuulunut 1960-luvun nuoren huoneeseen?",
+      "answerA": "Herätyskello",
+      "answerB": "Kirjoituskone",
+      "answerC": "Taskulaskin",
+      "correct": 2
+    },
+    {
+      "question": "Mikä yleistyi kodeissa 1960-luvulla?",
+      "answerA": "Videonauhuri",
+      "answerB": "Radio",
+      "answerC": "Televisio",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu kotimainen televisiosarja 1960-luvulla?",
+      "answerA": "Metsolat",
+      "answerB": "Me Tammelat",
+      "answerC": "Ruusun aika",
       "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu ulkomainen televisiosarja 1960-1970-luvuilla?",
+      "answerA": "Melrose Place",
+      "answerB": "Peyton Place",
+      "answerC": "A Place to Call Home",
+      "correct": 1
+    },
+    {
+      "question": "Mikä ajoi nuoria aikuisia muuttamaan pois maaseudulta 1960- ja 1970-luvun taitteessa?",
+      "answerA": "Ilmastonmuutos",
+      "answerB": "Rakennemuutos",
+      "answerC": "Asennemuutos",
+      "correct": 1
+    },
+    {
+      "question": "Mihin nuoret aikuiset muuttivat 1960-luvun lopussa ja 1970-luvun alussa?",
+      "answerA": "Amerikkaan",
+      "answerB": "Venäjälle",
+      "answerC": "Ruotsiin",
+      "correct": 2
     }
   ]
 }
