@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
+/// <summary>
+/// This script, along with a BoxCollider, has to be added to any ImageTarget that is used
+/// to transition to another scene.
+/// </summary>
 public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     private TrackableBehaviour _trackableBehaviour;
+
+    /// <summary>
+    /// The name of the scene to be launched when tracking the marker.
+    /// </summary>
     public string sceneName;
     
 	// Use this for initialization
@@ -29,7 +37,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     {
         if(newStatus == TrackableBehaviour.Status.TRACKED)
         {
-            
+
         }
         
     }

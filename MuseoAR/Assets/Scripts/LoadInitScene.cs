@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+// Is this script ever used?
 public class LoadInitScene : MonoBehaviour {
 
     private float _time = 0f;
