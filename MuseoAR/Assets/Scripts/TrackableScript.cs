@@ -25,11 +25,9 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   /// The image to use when transitioning to the scene.
   /// </summary>
   public Sprite transitionImage;
-  /// <summary>
-  /// The year to show during scene transition.
-  /// </summary>
-  public int transitionYear;
+
   public float transitionDuration;
+  public float transitionBeginningZoomPercentage;
 
   // Use this for initialization
   void Start () {
@@ -45,18 +43,25 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     //GameControllerScript.gameManagerInstance = GameObject.Find("gameManager").GetComponent<GameControllerScript>();
   }
-	
+
+  private Vector2 scale;
+
   private void SetUpTransitionImage()
   {
+    // Return if no image set.
+    if (transitionImage == null) return;
+
+    // Create the transition image object.
     backgroundGameObject = new GameObject("Transition Image");
     spriteRenderer = backgroundGameObject.AddComponent<SpriteRenderer>();
     spriteRenderer.sprite = transitionImage;
 
+    // Set up the camera and scale, so the image fits on any screen size.
     float cameraHeight = Camera.main.orthographicSize * 2;
     Vector2 cameraSize = new Vector2(Camera.main.aspect * cameraHeight, cameraHeight);
     Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
 
-    Vector2 scale = backgroundGameObject.transform.localScale;
+    this.scale = backgroundGameObject.transform.localScale;
     if (cameraSize.x >= cameraSize.y)
     { // Landscape (or equal)
       scale *= cameraSize.x / spriteSize.x;
@@ -66,16 +71,17 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       scale *= cameraSize.y / spriteSize.y;
     }
 
-    backgroundGameObject.transform.position = Vector2.zero; // Optional
+    backgroundGameObject.transform.position = Vector2.zero; // Just in case.
     backgroundGameObject.transform.localScale = scale;
   }
 
 	// Update is called once per frame
 	void Update () {
-    if (Input.GetKeyDown("f") && transitionDuration > 0)
-    {
-      LoadScene();
-    }
+      // Used for debugging purposes.
+    //if (Input.GetKeyDown("f") && transitionDuration > 0)
+    //{
+    //  LoadScene();
+    //}
   }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
@@ -91,36 +97,30 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     {
     if (transitionDuration > 0)
     {
+      // Set the UI canvas to inactive state, so the buttons cannot be pressed during the transition.
       GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-      canvas.SetActive(false);
+      //canvas.SetActive(false);
       StartCoroutine("TransitionToScene");
     }
     else
     {
-      //GameControllerScript.Instance.LoadSceneWithName(sceneName);
+      GameControllerScript.Instance.LoadSceneWithName(sceneName);
     }
   }
 
   private IEnumerator TransitionToScene()
   {
-    
-    for (float f = 0; f < 1f; f += 1 / transitionDuration * Time.deltaTime)
+    // Random value found by trying on different values on the editor...
+    float scaleFactor = 7.9f * scale.x;  // Most likely will break with different image sizes. TODO FIX!
+    for (float f = transitionBeginningZoomPercentage; f <= 1f; f += 1 / transitionDuration * Time.deltaTime)
     {
       // Move the the image on z-axis from 10 to 15 over a duration.
-      backgroundGameObject.transform.position = new Vector3(0, 0, 10 + 5 * f);
+      // scale 1 = z 7.9 (for max view)
+      backgroundGameObject.transform.position = new Vector3(0, 0, f * scaleFactor);
       yield return null;
     }
-    StartCoroutine("ShowYear");
-    //GameControllerScript.Instance.LoadSceneWithName(sceneName);
-  }
-
-  private IEnumerator ShowYear()
-  {
-    for (float f = 0; f < 1f; f += 1 / transitionDuration * Time.deltaTime)
-    {
-      yield return null;
-    }
-    Debug.Log("Transitioning to scene: " + sceneName);
+    yield return new WaitForSeconds(0.5f);
+    GameControllerScript.Instance.LoadSceneWithName(sceneName);
   }
 
   public TrackableBehaviour.Status getCurrent()
