@@ -11,16 +11,16 @@ public class SelfieInputManager : MonoBehaviour
     Camera cam;
     GameObject m_draggedObject;
 
-    //Graphic Raycast members to be used 
-    //when removing decorations
+    // Graphic Raycast members to be used 
+    // when removing decorations
     GraphicRaycaster m_graphicRaycaster;
     PointerEventData m_pointerEventData;
     EventSystem m_eventSystem;
 
     [HideInInspector]
     public bool dragging;
-    //This should only be used by DecorationListItem
-    //When instantiating new decorations
+    // This should only be used by DecorationListItem
+    // when instantiating new decorations
     public GameObject DraggedObject
     {
         get { return m_draggedObject; }
@@ -79,7 +79,7 @@ public class SelfieInputManager : MonoBehaviour
                 prevPos = newPos;
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)) // What to do on mouse button release.
         {
             m_pointerEventData = new PointerEventData(m_eventSystem);
             m_pointerEventData.position = Input.mousePosition;

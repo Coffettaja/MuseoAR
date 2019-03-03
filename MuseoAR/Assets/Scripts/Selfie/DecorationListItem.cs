@@ -35,6 +35,7 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler {
         }
 	}
 
+  // What to do when the decoration item is pressed / clicked
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         if(DecorationActive())
@@ -47,7 +48,7 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler {
 
     bool DecorationActive()
     {
-        return GameControllerScript.Instance.IsSceneCompleted(m_activatingScene);
+    return true;//GameControllerScript.Instance.IsSceneCompleted(m_activatingScene);
     }
 	
 }

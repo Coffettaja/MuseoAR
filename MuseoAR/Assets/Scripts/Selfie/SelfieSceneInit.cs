@@ -14,7 +14,7 @@ public class SelfieSceneInit : MonoBehaviour {
         Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
         //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
         //ChangeToFrontCamera();
-        Invoke("ChangeToFrontCamera", 0.5f);
+        //Invoke("ChangeToFrontCamera", 0.5f);
         Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
     }
 

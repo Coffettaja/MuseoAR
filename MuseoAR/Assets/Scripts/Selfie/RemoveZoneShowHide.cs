@@ -29,27 +29,28 @@ public class RemoveZoneShowHide : MonoBehaviour {
 	void Update () {
         m_dragging = inputManager.dragging;
 
+    // If dragging an item and the trash can is hidden --> show the trash can.
         if(m_dragging && m_hidden)
         {
-	        Debug.Log("Koira");
             StopAllCoroutines();
             StartCoroutine(Toggle(RemoveZone, m_showPosition, speed));
         }
+        // If the trash can is shown, but an item is no longer dragger --> hide the trash can.
         else if(!m_dragging && !m_hidden)
         {
-	        Debug.Log("KOira");
 	        StopAllCoroutines();
 		    StartCoroutine(Toggle(RemoveZone, m_hidePosition, speed));
 	        
         }
     }
 
+  // Shows or hides the "trash can" button.
     private IEnumerator Toggle(GameObject objectToMove, Vector3 destination, float speed)
     {
 	    m_hidden = !m_hidden;
         while (objectToMove.transform.position != destination)
         {
-	        Debug.Log(objectToMove.transform.position);
+	        //Debug.Log(objectToMove.transform.position);
             objectToMove.transform.position = Vector3.MoveTowards(
                 objectToMove.transform.position, destination, Time.deltaTime * 100);
         yield return objectToMove.transform.position; 
