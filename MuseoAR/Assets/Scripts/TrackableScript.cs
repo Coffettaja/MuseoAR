@@ -15,9 +15,11 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     /// The name of the scene to be launched when tracking the marker.
     /// </summary>
     public string sceneName;
-    
-	// Use this for initialization
-	void Start () {
+    public string tldrIdentifier = "not_defined";
+    public string aarre = "";
+
+    // Use this for initialization
+    void Start () {
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
 
         if(_trackableBehaviour)
@@ -44,7 +46,15 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     public void LoadScene()
     {
-        GameControllerScript.Instance.LoadSceneWithName(sceneName);
+        if (aarre != "")
+        {
+            //ScoreScript.Instance.IncreaseScoreBy(int)
+            Debug.Log("Aarre " + aarre);
+        }
+        else
+        {
+            GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier);
+        }
     }
 
     public TrackableBehaviour.Status getCurrent()
