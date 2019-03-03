@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class QuestionScript : MonoBehaviour {
+public class QuestionScript2 : MonoBehaviour {
 
     #region Properties    
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
@@ -286,7 +286,7 @@ public class QuestionScript : MonoBehaviour {
     {
         // parsing the json into token array
         Debug.Log(Application.dataPath);
-        TextAsset ladattava = Resources.Load<TextAsset>("questionBank");
+        TextAsset ladattava = Resources.Load<TextAsset>("questionBank2");
         rootQuestion root = JsonUtility.FromJson<rootQuestion>(ladattava.text);
 
         // new object and values from token

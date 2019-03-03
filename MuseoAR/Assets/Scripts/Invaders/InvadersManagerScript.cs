@@ -24,6 +24,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     public float enemyStartY = 2.0f;
     public float gameOverBlockHeight = 0.0f;
     public Transform SpawnPoint;
+    public Transform BonusEnemySpawnpoint;
 
     public GameObject[] EnemyList;
 
@@ -96,7 +97,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         //Spawn the "Game Over" blocks
         GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
         blocks.name = "GameOverPlane";
-        blocks.transform.localPosition += new Vector3(0, gameOverBlockHeight, 1);
+        blocks.transform.localPosition += new Vector3(0, gameOverBlockHeight, 0);
     }
 
     /// <summary>
@@ -113,7 +114,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         //Calculate the first spawn point
         float x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
         float y = enemyStartY;
-        float z = 1.0f;
+        float z = 0;
 
         for (int j = 0; j < enemyRowsOnLevel; j++)
         {
@@ -121,7 +122,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
-                enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
+                //enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
                 enemyGO.transform.localPosition += new Vector3(x, y, z);
                 enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
@@ -135,14 +136,14 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
         
-        //SpawnBonusEnemy();
+        SpawnBonusEnemy();
     }
 
     private void SpawnBonusEnemy()
     {
         //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
         GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
-        bonus.transform.localPosition += new Vector3(-5, 0, 1.5f);
+        bonus.transform.localPosition += BonusEnemySpawnpoint.localPosition;
     }
 
 

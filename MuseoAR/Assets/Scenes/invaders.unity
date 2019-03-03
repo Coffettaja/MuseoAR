@@ -136,11 +136,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 92113591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 2.6}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2.6000006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1659534212}
+  m_Father: {fileID: 99154036}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &92113594
@@ -186,11 +186,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 99154035}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 92113592}
+  - {fileID: 1841704355}
   m_Father: {fileID: 1659534212}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &192793888
 GameObject:
@@ -695,7 +697,7 @@ MonoBehaviour:
   aimPoint: {fileID: 220538506}
   projectileSpawn: {fileID: 1838440585}
   imageTarget: {fileID: 1659534212}
-  aimPlane: {fileID: 0}
+  aimPlane: {fileID: 92113591}
 --- !u!1 &803497677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,7 +1705,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 92113592}
   - {fileID: 99154036}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1731,6 +1732,7 @@ MonoBehaviour:
   enemyStartY: 1
   gameOverBlockHeight: -0.5
   SpawnPoint: {fileID: 99154036}
+  BonusEnemySpawnpoint: {fileID: 1841704355}
   EnemyList: []
 --- !u!1 &1686115268
 GameObject:
@@ -1768,7 +1770,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -30, y: 30}
-  m_SizeDelta: {x: 400, y: 300}
+  m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1686115270
 MonoBehaviour:
@@ -2043,6 +2045,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 595619334}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1841704354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1841704355}
+  m_Layer: 0
+  m_Name: BonusInvaderSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841704355
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841704354}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -10, y: 0.88, z: 0.099}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 99154036}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032850957
 GameObject:

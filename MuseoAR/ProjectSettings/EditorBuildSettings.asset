@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/quizScene.unity
     guid: ac7ae45f06769a545b177a8af4fd7376
+  - enabled: 1
+    path: Assets/Scenes/quizScene2.unity
+    guid: cc1db294fd9e12b4a84e2d07962b7d6d

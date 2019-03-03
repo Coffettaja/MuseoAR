@@ -1,0 +1,116 @@
+{
+  "questions": [
+    {
+      "question": "Minkä ikäryhmän vuosikymmenenä 1960-lukua yleisesti pidetään?",
+      "answerA": "Lasten",
+      "answerB": "Nuorten",
+      "answerC": "Aikuisten",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista alakulttuurien edustajista liittyy 1960-lukuun?",
+      "answerA": "Punkkari",
+      "answerB": "Hippi",
+      "answerC": "Gootti",
+      "correct": 1
+    },
+    {
+      "question": "Mikä vempain soitti musiikkia 1960-luvun baareissa ja huoltoasemilla?",
+      "answerA": "Grammari",
+      "answerB": "Jukebox",
+      "answerC": "Kasettisoitin",
+      "correct": 1
+    },
+    {
+      "question": "Mikä oli 1960-luvun tunnetuin yhtye?",
+      "answerA": "The Crickets",
+      "answerB": "The Beatles",
+      "answerC": "The Shadows",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli Jyväskylässä 1960-luvulla toiminut yhtye?",
+      "answerA": "Goldy",
+      "answerB": "Silvery",
+      "answerC": "Bronzy",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu 1960-luvun tanssityyli?",
+      "answerA": "Twist",
+      "answerB": "Disco",
+      "answerC": "Charleston",
+      "correct": 0
+    },
+    {
+      "question": "Millä nimellä kutsutaan 1960-luvulla nuorison suosiossa ollutta musiikkia, jota soitettiin kahdella sähkökitaralla, bassolla ja rummuilla?",
+      "answerA": "Sähkölankamusiikki",
+      "answerB": "Rautalankamusiikki",
+      "answerC": "Puhelinlankamusiikki",
+      "correct": 1
+    },
+    {
+      "question": "Jos et pitänyt pop- ja rockmusiikista, mitä musiikkityyliä todennäköisesti fanitit 1960-luvulla?",
+      "answerA": "Humppaa",
+      "answerB": "Polkkaa",
+      "answerC": "Tangoa",
+      "correct": 2
+    },
+    {
+      "question": "Mikä löytyi muotitietoisen 1960-luvun tytön vaatekaapista?",
+      "answerA": "Kellohame",
+      "answerB": "Minihame",
+      "answerC": "Farkkuhame",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista esineistä löytyi 1960-luvun nuoren huoneesta?",
+      "answerA": "Tietokone",
+      "answerB": "Stereot",
+      "answerC": "Levysoitin",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista esineistä EI kuulunut 1960-luvun nuoren huoneeseen?",
+      "answerA": "Herätyskello",
+      "answerB": "Kirjoituskone",
+      "answerC": "Taskulaskin",
+      "correct": 2
+    },
+    {
+      "question": "Mikä yleistyi kodeissa 1960-luvulla?",
+      "answerA": "Videonauhuri",
+      "answerB": "Radio",
+      "answerC": "Televisio",
+      "correct": 2
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu kotimainen televisiosarja 1960-luvulla?",
+      "answerA": "Metsolat",
+      "answerB": "Me Tammelat",
+      "answerC": "Ruusun aika",
+      "correct": 1
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu ulkomainen televisiosarja 1960-1970-luvuilla?",
+      "answerA": "Melrose Place",
+      "answerB": "Peyton Place",
+      "answerC": "A Place to Call Home",
+      "correct": 1
+    },
+    {
+      "question": "Mikä ajoi nuoria aikuisia muuttamaan pois maaseudulta 1960- ja 1970-luvun taitteessa?",
+      "answerA": "Ilmastonmuutos",
+      "answerB": "Rakennemuutos",
+      "answerC": "Asennemuutos",
+      "correct": 1
+    },
+    {
+      "question": "Mihin nuoret aikuiset muuttivat 1960-luvun lopussa ja 1970-luvun alussa?",
+      "answerA": "Amerikkaan",
+      "answerB": "Venäjälle",
+      "answerC": "Ruotsiin",
+      "correct": 2
+    }
+  ]
+}

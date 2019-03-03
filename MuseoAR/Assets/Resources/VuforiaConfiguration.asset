@@ -44,10 +44,12 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
+    - 360Videos
     - SpaceInvaders
     - quizDB
     - VuforiaMars_Images
     dataSetsToActivate:
+    - 360Videos
     - SpaceInvaders
     - quizDB
     - VuforiaMars_Images

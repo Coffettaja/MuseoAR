@@ -19,13 +19,13 @@ public class ScoreScript : MonoBehaviour {
     {
       return _score;
     }
-    set {
+    private set {
       _score = value;
       UpdateScoreDisplay();
     }
   }
 
-
+  #region Creating the singleton Instance.
   // Below has just been copied from GameControllerScript.cs
   // If there is need for any more Singletons, it would probably be
   // smart to create a Singleton base class and then inherit it 
@@ -56,6 +56,7 @@ public class ScoreScript : MonoBehaviour {
       return _instance;
     }
   }
+  #endregion
 
   /// <summary>
   /// Increases the score of the player by the amount specified in the parameter.
