@@ -632,6 +632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: quizScene
+  transitionImage: {fileID: 21300000, guid: 3436e3ff1950fe843acd62b514b1e866, type: 3}
+  transitionYear: 2018
+  transitionDuration: 1
   tldrIdentifier: not_defined
   aarre: 
 --- !u!65 &162230039
@@ -2334,6 +2337,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: invaders
+  transitionImage: {fileID: 0}
+  transitionYear: 0
+  transitionDuration: 0
   tldrIdentifier: not_defined
   aarre: 
 --- !u!65 &1065996246
@@ -2808,6 +2814,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 360VideoScene
+  transitionImage: {fileID: 0}
+  transitionYear: 0
+  transitionDuration: 0
   tldrIdentifier: not_defined
   aarre: 
 --- !u!65 &1257225166
@@ -3639,7 +3648,7 @@ GameObject:
   - component: {fileID: 2045451560}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
