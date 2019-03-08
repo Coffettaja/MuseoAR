@@ -13,7 +13,7 @@ public class EnemyScript : MonoBehaviour {
     private void Awake()
     {
         imageTarget = GameObject.Find("ImageTarget");
-        _manager = imageTarget.GetComponent<InvadersManagerScript>();
+        _manager = GameObject.Find("GameManager").GetComponent<InvadersManagerScript>();
     }
 
     /// <summary>

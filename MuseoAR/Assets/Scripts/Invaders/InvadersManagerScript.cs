@@ -21,16 +21,16 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     public int enemiesOnRow = 4;
     public int enemyRows = 2;
     public float enemySpacing = 0.5f;
-    public float enemyStartY = 2.0f;
-    public float gameOverBlockHeight = 0.0f;
     public Transform SpawnPoint;
     public Transform BonusEnemySpawnpoint;
+    public Transform GameOverSpawnpoint;
 
     public GameObject[] EnemyList;
 
     private int _score;
     private int m_level = 0;
 
+    //Gamescore
     public int Score
     {
         get { return _score; }
@@ -54,13 +54,14 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private GameObject _outOfFocusPopup;
     private Text _scoreText;
 
-    // Use this for initialization
-    void Start()
+    
+    void Awake()
     {
-        imageTarget = gameObject;
+        VuforiaARController.Instance.SetWorldCenterMode(VuforiaARController.WorldCenterMode.FIRST_TARGET);
+        imageTarget = GameObject.Find("ImageTarget");
         _gameOverPopup = GameObject.Find("GameOverPopup");
         _gameOverPopup.SetActive(false);
-        _trackableBehaviour = GetComponent<TrackableBehaviour>();
+        _trackableBehaviour = imageTarget.GetComponent<TrackableBehaviour>();
         _outOfFocusPopup = GameObject.Find("OutOfFocusImg");
         _outOfFocusPopup.SetActive(false);
         _scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
@@ -95,9 +96,9 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private void SpawnGameOverPlane()
     {
         //Spawn the "Game Over" blocks
-        GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, SpawnPoint);
+        GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, imageTarget.transform);
+        blocks.transform.localPosition += GameOverSpawnpoint.localPosition;
         blocks.name = "GameOverPlane";
-        blocks.transform.localPosition += new Vector3(0, gameOverBlockHeight, 0);
     }
 
     /// <summary>
@@ -113,7 +114,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
 
         //Calculate the first spawn point
         float x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
-        float y = enemyStartY;
+        float y = 0;
         float z = 0;
 
         for (int j = 0; j < enemyRowsOnLevel; j++)
@@ -121,13 +122,13 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
-                //enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
-                enemyGO.transform.localPosition += new Vector3(x, y, z);
-                enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform);
+                //enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);                
+                enemyGO.transform.localPosition += SpawnPoint.position + new Vector3(x, y, z);
+                //enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
-                enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
+                //enemyGO.transform.localScale = new Vector3(.2f, .2f, .2f);
             }
             //Reset x to the start of a row
             x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
@@ -142,7 +143,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private void SpawnBonusEnemy()
     {
         //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
-        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
+        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, imageTarget.transform);
         bonus.transform.localPosition += BonusEnemySpawnpoint.localPosition;
     }
 
