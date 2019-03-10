@@ -44,11 +44,15 @@ MonoBehaviour:
       ContainsMagnet: 0
   databaseLoad:
     dataSetsToLoad:
+    - Aarteenmetsastys
+    - TLDR
     - 360Videos
     - SpaceInvaders
     - quizDB
     - VuforiaMars_Images
     dataSetsToActivate:
+    - Aarteenmetsastys
+    - TLDR
     - 360Videos
     - SpaceInvaders
     - quizDB
@@ -61,11 +65,11 @@ MonoBehaviour:
     matteShader: {fileID: 15310, guid: 0000000000000000f000000000000000, type: 0}
     videoBackgroundEnabled: 1
   deviceTracker:
-    autoInitTracker: 0
-    autoStartTracker: 0
-    trackingMode: 1
+    autoInitTracker: 1
+    autoStartTracker: 1
+    trackingMode: 0
     posePrediction: 0
-    modelCorrectionMode: 0
+    modelCorrectionMode: 2
     modelTransformEnabled: 0
     modelTransform: {x: 0, y: 0.1, z: -0.1}
   smartTerrain:

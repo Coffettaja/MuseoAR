@@ -29,6 +29,7 @@ public class GameControllerScript : MonoBehaviour {
     
     private bool _shuttingDown = false;
     private static object _lock = new object();
+    public static string identifier = "not specified2";
     private static GameControllerScript _instance;
     public static GameControllerScript Instance
     {
@@ -120,10 +121,18 @@ public class GameControllerScript : MonoBehaviour {
         SceneManager.LoadScene(name);
     }
 
-  /// <summary>
-  /// Marks the current scene completed and then loads the main scene (named "init").
-  /// </summary>
-  public void LoadTopLevelScene()
+    // Muuten sama kuin edellinen, mutta sisältää parametrina tiedon siitä, mistä markkerista on tultu
+    public void LoadSceneWithName(string name, string param)
+    {
+        identifier = param;
+        _currentScene = name;
+        SceneManager.LoadScene(name);
+    }
+
+    /// <summary>
+    /// Marks the current scene completed and then loads the main scene (named "init").
+    /// </summary>
+    public void LoadTopLevelScene()
     {
         MarkSceneCompleted(_currentScene);
         LoadSceneWithName("init");

@@ -18,6 +18,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   /// The name of the scene to be launched when tracking the marker.
   /// </summary>
   public string sceneName;
+  public string tldrIdentifier = "not_defined";
+  public string aarre = "";
 
 
   [Header("Transition")]
@@ -93,8 +95,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
         
     }
 
-    public void LoadScene()
-    {
+  public void LoadScene()
+  {
     if (transitionDuration > 0)
     {
       // Set the UI canvas to inactive state, so the buttons cannot be pressed during the transition.
@@ -102,10 +104,15 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       //canvas.SetActive(false);
       StartCoroutine("TransitionToScene");
     }
-    else
-    {
-      GameControllerScript.Instance.LoadSceneWithName(sceneName);
-    }
+    else if (aarre != "")
+	{
+	  //ScoreScript.Instance.IncreaseScoreBy(int)
+	  Debug.Log("Aarre " + aarre);
+	}
+	else
+	{
+	  GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier);
+	}
   }
 
   private IEnumerator TransitionToScene()
