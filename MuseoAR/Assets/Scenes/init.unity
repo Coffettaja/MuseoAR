@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -632,11 +632,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: quizScene
-  transitionImage: {fileID: 21300000, guid: 3436e3ff1950fe843acd62b514b1e866, type: 3}
-  transitionYear: 2018
-  transitionDuration: 1
   tldrIdentifier: not_defined
   aarre: 
+  transitionImage: {fileID: 21300000, guid: 3436e3ff1950fe843acd62b514b1e866, type: 3}
+  transitionDuration: 1
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &162230039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -781,6 +781,9 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 0
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &333761491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -974,7 +977,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 446235512}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1139,6 +1142,9 @@ MonoBehaviour:
   sceneName: quizScene2
   tldrIdentifier: not_defined
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &511667574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1372,7 +1378,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 559589289}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1588,6 +1594,9 @@ MonoBehaviour:
   sceneName: quizScene2
   tldrIdentifier: not_defined
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!64 &731214303
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2156,7 +2165,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b494230f05e1a4041b44bbd9b8b8a4d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 786fe74e5fad11041a56ac34268ed7cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2337,11 +2346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: invaders
-  transitionImage: {fileID: 0}
-  transitionYear: 0
-  transitionDuration: 0
   tldrIdentifier: not_defined
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &1065996246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2616,6 +2625,9 @@ MonoBehaviour:
   sceneName: init
   tldrIdentifier: not_defined
   aarre: 1
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &1097502810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2814,11 +2826,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 360VideoScene
-  transitionImage: {fileID: 0}
-  transitionYear: 0
-  transitionDuration: 0
   tldrIdentifier: not_defined
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &1257225166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2988,6 +3000,9 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 1
   aarre: 
+  transitionImage: {fileID: 0}
+  transitionDuration: 0
+  transitionBeginningZoomPercentage: 0
 --- !u!65 &1441825372
 BoxCollider:
   m_ObjectHideFlags: 0
