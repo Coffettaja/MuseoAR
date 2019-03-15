@@ -29,7 +29,9 @@ public class GameControllerScript : MonoBehaviour {
     
     private bool _shuttingDown = false;
     private static object _lock = new object();
-    public static string identifier = "not specified2";
+    public static string tldrIdentifier = "not specified tldr";
+    public static string aarreIdentifier = "not specified aarre";
+    public static List<int> aarteet = new List<int>();
     private static GameControllerScript _instance;
     public static GameControllerScript Instance
     {
@@ -121,10 +123,11 @@ public class GameControllerScript : MonoBehaviour {
         SceneManager.LoadScene(name);
     }
 
-    // Muuten sama kuin edellinen, mutta sisältää parametrina tiedon siitä, mistä markkerista on tultu
-    public void LoadSceneWithName(string name, string param)
+    // LoadSceneWithName, but has information about which marker was used.
+    public void LoadSceneWithName(string name, string paramTldr, string paramAarre)
     {
-        identifier = param;
+        tldrIdentifier = paramTldr;
+        aarreIdentifier = paramAarre;
         _currentScene = name;
         SceneManager.LoadScene(name);
     }
@@ -136,6 +139,17 @@ public class GameControllerScript : MonoBehaviour {
     {
         MarkSceneCompleted(_currentScene);
         LoadSceneWithName("init");
+    }
+
+    /// <summary>
+    /// Checks if list already has the ID. If not, adds it and adds some points to the score.
+    /// </summary>
+    /// <param name="aarre">ID of the found treasure</param>
+    public void LisaaAarre(int aarre)
+    {
+        var exists = aarteet.Contains(aarre);
+        if (!exists) { aarteet.Add(aarre); }
+        if (!exists) { ScoreScript.Instance.IncreaseScoreBy(10); }
     }
 }
 

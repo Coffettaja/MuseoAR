@@ -8,7 +8,7 @@ public class TldrScript : MonoBehaviour {
 
     private List<Tldr> tldrList;
     private GameObject infoText;
-    public string identifier = GameControllerScript.identifier;
+    public string identifier = GameControllerScript.tldrIdentifier;
 
     void Start() {
         infoText = GameObject.Find("InfoText");
