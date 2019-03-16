@@ -21,6 +21,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   public string tldrIdentifier = "not_defined";
   public string aarre = "";
 
+  // Used for debugging purposes.
+  public string loadSceneWithKey = "";
 
   [Header("Transition")]
   /// <summary>
@@ -54,7 +56,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     if (transitionImage == null) return;
 
     // Create the transition image object.
-    backgroundGameObject = new GameObject("Transition Image");
+    backgroundGameObject = new GameObject("Transition Image for " + sceneName);
+    backgroundGameObject.transform.position = Camera.main.transform.position;
     spriteRenderer = backgroundGameObject.AddComponent<SpriteRenderer>();
     spriteRenderer.sprite = transitionImage;
 
@@ -73,17 +76,16 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       scale *= cameraSize.y / spriteSize.y;
     }
 
-    backgroundGameObject.transform.position = Vector2.zero; // Just in case.
     backgroundGameObject.transform.localScale = scale;
   }
 
 	// Update is called once per frame
 	void Update () {
       // Used for debugging purposes.
-    //if (Input.GetKeyDown("f") && transitionDuration > 0)
-    //{
-    //  LoadScene();
-    //}
+    if (loadSceneWithKey != "" && Input.GetKeyDown(loadSceneWithKey) && transitionDuration > 0)
+    {
+      LoadScene();
+    }
   }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
@@ -119,11 +121,13 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   {
     // Random value found by trying on different values on the editor...
     float scaleFactor = 7.9f * scale.x;  // Most likely will break with different image sizes. TODO FIX!
+    float xPos = backgroundGameObject.transform.position.x;
+    float yPos = backgroundGameObject.transform.position.y;
     for (float f = transitionBeginningZoomPercentage; f <= 1f; f += 1 / transitionDuration * Time.deltaTime)
     {
       // Move the the image on z-axis from 10 to 15 over a duration.
       // scale 1 = z 7.9 (for max view)
-      backgroundGameObject.transform.position = new Vector3(0, 0, f * scaleFactor);
+      backgroundGameObject.transform.position = new Vector3(xPos, yPos, f * scaleFactor);
       yield return null;
     }
     yield return new WaitForSeconds(0.5f);
