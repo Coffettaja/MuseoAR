@@ -19,7 +19,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   /// </summary>
   public string sceneName;
   public string tldrIdentifier = "not_defined";
-  public string aarre = "";
+  public string aarreIdentifier = "not_defined";
 
   // Used for debugging purposes.
   public string loadSceneWithKey = "";
@@ -106,14 +106,11 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       //canvas.SetActive(false);
       StartCoroutine("TransitionToScene");
     }
-    else if (aarre != "")
-	{
-	  //ScoreScript.Instance.IncreaseScoreBy(int)
-	  Debug.Log("Aarre " + aarre);
-	}
+    
 	else
 	{
-	  GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier);
+      // Send marker identifiers as parameters along with scenename to game controller.
+	  GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
 	}
   }
 
