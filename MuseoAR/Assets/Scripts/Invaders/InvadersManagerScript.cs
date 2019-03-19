@@ -27,6 +27,18 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
 
     public GameObject[] EnemyList;
 
+    private GameObject imageTarget;
+    private Transform origo;
+    private GameObject _gameOverPlane;
+    private bool enemiesSpawned = false;
+    private bool gameOver = false;
+
+
+    private TrackableBehaviour _trackableBehaviour;
+    private GameObject _gameOverPopup;
+    private GameObject _outOfFocusPopup;
+    private Text _scoreText;
+
     private int _score;
     private int m_level = 0;
 
@@ -41,24 +53,11 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         }
     }
 
-    private float m_bonusSpawnTime;
-
-    private GameObject imageTarget;
-    private GameObject _gameOverPlane;
-    private bool enemiesSpawned = false;
-    private bool gameOver = false;
-
-
-    private TrackableBehaviour _trackableBehaviour;
-    private GameObject _gameOverPopup;
-    private GameObject _outOfFocusPopup;
-    private Text _scoreText;
-
-    
     void Awake()
     {
         VuforiaARController.Instance.SetWorldCenterMode(VuforiaARController.WorldCenterMode.FIRST_TARGET);
         imageTarget = GameObject.Find("ImageTarget");
+        origo = GameObject.Find("Origo").GetComponent<Transform>();
         _gameOverPopup = GameObject.Find("GameOverPopup");
         _gameOverPopup.SetActive(false);
         _trackableBehaviour = imageTarget.GetComponent<TrackableBehaviour>();
@@ -96,7 +95,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private void SpawnGameOverPlane()
     {
         //Spawn the "Game Over" blocks
-        GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, imageTarget.transform);
+        GameObject blocks = Instantiate<GameObject>(GameOverPlanePrefab, origo);
         blocks.transform.localPosition += GameOverSpawnpoint.localPosition;
         blocks.name = "GameOverPlane";
     }
@@ -122,9 +121,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             //Spawn a row
             for (int i = 0; i < enemiesOnRow; i++)
             {
-                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, imageTarget.transform);
-                //enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);                
-                enemyGO.transform.localPosition += SpawnPoint.position + new Vector3(x, y, z);
+                GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, origo);             
+                enemyGO.transform.localPosition += SpawnPoint.localPosition + new Vector3(x, y, z);
                 //enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
                 x += enemySpacing;
@@ -143,7 +141,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private void SpawnBonusEnemy()
     {
         //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
-        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, imageTarget.transform);
+        GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, origo);
         bonus.transform.localPosition += BonusEnemySpawnpoint.localPosition;
     }
 
