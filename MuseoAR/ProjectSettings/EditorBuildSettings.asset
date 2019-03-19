@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tldr.unity
     guid: 5b083b0b383af554d926bd4e77c651ba
+  - enabled: 1
+    path: Assets/Scenes/aarteenetsinta.unity
+    guid: 81a03c69532d7f146ba630e862988064
