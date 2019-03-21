@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="aarre3" size="16.000000 16.000000" />
-    <ImageTarget name="aarre4" size="16.000000 16.000000" />
-    <ImageTarget name="aarre2" size="16.000000 16.000000" />
+    <ImageTarget name="aarrem3" size="1.000000 1.000000" />
     <ImageTarget name="aarre5" size="16.000000 16.000000" />
     <ImageTarget name="aarre6" size="16.000000 16.000000" />
+    <ImageTarget name="aarre3" size="16.000000 16.000000" />
     <ImageTarget name="aarre1" size="16.000000 16.000000" />
+    <ImageTarget name="aarrem6_2" size="10.000000 10.000000" />
+    <ImageTarget name="aarrem7_2" size="10.000000 9.969879" />
+    <ImageTarget name="aarre4" size="16.000000 16.000000" />
+    <ImageTarget name="aarre2" size="16.000000 16.000000" />
   </Tracking>
 </QCARConfig>
