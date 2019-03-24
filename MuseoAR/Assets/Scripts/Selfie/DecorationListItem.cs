@@ -8,47 +8,55 @@ using UnityEngine.EventSystems;
 /// Script for a decoration item listed in the decoration tray
 /// Handles instantiating a new decoration object on click/touch
 /// </summary>
-public class DecorationListItem : MonoBehaviour, IPointerDownHandler {
+public class DecorationListItem : MonoBehaviour, IPointerDownHandler
+{
 
-    SelfieInputManager m_inputManager;
-    Button m_button;
-    public GameObject DecorationPrefab;
+  SelfieInputManager m_inputManager;
+  Button m_button;
+  public GameObject DecorationPrefab;
 
-    public Sprite m_decorationSprite;
-    public Sprite m_deactivatedSprite;
+  private Sprite m_decorationSprite;
 
-    public string m_activatingScene;
+  public string m_activatingScene;
 
-    // Use this for initialization
-	void Start ()
+  private bool m_isActive = false;
+
+  // Use this for initialization
+  void Start()
+  {
+    m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
+    m_button = GetComponent<Button>();
+    var decorationImage = GetComponent<Image>();
+    m_decorationSprite = decorationImage.sprite;
+
+    Color deactiveColor;
+    ColorUtility.TryParseHtmlString("#0000007D", out deactiveColor);
+
+    if (!DecorationActive())
     {
-        m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
-        m_button = GetComponent<Button>();
-        //m_button.onClick.AddListener(InstantiateNewDecoration);
-        m_decorationSprite = GetComponent<Image>().sprite;
-        if(DecorationActive())
-        {
-            GetComponent<Image>().sprite = m_decorationSprite;
-        } else
-        {
-            GetComponent<Image>().sprite = m_deactivatedSprite;
-        }
-	}
+      decorationImage.color = deactiveColor;
+    }
+  }
 
   // What to do when the decoration item is pressed / clicked
-    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+  void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+  {
+    if (DecorationActive())
     {
-        if(DecorationActive())
-        {
-            GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
-            newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
-            m_inputManager.DraggedObject = newDecoration;
-        }
+      GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
+      newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
+      m_inputManager.DraggedObject = newDecoration;
     }
+  }
 
-    bool DecorationActive()
-    {
+  public void Activate()
+  {
+    m_isActive = true;
+  }
+
+  bool DecorationActive()
+  {
     return true;//GameControllerScript.Instance.IsSceneCompleted(m_activatingScene);
-    }
-	
+  }
+
 }

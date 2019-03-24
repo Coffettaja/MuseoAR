@@ -128,7 +128,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       yield return null;
     }
     yield return new WaitForSeconds(0.5f);
-    GameControllerScript.Instance.LoadSceneWithName(sceneName);
+    GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
   }
 
   public TrackableBehaviour.Status getCurrent()

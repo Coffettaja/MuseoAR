@@ -87,7 +87,7 @@ public class SelfieInputManager : MonoBehaviour
             m_graphicRaycaster.Raycast(m_pointerEventData, results);
             foreach(RaycastResult result in results)
             {
-                if(result.gameObject.name == "RemoveZone")
+                if(result.gameObject.name == "DecorationScrollList")
                 {
                     Destroy(m_draggedObject);
                 }
