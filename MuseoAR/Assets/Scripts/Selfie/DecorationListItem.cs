@@ -21,36 +21,47 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler
 
   private bool m_isActive = false;
 
+  Color m_originalColor;
+  Image m_decorationImage;
+
   // Use this for initialization
   void Start()
   {
     m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
     m_button = GetComponent<Button>();
-    var decorationImage = GetComponent<Image>();
-    m_decorationSprite = decorationImage.sprite;
+    m_decorationImage = GetComponent<Image>();
+    m_decorationSprite = m_decorationImage.sprite;
 
+    m_originalColor = m_decorationImage.color;
     Color deactiveColor;
     ColorUtility.TryParseHtmlString("#0000007D", out deactiveColor);
 
-    if (!DecorationActive())
+    if (!m_isActive)
     {
-      decorationImage.color = deactiveColor;
+      m_decorationImage.color = deactiveColor;
     }
   }
 
   // What to do when the decoration item is pressed / clicked
   void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
   {
-    if (DecorationActive())
+    if (m_isActive)
     {
       GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
+      newDecoration.name = gameObject.name + "OnScreen";
       newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
+      newDecoration.AddComponent<BoxCollider>(); // Has to be added in code so it automatically fits the sprite
       m_inputManager.DraggedObject = newDecoration;
+      ScoreScript.Instance.IncreaseScoreBy(1);
     }
   }
 
   public void Activate()
   {
+    if (m_decorationImage != null)
+    {
+      m_decorationImage.color = m_originalColor;
+    }
     m_isActive = true;
   }
 

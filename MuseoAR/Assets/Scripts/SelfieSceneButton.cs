@@ -28,7 +28,9 @@ public class SelfieSceneButton : MonoBehaviour {
 	
 	void LoadSelfieScene()
     {
-        SceneManager.LoadScene("Selfie");
+    GameControllerScript.Instance.ActivateDecorations(new[] { "HipsterGlasses", "Mohawk" });
+
+    SceneManager.LoadScene("Selfie");
     }
 
     private IEnumerator ShakeButton(int rot)

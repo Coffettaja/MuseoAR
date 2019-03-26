@@ -16,10 +16,11 @@ public class SelfieSceneInit : MonoBehaviour {
         //ChangeToFrontCamera();
         //Invoke("ChangeToFrontCamera", 0.5f);
         Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
-    }
+    Screen.orientation = ScreenOrientation.Portrait;
+  }
 
-    // Update is called once per frame
-    void Update () {
+  // Update is called once per frame
+  void Update () {
 		
 	}
 

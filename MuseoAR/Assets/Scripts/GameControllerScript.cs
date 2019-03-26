@@ -29,10 +29,14 @@ public class GameControllerScript : MonoBehaviour {
     
     private bool _shuttingDown = false;
     private static object _lock = new object();
+
+
     public static string tldrIdentifier = "not specified tldr";
     public static string aarreIdentifier = "not specified aarre";
     public static List<int> aarteet = new List<int>();
-    private static GameControllerScript _instance;
+
+  #region Singleton creation
+  private static GameControllerScript _instance;
     public static GameControllerScript Instance
     {
         get {
@@ -55,8 +59,9 @@ public class GameControllerScript : MonoBehaviour {
             return _instance;
         }
     }
+  #endregion
 
-    private void OnDestroy()
+  private void OnDestroy()
     {
         _shuttingDown = true;
     }
@@ -151,5 +156,25 @@ public class GameControllerScript : MonoBehaviour {
         if (!exists) { aarteet.Add(aarre); }
         if (!exists) { ScoreScript.Instance.IncreaseScoreBy(10); }
     }
+
+
+  #region Activating decorations for use in selfie scene
+  private List<string> activatedDecorations = new List<string>();
+
+  public void ActivateDecorations(string decorationName)
+  {
+    activatedDecorations.Add(decorationName);
+  }
+
+  public void ActivateDecorations(string[] decorationNameArray)
+  {
+    activatedDecorations.AddRange(decorationNameArray);
+  }
+
+  public List<string> GetActivatedDecorations()
+  {
+    return activatedDecorations;
+  }
+  #endregion
 }
 

@@ -61,7 +61,7 @@ public class SelfieInputManager : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == "Decoration")
                 {
-                    m_draggedObject = hit.collider.gameObject;
+          m_draggedObject = hit.collider.gameObject;
                     prevPos = cam.ScreenToWorldPoint(mousePos);
                     dragging = true;
                 }
