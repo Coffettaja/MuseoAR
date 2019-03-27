@@ -142,15 +142,15 @@ public class GameControllerScript : MonoBehaviour {
     /// </summary>
     public void LoadTopLevelScene()
     {
-        MarkSceneCompleted(_currentScene);
+    MarkSceneCompleted(_currentScene);
         LoadSceneWithName("init");
     }
 
-    /// <summary>
-    /// Checks if list already has the ID. If not, adds it and adds some points to the score.
-    /// </summary>
-    /// <param name="aarre">ID of the found treasure</param>
-    public void LisaaAarre(int aarre)
+  /// <summary>
+  /// Checks if list already has the ID. If not, adds it and adds some points to the score.
+  /// </summary>
+  /// <param name="aarre">ID of the found treasure</param>
+  public void LisaaAarre(int aarre)
     {
         var exists = aarteet.Contains(aarre);
         if (!exists) { aarteet.Add(aarre); }

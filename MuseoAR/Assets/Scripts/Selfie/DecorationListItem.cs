@@ -48,6 +48,10 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler
     if (m_isActive)
     {
       GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
+
+
+      //newDecoration.transform.localScale = new Vector3(-1, 1, -1);
+
       newDecoration.name = gameObject.name + "OnScreen";
       newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
       newDecoration.AddComponent<BoxCollider>(); // Has to be added in code so it automatically fits the sprite

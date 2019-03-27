@@ -28,7 +28,7 @@ public class SelfieSceneButton : MonoBehaviour {
 	
 	void LoadSelfieScene()
     {
-    GameControllerScript.Instance.ActivateDecorations(new[] { "HipsterGlasses", "Mohawk" });
+    GameControllerScript.Instance.ActivateDecorations(new[] { "HipsterGlasses", "Moustache", "Tophat" });
 
     SceneManager.LoadScene("Selfie");
     }

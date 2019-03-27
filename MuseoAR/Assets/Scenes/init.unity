@@ -791,7 +791,7 @@ MonoBehaviour:
   aarreIdentifier: not_defined
   loadSceneWithKey: f
   transitionImage: {fileID: 21300000, guid: c3b3fe7319abcbb40baee6bd56295cef, type: 3}
-  transitionDuration: 1.4
+  transitionDuration: 0
   transitionBeginningZoomPercentage: 0
 --- !u!65 &162230039
 BoxCollider:
@@ -1405,6 +1405,7 @@ GameObject:
   - component: {fileID: 483245074}
   - component: {fileID: 483245073}
   - component: {fileID: 483245072}
+  - component: {fileID: 483245077}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: Untagged
@@ -1495,6 +1496,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &483245077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 483245071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baef60574b118b64ba4ddfe21331490c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &511667572
 GameObject:
   m_ObjectHideFlags: 0

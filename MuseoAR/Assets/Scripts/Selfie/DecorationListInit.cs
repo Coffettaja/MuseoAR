@@ -10,7 +10,11 @@ public class DecorationListInit : MonoBehaviour {
     foreach (string itemToActivate in activatedDecorations)
     {
       Debug.Log(itemToActivate);
-      transform.Find(itemToActivate).GetComponent<DecorationListItem>().Activate();
+      Transform childTransform = transform.Find(itemToActivate);
+      if (childTransform != null)
+      {
+        childTransform.GetComponent<DecorationListItem>().Activate();
+      }
     }
   }
 
