@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 29.6, y: 26.2}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 20, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154187195
 MonoBehaviour:
@@ -643,7 +643,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9ef25af7031f3564bbd59aa13e25f54c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 728a4d83e4a66438d81005f0bc7c23f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1487,7 +1487,7 @@ Transform:
   m_Children:
   - {fileID: 373301935}
   - {fileID: 1721419111}
-  - {fileID: 1574711661}
+  - {fileID: 1737665722}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1927,10 +1927,22 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1 &601962325 stripped
+--- !u!1 &601962325
 GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: f27b69d57fe83e24b8ed207ad463df65, type: 3}
   m_PrefabInternal: {fileID: 1574711660}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 601962327}
+  - component: {fileID: 601962326}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &601962326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,6 +1954,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74389a6ad8bdc342bac3bd243ba8a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &601962327
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1574711660}
+  m_GameObject: {fileID: 601962325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1737665722}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &665314494
 Material:
   serializedVersion: 6
@@ -2114,6 +2139,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719180236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1574711660}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1574711661}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &731214301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2553,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: da8c6eee5a72f9240b4bef1aa9a2367b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f653e9e9161184fa79b774637823791e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2844,7 +2884,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fea48b96092ecd245924f251857f0f55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a5e936b8b01b456c971118729fc2b48, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4386,10 +4426,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f27b69d57fe83e24b8ed207ad463df65, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1574711661 stripped
+--- !u!4 &1574711661
 Transform:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: f27b69d57fe83e24b8ed207ad463df65, type: 3}
   m_PrefabInternal: {fileID: 1574711660}
+  m_GameObject: {fileID: 719180236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1132814706}
+  - {fileID: 61978679}
+  m_Father: {fileID: 1737665722}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1598210246
 Mesh:
   m_ObjectHideFlags: 0
@@ -4795,6 +4846,36 @@ Material:
     m_Floats: []
     m_Colors:
     - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+--- !u!1 &1737665721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1574711660}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1737665722}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1737665722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1574711660}
+  m_GameObject: {fileID: 1737665721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 601962327}
+  - {fileID: 1574711661}
+  m_Father: {fileID: 483245076}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1777115752
 Mesh:
   m_ObjectHideFlags: 0
@@ -5468,7 +5549,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 08bd9fcaffb3a0942b4f2f38476f1c3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b889ef8a4c784e2b8877cd0817f2c58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
