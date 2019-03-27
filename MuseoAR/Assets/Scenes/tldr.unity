@@ -386,8 +386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -60.9}
-  m_SizeDelta: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 0, y: -60}
+  m_SizeDelta: {x: 300, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &433440770
 MonoBehaviour:
@@ -1065,7 +1065,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 3.1, y: -4}
-  m_SizeDelta: {x: 550, y: 160}
+  m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591768466
 MonoBehaviour:
@@ -1099,9 +1099,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
-    et quasi architecto beatae vitae dicta sunt, explicabo.
+  m_Text: "2. maailmansodan j\xE4lkeen kansan menojalka alkoi vipattaa ja saadut vapaat
+    k\xE4ytettiin ymp\xE4ri Suomen kiesimiseen l\xE4nkk\xE4riautoilla. Ajelun tauoilla
+    levytys tapahtui uusissa motelleissa, m\xF6keiss\xE4, sek\xE4 camping-alueilla
+    kera saunan ja makkaran. Korpihotelleissa palvelua sai kaikilla mausteilla. Viikonlopun
+    fiiliksi\xE4 nostattivat kuumimmat artistit ja tanssilavat."
 --- !u!222 &1591768467
 CanvasRenderer:
   m_ObjectHideFlags: 0
