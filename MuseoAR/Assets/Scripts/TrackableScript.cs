@@ -57,7 +57,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     // Create the transition image object.
     backgroundGameObject = new GameObject("Transition Image for " + sceneName);
-    backgroundGameObject.transform.position = Camera.main.transform.position;
+    backgroundGameObject.transform.position = Vector3.zero;
+    backgroundGameObject.SetActive(false);
     spriteRenderer = backgroundGameObject.AddComponent<SpriteRenderer>();
     spriteRenderer.sprite = transitionImage;
 
@@ -116,7 +117,9 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   private IEnumerator TransitionToScene()
   {
+    //Camera.main.transform.position
     // Random value found by trying on different values on the editor...
+    //backgroundGameObject.SetActive(true);
     float scaleFactor = 7.9f * scale.x;  // Most likely will break with different image sizes. TODO FIX!
     float xPos = backgroundGameObject.transform.position.x;
     float yPos = backgroundGameObject.transform.position.y;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.5}
+      m_Extent: {x: 0.5, y: 0, z: 0.49849397}
   m_Shapes:
     vertices: []
     shapes: []
@@ -313,7 +313,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf000000009a3affbe00000000ffff7f3f000000000000000000000000000000bf000000009a3aff3e00000000ffff7f3f00000000000000000000803f0000003f000000009a3affbe00000000ffff7f3f000000000000803f000000000000003f000000009a3aff3e00000000ffff7f3f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: quizScene
   tldrIdentifier: not_defined
-  aarre: 
+  aarreIdentifier: not_defined
   loadSceneWithKey: f
   transitionImage: {fileID: 21300000, guid: c3b3fe7319abcbb40baee6bd56295cef, type: 3}
   transitionDuration: 1.4
@@ -850,6 +850,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 5
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -924,6 +925,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 1
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -1167,6 +1169,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 0
   aarreIdentifier: 
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -1528,6 +1531,7 @@ MonoBehaviour:
   sceneName: quizScene2
   tldrIdentifier: not_defined
   aarreIdentifier: 
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -2004,6 +2008,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 4
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -2151,7 +2156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: quizScene2
   tldrIdentifier: not_defined
-  aarre: 
+  aarreIdentifier: not_defined
   loadSceneWithKey: 
   transitionImage: {fileID: 21300000, guid: f2a25282b85ce4141af3cbbf3f0d3073, type: 3}
   transitionDuration: 0
@@ -2906,10 +2911,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: invaders
   tldrIdentifier: not_defined
-  aarre: 
+  aarreIdentifier: not_defined
   loadSceneWithKey: g
   transitionImage: {fileID: 21300000, guid: b0a732467d72c1340b1b5de769255f4e, type: 3}
-  transitionDuration: 1.4
+  transitionDuration: 0
   transitionBeginningZoomPercentage: 0
 --- !u!65 &1065996246
 BoxCollider:
@@ -3185,6 +3190,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 0
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -3388,6 +3394,7 @@ MonoBehaviour:
   sceneName: 360VideoScene
   tldrIdentifier: not_defined
   aarreIdentifier: 
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -3535,6 +3542,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 2
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -3682,6 +3690,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 6
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -4009,6 +4018,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 1
   aarreIdentifier: 
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -4224,6 +4234,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 5
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0
@@ -4559,6 +4570,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 3
+  loadSceneWithKey: 
   transitionImage: {fileID: 0}
   transitionDuration: 0
   transitionBeginningZoomPercentage: 0

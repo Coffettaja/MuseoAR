@@ -12,10 +12,14 @@ public class SelfieSceneInit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
-        //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
-        //ChangeToFrontCamera();
-        //Invoke("ChangeToFrontCamera", 0.5f);
-        Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
+    //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
+    //ChangeToFrontCamera();
+#if UNITY_EDITOR
+    Debug.Log("Editor");
+#else
+    Invoke("ChangeToFrontCamera", 0.5f);
+#endif
+    Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
     Screen.orientation = ScreenOrientation.Portrait;
   }
 
