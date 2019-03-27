@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class QuestionScript2 : MonoBehaviour {
 
     #region Properties    
-    public Sprite blobYes, blobNo, blobEmpty, answerDummy;
+    public Sprite blobYes, blobNo, blobEmptyTV, answerDummy;
     public Sprite correctSprite, arrowSprite;
     public GameObject fingerprintGO;
     //public Vuforia.TrackableBehaviour tb;
@@ -68,7 +68,7 @@ public class QuestionScript2 : MonoBehaviour {
         var blobchildren = blobGrid.GetComponentsInChildren<Image>();
         foreach (var child in blobchildren)
         {
-            child.sprite = blobEmpty;
+            child.sprite = blobEmptyTV;
         }        
 
         // disable chalkboard
@@ -273,7 +273,7 @@ public class QuestionScript2 : MonoBehaviour {
             blob.GetComponent<Image>().sprite = blobNo;
         }
 
-        var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(7).gameObject;
+        var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(8).gameObject;
         continueButton.SetActive(true);
     }
     #endregion

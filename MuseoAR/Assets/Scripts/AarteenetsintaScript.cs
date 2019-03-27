@@ -31,7 +31,7 @@ public class AarteenetsintaScript : MonoBehaviour {
 
     private void fromJsonToList()
     {
-        Debug.Log(Application.dataPath);
+        //Debug.Log(Application.dataPath);
         TextAsset ladattava = Resources.Load<TextAsset>("aarreBank");
         rootAarre root = JsonUtility.FromJson<rootAarre>(ladattava.text);
 
