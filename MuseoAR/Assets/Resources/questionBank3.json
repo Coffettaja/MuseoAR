@@ -1,0 +1,95 @@
+{
+  "questions": [
+    {
+      "question": "Mikä oli Dallapé?",
+      "answerA": "Jyväskyläläisen Santalan kahvilan kuuluisa leivos",
+      "answerB": "Suosittu suomalainen tanssiorkesteri",
+      "answerC": "Yleinen radiomerkki 1930-luvulla",
+      "correct": 1
+    },
+    {
+      "question": "Mitä jyväskyläläiset Karhumäen veljekset rakensivat?",
+      "answerA": "Lentokoneita",
+      "answerB": "Linja-autoja",
+      "answerC": "Polkupyöriä",
+      "correct": 0
+    },
+    {
+      "question": "Mistä kulkuneuvosta tuli 1920-luvulla modernin elämän symboli?",
+      "answerA": "Autosta",
+      "answerB": "Ilmalaivasta",
+      "answerC": "Moottoripyörästä",
+      "correct": 0
+    },
+    {
+      "question": "Mikä oli kiellettyä vuosina 1919-1932 voimassa olleen kieltolain aikaan?",
+      "answerA": "Tanssiminen",
+      "answerB": "Kahvi",
+      "answerC": "Alkoholi",
+      "correct": 2
+    },
+    {
+      "question": "Vuonna 1925 Jyväskylässä...",
+      "answerA": "Vuonna 1925 Jyväskylässä...",
+      "answerB": "Kuultiin ensimmäinen paikallisradion lähetys",
+      "answerC": "Myytiin ensimmäinen gramofoni",
+      "correct": 1
+    },
+    {
+      "question": "Mistä tuli suosittu joukkoliikenteen väline sotien välisenä aikana?",
+      "answerA": "Linja-autosta",
+      "answerB": "Höyrylaivasta",
+      "answerC": "Lentokoneesta",
+      "correct": 0
+    },
+    {
+      "question": "Minkä pelin Juho Jussila suunnitteli vuonna 1926?",
+      "answerA": "Afrikan tähden",
+      "answerB": "Fortuna-pelin",
+      "answerC": "Hullunkuriset perheet -pelikortit",
+      "correct": 1
+    },
+    {
+      "question": "Mihin 1920-luvun ilmiöön liittyvät 'varpunen' ja 'lahna'?",
+      "answerA": "Salakuljetukseen",
+      "answerB": "Jazz-musiikkiin",
+      "answerC": "Kilpaurheiluun",
+      "correct": 0
+    },
+    {
+      "question": "Kuinka monta luokka-astetta oli kansakoulussa?",
+      "answerA": "2",
+      "answerB": "4",
+      "answerC": "6",
+      "correct": 2
+    },
+    {
+      "question": "Mihin numerosarja 543210 viittaa?",
+      "answerA": "Mäntsälän kapinan päättymiseen",
+      "answerB": "Sisällissodan päättymiseen",
+      "answerC": "Kieltolain päättymiseen",
+      "correct": 2
+    },
+    {
+      "question": "Mitkä olivat 1930-luvun alussa vaikuttaneen Lapuan liikkeen tunnusvärit?",
+      "answerA": "punainen ja valkoinen",
+      "answerB": "sininen ja musta",
+      "answerC": "musta ja valkoinen",
+      "correct": 1
+    },
+    {
+      "question": "Keski-Suomen museo perustettiin vuonna 1932. Millaiset olivat museon aukioloajat 1930-luvulla?",
+      "answerA": "su klo 13-15",
+      "answerB": "la-su klo 10-16",
+      "answerC": "ke klo 12-14",
+      "correct": 0
+    },
+    {
+      "question": "Mitä vaikeaa tautia vastaan Muuramen Kinkomaalle perustettiin parantola vuonna 1930 ja näyttelyssä esillä oleva valistusjuliste varoittaa yskimästä toista ihmistä päin?",
+      "answerA": "Vesirokkoa",
+      "answerB": "Influenssaa",
+      "answerC": "Tuberkuloosia",
+      "correct": 2
+    }
+  ]
+}
