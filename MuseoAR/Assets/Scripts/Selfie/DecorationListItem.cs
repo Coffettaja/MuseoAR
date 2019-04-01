@@ -19,7 +19,7 @@ public class DecorationListItem : MonoBehaviour, IPointerDownHandler
 
   public string m_activatingScene;
 
-  private bool m_isActive = false;
+  private bool m_isActive = true;
 
   Color m_originalColor;
   Image m_decorationImage;

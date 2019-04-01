@@ -9,7 +9,7 @@ public class DecorationListInit : MonoBehaviour {
     var activatedDecorations = GameControllerScript.Instance.GetActivatedDecorations();
     foreach (string itemToActivate in activatedDecorations)
     {
-      Debug.Log(itemToActivate);
+      //Debug.Log(itemToActivate);
       Transform childTransform = transform.Find(itemToActivate);
       if (childTransform != null)
       {
