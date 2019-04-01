@@ -13,7 +13,7 @@ public class DecorationListInit : MonoBehaviour {
       Transform childTransform = transform.Find(itemToActivate);
       if (childTransform != null)
       {
-        childTransform.GetComponent<DecorationListItem>().Activate();
+        childTransform.GetComponent<DecorationListItem>().IsActive(true);
       }
     }
   }
