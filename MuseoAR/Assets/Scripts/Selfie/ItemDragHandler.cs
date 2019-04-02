@@ -11,11 +11,14 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
   private RectTransform itemSlot;
   private DecorationListItem item;
 
+  public ItemInputHandler inputHandler;
+
   //private bool isOnCanvas = false;
 
   public void OnDrag(PointerEventData eventData)
   {
     transform.position = Input.mousePosition;
+    inputHandler.SetRectTransform(rectTransform);
   }
 
   public void OnEndDrag(PointerEventData eventData)
@@ -24,7 +27,9 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
     if (RectTransformUtility.RectangleContainsScreenPoint(itemPanel, Input.mousePosition))
     {
      transform.SetParent(itemSlot);
-      rectTransform.anchoredPosition = Vector2.zero;
+     rectTransform.anchoredPosition = Vector2.zero;
+      rectTransform.rotation = Quaternion.identity;
+      rectTransform.localScale = Vector3.one;
     }
     else
     {

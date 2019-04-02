@@ -1,16 +1,112 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DigitalRubyShared;
+using System;
 
 public class ItemInputHandler : MonoBehaviour {
 
+  private FingersScript fingerScript;
+
+  private TapGestureRecognizer tapGesture;
+ 
+  private SwipeGestureRecognizer swipeGesture;
+  private PanGestureRecognizer panGesture;
+  private RotateGestureRecognizer rotateGesture;
+  private ScaleGestureRecognizer scaleGesture;
+  private LongPressGestureRecognizer longPressGesture;
+
+  private RectTransform rectTransform;
+
 	// Use this for initialization
 	void Start () {
-		
+    rectTransform = transform.Find("DummyItem").transform as RectTransform;
+    fingerScript = gameObject.GetComponent<FingersScript>();
+
+    //CreateTapGesture();
+    //CreateDoubleTapGesture();
+    //CreateSwipeGesture();
+    //CreatePanGesture();
+    CreateScaleGesture();
+    CreateRotateGesture();
+    //CreateLongPressGesture();
+
+    //tapGesture.RequireGestureRecognizerToFail = doubleTapGesture;
+
+    // Pan rotate and scale can happen simultaneously.
+    //panGesture.AllowSimultaneousExecution(scaleGesture);
+    //panGesture.AllowSimultaneousExecution(rotateGesture);
+    scaleGesture.AllowSimultaneousExecution(rotateGesture);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+  private void CreateLongPressGesture()
+  {
+    
+  }
+
+  private void CreateRotateGesture()
+  {
+    rotateGesture = new RotateGestureRecognizer();
+    rotateGesture.StateUpdated += RotateGestureCallback;
+    fingerScript.AddGesture(rotateGesture);
+  }
+
+  private void RotateGestureCallback(GestureRecognizer gesture)
+  {
+    if (gesture.State == GestureRecognizerState.Executing)
+    {
+      rectTransform.Rotate(0f, 0f, rotateGesture.RotationRadiansDelta * Mathf.Rad2Deg);
+    }
+  }
+
+  private void CreateScaleGesture()
+  {
+    scaleGesture = new ScaleGestureRecognizer();
+    scaleGesture.StateUpdated += ScaleGestureCallback;
+    fingerScript.AddGesture(scaleGesture);
+  }
+
+  private void ScaleGestureCallback(GestureRecognizer gesture)
+  {
+    if (gesture.State == GestureRecognizerState.Executing)
+    {
+      rectTransform.localScale *= scaleGesture.ScaleMultiplier;
+    }
+  }
+
+  private void CreatePanGesture()
+  {
+    
+  }
+
+  private void CreateSwipeGesture()
+  {
+    
+  }
+
+  private void CreateDoubleTapGesture()
+  {
+    
+  }
+
+  private void CreateTapGesture()
+  {
+    tapGesture = new TapGestureRecognizer();
+    tapGesture.StateUpdated += TapGestureCallback;
+    fingerScript.AddGesture(tapGesture);
+  }
+
+  private void TapGestureCallback(GestureRecognizer gesture)
+  {
+    if (gesture.State == GestureRecognizerState.Ended)
+    {
+      GestureTouch t = gesture.CurrentTrackedTouches[0];
+      Debug.Log("Tapped at" + t.X + t.Y);
+    }
+  }
+
+  public void SetRectTransform(RectTransform item)
+  {
+    rectTransform = item;
+  }
 }

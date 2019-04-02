@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 114360289343217860}
   - component: {fileID: 222626666525330522}
   - component: {fileID: 114506672089266970}
-  - component: {fileID: 114940404483844092}
   m_Layer: 0
   m_Name: Decoration
   m_TagString: Decoration
@@ -80,7 +79,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5d87295b06816c24482daa03f6965d56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cf388de75827e44cb73ff99d58f7881, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -99,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6187e83d885b5ae41b70c503976f6873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputHandler: {fileID: 0}
 --- !u!114 &114506672089266970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,17 +167,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114940404483844092
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1458241056183300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e3b5f7f7c33cf49a89e5936f4e0948, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &222272335319862426
 CanvasRenderer:
   m_ObjectHideFlags: 1
