@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114053284994289246}
   - component: {fileID: 222486347416244560}
   - component: {fileID: 114239488553733264}
+  - component: {fileID: 114350749291729680}
   m_Layer: 0
   m_Name: Decoration
   m_TagString: Decoration
@@ -59,7 +60,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0eb6dc374b900544c82612f65cf404b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -67,6 +68,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114350749291729680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947485245552234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e3b5f7f7c33cf49a89e5936f4e0948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222486347416244560
 CanvasRenderer:
   m_ObjectHideFlags: 1

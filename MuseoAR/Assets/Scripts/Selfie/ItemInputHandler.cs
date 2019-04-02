@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Add to BUTT
-/// </summary>
-public class ShowHideToggle : MonoBehaviour
-{
+public class ItemInputHandler : MonoBehaviour {
 
-	public GameObject objectToMove;
-	
 	// Use this for initialization
 	void Start () {
 		
