@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class QuestionScript2 : MonoBehaviour {
+public class QuestionScript3 : MonoBehaviour {
 
     #region Properties    
-    public Sprite blobYes, blobNo, blobEmptyTV, answerDummy;
+    public Sprite blobYes, blobNo, blobEmpty, answerDummy;
     public Sprite correctSprite, arrowSprite;
     public GameObject fingerprintGO;
     //public Vuforia.TrackableBehaviour tb;
@@ -68,7 +68,7 @@ public class QuestionScript2 : MonoBehaviour {
         var blobchildren = blobGrid.GetComponentsInChildren<Image>();
         foreach (var child in blobchildren)
         {
-            child.sprite = blobEmptyTV;
+            child.sprite = blobEmpty;
         }        
 
         // disable chalkboard
@@ -286,7 +286,7 @@ public class QuestionScript2 : MonoBehaviour {
     {
         // parsing the json into token array
         Debug.Log(Application.dataPath);
-        TextAsset ladattava = Resources.Load<TextAsset>("questionBank2");
+        TextAsset ladattava = Resources.Load<TextAsset>("questionBank3");
         rootQuestion root = JsonUtility.FromJson<rootQuestion>(ladattava.text);
 
         // new object and values from token
