@@ -33,6 +33,7 @@ public class GameControllerScript : MonoBehaviour {
 
     public static string tldrIdentifier = "not specified tldr";
     public static string aarreIdentifier = "not specified aarre";
+    public static string nimiJaAmmatti = "nimi";
     public static List<int> aarteet = new List<int>();
 
   #region Singleton creation
@@ -144,6 +145,7 @@ public class GameControllerScript : MonoBehaviour {
     {
     MarkSceneCompleted(_currentScene);
         LoadSceneWithName("init");
+        Debug.Log(nimiJaAmmatti);
     }
 
   /// <summary>
