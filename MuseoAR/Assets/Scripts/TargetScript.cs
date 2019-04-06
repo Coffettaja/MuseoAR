@@ -42,7 +42,7 @@ public class TargetScript : MonoBehaviour {
             {
                 targetedMarker = hit.collider.gameObject.GetComponent<TrackableScript>();
                 targetFrame.sprite = frameHighlightSprite;
-                StartCoroutine("FillCoroutine", 2.0f);
+                StartCoroutine("FillCoroutine", 1.0f);
             }
         }
         else
@@ -68,7 +68,7 @@ public class TargetScript : MonoBehaviour {
             targetFill.color = new Color(col.r, col.b, col.g, 0.75f * t);
             yield return null;
         }
-        StartCoroutine("AfterPulse", 0.5f);
+        StartCoroutine("AfterPulse", 0.1f);
     }
 
     //

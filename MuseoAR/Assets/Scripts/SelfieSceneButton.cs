@@ -20,15 +20,14 @@ public class SelfieSceneButton : MonoBehaviour {
         GetComponent<Button>().onClick.AddListener(LoadSelfieScene);
         if(PlayerPrefs.GetString("DecorUnlock") != "")
         {
-            noticeBang.SetActive(true);
-            StartCoroutine(ShakeButton(20));
-            PlayerPrefs.DeleteKey("DecorUnlock");
+            //noticeBang.SetActive(true);
+            //StartCoroutine(ShakeButton(20));
+            //PlayerPrefs.DeleteKey("DecorUnlock");
         }        
 	}
 	
 	void LoadSelfieScene()
     {
-    GameControllerScript.Instance.ActivateDecorations(new[] { "HipsterGlasses", "Moustache", "Tophat" });
 
     SceneManager.LoadScene("Selfie");
     }

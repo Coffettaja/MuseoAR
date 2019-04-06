@@ -8,70 +8,74 @@ using UnityEngine.EventSystems;
 /// Script for a decoration item listed in the decoration tray
 /// Handles instantiating a new decoration object on click/touch
 /// </summary>
-public class DecorationListItem : MonoBehaviour, IPointerDownHandler
+public class DecorationListItem : MonoBehaviour
 {
 
   SelfieInputManager m_inputManager;
   Button m_button;
-  public GameObject DecorationPrefab;
+  //public GameObject DecorationPrefab;
+
+
+  private RectTransform m_decoration;
 
   private Sprite m_decorationSprite;
 
   public string m_activatingScene;
 
-  private bool m_isActive = false;
+  private bool m_isActive = true;
 
-  Color m_originalColor;
+  //Color m_originalColor;
   Image m_decorationImage;
+  Image m_decorationSlotImage;
 
   // Use this for initialization
   void Start()
   {
     m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
     m_button = GetComponent<Button>();
-    m_decorationImage = GetComponent<Image>();
-    m_decorationSprite = m_decorationImage.sprite;
+    m_decorationSlotImage = GetComponent<Image>();
+    m_decorationSprite = m_decorationSlotImage.sprite;
+    RectTransform rectTransform = transform as RectTransform;
 
-    m_originalColor = m_decorationImage.color;
+    m_decoration = transform.GetChild(0) as RectTransform;
+
+    m_decoration.sizeDelta = rectTransform.sizeDelta;
+
+    m_decoration.GetComponent<Image>().sprite = m_decorationSprite;
+    //m_decoration.SetActive(false);
+    //m_decoration.transform.parent = gameObject.transform;
+
+    //m_originalColor = m_decorationImage.color;
     Color deactiveColor;
     ColorUtility.TryParseHtmlString("#0000007D", out deactiveColor);
+    m_decorationSlotImage.color = deactiveColor;
+
+    //m_decorationSlotImage
 
     if (!m_isActive)
     {
-      m_decorationImage.color = deactiveColor;
+      //m_decorationImage.color = deactiveColor;
     }
   }
 
-  // What to do when the decoration item is pressed / clicked
-  void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
+  private void ActivateDecoration()
   {
-    if (m_isActive)
-    {
-      GameObject newDecoration = Instantiate(DecorationPrefab) as GameObject;
-
-
-      //newDecoration.transform.localScale = new Vector3(-1, 1, -1);
-
-      newDecoration.name = gameObject.name + "OnScreen";
-      newDecoration.GetComponent<SpriteRenderer>().sprite = m_decorationSprite;
-      newDecoration.AddComponent<BoxCollider>(); // Has to be added in code so it automatically fits the sprite
-      m_inputManager.DraggedObject = newDecoration;
-      ScoreScript.Instance.IncreaseScoreBy(1);
-    }
+    //DecorationPrefab.SetActive(true);
   }
 
-  public void Activate()
+  public void IsActive(bool activationState)
   {
     if (m_decorationImage != null)
     {
-      m_decorationImage.color = m_originalColor;
+      //m_decorationImage.color = m_originalColor;
     }
-    m_isActive = true;
+
+    m_isActive = activationState;
   }
 
-  bool DecorationActive()
+  public bool DecorationActive()
   {
-    return true;//GameControllerScript.Instance.IsSceneCompleted(m_activatingScene);
+    return m_isActive;
   }
 
 }

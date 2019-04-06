@@ -10,6 +10,8 @@ TagManager:
   - Map
   - ScoreDisplay
   - Canvas
+  - Decoration
+  - Inventory
   layers:
   - Default
   - TransparentFX
