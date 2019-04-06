@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Is this script ever used?
-public class LoadInitScene : MonoBehaviour {
+public class LoadProfileScene : MonoBehaviour {
 
     private float _time = 0f;
 
@@ -22,7 +22,7 @@ public class LoadInitScene : MonoBehaviour {
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            SceneManager.LoadScene("init");
+            SceneManager.LoadScene("profileInput");
         }
     }
 	
