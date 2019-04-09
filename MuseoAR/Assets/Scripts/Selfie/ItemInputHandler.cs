@@ -6,15 +6,19 @@ using System;
 
 public class ItemInputHandler : MonoBehaviour {
 
+  private float maxSize = 5f;
+  private float minSize = .75f;
+  private float rotationSpeed = 2.5f;
+
   private FingersScript fingerScript;
 
   private TapGestureRecognizer tapGesture;
  
-  private SwipeGestureRecognizer swipeGesture;
-  private PanGestureRecognizer panGesture;
+  //private SwipeGestureRecognizer swipeGesture;
+  //private PanGestureRecognizer panGesture;
   private RotateGestureRecognizer rotateGesture;
   private ScaleGestureRecognizer scaleGesture;
-  private LongPressGestureRecognizer longPressGesture;
+  //private LongPressGestureRecognizer longPressGesture;
 
   private RectTransform rectTransform;
 
@@ -55,7 +59,7 @@ public class ItemInputHandler : MonoBehaviour {
   {
     if (gesture.State == GestureRecognizerState.Executing)
     {
-      rectTransform.Rotate(0f, 0f, rotateGesture.RotationRadiansDelta * Mathf.Rad2Deg);
+      rectTransform.Rotate(0f, 0f, rotateGesture.RotationRadiansDelta * Mathf.Rad2Deg * rotationSpeed);
     }
   }
 
@@ -70,6 +74,9 @@ public class ItemInputHandler : MonoBehaviour {
   {
     if (gesture.State == GestureRecognizerState.Executing)
     {
+      // Don't allow getting bigger if at max size, or smaller if at min size.
+      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1) return;
+      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1) return;
       rectTransform.localScale *= scaleGesture.ScaleMultiplier;
     }
   }
@@ -89,22 +96,26 @@ public class ItemInputHandler : MonoBehaviour {
     
   }
 
-  private void CreateTapGesture()
-  {
-    tapGesture = new TapGestureRecognizer();
-    tapGesture.StateUpdated += TapGestureCallback;
-    fingerScript.AddGesture(tapGesture);
-  }
+  //private void CreateTapGesture()
+  //{
+  //  tapGesture = new TapGestureRecognizer();
+  //  tapGesture.StateUpdated += TapGestureCallback;
+  //  fingerScript.AddGesture(tapGesture);
+  //}
 
-  private void TapGestureCallback(GestureRecognizer gesture)
-  {
-    if (gesture.State == GestureRecognizerState.Ended)
-    {
-      GestureTouch t = gesture.CurrentTrackedTouches[0];
-      Debug.Log("Tapped at" + t.X + t.Y);
-    }
-  }
+  //private void TapGestureCallback(GestureRecognizer gesture)
+  //{
+  //  if (gesture.State == GestureRecognizerState.Ended)
+  //  {
+  //    GestureTouch t = gesture.CurrentTrackedTouches[0];
+  //    Debug.Log("Tapped at" + t.X + t.Y);
+  //  }
+  //}
 
+    /// <summary>
+    /// Sets the item that the gestures apply to.
+    /// </summary>
+    /// <param name="item"></param>
   public void SetRectTransform(RectTransform item)
   {
     rectTransform = item;
