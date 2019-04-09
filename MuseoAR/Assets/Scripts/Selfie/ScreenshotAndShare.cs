@@ -9,24 +9,41 @@ using UnityEngine.UI;
 /// and triggers the native share function
 /// </summary>
 public class ScreenshotAndShare : MonoBehaviour {
-  private RectTransform canvas;
+
+  public List<RectTransform> itemsToHide;
   private Vector3 initScale;
 
   // Use this for initialization
   void Start () {
-        Button screenshotButton = GetComponent<Button>();
-        screenshotButton.onClick.AddListener(StartScreenshotCoroutine);
-    canvas = transform.parent as RectTransform;
-    initScale = canvas.localScale;
+    Button screenshotButton = GetComponent<Button>();
+
+    screenshotButton.onClick.AddListener(StartScreenshotCoroutine);
 	}
 	
-    private void StartScreenshotCoroutine()
+  private void HideCanvas()
+  {
+    foreach (RectTransform item in itemsToHide)
     {
-    canvas.localScale = Vector3.zero;
-        StartCoroutine("TakeAndShare");
+      item.localScale = Vector3.zero;
     }
+  }
 
-    private IEnumerator TakeAndShare()
+  private void StartScreenshotCoroutine()
+    {
+    HideCanvas();
+
+    StartCoroutine("TakeAndShare");
+  }
+
+  private void ShowCanvas()
+  {
+    foreach (RectTransform item in itemsToHide)
+    {
+      item.localScale = Vector3.one;
+    }
+  }
+
+  private IEnumerator TakeAndShare()
     {
         yield return new WaitForEndOfFrame();
 
@@ -35,17 +52,20 @@ public class ScreenshotAndShare : MonoBehaviour {
         //Texture2D ss = new Texture2D(Screen.width, (int)screenHeight, TextureFormat.RGB24, false);
         //TODO: Hide the UI while takign screenshot
         Texture2D ss = ScreenCapture.CaptureScreenshotAsTexture();
-    canvas.localScale = initScale;
+    ShowCanvas();
         //ss.ReadPixels(new Rect(0, startHeight, Screen.width, screenHeight), 0, 0);
         //ss.Apply();
 
-    string filePath = Path.Combine(Application.temporaryCachePath, "selfie.png");
-        File.WriteAllBytes(filePath, ss.EncodeToPNG());
+    string name = string.Format("{0}_{1}_{2}.png", Application.productName, "{0}", System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+    Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
+    string filePath = Path.Combine(Application.temporaryCachePath, name + ".png");
+      File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
-        // To avoid memory leaks
-        GameObject.Destroy(ss);
+    // To avoid memory leaks
+    GameObject.Destroy(ss);
 
         NativeShare nativeShare = new NativeShare();
+    
         nativeShare.SetSubject("MuseoAR Selfie!"); // Primarily for email.
         //nativeShare.SetText("");
         nativeShare.AddFile(filePath, "image/png");
