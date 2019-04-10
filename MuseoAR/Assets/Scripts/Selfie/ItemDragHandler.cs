@@ -17,6 +17,11 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
 
   public void OnDrag(PointerEventData eventData)
   {
+    if (!item.DecorationActive())
+    {
+      Debug.Log("Not active!");
+      return;
+    };
     transform.position = Input.mousePosition;
     inputHandler.SetRectTransform(rectTransform);
   }
@@ -43,6 +48,6 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
     itemSlot = transform.parent as RectTransform;
     itemPanel = GameObject.FindWithTag("Inventory").transform as RectTransform;
     canvas = GameObject.FindGameObjectWithTag("Canvas").transform as RectTransform;
-    item = gameObject.GetComponent<DecorationListItem>();
+    item = transform.parent.GetComponent<DecorationListItem>();
   }
 }
