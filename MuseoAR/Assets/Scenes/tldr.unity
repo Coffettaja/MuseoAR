@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 13, y: -4}
-  m_SizeDelta: {x: 600, y: 160}
+  m_SizeDelta: {x: 700, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226061934
 MonoBehaviour:
@@ -418,9 +418,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
-    et quasi architecto beatae vitae dicta sunt, explicabo.
+  m_Text: "2. maailmansodan j\xE4lkeen kansan menojalka alkoi vipattaa ja saadut vapaat
+    k\xE4ytettiin ymp\xE4ri Suomen kiesimiseen l\xE4nkk\xE4riautoilla. Ajelun tauoilla
+    levytys tapahtui uusissa motelleissa, m\xF6keiss\xE4, sek\xE4 camping-alueilla
+    kera saunan ja makkaran. Korpihotelleissa palvelua sai kaikilla mausteilla. Viikonlopun
+    fiiliksi\xE4 nostattivat kuumimmat artistit ja tanssilavat.\r\n"
 --- !u!222 &226061935
 CanvasRenderer:
   m_ObjectHideFlags: 0
