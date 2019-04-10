@@ -22,7 +22,7 @@ public class DecorationListItem : MonoBehaviour
 
   public string m_activatingScene;
 
-  private bool m_isActive = true;
+  private bool m_isActive = false;
 
   //Color m_originalColor;
   Image m_decorationImage;
@@ -52,10 +52,7 @@ public class DecorationListItem : MonoBehaviour
 
     //m_decorationSlotImage
 
-    if (!m_isActive)
-    {
-      //m_decorationImage.color = deactiveColor;
-    }
+    m_decoration.gameObject.SetActive(m_isActive);
   }
 
   private void ActivateDecoration()
