@@ -2303,7 +2303,7 @@ Prefab:
       objectReference: {fileID: 713649874}
     - target: {fileID: 1458241056183300, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
       propertyPath: m_Name
-      value: MosutacheDecoration
+      value: MoustacheDecoration
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
