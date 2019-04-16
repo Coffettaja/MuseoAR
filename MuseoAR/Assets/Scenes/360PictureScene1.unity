@@ -333,11 +333,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: c929d22d655385e448291631193967ed, type: 3}
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -345,8 +345,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "T\xE4m\xE4 on ty\xF6l\xE4isen maja.\nEik\xF6 ole hieno?\nTulee ihan oikeaa
-    museoteksti\xE4 aikanaan.\nSill\xE4 v\xE4lin nauti maisemista."
+  m_Text: "Kuparisep\xE4n talo on vanhimpia edelleen pystyss\xE4 olevia jyv\xE4skyl\xE4l\xE4istaloja.
+    Talo on\r rakennettu vuonna 1842 ja sisustettu 1800-luvun j\xE4lkipuolen asuun.
+    \n\nKuparisep\xE4n talo ja sen\r vieress\xE4 sijaitseva Puusep\xE4n talo muodostavat
+    yhdess\xE4 K\xE4sity\xF6l\xE4ismuseon, joka avoinna yleis\xF6lle ymp\xE4ri vuoden
+    Toivolan Vanhalla Pihalla."
 --- !u!222 &113876095
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2205,11 +2208,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: c614e6f09887c6243afc0cac3459c979, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2217,7 +2220,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "INFOA T\xC4\xC4LL\xC4"
+  m_Text: "KUPARISEP\xC4N TALO"
 --- !u!222 &1582327027
 CanvasRenderer:
   m_ObjectHideFlags: 0
