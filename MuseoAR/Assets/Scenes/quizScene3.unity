@@ -402,7 +402,13 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114231705192700574, guid: 4f0817f43c5444fb69caa933bad321db,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114231705192700574, guid: 4f0817f43c5444fb69caa933bad321db, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4f0817f43c5444fb69caa933bad321db, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &211130646
@@ -786,7 +792,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 1999d990c4e9f9d4c98c35506b51dde3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3825,7 +3831,8 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: getQuestion
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114737765581770364, guid: 428d7f9a8d302410cb35268717eb5c08, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 428d7f9a8d302410cb35268717eb5c08, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1883234326
