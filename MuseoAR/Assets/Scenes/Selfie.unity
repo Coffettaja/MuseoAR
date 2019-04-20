@@ -437,7 +437,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.1380758
+  m_Size: 0.14840579
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -783,6 +783,17 @@ Prefab:
     - target: {fileID: 1458241056183300, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
       propertyPath: m_Name
       value: AxeDecoration
+      objectReference: {fileID: 0}
+    - target: {fileID: 114506672089266970, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 43846687c076aac44bbb378f1dad06a4,
+        type: 3}
+    - target: {fileID: 114506672089266970, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
@@ -1302,7 +1313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 724.89795}
+  m_AnchoredPosition: {x: -125, y: 779.1305}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
