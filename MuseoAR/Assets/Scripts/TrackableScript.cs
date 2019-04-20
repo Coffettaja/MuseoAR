@@ -23,7 +23,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   public string aarreIdentifier = "not_defined";
 
   // Used for debugging purposes.
-  public string loadSceneWithKey = "";
+  //public string loadSceneWithKey = "";
 
   [Header("Transition")]
   /// <summary>
@@ -31,8 +31,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   /// </summary>
   public Sprite transitionImage;
 
-  public float transitionDuration;
-  public float transitionBeginningZoomPercentage;
+  public float transitionSpeed = 7;
+  public float transitionBeginningZoom = 500;
 
   // Use this for initialization
   void Start () {
@@ -52,25 +52,24 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   private Vector2 scale;
   private UnityEngine.UI.Image img;
+  private GameObject imgGO;
 
   private void SetUpTransitionImage()
   {
     if (transitionImage == null) return;
 
-    var imgGO = new GameObject();
+    imgGO = new GameObject();
     img = imgGO.AddComponent<UnityEngine.UI.Image>();
-    imgGO.transform.parent = canvas.transform;
-    //img.preserveAspect = true;
-    img.name = "TransitionImageFor" + gameObject.name;
+    imgGO.transform.parent = canvas.transform; // Transition image as the child of the canvas.
+    imgGO.name = "TransitionImageFor" + gameObject.name;
     img.sprite = transitionImage;
 
     var rt = imgGO.transform as RectTransform;
-    rt.localPosition = Vector3.zero;
-    rt.localScale = Vector3.one * 1.01f;
+    rt.localPosition = new Vector3(0, 0, -transitionBeginningZoom);
+    rt.localScale = Vector3.one * 1.01f; // Just a tiny bit bigger just to make sure it fills the screen.
     rt.offsetMin = new Vector2(0, 0);
     rt.offsetMax = new Vector2(0, 0);
-
-
+    imgGO.SetActive(false);
   }
   
   private void ScaleTransitionImage()
@@ -82,48 +81,55 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     Vector2 spriteSize = transitionImage.bounds.size;
     float spriteAspectRatio = transitionImage.bounds.size.x / transitionImage.bounds.size.y;
 
-    Debug.Log(spriteAspectRatio);
+    //Debug.Log(spriteAspectRatio);
 
-    var rect = ((RectTransform)img.transform);
+    var rectTransform = ((RectTransform)img.transform);
 
-    Debug.Log("CameraHeight: " + cameraHeight);
-    Debug.Log("Aspect: " + Camera.main.aspect);
-   
+    //Debug.Log("CameraHeight: " + cameraHeight);
+    //Debug.Log("Aspect: " + Camera.main.aspect);
 
+    // Landscape (or equal) --> Strech horizontally
     if (Camera.main.aspect >= spriteAspectRatio)
-    { // Landscape (or equal) --> Strech horizontally
-      rect.anchorMin = new Vector2(0, .5f);
-      rect.anchorMax = new Vector2(1f, .5f);
-      rect.pivot = new Vector2(.5f, .5f);
-      Debug.Log("Prev" + rect.sizeDelta.x);
-      rect.sizeDelta = new Vector2(0, rect.rect.width / spriteAspectRatio);
+    {
+      rectTransform.anchorMin = new Vector2(0, .5f);
+      rectTransform.anchorMax = new Vector2(1f, .5f);
+      rectTransform.pivot = new Vector2(.5f, .5f);
+      rectTransform.sizeDelta = new Vector2(0, rectTransform.rect.width / spriteAspectRatio);
     }
     else
     { // Portrait --> Stretch vertically
-      rect.anchorMin = new Vector2(.5f, 0);
-      rect.anchorMax = new Vector2(.5f, 1f);
-      rect.pivot = new Vector2(.5f, .5f);
-      rect.sizeDelta = new Vector2(rect.rect.height * spriteAspectRatio, 0);
+      rectTransform.anchorMin = new Vector2(.5f, 0);
+      rectTransform.anchorMax = new Vector2(.5f, 1f);
+      rectTransform.pivot = new Vector2(.5f, .5f);
+      rectTransform.sizeDelta = new Vector2(rectTransform.rect.height * spriteAspectRatio, 0);
     }
-    Debug.Log("Imgheight: " + rect.rect.height);
-    Debug.Log("Imgwidth: " + rect.rect.width);
-    Debug.Log("Width: " + rect.sizeDelta.x);
-      Debug.Log("Height: " + rect.sizeDelta.y);
+    //Debug.Log("Imgheight: " + rect.rect.height);
+    //Debug.Log("Imgwidth: " + rect.rect.width);
+    //Debug.Log("Width: " + rect.sizeDelta.x);
+    //Debug.Log("Height: " + rect.sizeDelta.y);
   }
 
 	// Update is called once per frame
 	void Update () {
-      // Used for debugging purposes.
-    if (loadSceneWithKey != "" && Input.GetKeyDown(loadSceneWithKey) && transitionDuration > 0)
-    {
-      LoadScene();
-    }
-
     if (Input.GetKeyDown("o"))
     {
-      ScaleTransitionImage();
-      ScaleTransitionImage(); // Obviously have to call it twice in a row for it to work properly...
+      if (transitionImage != null)
+      {
+        //StartSceneTransition();
+      }
     }
+  }
+
+  private bool isTransitioning = false;
+
+  private void StartSceneTransition()
+  {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    imgGO.SetActive(true);
+    ScaleTransitionImage();
+    ScaleTransitionImage(); // Called twice on purpose... otherwise it doesn't work and I can't be bothered to look into it now.
+    StartCoroutine("TransitionToScene");
   }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
@@ -137,35 +143,25 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   public void LoadScene()
   {
-    if (transitionDuration > 0)
-    {
-      // Set the UI canvas to inactive state, so the buttons cannot be pressed during the transition.
-      //canvas.SetActive(false);
-      StartCoroutine("TransitionToScene");
-    }
-    
-	else
-	{
-      // Send marker identifiers as parameters along with scenename to game controller.
-	  GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
-	}
+    StartSceneTransition();
   }
 
   private IEnumerator TransitionToScene()
   {
-    //Camera.main.transform.position
-    // Random value found by trying on different values on the editor...
-    //backgroundGameObject.SetActive(true);
-    float scaleFactor = 7.9f * scale.x;  // Most likely will break with different image sizes. TODO FIX!
-    float xPos = backgroundGameObject.transform.position.x;
-    float yPos = backgroundGameObject.transform.position.y;
-    for (float f = transitionBeginningZoomPercentage; f <= 1f; f += 1 / transitionDuration * Time.deltaTime)
+    // Load the scene instantly if no transition image is set.
+    if (transitionImage == null || transitionSpeed <= 0)
     {
-      // Move the the image on z-axis from 10 to 15 over a duration.
-      // scale 1 = z 7.9 (for max view)
-      backgroundGameObject.transform.position = new Vector3(xPos, yPos, f * scaleFactor);
+      GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
+    }
+
+    float z = -transitionBeginningZoom;
+    while (z < 0)
+    {
+      z = z + transitionSpeed;
+      imgGO.transform.localPosition = new Vector3(0, 0, z);
       yield return null;
     }
+  
     yield return new WaitForSeconds(0.5f);
     GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
   }
