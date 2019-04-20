@@ -13,6 +13,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   private SpriteRenderer spriteRenderer;
   private GameObject backgroundGameObject;
+  private GameObject canvas;
 
   /// <summary>
   /// The name of the scene to be launched when tracking the marker.
@@ -22,7 +23,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   public string aarreIdentifier = "not_defined";
 
   // Used for debugging purposes.
-  public string loadSceneWithKey = "";
+  //public string loadSceneWithKey = "";
 
   [Header("Transition")]
   /// <summary>
@@ -30,8 +31,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   /// </summary>
   public Sprite transitionImage;
 
-  public float transitionDuration;
-  public float transitionBeginningZoomPercentage;
+  public float transitionSpeed = 7;
+  public float transitionBeginningZoom = 500;
 
   // Use this for initialization
   void Start () {
@@ -42,6 +43,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
         }
 
+    canvas = GameObject.FindGameObjectWithTag("Canvas");
     SetUpTransitionImage();
     
 
@@ -49,44 +51,85 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   }
 
   private Vector2 scale;
+  private UnityEngine.UI.Image img;
+  private GameObject imgGO;
 
   private void SetUpTransitionImage()
   {
-    // Return if no image set.
     if (transitionImage == null) return;
 
-    // Create the transition image object.
-    backgroundGameObject = new GameObject("Transition Image for " + sceneName);
-    backgroundGameObject.transform.position = Vector3.zero;
-    backgroundGameObject.SetActive(false);
-    spriteRenderer = backgroundGameObject.AddComponent<SpriteRenderer>();
-    spriteRenderer.sprite = transitionImage;
+    imgGO = new GameObject();
+    img = imgGO.AddComponent<UnityEngine.UI.Image>();
+    imgGO.transform.parent = canvas.transform; // Transition image as the child of the canvas.
+    imgGO.name = "TransitionImageFor" + gameObject.name;
+    img.sprite = transitionImage;
 
+    var rt = imgGO.transform as RectTransform;
+    rt.localPosition = new Vector3(0, 0, -transitionBeginningZoom);
+    rt.localScale = Vector3.one * 1.01f; // Just a tiny bit bigger just to make sure it fills the screen.
+    rt.offsetMin = new Vector2(0, 0);
+    rt.offsetMax = new Vector2(0, 0);
+    imgGO.SetActive(false);
+  }
+  
+  private void ScaleTransitionImage()
+  {
+    if (transitionImage == null) return;
     // Set up the camera and scale, so the image fits on any screen size.
     float cameraHeight = Camera.main.orthographicSize * 2;
     Vector2 cameraSize = new Vector2(Camera.main.aspect * cameraHeight, cameraHeight);
-    Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
+    Vector2 spriteSize = transitionImage.bounds.size;
+    float spriteAspectRatio = transitionImage.bounds.size.x / transitionImage.bounds.size.y;
 
-    this.scale = backgroundGameObject.transform.localScale;
-    if (cameraSize.x >= cameraSize.y)
-    { // Landscape (or equal)
-      scale *= cameraSize.x / spriteSize.x;
+    //Debug.Log(spriteAspectRatio);
+
+    var rectTransform = ((RectTransform)img.transform);
+
+    //Debug.Log("CameraHeight: " + cameraHeight);
+    //Debug.Log("Aspect: " + Camera.main.aspect);
+
+    // Landscape (or equal) --> Strech horizontally
+    if (Camera.main.aspect >= spriteAspectRatio)
+    {
+      rectTransform.anchorMin = new Vector2(0, .5f);
+      rectTransform.anchorMax = new Vector2(1f, .5f);
+      rectTransform.pivot = new Vector2(.5f, .5f);
+      rectTransform.sizeDelta = new Vector2(0, rectTransform.rect.width / spriteAspectRatio);
     }
     else
-    { // Portrait
-      scale *= cameraSize.y / spriteSize.y;
+    { // Portrait --> Stretch vertically
+      rectTransform.anchorMin = new Vector2(.5f, 0);
+      rectTransform.anchorMax = new Vector2(.5f, 1f);
+      rectTransform.pivot = new Vector2(.5f, .5f);
+      rectTransform.sizeDelta = new Vector2(rectTransform.rect.height * spriteAspectRatio, 0);
     }
-
-    backgroundGameObject.transform.localScale = scale;
+    //Debug.Log("Imgheight: " + rect.rect.height);
+    //Debug.Log("Imgwidth: " + rect.rect.width);
+    //Debug.Log("Width: " + rect.sizeDelta.x);
+    //Debug.Log("Height: " + rect.sizeDelta.y);
   }
 
 	// Update is called once per frame
 	void Update () {
-      // Used for debugging purposes.
-    if (loadSceneWithKey != "" && Input.GetKeyDown(loadSceneWithKey) && transitionDuration > 0)
+    if (Input.GetKeyDown("o"))
     {
-      LoadScene();
+      if (transitionImage != null)
+      {
+        //StartSceneTransition();
+      }
     }
+  }
+
+  private bool isTransitioning = false;
+
+  private void StartSceneTransition()
+  {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    imgGO.SetActive(true);
+    ScaleTransitionImage();
+    ScaleTransitionImage(); // Called twice on purpose... otherwise it doesn't work and I can't be bothered to look into it now.
+    StartCoroutine("TransitionToScene");
   }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
@@ -100,36 +143,25 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   public void LoadScene()
   {
-    if (transitionDuration > 0)
-    {
-      // Set the UI canvas to inactive state, so the buttons cannot be pressed during the transition.
-      GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
-      //canvas.SetActive(false);
-      StartCoroutine("TransitionToScene");
-    }
-    
-	else
-	{
-      // Send marker identifiers as parameters along with scenename to game controller.
-	  GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
-	}
+    StartSceneTransition();
   }
 
   private IEnumerator TransitionToScene()
   {
-    //Camera.main.transform.position
-    // Random value found by trying on different values on the editor...
-    //backgroundGameObject.SetActive(true);
-    float scaleFactor = 7.9f * scale.x;  // Most likely will break with different image sizes. TODO FIX!
-    float xPos = backgroundGameObject.transform.position.x;
-    float yPos = backgroundGameObject.transform.position.y;
-    for (float f = transitionBeginningZoomPercentage; f <= 1f; f += 1 / transitionDuration * Time.deltaTime)
+    // Load the scene instantly if no transition image is set.
+    if (transitionImage == null || transitionSpeed <= 0)
     {
-      // Move the the image on z-axis from 10 to 15 over a duration.
-      // scale 1 = z 7.9 (for max view)
-      backgroundGameObject.transform.position = new Vector3(xPos, yPos, f * scaleFactor);
+      GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
+    }
+
+    float z = -transitionBeginningZoom;
+    while (z < 0)
+    {
+      z = z + transitionSpeed;
+      imgGO.transform.localPosition = new Vector3(0, 0, z);
       yield return null;
     }
+  
     yield return new WaitForSeconds(0.5f);
     GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
   }

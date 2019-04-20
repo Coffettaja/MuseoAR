@@ -19,7 +19,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
   {
     if (!item.DecorationActive())
     {
-      Debug.Log("Not active!");
+      Debug.Log(item.name + " not active!");
       return;
     };
     transform.position = Input.mousePosition;
