@@ -14,6 +14,7 @@ public class QuestionScript2 : MonoBehaviour {
     //public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
+    private GameObject answerTextGO;
     private int correctCounter = 0, questionCounter = 0, tracking = 0, striking = 0;
     private int answer_index;
     private Question currentQuestion;
@@ -40,6 +41,7 @@ public class QuestionScript2 : MonoBehaviour {
         questionList = new List<Question>();
         usedQuestions = new List<int>();
         questionTextGO = GameObject.Find("TextQuestion");
+        answerTextGO = GameObject.Find("TextAnswer");
         blobGrid = GameObject.Find("BlobGrid");
         fromJsonToList();
         // hae kysymys kysymyspankista
@@ -191,6 +193,8 @@ public class QuestionScript2 : MonoBehaviour {
         // jonkunlainen typewriter putkitushässäkkä
         var tque = questionTextGO.GetComponent<Text>();
         tque.text = que.question;
+        var tans = answerTextGO.GetComponent<Text>();
+        tans.text = "";
         A.transform.GetChild(1).GetComponent<Text>().text = que.answerA;
         B.transform.GetChild(1).GetComponent<Text>().text = que.answerB;
         C.transform.GetChild(1).GetComponent<Text>().text = que.answerC;
@@ -255,6 +259,10 @@ public class QuestionScript2 : MonoBehaviour {
                 }                
             }
         }
+
+        // Show info about the right answer
+        var tans = answerTextGO.GetComponent<Text>();
+        tans.text = currentQuestion.info;
 
         // Check if correct, update blob in UI
         if (currentQuestion.correct == answer_index)
@@ -322,11 +330,12 @@ public class QuestionScript2 : MonoBehaviour {
         public string answerB;
         public string answerC;
         public int correct;
+        public string info;
 
         public override string ToString()
         {
-            return string.Format("Q: {0}, #0: {1}, #1: {2}, #2: {3}, CORRECT: {4}",
-                                 question, answerA, answerB, answerC, correct);
+            return string.Format("Q: {0}, #0: {1}, #1: {2}, #2: {3}, CORRECT: {4}, info: {5}",
+                                 question, answerA, answerB, answerC, correct, info);
         }
     }
 

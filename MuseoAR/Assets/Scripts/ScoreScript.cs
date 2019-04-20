@@ -80,11 +80,19 @@ public class ScoreScript : MonoBehaviour {
     return Score;
   }
 
-  /// <summary>
-  /// If there exists a ScoreDisplay on the current scene, updates the display value to match
-  /// the current score.
-  /// </summary>
-  public void UpdateScoreDisplay()
+    /// <summary>
+    /// Changes the score of the player to zero for the next player.
+    /// </summary>
+    public void ResetScore()
+    {
+        Score = 0;
+    }
+
+    /// <summary>
+    /// If there exists a ScoreDisplay on the current scene, updates the display value to match
+    /// the current score.
+    /// </summary>
+    public void UpdateScoreDisplay()
   {
     // The score display in the scene has to be marked with "ScoreDisplay" tag.
     // Although by using the ScoreDisplay prefab, it should set automatically.

@@ -30,10 +30,16 @@ public class GameControllerScript : MonoBehaviour {
     private bool _shuttingDown = false;
     private static object _lock = new object();
 
-
+    // Stores the ID of tldr-marker that was scanned.
     public static string tldrIdentifier = "not specified tldr";
+
+    // Stores the ID of treasure-marker that was scanned.
     public static string aarreIdentifier = "not specified aarre";
+
+    // Player's name and profession in a string.
     public static string nimiJaAmmatti = "nimi";
+
+    // List of already scanned treasures.
     public static List<int> aarteet = new List<int>();
 
   #region Singleton creation
@@ -135,6 +141,10 @@ public class GameControllerScript : MonoBehaviour {
         tldrIdentifier = paramTldr;
         aarreIdentifier = paramAarre;
         _currentScene = name;
+        if (name == "reset")
+        {
+            ResetAll();
+        }
         SceneManager.LoadScene(name);
     }
 
@@ -148,15 +158,36 @@ public class GameControllerScript : MonoBehaviour {
         Debug.Log(nimiJaAmmatti);
     }
 
-  /// <summary>
-  /// Checks if list already has the ID. If not, adds it and adds some points to the score.
-  /// </summary>
-  /// <param name="aarre">ID of the found treasure</param>
-  public void LisaaAarre(int aarre)
+    /// <summary>
+    /// Checks if list already has the ID. If not, adds it and adds some points to the score.
+    /// </summary>
+    /// <param name="aarre">ID of the found treasure</param>
+    public void LisaaAarre(int aarre)
     {
         var exists = aarteet.Contains(aarre);
         if (!exists) { aarteet.Add(aarre); }
         if (!exists) { ScoreScript.Instance.IncreaseScoreBy(10); }
+    }
+
+    /// <summary>
+    /// Resets all relevant information and transitions to the splash screen.
+    /// </summary>
+    public void ResetAll()
+    {
+        // Reseting player's score.
+        ScoreScript.Instance.ResetScore();
+
+        // Emptying the list of activated decorations.
+        activatedDecorations = new List<string>();
+
+        // Emptying the list of registered decorations.
+        aarteet.Clear();
+
+        // Re-initializing the dict of scenes that player has visited.
+        SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
+
+        // Transitioning back to Splash-scene.
+        SceneManager.LoadScene("Splash");
     }
 
 
