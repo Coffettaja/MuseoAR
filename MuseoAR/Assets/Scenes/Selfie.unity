@@ -224,6 +224,11 @@ Prefab:
       propertyPath: m_Name
       value: ShieldDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -348,6 +353,11 @@ Prefab:
       propertyPath: m_Name
       value: BellDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -436,8 +446,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758349131}
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.14840579
+  m_Value: 1
+  m_Size: 0.10182357
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -650,6 +660,11 @@ Prefab:
       propertyPath: m_Name
       value: FlowerBundleDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -795,6 +810,11 @@ Prefab:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -1126,6 +1146,11 @@ Prefab:
       propertyPath: m_Name
       value: DogsDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -1313,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 779.1305}
+  m_AnchoredPosition: {x: -125, y: 534.5737}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
@@ -1648,6 +1673,11 @@ Prefab:
       propertyPath: m_Name
       value: GunDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -1792,6 +1822,11 @@ Prefab:
       propertyPath: m_Name
       value: MugDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -1916,6 +1951,11 @@ Prefab:
       propertyPath: m_Name
       value: ReindeerDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -2055,6 +2095,11 @@ Prefab:
       propertyPath: m_Name
       value: BirdDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -2421,6 +2466,11 @@ Prefab:
       propertyPath: m_Name
       value: StarWarsDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -2560,6 +2610,11 @@ Prefab:
       propertyPath: m_Name
       value: DollDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -2824,6 +2879,11 @@ Prefab:
       propertyPath: m_Name
       value: WeirdGuyDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -3082,6 +3142,11 @@ Prefab:
       propertyPath: m_Name
       value: SwordDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -3284,6 +3349,11 @@ Prefab:
       propertyPath: m_Name
       value: HelmetDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -3570,6 +3640,11 @@ Prefab:
       propertyPath: m_Name
       value: MacheteDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -3836,6 +3911,11 @@ Prefab:
       propertyPath: m_Name
       value: ButterflyDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -3975,6 +4055,11 @@ Prefab:
       propertyPath: m_Name
       value: ShofarDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -4114,6 +4199,11 @@ Prefab:
       propertyPath: m_Name
       value: Badge2Decoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -4366,6 +4456,11 @@ Prefab:
       propertyPath: m_Name
       value: RoseDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -4490,6 +4585,11 @@ Prefab:
       propertyPath: m_Name
       value: FigureBlackDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -4786,6 +4886,11 @@ Prefab:
       propertyPath: m_Name
       value: FlowersDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -4930,6 +5035,11 @@ Prefab:
       propertyPath: m_Name
       value: BadgeDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -5054,6 +5164,11 @@ Prefab:
       propertyPath: m_Name
       value: FigureBrownDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -5232,6 +5347,11 @@ Prefab:
       propertyPath: m_Name
       value: PaintingDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
@@ -5627,6 +5747,11 @@ Prefab:
       propertyPath: m_Name
       value: ScytheDecoration
       objectReference: {fileID: 0}
+    - target: {fileID: 114360289343217860, guid: 1f34001fcb578c64f8161cd39a490f79,
+        type: 2}
+      propertyPath: inputHandler
+      value: 
+      objectReference: {fileID: 713649874}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f34001fcb578c64f8161cd39a490f79, type: 2}
   m_IsPrefabParent: 0
