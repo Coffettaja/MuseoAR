@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -814,10 +814,9 @@ MonoBehaviour:
   sceneName: quizScene
   tldrIdentifier: not_defined
   aarreIdentifier: not_defined
-  loadSceneWithKey: f
   transitionImage: {fileID: 21300000, guid: c3b3fe7319abcbb40baee6bd56295cef, type: 3}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 7
+  transitionBeginningZoom: 500
 --- !u!65 &162230039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -875,10 +874,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 5
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!114 &201748370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,10 +948,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 1
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &255132125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1194,10 +1191,9 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 0
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &333761491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1397,10 +1393,9 @@ MonoBehaviour:
   sceneName: 360PictureScene1
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &383890750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1741,10 +1736,9 @@ MonoBehaviour:
   sceneName: quizScene2
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
-  transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionImage: {fileID: 21300000, guid: b0a732467d72c1340b1b5de769255f4e, type: 3}
+  transitionSpeed: 7
+  transitionBeginningZoom: 500
 --- !u!65 &511667574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2218,10 +2212,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 4
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &707418516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3067,10 +3060,9 @@ MonoBehaviour:
   sceneName: quizScene3
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
-  transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionImage: {fileID: 21300000, guid: f2a25282b85ce4141af3cbbf3f0d3073, type: 3}
+  transitionSpeed: 7
+  transitionBeginningZoom: 500
 --- !u!65 &1033698830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3332,10 +3324,9 @@ MonoBehaviour:
   sceneName: invaders
   tldrIdentifier: not_defined
   aarreIdentifier: not_defined
-  loadSceneWithKey: g
-  transitionImage: {fileID: 21300000, guid: b0a732467d72c1340b1b5de769255f4e, type: 3}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionImage: {fileID: 0}
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1065996246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3610,10 +3601,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 0
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1097502810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3934,10 +3924,9 @@ MonoBehaviour:
   sceneName: 360VideoScene
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1257225166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4082,10 +4071,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 2
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1274070381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4230,10 +4218,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 6
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1293774266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4688,10 +4675,9 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 1
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1441825372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4904,10 +4890,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 5
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1502068819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5333,10 +5318,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: not_defined
   aarreIdentifier: 3
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1685229973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5858,10 +5842,9 @@ MonoBehaviour:
   sceneName: 360PictureScene1
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &1779751404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6487,10 +6470,9 @@ MonoBehaviour:
   sceneName: 360PictureScene2
   tldrIdentifier: not_defined
   aarreIdentifier: 
-  loadSceneWithKey: 
   transitionImage: {fileID: 0}
-  transitionDuration: 0
-  transitionBeginningZoomPercentage: 0
+  transitionSpeed: 0
+  transitionBeginningZoom: 0
 --- !u!65 &2022978089
 BoxCollider:
   m_ObjectHideFlags: 0
