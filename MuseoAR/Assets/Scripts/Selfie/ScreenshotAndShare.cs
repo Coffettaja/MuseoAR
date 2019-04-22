@@ -17,6 +17,7 @@ public class ScreenshotAndShare : MonoBehaviour {
 
   public List<RectTransform> itemsToHide;
   public bool publicDevice = false;
+  public RectTransform canvasRectTransform;
   //private Vector3 initScale;
 
   // Use this for initialization
@@ -38,7 +39,7 @@ public class ScreenshotAndShare : MonoBehaviour {
     {
     HideCanvas();
 
-    StartCoroutine("TakeAndShare");
+    StartCoroutine("TakeScreenshot");
   }
 
   private void ShowCanvas()
@@ -49,26 +50,43 @@ public class ScreenshotAndShare : MonoBehaviour {
     }
   }
 
-  private IEnumerator TakeAndShare()
+  private IEnumerator TakeScreenshot()
     {
         yield return new WaitForEndOfFrame();
 
-        //Direct example from https://github.com/yasirkula/UnityNativeShare on how to share screenshot with API, should work well with other approaches later on too
-        
-        //Texture2D ss = new Texture2D(Screen.width, (int)screenHeight, TextureFormat.RGB24, false);
-        //TODO: Hide the UI while takign screenshot
-        Texture2D ss = ScreenCapture.CaptureScreenshotAsTexture();
+    //Direct example from https://github.com/yasirkula/UnityNativeShare on how to share screenshot with API, should work well with other approaches later on too
+
+    //Texture2D ss = new Texture2D(Screen.width, (int)screenHeight, TextureFormat.RGB24, false);
+    //TODO: Hide the UI while takign screenshot
+    Texture2D ss = ScreenCapture.CaptureScreenshotAsTexture(1); // larger values crash unity...
+    
+    // Alternative method - which one is better?
+    //Texture2D ss = new Texture2D(Screen.width, Screen.height);
+    //ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+    //ss.Apply();
+
     ShowCanvas();
-        //ss.ReadPixels(new Rect(0, startHeight, Screen.width, screenHeight), 0, 0);
-        //ss.Apply();
+
+    Debug.Log(ss.width + "x" + ss.height);
 
     string name = string.Format("{0}_{1}", Application.productName, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
     //Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
     string filePath = Path.Combine(Application.temporaryCachePath, name + ".png");
-      File.WriteAllBytes(filePath, ss.EncodeToPNG());
+    File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
+
+    var canvas = GameObject.FindWithTag("Canvas");
+    var imageResultGO = new GameObject();
+    imageResultGO.transform.parent = canvas.transform;
+    imageResultGO.name = "Can there be a name for this one????";
+    var imageResult = imageResultGO.AddComponent<Image>();
+    var rectangle = canvasRectTransform.rect;
+    imageResult.sprite = Sprite.Create(ss, rectangle, new Vector2(.5f, .5f));
+
+    ss.name = "SUPER NAME HERE HAHAHA";
     // To avoid memory leaks
-    GameObject.Destroy(ss);
+    Destroy(ss);
+    yield break;
 
     if (publicDevice)
     {
