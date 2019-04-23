@@ -447,7 +447,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.10182357
+  m_Size: 0.12261353
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1338,7 +1338,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 534.5737}
+  m_AnchoredPosition: {x: -125, y: 643.721}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
@@ -1546,7 +1546,8 @@ MonoBehaviour:
   - {fileID: 529533345}
   - {fileID: 1670908132}
   - {fileID: 422049438}
-  - {fileID: 0}
+  publicDevice: 0
+  canvasRectTransform: {fileID: 713649872}
 --- !u!1001 &555255083
 Prefab:
   m_ObjectHideFlags: 0
