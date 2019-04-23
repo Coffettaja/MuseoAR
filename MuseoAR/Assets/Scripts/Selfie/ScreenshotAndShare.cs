@@ -74,7 +74,7 @@ public class ScreenshotAndShare : MonoBehaviour {
     string filePath = Path.Combine(Application.temporaryCachePath, name + ".png");
     File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
-
+    /*
     var canvas = GameObject.FindWithTag("Canvas");
     var imageResultGO = new GameObject();
     imageResultGO.transform.parent = canvas.transform;
@@ -84,9 +84,10 @@ public class ScreenshotAndShare : MonoBehaviour {
     imageResult.sprite = Sprite.Create(ss, rectangle, new Vector2(.5f, .5f));
 
     ss.name = "SUPER NAME HERE HAHAHA";
+    */
     // To avoid memory leaks
     Destroy(ss);
-    yield break;
+    //yield break;
 
     if (publicDevice)
     {
@@ -136,7 +137,7 @@ public class ScreenshotAndShare : MonoBehaviour {
 
     SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
     smtpServer.Port = 587;
-    smtpServer.Credentials = new System.Net.NetworkCredential("museoartestmail@gmail.com", "z4laz4na") as ICredentialsByHost;
+    smtpServer.Credentials = new System.Net.NetworkCredential("museoartestmail@gmail.com", "???") as ICredentialsByHost;
     smtpServer.EnableSsl = true;
     ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
@@ -155,6 +156,6 @@ public class ScreenshotAndShare : MonoBehaviour {
   
   private void PublicShare(string filepath)
   {
-    SendEmail("coffettaja@gmail.com", filepath);
+    SendEmail("destinationEmailHere", filepath);
   }
 }
