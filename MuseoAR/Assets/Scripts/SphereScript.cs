@@ -17,7 +17,7 @@ public class SphereScript : MonoBehaviour {
         rend = transform.GetChild(1).GetComponent<MeshRenderer>();
         videoSphere = transform.GetChild(0).gameObject;
         dissolvingSphere = transform.GetChild(1).gameObject;
-        cam = FindObjectOfType<Camera>();
+        cam = Camera.main;
         // aloitetaan dissolve kun objekti aktiivinen
         StartCoroutine(startDissolve());
         videoSphere.GetComponent<VideoPlayer>().Prepare();
@@ -29,6 +29,10 @@ public class SphereScript : MonoBehaviour {
     /// </summary>
     private void Update()
     {
+        if(cam == null)
+        {
+            cam = Camera.main;
+        }
         if (tb.CurrentStatus == TrackableBehaviour.Status.TRACKED)
         {
             dissolvingSphere.SetActive(true);            

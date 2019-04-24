@@ -55,10 +55,21 @@ public class SmoothCamera : MonoBehaviour {
 
 		vuforia.RegisterVuforiaStartedCallback(OnInitialized);
 		vuforia.RegisterTrackablesUpdatedCallback (OnTrackablesUpdated);
+
 	}
 
-	// Update is called once per frame
-	void LateUpdate () {
+
+    private void OnDestroy()
+    {
+        //Vuforia events, like all events, need to be unregistered if the objects are not destroyed at the same time to avoid the other object from keeping the other object alive forever. This is what happens without unregistering on object destroy or some other disposal method.
+        VuforiaARController vuforia = VuforiaARController.Instance;
+
+        vuforia.UnregisterVuforiaStartedCallback(OnInitialized);
+        vuforia.UnregisterTrackablesUpdatedCallback(OnTrackablesUpdated);
+    }
+
+    // Update is called once per frame
+    void LateUpdate () {
 		transform.rotation = smoothedRotation;
 		transform.position = smoothedPosition;
 	}

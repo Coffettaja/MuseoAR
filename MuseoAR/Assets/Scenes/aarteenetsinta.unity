@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -577,15 +577,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-    doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
-    et quasi architecto beatae vitae dicta sunt, explicabo.
+  m_Text: "Onneksi olkoon!\nL\xF6ysit uuden esineen\nselfien k\xE4ytt\xF6\xF6n!"
 --- !u!222 &1000566463
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -779,7 +777,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7dae1de60b234e60929b54c238acb0c0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 935f22217cbb4a2e855726b931fe95d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
