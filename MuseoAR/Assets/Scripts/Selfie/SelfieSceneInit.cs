@@ -7,26 +7,33 @@ using Vuforia;
 /// When running on android device, turns on the front camera when using loading the scene
 /// and returning to back camera when returning to the main scene.
 /// </summary>
-public class SelfieSceneInit : MonoBehaviour {
-    
-	// Use this for initialization
-	void Start () {
+public class SelfieSceneInit : MonoBehaviour
+{
+
+    // Use this for initialization
+    void Start()
+    {
         Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
-    //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
-    //ChangeToFrontCamera();
+        //        TrackerManager.Instance.GetTracker<ObjectTracker>().Stop();
+        //ChangeToFrontCamera();
 #if UNITY_EDITOR
-    Debug.Log("Editor");
+        Debug.Log("Editor");
 #else
     Invoke("ChangeToFrontCamera", 0.5f);
 #endif
-    Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
-    Screen.orientation = ScreenOrientation.AutoRotation;//;ScreenOrientation.Portrait;
-  }
+        Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
+        Screen.orientation = ScreenOrientation.AutoRotation;//;ScreenOrientation.Portrait;
+    }
 
-  // Update is called once per frame
-  void Update () {
-		
-	}
+    public void OnDestroy()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Editor");
+#else
+    ChangeToBackCamera();
+#endif
+    }
+
 
     public void ChangeToFrontCamera()
     {
@@ -39,7 +46,7 @@ public class SelfieSceneInit : MonoBehaviour {
     }
 
     private void RestartCamera(CameraDevice.CameraDirection newDir)
-    {        
+    {
         CameraDevice.Instance.Stop();
         CameraDevice.Instance.Deinit();
         CameraDevice.Instance.Init(newDir);

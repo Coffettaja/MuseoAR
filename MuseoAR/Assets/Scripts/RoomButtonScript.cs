@@ -51,8 +51,4 @@ public class RoomButtonScript : MonoBehaviour
 		_button.onClick.RemoveListener(HideRoom);
 		_button.onClick.AddListener(ShowRoom);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,8 @@ public class BackToMainSceneOnClick : MonoBehaviour
 		button.onClick.AddListener(ReturnToMainSceneOnClick);
 	}
 
-	void ReturnToMainSceneOnClick()
+
+    void ReturnToMainSceneOnClick()
 	{
         if(!GameControllerScript.Instance.IsSceneCompleted(SceneManager.GetActiveScene().name))
         {
