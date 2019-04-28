@@ -7,8 +7,11 @@ public class MapButtonScript : MonoBehaviour {
 
     private Button m_button;
     private GameObject m_mapPanel;
-	// Use this for initialization
-	void Start () {
+
+  //public MapGestureManager inputHandler;
+
+  // Use this for initialization
+  void Start () {
         m_mapPanel = GameObject.Find("MapPanel");
         m_button = GetComponent<Button>();
         m_button.onClick.AddListener(ToggleInfoPanel);
@@ -18,5 +21,10 @@ public class MapButtonScript : MonoBehaviour {
 	private void ToggleInfoPanel()
     {
         m_mapPanel.SetActive(!m_mapPanel.activeInHierarchy);
+
+    //if (m_mapPanel.activeSelf)
+    //{
+    //  inputHandler.SetupGestures();
+    //}
     }
 }
