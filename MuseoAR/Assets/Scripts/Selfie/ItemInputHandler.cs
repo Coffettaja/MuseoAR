@@ -118,7 +118,7 @@ public class ItemInputHandler : MonoBehaviour {
     /// <param name="item"></param>
   public void SetRectTransform(RectTransform item)
   {
-    Debug.Log("Setting rect transform for " + item.name);
+    //Debug.Log("Setting rect transform for " + item.name);
     rectTransform = item;
   }
 }

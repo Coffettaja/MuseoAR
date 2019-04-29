@@ -23,6 +23,9 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
       return;
     };
     transform.position = Input.mousePosition;
+
+    // Basically sets the item to be the front-most element after buttons.
+    transform.SetSiblingIndex(canvas.childCount - 3);
     inputHandler.SetRectTransform(rectTransform);
   }
 
@@ -39,6 +42,8 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
     else
     {
       transform.SetParent(canvas);
+      // Basically sets the item to be the front-most element after buttons.
+      transform.SetSiblingIndex(canvas.childCount - 3);
     }
   }
 
