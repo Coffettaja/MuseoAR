@@ -27,6 +27,8 @@ public class DecorationListItem : MonoBehaviour
 
   private GameObject m_canvas;
 
+  private AspectRatioFitter m_aspectRatioFitter;
+
   //Color m_originalColor;
   Image m_decorationImage;
   Image m_decorationSlotImage;
@@ -43,6 +45,8 @@ public class DecorationListItem : MonoBehaviour
     m_canvas = GameObject.FindWithTag("Canvas");
 
     m_decoration = transform.GetChild(0) as RectTransform;
+
+    m_aspectRatioFitter = m_decoration.GetComponent<AspectRatioFitter>();
 
     m_decoration.sizeDelta = rectTransform.sizeDelta;
 
@@ -70,6 +74,12 @@ public class DecorationListItem : MonoBehaviour
       rt.anchorMax = Vector2.one / 2;
       rt.pivot = Vector2.one / 2;
       rt.anchoredPosition = Vector2.zero;
+      if (m_aspectRatioFitter != null)
+      {
+        //m_aspectRatioFitter.aspectMode = AspectRatioFitter.AspectMode.None;
+        Debug.Log(rt.sizeDelta);
+        //m_aspectRatioFitter.enabled = false;
+      }
     }
   }
 
