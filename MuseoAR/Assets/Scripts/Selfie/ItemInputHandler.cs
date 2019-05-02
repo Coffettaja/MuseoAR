@@ -10,6 +10,8 @@ public class ItemInputHandler : MonoBehaviour {
   private float minSize = .75f;
   private float rotationSpeed = 2.5f;
 
+  public bool Dragging { get; set; }
+
   private FingersScript fingerScript;
 
   private TapGestureRecognizer tapGesture;
@@ -24,6 +26,7 @@ public class ItemInputHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+    Dragging = false;
     rectTransform = transform.Find("DummyItem").transform as RectTransform;
     fingerScript = gameObject.GetComponent<FingersScript>();
 
@@ -120,5 +123,10 @@ public class ItemInputHandler : MonoBehaviour {
   {
     //Debug.Log("Setting rect transform for " + item.name);
     rectTransform = item;
+  }
+
+  public RectTransform GetDraggedRectTransform()
+  {
+    return rectTransform;
   }
 }

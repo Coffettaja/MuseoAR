@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
+public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 
   private RectTransform rectTransform;
   private RectTransform itemPanel;
@@ -16,23 +16,46 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
 
   //private bool isOnCanvas = false;
 
-  public void OnDrag(PointerEventData eventData)
+  public void OnBeginDrag(PointerEventData eventData)
   {
+    if (inputHandler.Dragging) return;
+    inputHandler.Dragging = true;
     if (!item.DecorationActive())
     {
       Debug.Log(item.name + " not active!");
       return;
     };
 
-    transform.position = Input.mousePosition;
-
     // Basically sets the item to be the front-most element after buttons.
     transform.SetSiblingIndex(canvas.childCount - 3);
     inputHandler.SetRectTransform(rectTransform);
   }
 
+  public void OnDrag(PointerEventData eventData)
+  {
+    if (inputHandler.GetDraggedRectTransform() != rectTransform) return;
+    if (!item.DecorationActive())
+    {
+      Debug.Log(item.name + " not active!");
+      return;
+    };
+
+#if UNITY_EDITOR
+    transform.position = Input.mousePosition;
+#elif UNITY_ANDROID
+    if (Input.touchCount > 0)
+    {
+      Touch touch = Input.GetTouch(0);
+      Vector3 touchPos = touch.position;
+      transform.position = touchPos;
+    }
+#endif
+
+  }
+
   public void OnEndDrag(PointerEventData eventData)
   {
+    inputHandler.Dragging = false;
     // Check if the current mouse coordinates are inside the panel
     if (RectTransformUtility.RectangleContainsScreenPoint(itemPanel, Input.mousePosition))
     {
