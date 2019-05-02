@@ -69,16 +69,14 @@ public class DecorationListItem : MonoBehaviour
     if (transform.childCount > 0 && m_isActive)
     {
       var rt = (RectTransform)m_decoration.transform;
-      m_decoration.transform.parent = m_canvas.transform;
+      m_decoration.transform.SetParent(m_canvas.transform);
       rt.anchorMin = Vector2.one / 2;
       rt.anchorMax = Vector2.one / 2;
       rt.pivot = Vector2.one / 2;
       rt.anchoredPosition = Vector2.zero;
       if (m_aspectRatioFitter != null)
       {
-        //m_aspectRatioFitter.aspectMode = AspectRatioFitter.AspectMode.None;
-        Debug.Log(rt.sizeDelta);
-        //m_aspectRatioFitter.enabled = false;
+        m_aspectRatioFitter.aspectMode = AspectRatioFitter.AspectMode.None;
       }
     }
   }

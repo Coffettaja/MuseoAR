@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
 
@@ -22,6 +23,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
       Debug.Log(item.name + " not active!");
       return;
     };
+
     transform.position = Input.mousePosition;
 
     // Basically sets the item to be the front-most element after buttons.
@@ -38,12 +40,16 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler {
      rectTransform.anchoredPosition = Vector2.zero;
       rectTransform.rotation = Quaternion.identity;
       rectTransform.localScale = Vector3.one;
+      gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.FitInParent;
     }
     else
     {
       transform.SetParent(canvas);
       // Basically sets the item to be the front-most element after buttons.
       transform.SetSiblingIndex(canvas.childCount - 3);
+
+      // Need this for consistent behaviour for activating items through both dragging and tapping.
+      gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.None;
     }
   }
 
