@@ -4,27 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AarteenetsintaScript : MonoBehaviour {
+public class AarteenetsintaScript : MonoBehaviour
+{
 
-    private List<Aarre> aarreList;
     private GameObject infoText;
     private string identifier = GameControllerScript.aarreIdentifier;
 
+    /// <summary>
+    /// Finds and displays the text related to the treasure from file.
+    /// </summary>
     void Start()
     {
         infoText = GameObject.Find("InfoText");
-        aarreList = new List<Aarre>();
-        fromJsonToList();
-        getInfo();      
-    }
 
-    public void getInfo()
-    {
         int i = 0;
         int.TryParse(identifier, out i);
-        Aarre valittu = aarreList[i];
+
+        string valittu = SimpleJsonScript.Instance.getEntry(i, "aarreBank");
+
         var texbox = infoText.GetComponent<Text>();
-        texbox.text = valittu.aarre;
+        texbox.text = valittu;
+
+        // Adding the treasure to the list of found treasures.
         GameControllerScript.Instance.LisaaAarre(i);
 
         string item = "Tophat";
@@ -56,39 +57,8 @@ public class AarteenetsintaScript : MonoBehaviour {
             default:
                 item = "Tophat";
                 break;
-        } 
+        }
+        // Activating the treasure in selfie scene.
         GameControllerScript.Instance.ActivateDecorations(item);
-    }
-
-
-    private void fromJsonToList()
-    {
-        //Debug.Log(Application.dataPath);
-        TextAsset ladattava = Resources.Load<TextAsset>("aarreBank");
-        rootAarre root = JsonUtility.FromJson<rootAarre>(ladattava.text);
-
-        foreach (var q in root.aarteet)
-        {
-            aarreList.Add(q);
-        }
-    }
-
-
-    [Serializable]
-    public class Aarre
-    {
-        public string aarre;
-
-        public override string ToString()
-        {
-            return string.Format("Info: {0}",
-                                 aarre);
-        }
-    }
-
-    [Serializable]
-    public class rootAarre
-    {
-        public Aarre[] aarteet;
     }
 }
