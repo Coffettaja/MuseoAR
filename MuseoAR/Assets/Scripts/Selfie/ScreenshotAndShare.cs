@@ -18,6 +18,7 @@ public class ScreenshotAndShare : MonoBehaviour {
   public List<RectTransform> itemsToHide;
   public bool publicDevice = false;
   public RectTransform canvasRectTransform;
+  public GameObject screenshotPreviewPanel;
   //private Vector3 initScale;
 
   // Use this for initialization
@@ -74,6 +75,7 @@ public class ScreenshotAndShare : MonoBehaviour {
     string filePath = Path.Combine(Application.temporaryCachePath, name + ".png");
     File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
+    DisplayScreenshot(ss);
     /*
     var canvas = GameObject.FindWithTag("Canvas");
     var imageResultGO = new GameObject();
@@ -86,8 +88,8 @@ public class ScreenshotAndShare : MonoBehaviour {
     ss.name = "SUPER NAME HERE HAHAHA";
     */
     // To avoid memory leaks
-    Destroy(ss);
-    //yield break;
+    //Destroy(ss);
+    yield break;
 
     if (publicDevice)
     {
@@ -103,6 +105,17 @@ public class ScreenshotAndShare : MonoBehaviour {
       nativeShare.SetTitle("Score in Sunset Falls");
       nativeShare.Share();
     }
+  }
+
+  private void DisplayScreenshot(Texture2D screenshot)
+  {
+    Sprite sp = Sprite.Create(screenshot, new Rect(0, 0, screenshot.width, screenshot.height),
+      new Vector2(.5f, .5f));
+    var preview = screenshotPreviewPanel.GetComponent<Image>();
+    preview.sprite = sp;
+    preview.color = Color.white;
+    preview.raycastTarget = true;
+    
   }
 
   // More or less copied from
@@ -137,7 +150,7 @@ public class ScreenshotAndShare : MonoBehaviour {
 
     SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
     smtpServer.Port = 587;
-    smtpServer.Credentials = new System.Net.NetworkCredential("museoartestmail@gmail.com", "???") as ICredentialsByHost;
+    smtpServer.Credentials = new System.Net.NetworkCredential("museoartestmail@gmail.com", "somePassword") as ICredentialsByHost;
     smtpServer.EnableSsl = true;
     ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
