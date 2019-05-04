@@ -1,118 +1,118 @@
 {
-  "ammatit": [
+  "texts": [
     {
-      "ammatti": "Puuseppä"
+      "text": "Puuseppä"
     },
 	{
-      "ammatti": "Metalliseppä"
+      "text": "Metalliseppä"
     },
 	{
-      "ammatti": "Kultaseppä"
+      "text": "Kultaseppä"
     },
 	{
-      "ammatti": "Seppä"
+      "text": "Seppä"
     },
 	{
-      "ammatti": "Talonpoika"
+      "text": "Talonpoika"
     },
 	{
-      "ammatti": "Tilallinen"
+      "text": "Tilallinen"
     },
 	{
-      "ammatti": "Kauppias"
+      "text": "Kauppias"
     },
 	{
-      "ammatti": "Metsästäjä"
+      "text": "Metsästäjä"
     },
 	{
-      "ammatti": "Kerääjä"
+      "text": "Kerääjä"
     },
 	{
-      "ammatti": "Opettaja"
+      "text": "Opettaja"
     },
 	{
-      "ammatti": "Professori"
+      "text": "Professori"
     },
 	{
-      "ammatti": "Pappi"
+      "text": "Pappi"
     },
 	{
-      "ammatti": "Pankkiiri"
+      "text": "Pankkiiri"
     },
 	{
-      "ammatti": "Lääkäri"
+      "text": "Lääkäri"
     },
 	{
-      "ammatti": "Hauturi"
+      "text": "Hauturi"
     },
 	{
-      "ammatti": "Kuljettaja"
+      "text": "Kuljettaja"
     },
 	{
-      "ammatti": "Suutari"
+      "text": "Suutari"
     },
 	{
-      "ammatti": "Räätäli"
+      "text": "Räätäli"
     },
 	{
-      "ammatti": "Muurari"
+      "text": "Muurari"
     },
 	{
-      "ammatti": "Päällikkö"
+      "text": "Päällikkö"
     },
 	{
-      "ammatti": "Pesäpalloilija"
+      "text": "Pesäpalloilija"
     },
 	{
-      "ammatti": "Jääkiekkoilija"
+      "text": "Jääkiekkoilija"
     },
 	{
-      "ammatti": "Mäkihyppääjä"
+      "text": "Mäkihyppääjä"
     },
 	{
-      "ammatti": "Keihäänheittäjä"
+      "text": "Keihäänheittäjä"
     },
 	{
-      "ammatti": "Punkkari"
+      "text": "Punkkari"
     },
 	{
-      "ammatti": "Hippi"
+      "text": "Hippi"
     },
 	{
-      "ammatti": "Rokkari"
+      "text": "Rokkari"
     },
 	{
-      "ammatti": "Hevari"
+      "text": "Hevari"
     },
 	{
-      "ammatti": "Hoppari"
+      "text": "Hoppari"
     },
 	{
-      "ammatti": "Rallikuski"
+      "text": "Rallikuski"
     },
 	{
-      "ammatti": "Nimismies"
+      "text": "Nimismies"
     },
 	{
-      "ammatti": "Kansanedustaja"
+      "text": "Kansanedustaja"
     },
 	{
-      "ammatti": "Sotamies"
+      "text": "Sotamies"
     },
 	{
-      "ammatti": "Upseeri"
+      "text": "Upseeri"
     },
 	{
-      "ammatti": "Supersotajumala"
+      "text": "Supersotajumala"
     },
 	{
-      "ammatti": "Kalastaja"
+      "text": "Kalastaja"
     },
 	{
-      "ammatti": "Kokki"
+      "text": "Kokki"
     },
 	{
-      "ammatti": "Poliisi"
+      "text": "Poliisi"
     }
 
   ]

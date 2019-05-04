@@ -30,6 +30,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
 
     private int _score;
     private int m_level = 0;
+    public static float factor = 0;
 
     public int Score
     {
@@ -159,6 +160,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         }
         m_level = 0;
         Score = 0;
+        factor = 0;
         SpawnEnemies();
         _gameOverPopup.SetActive(false);
         //SceneManager.LoadScene("invaders");
@@ -197,6 +199,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         {
             Debug.Log("Stage completed!");
             m_level++;
+            factor = factor + 0.2f; // Increase time that will be reduced from the tickspeed.
             Invoke("SpawnEnemies", 1.0f);
             //Invoke("SpawnBonusEnemy", 10);
         }

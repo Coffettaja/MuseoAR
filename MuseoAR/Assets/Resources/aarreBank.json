@@ -1,31 +1,31 @@
 {
-  "aarteet": [
+  "texts": [
     {
-      "aarre": "Löysit selfie-aarteen numero 1: Silinterihatun"
-    },
-    {
-      "aarre": "Löysit selfie-aarteen numero 2: Hipsterilasit"
+      "text": "Löysit selfie-aarteen numero 1: Silinterihatun"
     },
     {
-      "aarre": "Löysit selfie-aarteen numero 3: Viikset"
+      "text": "Löysit selfie-aarteen numero 2: Hipsterilasit"
+    },
+    {
+      "text": "Löysit selfie-aarteen numero 3: Viikset"
     },
 	{
-      "aarre": "Löysit selfie-aarteen numero 4: Mohikaanin"
+      "text": "Löysit selfie-aarteen numero 4: Mohikaanin"
     },
 	{
-      "aarre": "Löysit selfie-aarteen numero 5: Vihreän mohikaanin"
+      "text": "Löysit selfie-aarteen numero 5: Vihreän mohikaanin"
     },
 	{
-      "aarre": "Löysit selfie-aarteen numero 6: Pinnin"
+      "text": "Löysit selfie-aarteen numero 6: Pinnin"
     },
 		{
-      "aarre": "Löysit selfie-aarteen numero 7: Lapion"
+      "text": "Löysit selfie-aarteen numero 7: Lapion"
     },
 	{
-      "aarre": "Löysit aarteen numero 8"
+      "text": "Löysit aarteen numero 8"
     },
 		{
-      "aarre": "Löysit aarteen numero 9"
+      "text": "Löysit aarteen numero 9"
     }
   ]
 }
