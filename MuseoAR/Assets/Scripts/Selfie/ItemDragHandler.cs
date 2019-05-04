@@ -27,7 +27,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     };
 
     // Basically sets the item to be the front-most element after buttons.
-    transform.SetSiblingIndex(canvas.childCount - 3);
+    transform.SetSiblingIndex(canvas.childCount - 5);
     inputHandler.SetRectTransform(rectTransform);
   }
 
@@ -59,21 +59,26 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     // Check if the current mouse coordinates are inside the panel
     if (RectTransformUtility.RectangleContainsScreenPoint(itemPanel, Input.mousePosition))
     {
-     transform.SetParent(itemSlot);
-     rectTransform.anchoredPosition = Vector2.zero;
-      rectTransform.rotation = Quaternion.identity;
-      rectTransform.localScale = Vector3.one;
-      gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+      ResetTransform();
     }
     else
     {
       transform.SetParent(canvas);
       // Basically sets the item to be the front-most element after buttons.
-      transform.SetSiblingIndex(canvas.childCount - 3);
+      transform.SetSiblingIndex(canvas.childCount - 5);
 
       // Need this for consistent behaviour for activating items through both dragging and tapping.
       gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.None;
     }
+  }
+
+  public void ResetTransform()
+  {
+    transform.SetParent(itemSlot);
+    rectTransform.anchoredPosition = Vector2.zero;
+    rectTransform.rotation = Quaternion.identity;
+    rectTransform.localScale = Vector3.one;
+    gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.FitInParent;
   }
 
   // Use this for initialization
