@@ -51,60 +51,45 @@ public class ScreenshotAndShare : MonoBehaviour {
     }
   }
 
+  private Texture2D ss;
+  private string ssName;
+
   private IEnumerator TakeScreenshot()
     {
         yield return new WaitForEndOfFrame();
 
     //Direct example from https://github.com/yasirkula/UnityNativeShare on how to share screenshot with API, should work well with other approaches later on too
 
-    //Texture2D ss = new Texture2D(Screen.width, (int)screenHeight, TextureFormat.RGB24, false);
-    //TODO: Hide the UI while takign screenshot
-    Texture2D ss = ScreenCapture.CaptureScreenshotAsTexture(1); // larger values crash unity...
+    ss = ScreenCapture.CaptureScreenshotAsTexture(1); // larger values crash unity...
     
     // Alternative method - which one is better?
     //Texture2D ss = new Texture2D(Screen.width, Screen.height);
     //ss.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
     //ss.Apply();
 
+    ssName = string.Format("{0}_{1}", Application.productName, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+    Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
+
     ShowCanvas();
 
-    Debug.Log(ss.width + "x" + ss.height);
+    DisplayScreenshot(ss);
+  }
 
-    string name = string.Format("{0}_{1}", Application.productName, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
+  public void ShareScreenshot()
+  {
+    if (ss == null) return;
+
     //Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
-    string filePath = Path.Combine(Application.temporaryCachePath, name + ".png");
+    string filePath = Path.Combine(Application.temporaryCachePath, ssName + ".png");
     File.WriteAllBytes(filePath, ss.EncodeToPNG());
 
-    DisplayScreenshot(ss);
-    /*
-    var canvas = GameObject.FindWithTag("Canvas");
-    var imageResultGO = new GameObject();
-    imageResultGO.transform.parent = canvas.transform;
-    imageResultGO.name = "Can there be a name for this one????";
-    var imageResult = imageResultGO.AddComponent<Image>();
-    var rectangle = canvasRectTransform.rect;
-    imageResult.sprite = Sprite.Create(ss, rectangle, new Vector2(.5f, .5f));
+    NativeShare nativeShare = new NativeShare();
 
-    ss.name = "SUPER NAME HERE HAHAHA";
-    */
-    // To avoid memory leaks
-    //Destroy(ss);
-    yield break;
-
-    if (publicDevice)
-    {
-      PublicShare(filePath);
-    } else
-    {
-      Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
-      NativeShare nativeShare = new NativeShare();
-
-      nativeShare.SetSubject("MuseoAR Selfie!"); // Primarily for email.
-                                                 //nativeShare.SetText("");
-      nativeShare.AddFile(filePath, "image/png");
-      nativeShare.SetTitle("Score in Sunset Falls");
-      nativeShare.Share();
-    }
+    nativeShare.SetSubject("MuseoAR Selfie!"); // Primarily for email.
+                                               //nativeShare.SetText("");
+    nativeShare.AddFile(filePath, "image/png");
+    nativeShare.SetTitle("Score in Sunset Falls");
+    nativeShare.Share();
   }
 
   private void DisplayScreenshot(Texture2D screenshot)
@@ -113,7 +98,8 @@ public class ScreenshotAndShare : MonoBehaviour {
       new Vector2(.5f, .5f));
     var preview = screenshotPreviewPanel.GetComponent<Image>();
     preview.sprite = sp;
-    preview.color = Color.white;
+    screenshotPreviewPanel.transform.localScale = Vector3.one;
+    //preview.color = Color.white;
     preview.raycastTarget = true;
     
   }
