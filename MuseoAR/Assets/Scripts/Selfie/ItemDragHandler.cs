@@ -16,15 +16,30 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
   //private bool isOnCanvas = false;
 
+  private Vector3 offset;
+
   public void OnBeginDrag(PointerEventData eventData)
   {
-    if (inputHandler.Dragging) return;
-    inputHandler.Dragging = true;
+    if (inputHandler.Dragging) return; // So only one item can be dragged at a time.
+
     if (!item.DecorationActive())
     {
       Debug.Log(item.name + " not active!");
       return;
     };
+
+    inputHandler.Dragging = true;
+
+    #if UNITY_EDITOR
+    offset = Input.mousePosition - transform.position;
+#elif UNITY_ANDROID
+    if (Input.touchCount > 0)
+    {
+      Touch touch = Input.GetTouch(0);
+      Vector3 touchPos = touch.position;
+      offset = touchPos - transform.position;
+    }
+#endif
 
     // Basically sets the item to be the front-most element after buttons.
     transform.SetSiblingIndex(canvas.childCount - 5);
@@ -41,13 +56,13 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     };
 
 #if UNITY_EDITOR
-    transform.position = Input.mousePosition;
+    transform.position = Input.mousePosition - offset;
 #elif UNITY_ANDROID
     if (Input.touchCount > 0)
     {
       Touch touch = Input.GetTouch(0);
       Vector3 touchPos = touch.position;
-      transform.position = touchPos;
+      transform.position = touchPos - offset;
     }
 #endif
 
@@ -57,7 +72,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
   {
     inputHandler.Dragging = false;
     // Check if the current mouse coordinates are inside the panel
-    if (RectTransformUtility.RectangleContainsScreenPoint(itemPanel, Input.mousePosition))
+    if (RectTransformUtility.RectangleContainsScreenPoint(itemPanel, Input.mousePosition - offset))
     {
       ResetTransform();
     }
