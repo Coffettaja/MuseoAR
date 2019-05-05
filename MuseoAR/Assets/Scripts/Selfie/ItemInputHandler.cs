@@ -6,8 +6,8 @@ using System;
 
 public class ItemInputHandler : MonoBehaviour {
 
-  private float maxSize = 7f;
-  private float minSize = .75f;
+  private float maxSize = 5f;
+  private float minSize = .2f;
   private float rotationSpeed = 2.5f;
 
   public bool Dragging { get; set; }
