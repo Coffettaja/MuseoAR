@@ -42,8 +42,14 @@ public class GameControllerScript : MonoBehaviour {
     // List of already scanned treasures.
     public static List<int> aarteet = new List<int>();
 
-  #region Singleton creation
-  private static GameControllerScript _instance;
+    public static List<string> tldrScenes = new List<string>();
+
+    public static List<string> aarreScenes = new List<string>();
+
+    public static List<string> otherScenes = new List<string>();
+
+    #region Singleton creation
+    private static GameControllerScript _instance;
     public static GameControllerScript Instance
     {
         get {
@@ -141,6 +147,29 @@ public class GameControllerScript : MonoBehaviour {
         tldrIdentifier = paramTldr;
         aarreIdentifier = paramAarre;
         _currentScene = name;
+
+        if (paramTldr != "")
+        {
+            var exists = tldrScenes.Contains(paramTldr);
+            if (!exists) { tldrScenes.Add(paramTldr); }
+        }
+        else
+        {
+            if (paramAarre != "")
+            {
+                var exists = aarreScenes.Contains(paramAarre);
+                if (!exists) { aarreScenes.Add(paramAarre); }
+            }
+            else
+            {
+                if (paramTldr != "")
+                {
+                    var exists = otherScenes.Contains(name);
+                    if (!exists) { otherScenes.Add(name); }
+                }
+            }
+        }
+
         if (name == "reset")
         {
             ResetAll();
