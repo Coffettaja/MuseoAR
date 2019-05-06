@@ -1313,7 +1313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000086552, y: -3}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &344902775
@@ -1394,7 +1394,7 @@ Prefab:
     - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224709838212014012, guid: 9b28966c56e4e264a86f2b2f526ec93e,
         type: 2}
@@ -3005,7 +3005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3036,8 +3036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5116504b9ba4b3c47bfcc7904967250c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSize: 22
-  minSize: 5
+  maxSize: 315
+  minSize: 100
   map: {fileID: 1542639117}
 --- !u!114 &885671252
 MonoBehaviour:
@@ -3054,7 +3054,7 @@ MonoBehaviour:
   SimulateMouseWithTouches: 0
   RequireControlKeyForMouseZoom: 1
   PassThroughObjects:
-  - {fileID: 2045451559}
+  - {fileID: 1542639117}
   DefaultDPI: 200
   LevelUnloadOption: 2
 --- !u!1 &950406690
@@ -5414,7 +5414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000086552, y: -3}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1542639119
@@ -5840,7 +5840,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2045451563}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -7171,9 +7171,9 @@ RectTransform:
   - {fileID: 818203063}
   - {fileID: 984729467}
   - {fileID: 446235513}
-  - {fileID: 2075151321}
   - {fileID: 91687675}
   - {fileID: 1694550487}
+  - {fileID: 2075151321}
   - {fileID: 885671248}
   - {fileID: 859652765}
   - {fileID: 1999145450}
@@ -7348,7 +7348,7 @@ RectTransform:
   m_Children:
   - {fileID: 154187194}
   m_Father: {fileID: 2045451563}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

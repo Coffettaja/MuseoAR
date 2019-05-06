@@ -7,8 +7,8 @@ using System;
 public class MapGestureManager : MonoBehaviour
 {
 
-  public float maxSize = 22f;
-  public float minSize = 5f;
+  public float maxSize = 315f;
+  public float minSize = 100f;
   //public float rotationSpeed = 2.5f;
 
   private FingersScript fingerScript;
@@ -82,9 +82,14 @@ public class MapGestureManager : MonoBehaviour
     if (gesture.State == GestureRecognizerState.Executing)
     {
       // Don't allow getting bigger if at max size, or smaller if at min size.
-      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1) return;
-      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1) return;
-      rectTransform.localScale *= scaleGesture.ScaleMultiplier;
+      if (rectTransform.sizeDelta.x > maxSize && scaleGesture.ScaleMultiplier > 1) {
+        return;
+      }
+      if (rectTransform.sizeDelta.x < minSize && scaleGesture.ScaleMultiplier < 1) {
+        return;
+      }
+      rectTransform.sizeDelta *= scaleGesture.ScaleMultiplier;
+      //rectTransform.localScale *= scaleGesture.ScaleMultiplier;
     }
   }
 
@@ -100,12 +105,22 @@ public class MapGestureManager : MonoBehaviour
     //Debug.Log(gesture);
     if (gesture.State == GestureRecognizerState.Executing)
     {
+      //rectTransform.localPosition + rectTransform.sizeDelta.y / 2
+
       //var t = gesture.CurrentTrackedTouches;
       float deltaX = panGesture.DeltaX / 10.0f;
       float deltaY = panGesture.DeltaY / 10.0f;
       Vector3 pos = map.transform.position;
-      
-      //pos.x += deltaX;
+
+      Debug.Log("PosX: " + rectTransform.localPosition.x);
+      Debug.Log(rectTransform.sizeDelta.x * 4);
+
+      if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
+      if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
+      if (rectTransform.localPosition.y > rectTransform.sizeDelta.y * 3.5 && deltaY > 0) return;
+      if (rectTransform.localPosition.y < rectTransform.sizeDelta.y * -3.5 && deltaY < 0) return;
+
+      pos.x += deltaX;
       pos.y += deltaY;
       rectTransform.position = pos;
     }
