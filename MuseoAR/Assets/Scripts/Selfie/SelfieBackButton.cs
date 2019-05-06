@@ -5,8 +5,8 @@ using UnityEngine;
 public class SelfieBackButton : MonoBehaviour {
   public void BackToInitScene()
   {
-    StartCoroutine("ChangeScene");
-    
+    GameControllerScript.Instance.LoadTopLevelScene();
+
   }
 
   private IEnumerator ChangeScene()

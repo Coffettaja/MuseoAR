@@ -19,7 +19,7 @@ public class SelfieSceneInit : MonoBehaviour {
 #else
     Invoke("ChangeToFrontCamera", 0.5f);
 #endif
-    Screen.orientation = ScreenOrientation.AutoRotation;
+    Screen.orientation = ScreenOrientation.Portrait;
     Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
   }
 
