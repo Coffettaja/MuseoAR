@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class QuestionScript : MonoBehaviour {
+public class QuestionScript : MonoBehaviour
+{
 
     #region Properties    
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
@@ -22,6 +23,8 @@ public class QuestionScript : MonoBehaviour {
     private GameObject[] ABC;
     private List<Question> questionList;
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
+    private string questionBank = "questionBank"; //Stores the filename of the JSON-file
+    private bool flag; //Stores information about whether the present question has been answered or not
 
     #endregion
 
@@ -30,7 +33,7 @@ public class QuestionScript : MonoBehaviour {
     private void init()
     {
         tracking = 1;
-        transform.GetChild(0).gameObject.SetActive(true);        
+        transform.GetChild(0).gameObject.SetActive(true);
         // quiz related inits        
         pointsGO = GameObject.Find("TextPoints");
         A = GameObject.Find("PanelAnswerA");
@@ -41,8 +44,28 @@ public class QuestionScript : MonoBehaviour {
         questionList = new List<Question>();
         usedQuestions = new List<int>();
         questionTextGO = GameObject.Find("TextQuestion");
-        answerTextGO = GameObject.Find("TextAnswer"); 
+        answerTextGO = GameObject.Find("TextAnswer");
         blobGrid = GameObject.Find("BlobGrid");
+
+        // Finding the name of the scene and choosing the right JSON-file 
+        var scene = SceneManager.GetActiveScene();
+        Debug.Log("Name: " + scene.name);
+        switch (scene.name)
+        {
+            case "quizScene":
+                questionBank = "questionBank";
+                break;
+            case "quizScene2":
+                questionBank = "questionBank2";
+                break;
+            case "quizScene3":
+                questionBank = "questionBank3";
+                break;
+            default:
+                questionBank = "questionBank";
+                break;
+        }
+
         fromJsonToList();
         // hae kysymys kysymyspankista
         getQuestion();
@@ -52,13 +75,13 @@ public class QuestionScript : MonoBehaviour {
     private void Update()
     {
         if (tracking == 0)
-                init();
+            init();
 
         if (pointsGO)
             pointsGO.GetComponent<Text>().text = "Kysymys " + questionCounter + "/10";
     }
 
-#endregion
+    #endregion
 
     #region Formatting methods
     /// <summary>
@@ -71,7 +94,7 @@ public class QuestionScript : MonoBehaviour {
         foreach (var child in blobchildren)
         {
             child.sprite = blobEmpty;
-        }        
+        }
 
         // disable chalkboard
         var chalkBoard = GameObject.Find("UICanvas").transform.GetChild(1).gameObject;
@@ -94,7 +117,7 @@ public class QuestionScript : MonoBehaviour {
     {
         GameControllerScript.Instance.LoadTopLevelScene();
     }
-#endregion
+    #endregion
 
     #region Question related methods
     /// <summary>
@@ -113,7 +136,7 @@ public class QuestionScript : MonoBehaviour {
             arrow.SetActive(false);
             var text = ans.transform.GetChild(1).GetComponent<Text>();
             text.fontStyle = FontStyle.Normal;
-            text.color = Color.white;            
+            text.color = Color.white;
         }
 
         var go = GameObject.Find("ButtonContinue");
@@ -154,7 +177,7 @@ public class QuestionScript : MonoBehaviour {
         currentQuestion = valittu;
         questionCounter++;
         Debug.Log("Kysymys numero" + questionCounter);
-        drawQuestion(valittu);        
+        drawQuestion(valittu);
     }
 
     /// <summary>
@@ -193,13 +216,16 @@ public class QuestionScript : MonoBehaviour {
         // jonkunlainen typewriter putkitushässäkkä
         var tque = questionTextGO.GetComponent<Text>();
         tque.text = que.question;
-        var tans = answerTextGO.GetComponent<Text>(); 
-        tans.text = ""; 
+        var tans = answerTextGO.GetComponent<Text>();
+        tans.text = "";
         A.transform.GetChild(1).GetComponent<Text>().text = que.answerA;
         B.transform.GetChild(1).GetComponent<Text>().text = que.answerB;
         C.transform.GetChild(1).GetComponent<Text>().text = que.answerC;
+
+        // Resets the status of the question to not answered
+        flag = true;
     }
-    
+
     /// <summary>
     /// Shows the selected answer of <answerInd>.
     /// </summary>
@@ -217,7 +243,7 @@ public class QuestionScript : MonoBehaviour {
             Destroy(fp);
         }
         Instantiate(fingerprintGO, pos, Quaternion.identity, ABC[answerInd].transform);
-        
+
         for (int i = 0; i < ABC.Length; i++)
         {
             if (i != answerInd)
@@ -247,7 +273,7 @@ public class QuestionScript : MonoBehaviour {
             tmp.a = 1;
             if (currentQuestion.correct == i)
             {
-                images[i].sprite = correctSprite;                
+                images[i].sprite = correctSprite;
             }
             else
             {
@@ -256,29 +282,35 @@ public class QuestionScript : MonoBehaviour {
                 {
                     tmp.a -= .01f;
                     ABC[i].transform.GetChild(1).GetComponent<Text>().color = tmp;
-                }                
+                }
             }
         }
 
         // Show info about the right answer
-        var tans = answerTextGO.GetComponent<Text>(); 
-        tans.text = currentQuestion.info; 
+        var tans = answerTextGO.GetComponent<Text>();
+        tans.text = currentQuestion.info;
 
-        // Check if correct, update blob in UI
-        if (currentQuestion.correct == answer_index)
+        // Check if correct and not already answered, update blob in UI
+        if (currentQuestion.correct == answer_index && flag == true)
         {
             // Answered correctly
             correctCounter++;
             // Change the blob image on breadcrumb panel
             var blob = blobGrid.transform.GetChild(questionCounter - 1);
             blob.GetComponent<Image>().sprite = blobYes;
+            // Question is marked as answered
+            flag = false;
         }
         else
         {
-            // Answered poorly
-            // Change the blob image on breadcrumb panel
-            var blob = blobGrid.transform.GetChild(questionCounter - 1);
-            blob.GetComponent<Image>().sprite = blobNo;
+            // Checks if the question has been already answered
+            if (flag == true)
+            {
+                // Answered poorly
+                // Change the blob image on breadcrumb panel
+                var blob = blobGrid.transform.GetChild(questionCounter - 1);
+                blob.GetComponent<Image>().sprite = blobNo;
+            }
         }
 
         var continueButton = GameObject.Find("ChalkBoard").transform.GetChild(7).gameObject;
@@ -294,12 +326,12 @@ public class QuestionScript : MonoBehaviour {
     {
         // parsing the json into token array
         Debug.Log(Application.dataPath);
-        TextAsset ladattava = Resources.Load<TextAsset>("questionBank");
+        TextAsset ladattava = Resources.Load<TextAsset>(questionBank);
         rootQuestion root = JsonUtility.FromJson<rootQuestion>(ladattava.text);
 
         // new object and values from token
         foreach (var q in root.questions)
-        {            
+        {
             questionList.Add(q);
         }
         // printQuestionList();
@@ -345,5 +377,5 @@ public class QuestionScript : MonoBehaviour {
         public Question[] questions;
     }
 
-#endregion
+    #endregion
 }

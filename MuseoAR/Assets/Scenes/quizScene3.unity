@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ Prefab:
     - target: {fileID: 224215536595963098, guid: 4f0817f43c5444fb69caa933bad321db,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224215536595963098, guid: 4f0817f43c5444fb69caa933bad321db,
         type: 2}
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215400632}
+      - m_Target: {fileID: 1215400634}
         m_MethodName: getQuestion
         m_Mode: 1
         m_Arguments:
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215400632}
+      - m_Target: {fileID: 1215400634}
         m_MethodName: quit
         m_Mode: 1
         m_Arguments:
@@ -756,8 +756,8 @@ RectTransform:
   - {fileID: 932095952}
   - {fileID: 2076744900}
   - {fileID: 272660801}
-  - {fileID: 1056411806}
   - {fileID: 10245805}
+  - {fileID: 1056411806}
   - {fileID: 211130647}
   m_Father: {fileID: 1883234327}
   m_RootOrder: 0
@@ -2462,7 +2462,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215400632}
+      - m_Target: {fileID: 1215400634}
         m_MethodName: selectAnswer
         m_Mode: 3
         m_Arguments:
@@ -2716,7 +2716,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1215400632}
+      objectReference: {fileID: 1215400634}
     - target: {fileID: 114984811997953376, guid: d2c401ca35f2c4d9aa41e9e2ff09e594,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -2734,6 +2734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215400633}
   - component: {fileID: 1215400632}
+  - component: {fileID: 1215400634}
   m_Layer: 0
   m_Name: Quiz
   m_TagString: Untagged
@@ -2747,7 +2748,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1215400631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bef0253abbd7b24d917856e9d77ad07, type: 3}
   m_Name: 
@@ -2774,6 +2775,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215400634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1215400631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5127e8b1a76a1b14780a36dd48012292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blobYes: {fileID: 21300000, guid: 63b8766534ffb924da8220c13da9b8fd, type: 3}
+  blobNo: {fileID: 21300000, guid: 95e053b879970fd46b8872d9bb98d63e, type: 3}
+  blobEmpty: {fileID: 21300000, guid: ee11c98d465c82a44af05610b2dd335e, type: 3}
+  answerDummy: {fileID: 21300000, guid: 485d9a9828e397048a00e31fe9afa8b4, type: 3}
+  correctSprite: {fileID: 21300000, guid: 507539b14aa730f45b79893573e1d189, type: 3}
+  arrowSprite: {fileID: 21300000, guid: 561705a2eedca5d45a1a9b912901a224, type: 3}
+  fingerprintGO: {fileID: 1145481232645218, guid: a41022eef1368f5438196ecbc80e7147,
+    type: 2}
 --- !u!1 &1232568798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,7 +3385,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215400632}
+      - m_Target: {fileID: 1215400634}
         m_MethodName: selectAnswer
         m_Mode: 3
         m_Arguments:
@@ -3705,7 +3725,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1215400632}
+      - m_Target: {fileID: 1215400634}
         m_MethodName: selectAnswer
         m_Mode: 3
         m_Arguments:
@@ -3837,7 +3857,7 @@ Prefab:
     - target: {fileID: 224524424485230536, guid: 428d7f9a8d302410cb35268717eb5c08,
         type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224524424485230536, guid: 428d7f9a8d302410cb35268717eb5c08,
         type: 2}
@@ -3893,7 +3913,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1215400632}
+      objectReference: {fileID: 1215400634}
     - target: {fileID: 114240775832900388, guid: 428d7f9a8d302410cb35268717eb5c08,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

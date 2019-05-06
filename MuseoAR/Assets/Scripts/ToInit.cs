@@ -9,8 +9,6 @@ public class ToInit : MonoBehaviour
 {
     private GameObject InputName;
     private GameObject BackToMenuButton;
-    private List<Ammatti> ammattiList;
-
 
     // Use this for initialization
     void Start()
@@ -20,16 +18,12 @@ public class ToInit : MonoBehaviour
         button.onClick.AddListener(ReturnToMainSceneOnClick);
     }
 
+    /// <summary>
+    /// Gets one random profession from a file and adds it to the username. Then transitions to Init scene.
+    /// </summary>
     void ReturnToMainSceneOnClick()
     {
-        ammattiList = new List<Ammatti>();
-        fromJsonToList();
-
-        System.Random rnd = new System.Random();
-        int i = rnd.Next(0, ammattiList.Count);
-
-        Ammatti valittu = ammattiList[i];
-        string ammatti = valittu.ammatti;
+        string ammatti = SimpleJsonScript.Instance.getEntry(-1, "ammattiBank");
 
         InputName = GameObject.Find("InputName");
         var inputField = InputName.GetComponent<InputField>();
@@ -38,36 +32,5 @@ public class ToInit : MonoBehaviour
         GameControllerScript.nimiJaAmmatti = ammatti + " " + nimi;
         GameControllerScript.Instance.LoadTopLevelScene();
     }
-
-    private void fromJsonToList()
-    {
-        TextAsset ladattava = Resources.Load<TextAsset>("ammattiBank");
-        rootAmmatti root = JsonUtility.FromJson<rootAmmatti>(ladattava.text);
-
-        foreach (var q in root.ammatit)
-        {
-            ammattiList.Add(q);
-        }
-    }
-
-
-    [Serializable]
-    public class Ammatti
-    {
-        public string ammatti;
-
-        public override string ToString()
-        {
-            return string.Format("Info: {0}",
-                                 ammatti);
-        }
-    }
-
-    [Serializable]
-    public class rootAmmatti
-    {
-        public Ammatti[] ammatit;
-    }
-
 
 }

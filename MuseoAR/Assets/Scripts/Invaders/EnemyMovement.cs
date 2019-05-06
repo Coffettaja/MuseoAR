@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour {
     public float tickSpeed = 0.8f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 6; //How many ticks the enemies move to one direction
+    private float change = 0;
 
     private Rigidbody rb;
     private bool moving = true;
@@ -22,8 +23,9 @@ public class EnemyMovement : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        float change = InvadersManagerScript.factor; // Change in tickspeed due to clearing levels.
         timeSinceLastMove += Time.deltaTime;
-        if (moving && timeSinceLastMove >= tickSpeed)
+        if (moving && timeSinceLastMove >= tickSpeed - change)
         {
             moveEnemy();
         }
@@ -40,6 +42,7 @@ public class EnemyMovement : MonoBehaviour {
     /// </summary>
     private void moveEnemy()
     {
+
         timeSinceLastMove = 0;
         if (moveRight)
             rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * movementSpeed);
@@ -55,4 +58,5 @@ public class EnemyMovement : MonoBehaviour {
             transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
         }
     }
+
 }
