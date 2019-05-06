@@ -12,7 +12,7 @@ public class SelfieBackButton : MonoBehaviour {
   private IEnumerator ChangeScene()
   {
     yield return new WaitForEndOfFrame();
-    Screen.orientation = ScreenOrientation.Landscape;
+    Screen.orientation = ScreenOrientation.Portrait;
     yield return new WaitForEndOfFrame();
     GameControllerScript.Instance.LoadTopLevelScene();
   }
