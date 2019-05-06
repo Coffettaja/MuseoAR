@@ -6,6 +6,6 @@ public class InitSceneInit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    //Screen.orientation = ScreenOrientation.LandscapeLeft;
+    Screen.orientation = ScreenOrientation.LandscapeLeft;
   }
 }
