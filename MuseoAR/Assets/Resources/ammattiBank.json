@@ -25,7 +25,7 @@
       "text": "Metsästäjä"
     },
 	{
-      "text": "Kerääjä"
+      "text": "Lastenhoitaja"
     },
 	{
       "text": "Opettaja"
@@ -37,6 +37,9 @@
       "text": "Pappi"
     },
 	{
+      "text": "Lukkari"
+    },
+	{
       "text": "Pankkiiri"
     },
 	{
@@ -46,7 +49,7 @@
       "text": "Hauturi"
     },
 	{
-      "text": "Kuljettaja"
+      "text": "Haudankaivaja"
     },
 	{
       "text": "Suutari"
@@ -110,6 +113,12 @@
     },
 	{
       "text": "Kokki"
+    },
+	{
+      "text": "Narri"
+    },
+	{
+      "text": "Kylähullu"
     },
 	{
       "text": "Poliisi"
