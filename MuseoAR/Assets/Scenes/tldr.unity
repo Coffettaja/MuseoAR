@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -438,14 +438,14 @@ RectTransform:
   m_GameObject: {fileID: 465971348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.064062, z: 1}
   m_Children: []
   m_Father: {fileID: 563545226}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -50}
+  m_AnchoredPosition: {x: 10, y: -27}
   m_SizeDelta: {x: -20, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465971350
@@ -467,19 +467,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "1980-luvun Suomessa elettiin nousukautta. T\xF6it\xE4 riitti ja lainaa
-    sai. Uuden keskiluokan muodostivat jupit, taviksilla oli enemm\xE4n massia, sek\xE4
-    mahdollisuus heitt\xE4\xE4 lapset p\xE4iv\xE4kotiin. Koteja varustettiin arjen
-    luksuksella, vapaa-aikaa vietettiin kuntosaleilla ja laskettelurinteiss\xE4. Keski-Suomessa
-    Nyk\xE4nen lensi ja Jyp HT pelasi liigaa. Kekkonen vaihtui Manuun.\r\n\r\nNousukaudella
-    rakennettiin omakotitaloja ymp\xE4ri Suomen kaikilla herkuilla ja saunoja riitti
-    jopa kerrostalohuoneistoihin. Kuokkala hypp\xE4si valtakunnan tietoisuuteen onnistuneiden
-    asuntomessujen takia. Jyv\xE4skyl\xE4n keskusta sai my\xF6s ostoskeskuksia osakseen.\r\n\r\nTsernobyl,
-    ymp\xE4rist\xF6kysymykset, Afrikan n\xE4l\xE4nh\xE4t\xE4 ja kylm\xE4 sota kuumottivat
-    kansalaisia. Jalkoja maassa piti my\xF6s punk-musiikki."
+  m_text: "1900-1919\r\n\r\nVuosisadan vaihtuessa p\xE4\xE4si jo liikkumaan muutenkin,
+    kuin hiiht\xE4en ja hevosella, nimitt\xE4in junat ja autot tulivat kaupunkiin!
+    Kansalaisten el\xE4m\xE4nlaatu suorastaan mullistui sellaisista ylellisyyksist\xE4,
+    kuin s\xE4hk\xF6, viem\xE4rist\xF6t sek\xE4 puhelinlangat. Hienoudet vetiv\xE4t
+    ihmisi\xE4 puoleensa, joten kaupunki kasvoi ja siihen perustettiin Suomen ensimm\xE4inen
+    kes\xE4yliopisto. \r\n\r\nKaikki eiv\xE4t kuitenkaan olleet tyytyv\xE4isi\xE4,
+    vaan l\xE4htiv\xE4t Amerikkaan tai j\xE4iv\xE4t tappelemaan ensimm\xE4iseen maailmansotaan
+    ja sis\xE4llissotaan. Siisti\xE4 oli kuitenkin se, ett\xE4 Suomi oli Euroopan
+    ensimm\xE4inen maa, jossa naiset saivat \xE4\xE4nest\xE4\xE4 ja asettua ehdolle
+    eduskuntavaaleissa vuonna 1907.\r\n\nTsernobyl, ymp\xE4rist\xF6kysymykset, Afrikan
+    n\xE4l\xE4nh\xE4t\xE4 ja kylm\xE4 sota kuumottivat kansalaisia. Jalkoja maassa
+    piti my\xF6s punk-musiikki."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abc4133281b85e647911691543aaf5a4, type: 2}
+  m_sharedMaterial: {fileID: 21966013745329378, guid: abc4133281b85e647911691543aaf5a4,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -493,7 +496,8 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 1e643bbd7e13d46418da3774e72bef60,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -503,14 +507,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25.35
+  m_fontSize: 21.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 258
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -541,15 +545,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 24.896152, y: 0, z: 30.848104, w: 22.372635}
   m_textInfo:
     textComponent: {fileID: 465971350}
-    characterCount: 752
+    characterCount: 794
     spriteCount: 0
-    spaceCount: 82
-    wordCount: 81
+    spaceCount: 93
+    wordCount: 90
     linkCount: 0
-    lineCount: 12
+    lineCount: 17
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -818,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.784}
+  m_Color: {r: 0.9411765, g: 0.8166091, b: 0.666, a: 0.566}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

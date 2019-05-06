@@ -8,9 +8,4 @@ public class InitSceneInit : MonoBehaviour {
 	void Start () {
     Screen.orientation = ScreenOrientation.LandscapeLeft;
   }
-
-  // Update is called once per frame
-  void Update () {
-		
-	}
 }

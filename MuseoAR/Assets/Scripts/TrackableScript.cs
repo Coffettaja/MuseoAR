@@ -60,7 +60,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     imgGO = new GameObject();
     img = imgGO.AddComponent<UnityEngine.UI.Image>();
-    imgGO.transform.parent = canvas.transform; // Transition image as the child of the canvas.
+    imgGO.transform.SetParent(canvas.transform); // Transition image as the child of the canvas.
     imgGO.name = "TransitionImageFor" + gameObject.name;
     img.sprite = transitionImage;
 
@@ -126,17 +126,21 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   {
     if (isTransitioning) return;
     isTransitioning = true;
-    imgGO.SetActive(true);
-    ScaleTransitionImage();
-    ScaleTransitionImage(); // Called twice on purpose... otherwise it doesn't work and I can't be bothered to look into it now.
-    StartCoroutine("TransitionToScene");
+    if (transitionImage != null)
+    {
+      imgGO.SetActive(true);
+      ScaleTransitionImage();
+      ScaleTransitionImage(); // Called twice on purpose... otherwise it doesn't work and I can't be bothered to look into it now.
+      Debug.Log("Transition image");
+     }
+      StartCoroutine("TransitionToScene");
   }
 
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
     {
         if(newStatus == TrackableBehaviour.Status.TRACKED)
         {
-
+        
         }
         
     }
@@ -151,8 +155,11 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     // Load the scene instantly if no transition image is set.
     if (transitionImage == null || transitionSpeed <= 0)
     {
+      Debug.Log("No transition image");
       GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
+      yield break;
     }
+    Debug.Log("HAAAA");
 
     float z = -transitionBeginningZoom;
     while (z < 0)
