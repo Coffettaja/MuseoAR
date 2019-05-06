@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -812,8 +812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: quizScene
-  tldrIdentifier: not_defined
-  aarreIdentifier: not_defined
+  tldrIdentifier: 
+  aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: c3b3fe7319abcbb40baee6bd56295cef, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 1
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 360PictureScene1
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: quizScene2
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 0}
   transitionSpeed: 7
@@ -2393,7 +2393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 4
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -3345,7 +3345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: quizScene3
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 0}
   transitionSpeed: 7
@@ -3742,8 +3742,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: invaders
-  tldrIdentifier: not_defined
-  aarreIdentifier: not_defined
+  tldrIdentifier: 
+  aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: b0a732467d72c1340b1b5de769255f4e, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
@@ -4019,7 +4019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 0
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -4343,7 +4343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 360VideoScene
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 0}
   transitionSpeed: 7
@@ -4490,7 +4490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 2
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -4637,7 +4637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 6
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -5309,7 +5309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 5
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -5778,7 +5778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: aarteenetsinta
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 3
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
@@ -7063,7 +7063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 360PictureScene2
-  tldrIdentifier: not_defined
+  tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
   transitionSpeed: 7
