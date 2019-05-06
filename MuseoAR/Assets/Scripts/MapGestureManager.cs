@@ -7,8 +7,8 @@ using System;
 public class MapGestureManager : MonoBehaviour
 {
 
-  public float maxSize = 22f;
-  public float minSize = 5f;
+  private float maxSize = 25f;
+  private float minSize = 9f;
   //public float rotationSpeed = 2.5f;
 
   private FingersScript fingerScript;
@@ -21,14 +21,17 @@ public class MapGestureManager : MonoBehaviour
   private ScaleGestureRecognizer scaleGesture;
   //private LongPressGestureRecognizer longPressGesture;
 
-  public GameObject map;
-
   private RectTransform rectTransform;
+
+  private void Awake()
+  {
+    Debug.Log("AWAKEEE");
+  }
 
   // Use this for initialization
   void Start()
   {
-    rectTransform = map.transform as RectTransform;
+    //rectTransform = map.transform as RectTransform;
     fingerScript = gameObject.GetComponent<FingersScript>();
 
     //CreateTapGesture();
@@ -78,12 +81,18 @@ public class MapGestureManager : MonoBehaviour
 
   private void ScaleGestureCallback(GestureRecognizer gesture)
   {
+    if (rectTransform == null) return;
     //Debug.Log(gesture);
     if (gesture.State == GestureRecognizerState.Executing)
     {
       // Don't allow getting bigger if at max size, or smaller if at min size.
-      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1) return;
-      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1) return;
+      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1) {
+        return;
+      }
+      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1) {
+        return;
+      }
+      //rectTransform.sizeDelta *= scaleGesture.ScaleMultiplier;
       rectTransform.localScale *= scaleGesture.ScaleMultiplier;
     }
   }
@@ -97,15 +106,23 @@ public class MapGestureManager : MonoBehaviour
 
   private void PanGestureCallback(GestureRecognizer gesture)
   {
-    //Debug.Log(gesture);
+    
+    if (rectTransform == null) return;
     if (gesture.State == GestureRecognizerState.Executing)
     {
+      //rectTransform.localPosition + rectTransform.sizeDelta.y / 2
+
       //var t = gesture.CurrentTrackedTouches;
       float deltaX = panGesture.DeltaX / 10.0f;
       float deltaY = panGesture.DeltaY / 10.0f;
-      Vector3 pos = map.transform.position;
-      
-      //pos.x += deltaX;
+      Vector3 pos = rectTransform.position;
+
+      //if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
+      //if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
+      //if (rectTransform.localPosition.y > rectTransform.sizeDelta.y * 3.5 && deltaY > 0) return;
+      //if (rectTransform.localPosition.y < rectTransform.sizeDelta.y * -3.5 && deltaY < 0) return;
+
+      pos.x += deltaX;
       pos.y += deltaY;
       rectTransform.position = pos;
     }
@@ -119,6 +136,11 @@ public class MapGestureManager : MonoBehaviour
   private void CreateDoubleTapGesture()
   {
 
+  }
+
+  public void SetMap(GameObject map)
+  {
+    this.rectTransform = map.transform.GetChild(0).transform as RectTransform;
   }
 
   //public void SetRectTransform()
