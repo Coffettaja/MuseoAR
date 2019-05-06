@@ -113,9 +113,9 @@ public class MapGestureManager : MonoBehaviour
       //rectTransform.localPosition + rectTransform.sizeDelta.y / 2
 
       //var t = gesture.CurrentTrackedTouches;
-      float deltaX = panGesture.DeltaX / 10.0f;
-      float deltaY = panGesture.DeltaY / 10.0f;
-      Vector3 pos = rectTransform.position;
+      float deltaX = panGesture.DeltaX; // 10.0f;
+      float deltaY = panGesture.DeltaY; // 10.0f;
+      Vector3 pos =  rectTransform.localPosition;
 
       //if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
       //if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
@@ -124,7 +124,9 @@ public class MapGestureManager : MonoBehaviour
 
       pos.x += deltaX;
       pos.y += deltaY;
-      rectTransform.position = pos;
+      pos.z = 0;
+      //rectTransform.position = pos;
+      rectTransform.localPosition = pos;
     }
   }
 
