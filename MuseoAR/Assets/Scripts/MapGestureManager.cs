@@ -21,14 +21,20 @@ public class MapGestureManager : MonoBehaviour
   private ScaleGestureRecognizer scaleGesture;
   //private LongPressGestureRecognizer longPressGesture;
 
-  public GameObject map;
+  //public GameObject map;
+  private GameObject map;
 
   private RectTransform rectTransform;
+
+  private void Awake()
+  {
+    Debug.Log("AWAKEEE");
+  }
 
   // Use this for initialization
   void Start()
   {
-    rectTransform = map.transform as RectTransform;
+    //rectTransform = map.transform as RectTransform;
     fingerScript = gameObject.GetComponent<FingersScript>();
 
     //CreateTapGesture();
@@ -78,6 +84,7 @@ public class MapGestureManager : MonoBehaviour
 
   private void ScaleGestureCallback(GestureRecognizer gesture)
   {
+    if (map == null) return;
     //Debug.Log(gesture);
     if (gesture.State == GestureRecognizerState.Executing)
     {
@@ -103,6 +110,7 @@ public class MapGestureManager : MonoBehaviour
   private void PanGestureCallback(GestureRecognizer gesture)
   {
     //Debug.Log(gesture);
+    if (map == null) return;
     if (gesture.State == GestureRecognizerState.Executing)
     {
       //rectTransform.localPosition + rectTransform.sizeDelta.y / 2
@@ -111,9 +119,6 @@ public class MapGestureManager : MonoBehaviour
       float deltaX = panGesture.DeltaX / 10.0f;
       float deltaY = panGesture.DeltaY / 10.0f;
       Vector3 pos = map.transform.position;
-
-      Debug.Log("PosX: " + rectTransform.localPosition.x);
-      Debug.Log(rectTransform.sizeDelta.x * 4);
 
       if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
       if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
@@ -134,6 +139,12 @@ public class MapGestureManager : MonoBehaviour
   private void CreateDoubleTapGesture()
   {
 
+  }
+
+  public void SetMap(GameObject map)
+  {
+    this.map = map;
+    this.rectTransform = map.transform as RectTransform;
   }
 
   //public void SetRectTransform()
