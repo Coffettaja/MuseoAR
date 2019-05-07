@@ -10,6 +10,7 @@ public class MapButtonScript : MonoBehaviour
   public GameObject thirdFloorButton;
   public GameObject secondFloorPanel;
   public GameObject thirdFloorPanel;
+  public GameObject mapPanel;
 
   private Button m_button;
   private bool isOpen;
@@ -25,19 +26,18 @@ public class MapButtonScript : MonoBehaviour
     thirdFloorButton.GetComponent<Button>().onClick.AddListener(ShowThirdFloor);
     SetSecondFloorActive(false);
     SetThirdFloorActive(false);
-    secondFloorButton.SetActive(false);
-    thirdFloorButton.SetActive(false);
+    SetMapPanelActive(false);
     gestureManager = GameObject.FindWithTag("Canvas").GetComponent<MapGestureManager>();
     isOpen = false;
   }
 
   private void ToggleMap()
   {
-    // Activate the first floor map and the button of the second floor map.
-    if (!isOpen)
+    SetMapPanelActive(!isOpen);
+    isOpen = !isOpen;
+
+    if (isOpen)
     {
-      secondFloorButton.SetActive(true);
-      thirdFloorButton.SetActive(true);
       if (activateSecondFloor)
       {
         ShowSecondFloor();
@@ -46,18 +46,6 @@ public class MapButtonScript : MonoBehaviour
       {
         ShowThirdFloor();
       }
-
-
-      isOpen = true;
-    }
-    // Deactivate all maps and floor buttons.
-    else
-    {
-      SetSecondFloorActive(false);
-      SetThirdFloorActive(false);
-      secondFloorButton.SetActive(false);
-      thirdFloorButton.SetActive(false);
-      isOpen = false;
     }
   }
 
@@ -101,6 +89,16 @@ public class MapButtonScript : MonoBehaviour
     {
       thirdFloorPanel.transform.localScale = Vector3.zero;
     }
+  }
 
+  private void SetMapPanelActive(bool active)
+  {
+    if (active)
+    {
+      mapPanel.transform.localScale = Vector3.one;
+    } else
+    {
+      mapPanel.transform.localScale = Vector3.zero;
+    }
   }
 }

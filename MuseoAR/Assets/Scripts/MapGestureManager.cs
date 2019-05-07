@@ -117,15 +117,16 @@ public class MapGestureManager : MonoBehaviour
       float deltaY = panGesture.DeltaY; // 10.0f;
       Vector3 pos =  rectTransform.localPosition;
 
-      //if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
-      //if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
-      //if (rectTransform.localPosition.y > rectTransform.sizeDelta.y * 3.5 && deltaY > 0) return;
-      //if (rectTransform.localPosition.y < rectTransform.sizeDelta.y * -3.5 && deltaY < 0) return;
+      var test = Camera.main.WorldToViewportPoint(rectTransform.position);
 
+      // return
+
+      Debug.Log(test);
       pos.x += deltaX;
       pos.y += deltaY;
       pos.z = 0;
       //rectTransform.position = pos;
+
       rectTransform.localPosition = pos;
     }
   }
