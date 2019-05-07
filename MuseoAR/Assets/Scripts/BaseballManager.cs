@@ -13,74 +13,97 @@ public class BaseballManager : MonoBehaviour
     [SerializeField] private Text gametitle;
     [SerializeField] private Text highscore;
 
-    int score = 0;
+    float score = 0f;
     float speedy = 1.8f;
+    float speedz = 3.8f;
     float gravity = 0.03f;
     string action = "";
     string usertext = "";
+    float timer;
+    float time;
+    float hit;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        print("init");
+    void Start() {
+        timer = Time.time;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(action=="")
-            {
+    void Update() {
+
+        if (Input.GetMouseButtonDown(0)) {
+            if(action=="") {
                 action = "throw";
-                StartCoroutine(SmoothMove(hand, hand.transform.position, new Vector3(-50, 0, 0), 1f));
-            } else if(action=="throw")
-            {
-                action = "hit";
-                StartCoroutine(SmoothRot(bat, bat.transform.rotation, new Quaternion(-0.5f, 0.5f, 0.5f, 0.5f), 0.3f));
-                StartCoroutine(CheckHit());
+                timer = Time.time;
+                StartCoroutine(SmoothMove(hand, hand.transform.position, new Vector3(-47f, -17.3f, 1.1f), 1f));
+                StartCoroutine(SmoothRot(ball, ball.transform.rotation, new Quaternion(1f, 0f, 0f, 1f), 1f));
+                print(ball.transform.rotation);
+            } else if(action=="throw") {
+                StartCoroutine(SmoothRot(bat, bat.transform.rotation, new Quaternion(0.5f, 0.5f, 0.5f, 0.5f), 0.2f));
             }
-            //highscore.text = "highscore: " + score;
-            //print(bat.transform.rotation);
         }
 
-        if (action!="")
-        {
+        time = Time.time - timer;
+
+        if (ball.transform.position.z/5 > score) {
+            score = Mathf.Floor(ball.transform.position.z/5);
+            highscore.text = "Ennätys: " + score + " metriä";
+        }
+
+        if (action=="throw") {
             speedy -= gravity;
-            if(ball.transform.position.y>-44) ball.transform.position += new Vector3(0, speedy, 0);
-
+            if (ball.transform.position.y > -44) ball.transform.position += new Vector3(0, speedy, 0);
+            if (time > 2) {
+                hit = Mathf.Abs(bat.transform.rotation.y);
+                if (hit < 0.3f) {
+                    action = "hit";
+                    speedz = (0.35f - hit) * 30;
+                    speedy = (0.35f - hit) * 5;
+                    timer = Time.time;
+                } else action = "miss";
+            }
+        } else if (action == "miss") {
+            speedy -= gravity;
+            if (ball.transform.position.y > -44) ball.transform.position += new Vector3(0, speedy, 0);
+            if (time > 4) Reset();
+        } else if (action == "hit") {
+            speedy -= gravity;
+            speedz -= gravity;
+            if (ball.transform.position.y > -44) ball.transform.position += new Vector3(0, speedy, speedz);
+            if (time > 5) Reset();
+        } else if (action == "reset") {
+            if (time > 1) action = "";
         }
+
 
     }
 
-    IEnumerator SmoothMove(GameObject obj, Vector3 start, Vector3 end, float time)
-    {
+    private void Reset() {
+        action = "reset";
+        speedy = 1.8f;
+        timer = Time.time;
+        StartCoroutine(SmoothMove(ball, ball.transform.position, new Vector3(0f,-15f,0f), 0.5f));
+        StartCoroutine(SmoothRot(ball, ball.transform.rotation, new Quaternion(0f, 0f, 0f, 1f), 1f));
+        StartCoroutine(SmoothMove(hand, hand.transform.position, new Vector3(-7f, -17.3f, 1.1f), 0.5f));
+        StartCoroutine(SmoothRot(bat, bat.transform.rotation, new Quaternion(-0.5f, -0.5f, 0.5f, 0.5f), 0.5f));
+    }
+
+    IEnumerator SmoothMove(GameObject obj, Vector3 start, Vector3 end, float seconds) {
         var t = 0.0f;
-        while (t <= 1.0)
-        {
-            yield return new WaitForSeconds(0.01f);
+        while (t <= 1.0) {
+            yield return new WaitForSeconds(0.02f);
             obj.transform.position = Vector3.Lerp(start, end, Mathf.SmoothStep(0.0f, 1.0f, t));
-            t += 0.01f/time;
+            t += 0.02f / seconds;
         }
     }
 
-    IEnumerator SmoothRot(GameObject obj, Quaternion start, Quaternion end, float time)
-    {
+    IEnumerator SmoothRot(GameObject obj, Quaternion start, Quaternion end, float seconds) {
         var t = 0.0f;
-        while (t <= 1.0)
-        {
-            yield return new WaitForSeconds(0.01f);
+        while (t <= 1.0) {
+            yield return new WaitForSeconds(0.02f);
             obj.transform.rotation = Quaternion.Lerp(start, end, Mathf.SmoothStep(0.0f, 1.0f, t));
-            t += 0.01f/time;
+            t += 0.02f / seconds;
         }
-    }
-
-    IEnumerator CheckHit()
-    {
-        print(Time.time);
-        yield return new WaitForSeconds(0.4f);
-        print(Time.time);
-        print(ball.transform.position.y);
     }
 
 }
