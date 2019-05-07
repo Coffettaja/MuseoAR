@@ -51,16 +51,16 @@ public class ShootingScript : MonoBehaviour {
     void OnGUI ()
     {
         Vector2 centerPoint = new Vector2(Screen.width / 2, Screen.width / 3);
-        float screenRatio = Screen.height / 100;
+        float screenRatio = Screen.height / 50;
 
         newHeight = height * screenRatio;
 
         if (drawCrosshair)
         {
-            GUI.Box(new Rect(centerPoint.x - (width / 2), centerPoint.y - (newHeight + spread.sSpread), width, newHeight), GUIContent.none, lineStyle);
-            GUI.Box(new Rect(centerPoint.x - (width / 2), (centerPoint.y + spread.sSpread), width, newHeight), GUIContent.none, lineStyle);
-            GUI.Box(new Rect((centerPoint.x + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width), GUIContent.none, lineStyle);
-            GUI.Box(new Rect(centerPoint.x - (newHeight + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (width / 2), centerPoint.y - (newHeight + spread.sSpread), width*3, newHeight), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (width / 2), (centerPoint.y + spread.sSpread), width*3, newHeight), GUIContent.none, lineStyle);
+            GUI.Box(new Rect((centerPoint.x + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width*3), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (newHeight + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width*3), GUIContent.none, lineStyle);
         }
 
         if (Input.GetButton("Fire1"))
