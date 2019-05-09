@@ -1681,7 +1681,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 1
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &255132125
@@ -2587,7 +2587,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 7
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &383890750
@@ -4410,7 +4410,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 4
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &707418516
@@ -6608,7 +6608,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 0
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &1097502810
@@ -7390,7 +7390,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 2
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &1274070381
@@ -7537,7 +7537,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 6
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &1293774266
@@ -8622,7 +8622,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 5
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &1502068819
@@ -9462,7 +9462,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 3
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &1685229973
@@ -11314,7 +11314,7 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: 8
-  transitionImage: {fileID: 21300000, guid: 6a474f8047278fb46bd401e7352f69bf, type: 3}
+  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &2022978089
