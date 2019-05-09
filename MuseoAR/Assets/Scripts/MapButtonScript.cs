@@ -113,42 +113,42 @@ public class MapButtonScript : MonoBehaviour
     private void AddMarks()
     {
         GameObject tldr0;
-        tldr0 = GameObject.Find("MapPanel/Image/tldr0");
+        tldr0 = GameObject.Find("MapPanel2/Image/tldr0");
         tldr0.SetActive(false);
         marks.Add(tldr0);
 
         GameObject tldr1;
-        tldr1 = GameObject.Find("MapPanel/Image/tldr1");
+        tldr1 = GameObject.Find("MapPanel2/Image/tldr1");
         tldr1.SetActive(false);
         marks.Add(tldr1);
 
         GameObject tldr2;
-        tldr2 = GameObject.Find("MapPanel/Image/tldr2");
+        tldr2 = GameObject.Find("MapPanel2/Image/tldr2");
         tldr2.SetActive(false);
         marks.Add(tldr2);
 
         GameObject tldr3;
-        tldr3 = GameObject.Find("MapPanel/Image/tldr3");
+        tldr3 = GameObject.Find("MapPanel2/Image/tldr3");
         tldr3.SetActive(false);
         marks.Add(tldr3);
 
         GameObject tldr4;
-        tldr4 = GameObject.Find("MapPanel/Image/tldr4");
+        tldr4 = GameObject.Find("MapPanel2/Image/tldr4");
         tldr4.SetActive(false);
         marks.Add(tldr4);
 
         GameObject tldr5;
-        tldr5 = GameObject.Find("MapPanel/Image/tldr5");
+        tldr5 = GameObject.Find("MapPanel2/Image/tldr5");
         tldr5.SetActive(false);
         marks.Add(tldr5);
 
         GameObject tldr6;
-        tldr6 = GameObject.Find("MapPanel/Image/tldr6");
+        tldr6 = GameObject.Find("MapPanel2/Image/tldr6");
         tldr6.SetActive(false);
         marks.Add(tldr6);
 
         GameObject tldr7;
-        tldr7 = GameObject.Find("MapPanel/Image/tldr7");
+        tldr7 = GameObject.Find("MapPanel2/Image/tldr7");
         tldr7.SetActive(false);
         marks.Add(tldr7);
 
@@ -193,22 +193,22 @@ public class MapButtonScript : MonoBehaviour
         marks.Add(quizScene);
 
         GameObject quizScene2;
-        quizScene2 = GameObject.Find("MapPanel/Image/quizScene2");
+        quizScene2 = GameObject.Find("MapPanel2/Image/quizScene2");
         quizScene2.SetActive(false);
         marks.Add(quizScene2);
 
         GameObject quizScene3;
-        quizScene3 = GameObject.Find("MapPanel/Image/quizScene3");
+        quizScene3 = GameObject.Find("MapPanel2/Image/quizScene3");
         quizScene3.SetActive(false);
         marks.Add(quizScene3);
 
         GameObject invaders;
-        invaders = GameObject.Find("MapPanel/Image/invaders");
+        invaders = GameObject.Find("MapPanel2/Image/invaders");
         invaders.SetActive(false);
         marks.Add(invaders);
 
         GameObject Pesapallo;
-        Pesapallo = GameObject.Find("MapPanel/Image/Pesapallo");
+        Pesapallo = GameObject.Find("MapPanel2/Image/Pesapallo");
         Pesapallo.SetActive(false);
         marks.Add(Pesapallo);
 
