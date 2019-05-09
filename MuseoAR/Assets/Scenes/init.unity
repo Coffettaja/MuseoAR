@@ -1080,7 +1080,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 93ceb2318e66707489e4a1a9ef61cebd, type: 3}
+  transitionImage: {fileID: 21300000, guid: f635844e292c1d243ae9ee8f7117b365, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &248672058
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 0
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 4c7e54107b562784fb97300370a337b2, type: 3}
+  transitionImage: {fileID: 21300000, guid: 4912b36cd397d134e942f1348a7a7dfe, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!65 &333761491
@@ -3348,7 +3348,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 583542d2617e18a49903fc17c20290ee, type: 3}
+  transitionImage: {fileID: 21300000, guid: ae6511d9d60263c40a3b41ad5b68dea5, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &646898067
@@ -4306,7 +4306,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 9963256d17bf3714e83521c22025f7a6, type: 3}
+  transitionImage: {fileID: 21300000, guid: e090ce49e56bab147aa90e1ea8e7bbf5, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &913989939
@@ -5962,7 +5962,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 51c895bba8d49bd408abf9bcf68976c5, type: 3}
+  transitionImage: {fileID: 21300000, guid: f1ee786689485bb43a28cbbb6efdca13, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &1259898349
@@ -6497,7 +6497,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: c3b3fe7319abcbb40baee6bd56295cef, type: 3}
+  transitionImage: {fileID: 21300000, guid: f49ab1a7110b24e40b39d5f501afdfe7, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &1352472330
@@ -6904,7 +6904,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 1
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: 2038b45333114dd4886fc4b50ebe932a, type: 3}
+  transitionImage: {fileID: 21300000, guid: c1ade15ee91a0aa4fad45a92ae93d606, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 200
 --- !u!65 &1441825372
@@ -7384,7 +7384,7 @@ MonoBehaviour:
   sceneName: tldr
   tldrIdentifier: 
   aarreIdentifier: 
-  transitionImage: {fileID: 21300000, guid: d232a918803261b4aaf034d70a66ea72, type: 3}
+  transitionImage: {fileID: 21300000, guid: 4af157f07d0a7e64d8708fb374fc0e06, type: 3}
   transitionSpeed: 7
   transitionBeginningZoom: 500
 --- !u!114 &1567880553
