@@ -162,11 +162,8 @@ public class GameControllerScript : MonoBehaviour {
             }
             else
             {
-                if (paramTldr != "")
-                {
-                    var exists = otherScenes.Contains(name);
-                    if (!exists) { otherScenes.Add(name); }
-                }
+                var exists = otherScenes.Contains(name);
+                if (!exists) { otherScenes.Add(name); }
             }
         }
 

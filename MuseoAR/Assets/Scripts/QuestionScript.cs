@@ -70,6 +70,7 @@ public class QuestionScript : MonoBehaviour
         // hae kysymys kysymyspankista
         getQuestion();
         // odota vastausta   
+        ScoreScript.Instance.IncreaseScoreBy(10);
     }
 
     private void Update()
