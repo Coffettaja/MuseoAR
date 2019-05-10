@@ -24,11 +24,15 @@ public class MapButtonScript : MonoBehaviour
     m_button.onClick.AddListener(ToggleMap);
     secondFloorButton.GetComponent<Button>().onClick.AddListener(ShowSecondFloor);
     thirdFloorButton.GetComponent<Button>().onClick.AddListener(ShowThirdFloor);
+
+    // Hide everything initially.
     SetSecondFloorActive(false);
     SetThirdFloorActive(false);
     SetMapPanelActive(false);
-    gestureManager = GameObject.FindWithTag("Canvas").GetComponent<MapGestureManager>();
     isOpen = false;
+
+    // Need this to set the map that will be moved (second or third floor).
+    gestureManager = GameObject.FindWithTag("Canvas").GetComponent<MapGestureManager>();
   }
 
   private void ToggleMap()
@@ -42,7 +46,7 @@ public class MapButtonScript : MonoBehaviour
       {
         ShowSecondFloor();
       }
-      else // Third floor
+      else
       {
         ShowThirdFloor();
       }
@@ -73,6 +77,7 @@ public class MapButtonScript : MonoBehaviour
   {
     if (active)
     {
+      // Initially on the scene the map have a scale of 0.6 for some reason so keeping it the same.
       secondFloorPanel.transform.localScale = Vector3.one * .6f;
     } else
     {
@@ -84,6 +89,7 @@ public class MapButtonScript : MonoBehaviour
   {
     if (active)
     {
+      // Initially on the scene the map have a scale of 0.6 for some reason so keeping it the same.
       thirdFloorPanel.transform.localScale = Vector3.one * .6f;
     } else
     {

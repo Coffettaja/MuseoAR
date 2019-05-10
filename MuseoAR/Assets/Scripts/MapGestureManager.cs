@@ -7,7 +7,7 @@ using System;
 public class MapGestureManager : MonoBehaviour
 {
 
-  private float maxSize = 25f;
+  private float maxSize = 24f;
   private float minSize = 9f;
   //public float rotationSpeed = 2.5f;
 
@@ -118,20 +118,17 @@ public class MapGestureManager : MonoBehaviour
       Vector3 pos =  rectTransform.localPosition;
 
       var viewPortPos = Camera.main.WorldToViewportPoint(rectTransform.position);
-      Debug.Log(deltaX);
 
       if (viewPortPos.x > 1.1 && deltaX > 0) return;
       if (viewPortPos.x < -.1 && deltaX < 0) return;
       if (viewPortPos.y > 1.35 && deltaY > 0) return;
       if (viewPortPos.y < -.35 && deltaY < 0) return;
-        
-      
-      // return
 
+      //rectTransform.pivot = new Vector2(1 - viewPortPos.x,  1 - viewPortPos.y);
+      
       pos.x += deltaX;
       pos.y += deltaY;
       pos.z = 0;
-      //rectTransform.position = pos;
 
       rectTransform.localPosition = pos;
     }
