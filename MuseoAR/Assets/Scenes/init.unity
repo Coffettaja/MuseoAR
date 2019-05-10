@@ -7184,6 +7184,7 @@ MonoBehaviour:
   PassThroughObjects:
   - {fileID: 1542639117}
   - {fileID: 344902773}
+  - {fileID: 261552265}
   DefaultDPI: 200
   LevelUnloadOption: 2
 --- !u!43 &2065963062
