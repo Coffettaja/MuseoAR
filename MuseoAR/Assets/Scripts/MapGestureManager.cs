@@ -117,11 +117,17 @@ public class MapGestureManager : MonoBehaviour
       float deltaY = panGesture.DeltaY; // 10.0f;
       Vector3 pos =  rectTransform.localPosition;
 
-      var test = Camera.main.WorldToViewportPoint(rectTransform.position);
+      var viewPortPos = Camera.main.WorldToViewportPoint(rectTransform.position);
+      Debug.Log(deltaX);
 
+      if (viewPortPos.x > 1.1 && deltaX > 0) return;
+      if (viewPortPos.x < -.1 && deltaX < 0) return;
+      if (viewPortPos.y > 1.35 && deltaY > 0) return;
+      if (viewPortPos.y < -.35 && deltaY < 0) return;
+        
+      
       // return
 
-      Debug.Log(test);
       pos.x += deltaX;
       pos.y += deltaY;
       pos.z = 0;
