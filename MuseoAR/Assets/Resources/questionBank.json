@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "question": "Ketä pidetään Suomen kansakoulun isänä?",
+      "answerA": "Elias Lönnrotia",
+      "answerB": "J.V. Snellmania",
+      "answerC": "Uno Cygnaeusta",
+      "correct": 2,
+	  "info": "Suomen kansakoulun isäksi kutsutaan Uno Cygnaeusta, jonka senaatille laatiman ehdotuksen pohjalta luotiin 1860-luvulla maahamme kansakoulujärjestelmä. Cygnaeuksen mukaan kansakoulun tuli olla mahdollinen kaikille sukupuolesta ja varallisuudesta riippumatta."
+    },
+    {
+      "question": "Mihin kaupunkiin perustettiin maamme ensimmäinen suomenkielinen opettajaseminaari?",
+      "answerA": "Turkuun",
+      "answerB": "Jyväskylään",
+      "answerC": "Viipuriin",
+      "correct": 1,
+	  "info": "Ensimmäinen suomenkielinen kansakoulunopettajaseminaari perustettiin Jyväskylään vuonna 1863."
+    },
+    {
+      "question": "Millä nimellä kutsuttiin koulua, jota käytiin ennen kansakoulujen perustamista?",
+      "answerA": "Kulkukoulu",
+      "answerB": "Kiertokoulu",
+      "answerC": "Välikoulu",
+      "correct": 1,
+	  "info": "Ennen kansakoulujen perustamista rahvasta opetettiin seurakuntien järjestämissä kiertokouluissa. Opettaja, usein lukkari, kiersi kylästä toiseen opettamassa ihmisille luku- kirjoitus- ja kristinopintaitoja."
+    },
+    {
+      "question": "Mihin perustettiin ensimmäinen kansakoulu Keski-Suomessa?",
+      "answerA": "Jämsään",
+      "answerB": "Pihtiputaalle",
+      "answerC": "Konginkankaalle",
+      "correct": 2,
+	  "info": "Keski-Suomen ensimmäinen kansakoulu perustettiin Konginkankaalle vuonna 1867."
+    },
+    {
+      "question": "Mikä seuraavista oli 1800-luvun kansakoulun oppiaine?",
+      "answerA": "Voimistelu",
+      "answerB": "Liikunta",
+      "answerC": "Jumppa",
+      "correct": 0,
+	  "info": "Henkisen kehityksen ohella kansakouluissa pyrittiin edistämään myös oppilaiden fyysistä kuntoa ja siksi voimistelu kuului alusta saakka kansakoulun oppiaineiden joukkoon."
+    },
+    {
+      "question": "Mikä seuraavista EI ollut 1800-luvun kansakoulun oppiaine?",
+      "answerA": "Käsityöt",
+      "answerB": "Kotitalous",
+      "answerC": "Kuvaamataito",
+      "correct": 1,
+	  "info": "Tyttöjen kasvattamista hyviksi äideiksi ja perheenemänniksi pidettiin kansakoulun opetuksessa tärkeänä, mutta kotitalous-nimistä oppiainetta ei 1800-luvun kansakoulussa vielä ollut. Sen sijaan tyttöoppikoulujen opetukseen kotitalous kuului ja myöhemmin se tuli myös yhteiskoulujen opetusohjelmaan tytöille pakolliseksi oppiaineeksi."
+    },
+    {
+      "question": "Mitä opetettiin äidinkielen ja kirjoituksen tunnilla?",
+      "answerA": "Tekstausta",
+      "answerB": "Kaunokirjoitusta",
+      "answerC": "Fraktuuraa",
+      "correct": 1,
+	  "info": "Äidinkielen ja kirjoituksen tunnilla opetettiin kaunokirjoitusta, jota harjoiteltiin muun muassa jäljentämällä mallin mukaisesti kirjaimia kaunokirjoitusvihkoon."
+    },
+    {
+      "question": "Mikä toimi valonlähteenä kansakoululuokassa?",
+      "answerA": "Sähkölamppu",
+      "answerB": "Öljylamppu",
+      "answerC": "Kynttilä",
+      "correct": 1,
+	  "info": "Kansakoululuokan valonlähteenä toimi usein öljylamppu. Sähkövalo yleistyi Keski-Suomessa vasta 1900-luvun puolella."
+    },
+    {
+      "question": "Mikä soitin löytyi usein kansakoululuokasta?",
+      "answerA": "Kantele",
+      "answerB": "Haitari",
+      "answerC": "Harmooni",
+      "correct": 2,
+	  "info": "Kansakouluissa oli usein käytössä harmooni, jolla opettaja säesti laulua. Vuonna 1902 Jyväskylään perustettiin Halosen harmoonitehdas, joka valmisti harmooneja moniin suomalaiskouluihin ja -koteihin."
+    },
+    {
+      "question": "Mikä seuraavista oli Jyväskylässä toimiva kirjapaino, jossa tehtiin suomenkielisiä oppikirjoja kansakouluihin?",
+      "answerA": "Otava",
+      "answerB": "Karisto",
+      "answerC": "Weilin&Göös",
+      "correct": 2,
+	  "info": "Weilin&amp;Göös aloitti toimintansa Jyväskylässä vuonna 1872. Yhtiön perustivat Jyväskylän seminaarin voimistelun lehtori K.G. Göös sekä Jyväskylän yläalkeiskoulu venäjänopettaja Alexander Georg Weilin. Alkuaikoina yhtiö keskittyi nimenomaan koulukirjojen ja uskonnollisten teosten kustantamiseen."
+    },
+    {
+      "question": "Mikä on telluurio?",
+      "answerA": "Maan ja kuun liikettä havainnollistava vanha opetusväline",
+      "answerB": "Avaruutta ja taivaankappaleita käsittelevä vanha oppiaine",
+      "answerC": "1800-luvulla voimassa ollut näkemys maailmankaikkeudesta",
+      "correct": 0,
+	  "info": "Telluurio on vanha opetusväline, jolla havainnollistetaan Maan ja Kuun liikettä Auringon ja toistensa ympäri. Telluurion avulla voidaan esittää päivän ja yön ja vuodenaikojen vaihtelua, sekä auringon- ja kuunpimennyksiä."
+    },
+    {
+      "question": "Mikä viljelykasvi näkyy mustapohjaisessa opetustaulussa?",
+      "answerA": "Vehnä",
+      "answerB": "Ohra",
+      "answerC": "Ruis",
+      "correct": 2,
+	  "info": "Ebba Masalinin maalaamassa opetustaulussa vuodelta 1903 on ruis."
+    },
+    {
+      "question": "Mikä seuraavista eläimistä esiintyy luokassa näkyvässä opetustaulussa?",
+      "answerA": "Lammas",
+      "answerB": "Kana",
+      "answerC": "Sika",
+      "correct": 2,
+	  "info": "Tanskalaisen Helmansenin opetustaulussa on kuvattuna sikapesue."
+    },
+    {
+      "question": "Mikä on nimeltään kivikynä, jota entisajan kansakoulun oppilaat käyttivät?",
+      "answerA": "Kihveli",
+      "answerB": "Rihveli",
+      "answerC": "Kehveli",
+      "correct": 1,
+	  "info": "Ennen lyijykyniä kouluissa käytettiin rihveliä eli kivikynää, jolla kirjoitettiin rihvelitauluun. Jokaisella oppilaalla oli oma rihvelitaulu, joka toimi samalla tavalla kuin liitutaulu, eli sen saattoi pyyhkiä puhtaaksi ennen seuraavaan tehtävään siirtymistä."
+    },
+    {
+      "question": "Mitä ammattia varten ainevihon omistaja Alina Ahlund opiskeli? (sininen ainevihko löytyy pulpetilta)",
+      "answerA": "Sairaanhoitaja",
+      "answerB": "Opettaja",
+      "answerC": "Toimittaja",
+      "correct": 1,
+	  "info": "Alina Ahlund opiskeli Jyväskylän seminaarissa opettajaksi. Vihko on hänen III-luokan ainevihko lukuvuodelta 1893-1894."
+    }
+  ]
+}

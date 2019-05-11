@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fingerprint
+  - MapItem
+  - Marker
+  - Map
+  - ScoreDisplay
+  - Canvas
+  - Decoration
+  - Inventory
   layers:
   - Default
   - TransparentFX

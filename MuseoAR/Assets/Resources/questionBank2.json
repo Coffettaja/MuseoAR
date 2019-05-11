@@ -1,0 +1,132 @@
+{
+  "questions": [
+    {
+      "question": "Minkä ikäryhmän vuosikymmenenä 1960-lukua yleisesti pidetään?",
+      "answerA": "Lasten",
+      "answerB": "Nuorten",
+      "answerC": "Aikuisten",
+      "correct": 1,
+	  "info": "1960-lukua pidetään nuorison vuosikymmenenä, sillä tällöin nuorisokulttuuri löi itsensä läpi. Nuorisokulttuuri näkyi erityisesti musiikissa, elokuvissa ja muodissa, joita alettiin suunnata aikuisten sijaan yhä enemmän nuorille."
+    },
+    {
+      "question": "Mikä seuraavista alakulttuurien edustajista liittyy 1960-lukuun?",
+      "answerA": "Punkkari",
+      "answerB": "Hippi",
+      "answerC": "Gootti",
+      "correct": 1,
+	  "info": "Hippiliike syntyi 1960-luvulla Yhdysvalloissa. Hipit vastustivat sotaa ja kapinoivat konservatiivisia arvoja vastaan. Liikkeen kulta-aikaa oli erityisesti 1960-luvun loppu ja maailmanlaajuiseen tietoisuuteen se nousi vuoden 1967 ”rakkauden kesän” myötä."
+    },
+    {
+      "question": "Mikä vempain soitti musiikkia 1960-luvun baareissa ja huoltoasemilla?",
+      "answerA": "Grammari",
+      "answerB": "Jukebox",
+      "answerC": "Kasettisoitin",
+      "correct": 1,
+	  "info": "Monessa keskisuomalaisessakin baarissa ja kahvilassa oli 1960-luvulla levyautomaatti eli jukebox, josta käyttäjä saattoi valita haluamansa levyn kuunneltavaksi. Yhden levyn soittaminen maksoi 20 penniä."
+    },
+    {
+      "question": "Mikä oli 1960-luvun tunnetuin yhtye?",
+      "answerA": "The Crickets",
+      "answerB": "The Beatles",
+      "answerC": "The Shadows",
+      "correct": 1,
+	  "info": "Liverpoolilainen The Beatles oli 1960-luvun tunnetuin yhtye ja sitä pidetään edelleen maailman merkittävimpänä pop- ja rockyhtyeenä."
+    },
+    {
+      "question": "Mikä seuraavista oli Jyväskylässä 1960-luvulla toiminut yhtye?",
+      "answerA": "Goldy",
+      "answerB": "Silvery",
+      "answerC": "Bronzy",
+      "correct": 1,
+	  "info": "Yksi Jyväskylässä 1960-luvulla soittaneista popyhtyeistä oli Silvery, joka perustettiin vuonna 1966. Suosittu Silvery sijoittui vuonna 1969 toiseksi popyhtyeiden SM-kilpailussa."
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu 1960-luvun tanssityyli?",
+      "answerA": "Twist",
+      "answerB": "Disco",
+      "answerC": "Charleston",
+      "correct": 0,
+	  "info": "Twist oli yksi 1960-luvun alun suosituimmista rock and roll -muotitansseista. Se sai alkunsa vuonna 1960 ja suosio kasvoi erityisesti vuonna 1961 ilmestyneen Twist Around the Clock -elokuvan myötä."
+    },
+    {
+      "question": "Millä nimellä kutsutaan 1960-luvulla nuorison suosiossa ollutta musiikkia, jota soitettiin kahdella sähkökitaralla, bassolla ja rummuilla?",
+      "answerA": "Sähkölankamusiikki",
+      "answerB": "Rautalankamusiikki",
+      "answerC": "Puhelinlankamusiikki",
+      "correct": 1,
+	  "info": "1960-luvun instrumentaalimusiikkia, jossa keskeisessä roolissa olivat kaksi sähkökitaraa, kutsuttiin rautalankamusiikiksi. Nimitys tulee sähkökitaran kielistä."
+    },
+    {
+      "question": "Jos et pitänyt pop- ja rockmusiikista, mitä musiikkityyliä todennäköisesti fanitit 1960-luvulla?",
+      "answerA": "Humppaa",
+      "answerB": "Polkkaa",
+      "answerC": "Tangoa",
+      "correct": 2,
+	  "info": "Tangoa on esitetty Suomessa 1910-luvulta lähtien, mutta 1960-luvulla maahan levisi suoranainen tangohuuma. Tango soi erityisesti tanssilavoilla ja suurimpana hittinä oli Reijo Taipaleen esittämä Satumaa."
+    },
+    {
+      "question": "Mikä löytyi muotitietoisen 1960-luvun tytön vaatekaapista?",
+      "answerA": "Kellohame",
+      "answerB": "Minihame",
+      "answerC": "Farkkuhame",
+      "correct": 1,
+	  "info": "Minihameen luojana pidetään lontoolaista muotisuunnittelija Mary Quantia. Minihame löi itsensä läpi vuonna 1965 ja siitä tuli yksi 1960-luvun nuorisomuodin kulmakivistä."
+    },
+    {
+      "question": "Mikä seuraavista esineistä löytyi 1960-luvun nuoren huoneesta?",
+      "answerA": "Tietokone",
+      "answerB": "Stereot",
+      "answerC": "Levysoitin",
+      "correct": 2,
+	  "info": "1960-luvun nuori kuunteli musiikkia joko radion tai levysoittimen välityksellä. Pieneenkin huoneeseen mahtui näppärän kokoinen levysoitin."
+    },
+    {
+      "question": "Mikä seuraavista esineistä EI kuulunut 1960-luvun nuoren huoneeseen?",
+      "answerA": "Herätyskello",
+      "answerB": "Kirjoituskone",
+      "answerC": "Taskulaskin",
+      "correct": 2,
+	  "info": "Taskulaskimet tulivat markkinoille vasta 1970-luvulla, eli 1960-luvun nuori sai ratkoa matikan läksynsä ilman tätä apuvälinettä."
+    },
+    {
+      "question": "Mikä yleistyi kodeissa 1960-luvulla?",
+      "answerA": "Videonauhuri",
+      "answerB": "Radio",
+      "answerC": "Televisio",
+      "correct": 2,
+	  "info": "Televisio tuli Suomeen 1950-luvulla ja yleistyi kodeissa 1960-luvun kuluessa. Tuolloin televisiot olivat vielä mustavalkoisia, väritelevisiot tulivat markkinoille vasta 1970- ja 1980-luvuilla."
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu kotimainen televisiosarja 1960-luvulla?",
+      "answerA": "Metsolat",
+      "answerB": "Me Tammelat",
+      "answerC": "Ruusun aika",
+      "correct": 1,
+	  "info": "Helsingin Lauttasaaressa asuvan perheen elämästä kertova Me Tammelat oli yksi 1960-luvun katsotuimmista televisio-ohjelmista. Sarjaa tehtiin vuosina 1963-1969."
+    },
+    {
+      "question": "Mikä seuraavista oli suosittu ulkomainen televisiosarja 1960-1970-luvuilla?",
+      "answerA": "Melrose Place",
+      "answerB": "Peyton Place",
+      "answerC": "A Place to Call Home",
+      "correct": 1,
+	  "info": "Peyton Place oli ensimmäinen Suomessa esitetty suosittu yhdysvaltalainen saippuasarja. Se sai täällä valtavan suosion ja on arvioitu, että vuosina 1969-1974 vähintään kolmannes kaikista suomalaisista seurasi sitä."
+    },
+    {
+      "question": "Mikä ajoi nuoria aikuisia muuttamaan pois maaseudulta 1960- ja 1970-luvun taitteessa?",
+      "answerA": "Ilmastonmuutos",
+      "answerB": "Rakennemuutos",
+      "answerC": "Asennemuutos",
+      "correct": 1,
+	  "info": "Yksi keskeisimmistä syistä 1960-1970-lukujen vaihteen maaltamuutolle oli yhteiskunnan nopea rakennemuutos, joka oli alkanut toisen maailmansodan jälkeen. Maanviljely ei enää kannattanut ja maaseudun väestöä muutti työn ja paremman elintason perässä kaupunkeihin."
+    },
+    {
+      "question": "Mihin nuoret aikuiset muuttivat 1960-luvun lopussa ja 1970-luvun alussa?",
+      "answerA": "Amerikkaan",
+      "answerB": "Venäjälle",
+      "answerC": "Ruotsiin",
+      "correct": 2,
+	  "info": "1960-luvun lopussa monet suomalaiset nuoret aikuiset ja työikäiset muuttivat Ruotsiin, jossa tarvittiin lisätyövoimaa. Suomalaiset työllistyivät erityisesti teollisuuden alalle, muun muassa Saabin ja Volvon tehtaisiin. Keski-Suomen kunnista Ruotsiin lähdettiin muun muassa Kinnulasta, Kivijärveltä ja Karstulasta."
+    }
+  ]
+}

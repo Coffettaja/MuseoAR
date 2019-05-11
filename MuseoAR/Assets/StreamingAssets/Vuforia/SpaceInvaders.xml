@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="pesapallo" size="1.000000 1.003115" />
+    <ImageTarget name="Invaders_Marker" size="0.200000 0.200000" />
+  </Tracking>
+</QCARConfig>

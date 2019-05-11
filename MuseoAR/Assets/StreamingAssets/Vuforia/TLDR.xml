@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="tldr_1990" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1980" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1970" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1960" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1945" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1940" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1920" size="1.000000 1.003115" />
+    <ImageTarget name="tldr_1900" size="1.000000 1.003115" />
+    <ImageTarget name="tldr2" size="16.000000 16.000000" />
+    <ImageTarget name="tldr" size="16.000000 16.000000" />
+  </Tracking>
+</QCARConfig>
