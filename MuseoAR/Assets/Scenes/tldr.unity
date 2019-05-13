@@ -480,8 +480,8 @@ MonoBehaviour:
     n\xE4l\xE4nh\xE4t\xE4 ja kylm\xE4 sota kuumottivat kansalaisia. Jalkoja maassa
     piti my\xF6s punk-musiikki."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: abc4133281b85e647911691543aaf5a4, type: 2}
-  m_sharedMaterial: {fileID: 21966013745329378, guid: abc4133281b85e647911691543aaf5a4,
+  m_fontAsset: {fileID: 11400000, guid: 3d33cc2cc3c8ce04790a2d921044da86, type: 2}
+  m_sharedMaterial: {fileID: 21042599217191434, guid: 3d33cc2cc3c8ce04790a2d921044da86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -507,13 +507,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20.15
+  m_fontSize: 21.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 258
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
     spaceCount: 93
     wordCount: 90
     linkCount: 0
-    lineCount: 17
+    lineCount: 15
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.797}
+  m_Color: {r: 0.101960786, g: 0.03137255, b: 0.19607843, a: 0.822}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
