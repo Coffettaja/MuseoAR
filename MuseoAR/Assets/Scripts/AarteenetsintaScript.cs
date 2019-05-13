@@ -46,9 +46,6 @@ public class AarteenetsintaScript : MonoBehaviour
         // Finding the text slot and inserting the right string in it.
         var texbox = infoText.GetComponent<Text>();
         texbox.text = valittu;
-
-        // Adding the treasure to the list of found treasures.
-        GameControllerScript.Instance.LisaaAarre(id);
    
         // Activating the treasure in selfie scene.
         GameControllerScript.Instance.ActivateDecorations(item);

@@ -70,7 +70,6 @@ public class QuestionScript : MonoBehaviour
         // hae kysymys kysymyspankista
         getQuestion();
         // odota vastausta   
-        ScoreScript.Instance.IncreaseScoreBy(10);
     }
 
     private void Update()
@@ -203,6 +202,10 @@ public class QuestionScript : MonoBehaviour
         {
             performance = "Mahtavaa!";
         }
+
+        // Adds ten times the quiz score to the overall score.
+        int score = correctCounter * 10;
+        ScoreScript.Instance.IncreaseScoreBy(score);
 
         header.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
 

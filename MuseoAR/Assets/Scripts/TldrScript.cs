@@ -22,7 +22,5 @@ public class TldrScript : MonoBehaviour {
         string valittu = SimpleJsonScript.Instance.getEntry(i, "tldrBank");
         var texbox = infoText.GetComponent<TextMeshProUGUI>();
         texbox.text = valittu;
-
-        ScoreScript.Instance.IncreaseScoreBy(10);
     }
 }

@@ -31,21 +31,21 @@ public class GameControllerScript : MonoBehaviour {
     private static object _lock = new object();
 
     // Stores the ID of tldr-marker that was scanned.
-    public static string tldrIdentifier = "not specified tldr";
+    public static string tldrIdentifier = "";
 
     // Stores the ID of treasure-marker that was scanned.
-    public static string aarreIdentifier = "not specified aarre";
+    public static string aarreIdentifier = "";
 
     // Player's name and profession in a string.
     public static string nimiJaAmmatti = "nimi";
 
-    // List of already scanned treasures.
-    public static List<int> aarteet = new List<int>();
-
+    // List of visited tldr-scenes.
     public static List<string> tldrScenes = new List<string>();
 
+    // List of visited treasure-scenes.
     public static List<string> aarreScenes = new List<string>();
 
+    // List of other visited scenes.
     public static List<string> otherScenes = new List<string>();
 
     #region Singleton creation
@@ -148,22 +148,24 @@ public class GameControllerScript : MonoBehaviour {
         aarreIdentifier = paramAarre;
         _currentScene = name;
 
+        // Determining which marker was scanned, adding it to corresponding list of scanned markers, and adding points to player
+        // if marker was not scanned before.
         if (paramTldr != "")
         {
             var exists = tldrScenes.Contains(paramTldr);
-            if (!exists) { tldrScenes.Add(paramTldr); }
+            if (!exists) { tldrScenes.Add(paramTldr); ScoreScript.Instance.IncreaseScoreBy(10); }
         }
         else
         {
             if (paramAarre != "")
             {
                 var exists = aarreScenes.Contains(paramAarre);
-                if (!exists) { aarreScenes.Add(paramAarre); }
+                if (!exists) { aarreScenes.Add(paramAarre); ScoreScript.Instance.IncreaseScoreBy(20); }
             }
             else
             {
                 var exists = otherScenes.Contains(name);
-                if (!exists) { otherScenes.Add(name); }
+                if (!exists) { otherScenes.Add(name); ScoreScript.Instance.IncreaseScoreBy(10); }
             }
         }
 
@@ -185,17 +187,6 @@ public class GameControllerScript : MonoBehaviour {
     }
 
     /// <summary>
-    /// Checks if list already has the ID. If not, adds it and adds some points to the score.
-    /// </summary>
-    /// <param name="aarre">ID of the found treasure</param>
-    public void LisaaAarre(int aarre)
-    {
-        var exists = aarteet.Contains(aarre);
-        if (!exists) { aarteet.Add(aarre); }
-        if (!exists) { ScoreScript.Instance.IncreaseScoreBy(10); }
-    }
-
-    /// <summary>
     /// Resets all relevant information and transitions to the splash screen.
     /// </summary>
     public void ResetAll()
@@ -206,11 +197,13 @@ public class GameControllerScript : MonoBehaviour {
         // Emptying the list of activated decorations.
         activatedDecorations = new List<string>();
 
-        // Emptying the list of registered decorations.
-        aarteet.Clear();
-
         // Re-initializing the dict of scenes that player has visited.
         SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
+
+        // Resetting visited scenes.
+        List<string> tldrScenes = new List<string>();
+        List<string> aarreScenes = new List<string>();
+        List<string> otherScenes = new List<string>();
 
         // Transitioning back to Splash-scene.
         SceneManager.LoadScene("Splash");
