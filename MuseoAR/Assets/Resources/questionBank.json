@@ -6,7 +6,7 @@
       "answerB": "J.V. Snellmania",
       "answerC": "Uno Cygnaeusta",
       "correct": 2,
-	  "info": "Suomen kansakoulun isäksi kutsutaan Uno Cygnaeusta, jonka senaatille laatiman ehdotuksen pohjalta luotiin 1860-luvulla maahamme kansakoulujärjestelmä. Cygnaeuksen mukaan kansakoulun tuli olla mahdollinen kaikille sukupuolesta ja varallisuudesta riippumatta."
+	  "info": "Suomen kansakoulun isäksi kutsutaan Uno Cygnaeusta, jonka ehdotuksesta maahamme luotiin 1860-luvulla kansakoulujärjestelmä. Cygnaeuksen mukaan kansakoulun tuli olla mahdollinen kaikille sukupuolesta ja varallisuudesta riippumatta."
     },
     {
       "question": "Mihin kaupunkiin perustettiin maamme ensimmäinen suomenkielinen opettajaseminaari?",
@@ -46,7 +46,7 @@
       "answerB": "Kotitalous",
       "answerC": "Kuvaamataito",
       "correct": 1,
-	  "info": "Tyttöjen kasvattamista hyviksi äideiksi ja perheenemänniksi pidettiin kansakoulun opetuksessa tärkeänä, mutta kotitalous-nimistä oppiainetta ei 1800-luvun kansakoulussa vielä ollut. Sen sijaan tyttöoppikoulujen opetukseen kotitalous kuului ja myöhemmin se tuli myös yhteiskoulujen opetusohjelmaan tytöille pakolliseksi oppiaineeksi."
+	  "info": "Tyttöjen kasvattamista äideiksi ja emänniksi pidettiin tärkeänä, mutta kotitalous-nimistä oppiainetta ei 1800-luvun kansakoulussa vielä ollut. Kotitalous kuului ensin vain tyttöoppikouluille ja myöhemmin se tuli myös yhteiskoulujen opetusohjelmaan tytöille pakolliseksi oppiaineeksi."
     },
     {
       "question": "Mitä opetettiin äidinkielen ja kirjoituksen tunnilla?",
@@ -78,7 +78,7 @@
       "answerB": "Karisto",
       "answerC": "Weilin&Göös",
       "correct": 2,
-	  "info": "Weilin&amp;Göös aloitti toimintansa Jyväskylässä vuonna 1872. Yhtiön perustivat Jyväskylän seminaarin voimistelun lehtori K.G. Göös sekä Jyväskylän yläalkeiskoulu venäjänopettaja Alexander Georg Weilin. Alkuaikoina yhtiö keskittyi nimenomaan koulukirjojen ja uskonnollisten teosten kustantamiseen."
+	  "info": "Weilin&amp;Göös aloitti toimintansa Jyväskylässä vuonna 1872. Yhtiön perustivat Jyväskylän seminaarin voimistelun lehtori K.G. Göös sekä Jyväskylän yläalkeiskoulu venäjänopettaja Alexander Georg Weilin."
     },
     {
       "question": "Mikä on telluurio?",
