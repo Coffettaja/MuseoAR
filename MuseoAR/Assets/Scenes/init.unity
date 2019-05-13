@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2340,7 +2340,7 @@ RectTransform:
   - {fileID: 91687675}
   - {fileID: 794781676}
   m_Father: {fileID: 2045451563}
-  m_RootOrder: 9
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5086,7 +5086,7 @@ GameObject:
   - component: {fileID: 859652767}
   - component: {fileID: 859652766}
   m_Layer: 5
-  m_Name: MapPanel2
+  m_Name: ThirdFloorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5104,8 +5104,8 @@ RectTransform:
   m_Children:
   - {fileID: 344902774}
   - {fileID: 179305649}
-  m_Father: {fileID: 2045451563}
-  m_RootOrder: 5
+  m_Father: {fileID: 906474547}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5286,7 +5286,7 @@ GameObject:
   - component: {fileID: 885671250}
   - component: {fileID: 885671249}
   m_Layer: 5
-  m_Name: MapPanel
+  m_Name: SecondFloorPanel
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5304,8 +5304,8 @@ RectTransform:
   m_Children:
   - {fileID: 1542639118}
   - {fileID: 1221063096}
-  m_Father: {fileID: 2045451563}
-  m_RootOrder: 4
+  m_Father: {fileID: 906474547}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5345,6 +5345,78 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 885671247}
+--- !u!1 &906474546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 906474547}
+  - component: {fileID: 906474549}
+  - component: {fileID: 906474548}
+  m_Layer: 5
+  m_Name: MapPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &906474547
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906474546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1062406385}
+  - {fileID: 1810007840}
+  - {fileID: 859652765}
+  - {fileID: 885671248}
+  m_Father: {fileID: 2045451563}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &906474548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906474546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &906474549
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906474546}
 --- !u!1 &913989932
 GameObject:
   m_ObjectHideFlags: 0
@@ -6202,8 +6274,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000217, y: 1.0000217, z: 1.0000217}
   m_Children: []
-  m_Father: {fileID: 2045451563}
-  m_RootOrder: 8
+  m_Father: {fileID: 906474547}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10125,8 +10197,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000217, y: 1.0000217, z: 1.0000217}
   m_Children: []
-  m_Father: {fileID: 2045451563}
-  m_RootOrder: 7
+  m_Father: {fileID: 906474547}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10960,7 +11032,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000124, y: 1.0000124, z: 1.0000124}
   m_Children: []
   m_Father: {fileID: 2045451563}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10982,6 +11054,7 @@ MonoBehaviour:
   thirdFloorButton: {fileID: 1062406384}
   secondFloorPanel: {fileID: 885671247}
   thirdFloorPanel: {fileID: 859652764}
+  mapPanel: {fileID: 906474546}
 --- !u!114 &1999145452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11701,12 +11774,9 @@ RectTransform:
   - {fileID: 984729467}
   - {fileID: 446235513}
   - {fileID: 2075151321}
-  - {fileID: 885671248}
-  - {fileID: 859652765}
   - {fileID: 1999145450}
-  - {fileID: 1810007840}
-  - {fileID: 1062406385}
   - {fileID: 363081667}
+  - {fileID: 906474547}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11738,11 +11808,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TreatMousePointerAsFinger: 1
-  SimulateMouseWithTouches: 0
+  SimulateMouseWithTouches: 1
   RequireControlKeyForMouseZoom: 1
   PassThroughObjects:
   - {fileID: 1542639117}
   - {fileID: 344902773}
+  - {fileID: 906474546}
   DefaultDPI: 200
   LevelUnloadOption: 2
 --- !u!1 &2059010787
