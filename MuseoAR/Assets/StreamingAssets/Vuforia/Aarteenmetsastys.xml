@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="selfie7" size="1.000000 1.003115" />
+    <ImageTarget name="selfie8" size="1.000000 1.003115" />
+    <ImageTarget name="selfie12" size="1.000000 1.003115" />
+    <ImageTarget name="selfie15" size="1.000000 1.003115" />
+    <ImageTarget name="selfie25" size="1.000000 1.003115" />
+    <ImageTarget name="selfie22" size="1.000000 1.003115" />
+    <ImageTarget name="selfie13" size="1.000000 1.003115" />
+    <ImageTarget name="selfie14" size="1.000000 1.003115" />
+    <ImageTarget name="selfie24" size="1.000000 1.003115" />
+    <ImageTarget name="selfie23" size="1.000000 1.003115" />
+    <ImageTarget name="selfie21" size="1.000000 1.003115" />
+    <ImageTarget name="selfie20" size="1.000000 1.003115" />
+    <ImageTarget name="selfie19" size="1.000000 1.003115" />
+    <ImageTarget name="selfie18" size="1.000000 1.003115" />
+    <ImageTarget name="selfie17" size="1.000000 1.003115" />
+    <ImageTarget name="selfie16" size="1.000000 1.003115" />
+    <ImageTarget name="selfie11" size="1.000000 1.003115" />
+    <ImageTarget name="selfie10" size="1.000000 1.003115" />
+    <ImageTarget name="selfie9" size="1.000000 1.003115" />
     <ImageTarget name="aarrem3" size="1.000000 1.000000" />
     <ImageTarget name="aarrem7_2" size="1.000000 0.996988" />
     <ImageTarget name="aarrem6_2" size="1.000000 1.000000" />
