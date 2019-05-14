@@ -80,7 +80,9 @@ public class GameControllerScript : MonoBehaviour {
     }
 
     // To keep track of the completed status of a scene, it has to be added here first.
-    public SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
+    public SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false),
+      new SceneDictItem("360VideScene", false),
+      new SceneDictItem("Selfie", false) };
 
     private string _currentScene;
 
@@ -126,7 +128,7 @@ public class GameControllerScript : MonoBehaviour {
 
     public bool IsSceneCompleted(string name)
     {
-        return GetSceneDictValue(name);
+    return GetSceneDictValue(name);
     }
 
     public void MarkSceneCompleted(string name)

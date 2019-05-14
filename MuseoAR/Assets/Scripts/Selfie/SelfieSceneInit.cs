@@ -23,11 +23,6 @@ public class SelfieSceneInit : MonoBehaviour {
     Debug.Log("Current camera direction: " + CameraDevice.Instance.GetCameraDirection());
   }
 
-  // Update is called once per frame
-  void Update () {
-		
-	}
-
     public void ChangeToFrontCamera()
     {
         RestartCamera(CameraDevice.CameraDirection.CAMERA_FRONT);
