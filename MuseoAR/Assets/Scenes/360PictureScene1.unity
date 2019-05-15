@@ -425,7 +425,6 @@ GameObject:
   - component: {fileID: 214338118}
   - component: {fileID: 214338117}
   - component: {fileID: 214338116}
-  - component: {fileID: 214338119}
   m_Layer: 5
   m_Name: InfoButton
   m_TagString: Untagged
@@ -491,9 +490,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2127137948}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -537,17 +536,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214338114}
---- !u!114 &214338119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 214338114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c27e374b4e0e39b4ebd1d447907ce614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &345522723
 GameObject:
   m_ObjectHideFlags: 0

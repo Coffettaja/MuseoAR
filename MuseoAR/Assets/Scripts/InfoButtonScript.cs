@@ -17,6 +17,7 @@ public class InfoButtonScript : MonoBehaviour {
 	
 	private void ToggleInfoPanel()
     {
+    if (m_infoPanel == null) return;
         m_infoPanel.SetActive(!m_infoPanel.activeInHierarchy);
     }
 }
