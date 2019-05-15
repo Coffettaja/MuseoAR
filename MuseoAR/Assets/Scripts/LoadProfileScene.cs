@@ -13,21 +13,14 @@ public class LoadProfileScene : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		coroutine = WaitAndLoad(3.0f);
+		coroutine = WaitAndLoad(2.0f);
 		StartCoroutine(coroutine);
 	}
 
     private IEnumerator WaitAndLoad(float waitTime)
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
-            SceneManager.LoadScene("profileInput");
-        }
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
+        yield return StartCoroutine(ObbExtractor.ExtractObbDatasets());
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("profileInput");
 	}
 }

@@ -50,7 +50,6 @@ MonoBehaviour:
     - 360Videos
     - SpaceInvaders
     - quizDB
-    - VuforiaMars_Images
     dataSetsToActivate:
     - Reset
     - Aarteenmetsastys
@@ -58,7 +57,6 @@ MonoBehaviour:
     - 360Videos
     - SpaceInvaders
     - quizDB
-    - VuforiaMars_Images
   videoBackground:
     clippingMode: 0
     numDivisions: 2
