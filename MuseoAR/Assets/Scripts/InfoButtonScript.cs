@@ -12,7 +12,7 @@ public class InfoButtonScript : MonoBehaviour {
         m_infoPanel = GameObject.Find("InfoPanel");
         m_button = GetComponent<Button>();
         m_button.onClick.AddListener(ToggleInfoPanel);
-        m_infoPanel.SetActive(false);
+        //m_infoPanel.SetActive(false);
 	}
 	
 	private void ToggleInfoPanel()

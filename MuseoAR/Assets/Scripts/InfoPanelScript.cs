@@ -7,10 +7,12 @@ public class InfoPanelScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    Debug.Log("HMM?: " + SceneManager.GetActiveScene().name);
     if (GameControllerScript.Instance.IsSceneCompleted(SceneManager.GetActiveScene().name))
     {
       SetPanelActive(false);
+    } else
+    {
+      GameControllerScript.Instance.MarkSceneCompleted(SceneManager.GetActiveScene().name);
     }
 	}
 	

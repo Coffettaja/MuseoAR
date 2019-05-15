@@ -80,11 +80,20 @@ public class GameControllerScript : MonoBehaviour {
     }
 
     // To keep track of the completed status of a scene, it has to be added here first.
-    public SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false),
-      new SceneDictItem("360VideScene", false),
+    public SceneDictItem[] sceneDict = {
+      new SceneDictItem("invaders", false),
+      new SceneDictItem("360VideoScene", false),
+      new SceneDictItem("360PictureScene1", false),
+      new SceneDictItem("360PictureScene2", false),
+      new SceneDictItem("360VideoScene", false),
+      new SceneDictItem("Pesapallo", false),
+      new SceneDictItem("quizScene", false),
+      new SceneDictItem("quizScene2", false),
+      new SceneDictItem("quizScene3", false),
+      new SceneDictItem("init", false),
       new SceneDictItem("Selfie", false) };
 
-    private string _currentScene;
+  private string _currentScene;
 
 
     void Awake()
