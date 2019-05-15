@@ -39,6 +39,7 @@ public class ShootingScript : MonoBehaviour {
 
     Texture2D tex;
     float newHeight;
+    float newWidth;
     GUIStyle lineStyle;
 
     void Awake ()
@@ -54,13 +55,14 @@ public class ShootingScript : MonoBehaviour {
         float screenRatio = Screen.height / 100;
 
         newHeight = height * screenRatio * 2;
+        newWidth = width * screenRatio / 2;
 
         if (drawCrosshair)
         {
-            GUI.Box(new Rect(centerPoint.x - (width / 2), centerPoint.y - (newHeight + spread.sSpread), width*4, newHeight), GUIContent.none, lineStyle);
-            GUI.Box(new Rect(centerPoint.x - (width / 2), (centerPoint.y + spread.sSpread), width*4, newHeight), GUIContent.none, lineStyle);
-            GUI.Box(new Rect((centerPoint.x + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width*5), GUIContent.none, lineStyle);
-            GUI.Box(new Rect(centerPoint.x - (newHeight + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, width*5), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (width / 2), centerPoint.y - (newHeight + spread.sSpread), newWidth, newHeight), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (width / 2), (centerPoint.y + spread.sSpread), newWidth, newHeight), GUIContent.none, lineStyle);
+            GUI.Box(new Rect((centerPoint.x + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, newWidth), GUIContent.none, lineStyle);
+            GUI.Box(new Rect(centerPoint.x - (newHeight + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, newWidth), GUIContent.none, lineStyle);
         }
 
         if (Input.GetButton("Fire1"))
