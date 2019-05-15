@@ -209,6 +209,48 @@ public class GameControllerScript : MonoBehaviour {
         SceneManager.LoadScene("Splash");
     }
 
+    private int invadersResult = 0;
+    private int quiz1Result = 0;
+    private int quiz2Result = 0;
+    private int quiz3Result = 0;
+
+    public void AddPoints(int points, string scene)
+    {
+        if (points > invadersResult && scene == "invaders")
+        {
+            int increase = points - invadersResult;
+            increase = increase / 25;
+            ScoreScript.Instance.IncreaseScoreBy(increase);
+            invadersResult = points;
+        }
+
+        if (points > quiz1Result && scene == "quizScene")
+        {
+            int increase = points - quiz1Result;
+            increase = increase * 10;
+            ScoreScript.Instance.IncreaseScoreBy(increase);
+            quiz1Result = points;
+        }
+
+        if (points > quiz2Result && scene == "quizScene2")
+        {
+            int increase = points - quiz2Result;
+            increase = increase * 10;
+            ScoreScript.Instance.IncreaseScoreBy(increase);
+            quiz2Result = points;
+        }
+
+        if (points > quiz3Result && scene == "quizScene3")
+        {
+            int increase = points - quiz3Result;
+            increase = increase * 10;
+            ScoreScript.Instance.IncreaseScoreBy(increase);
+            quiz3Result = points;
+        }
+    }
+
+
+
 
   #region Activating decorations for use in selfie scene
   private List<string> activatedDecorations = new List<string>();

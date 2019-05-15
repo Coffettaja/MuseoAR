@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Vuforia;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// @haeejuut 10.17.2018
@@ -47,7 +48,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
     private GameObject imageTarget;
     private GameObject _gameOverPlane;
     private bool enemiesSpawned = false;
-    private bool gameOver = false;
+    public static bool gameOver = false;
 
 
     private TrackableBehaviour _trackableBehaviour;
@@ -163,6 +164,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         factor = 0;
         SpawnEnemies();
         _gameOverPopup.SetActive(false);
+        gameOver = false;
         //SceneManager.LoadScene("invaders");
     }
     //Tell all the enemies to stop and show the popup screen about game over
@@ -180,6 +182,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         _gameOverPopup.SetActive(true);
         Text text = _gameOverPopup.transform.Find("Text").GetComponent<Text>();
         text.text = "Game Over! Final Score: " + _score;
+        GameControllerScript.Instance.AddPoints(_score, "invaders");
 
     }
 
