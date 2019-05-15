@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TldrScript : MonoBehaviour {
 
     private GameObject infoText;
-    public string identifier = GameControllerScript.tldrIdentifier;
+    private string identifier = GameControllerScript.tldrIdentifier;
 
     /// <summary>
     /// Finds and displays the text related to the scanned TL;DR marker from file.

@@ -7,7 +7,7 @@ using System;
 public class MapGestureManager : MonoBehaviour
 {
 
-  private float maxSize = 25f;
+  private float maxSize = 24f;
   private float minSize = 9f;
   //public float rotationSpeed = 2.5f;
 
@@ -86,10 +86,12 @@ public class MapGestureManager : MonoBehaviour
     if (gesture.State == GestureRecognizerState.Executing)
     {
       // Don't allow getting bigger if at max size, or smaller if at min size.
-      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1) {
+      if (rectTransform.localScale.x > maxSize && scaleGesture.ScaleMultiplier > 1)
+      {
         return;
       }
-      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1) {
+      if (rectTransform.localScale.x < minSize && scaleGesture.ScaleMultiplier < 1)
+      {
         return;
       }
       //rectTransform.sizeDelta *= scaleGesture.ScaleMultiplier;
@@ -106,7 +108,7 @@ public class MapGestureManager : MonoBehaviour
 
   private void PanGestureCallback(GestureRecognizer gesture)
   {
-    
+
     if (rectTransform == null) return;
     if (gesture.State == GestureRecognizerState.Executing)
     {
@@ -115,17 +117,21 @@ public class MapGestureManager : MonoBehaviour
       //var t = gesture.CurrentTrackedTouches;
       float deltaX = panGesture.DeltaX; // 10.0f;
       float deltaY = panGesture.DeltaY; // 10.0f;
-      Vector3 pos =  rectTransform.localPosition;
+      Vector3 pos = rectTransform.localPosition;
 
-      //if (rectTransform.localPosition.x > rectTransform.sizeDelta.x * 3 && deltaX > 0) return;
-      //if (rectTransform.localPosition.x < rectTransform.sizeDelta.x * -3 && deltaX < 0) return;
-      //if (rectTransform.localPosition.y > rectTransform.sizeDelta.y * 3.5 && deltaY > 0) return;
-      //if (rectTransform.localPosition.y < rectTransform.sizeDelta.y * -3.5 && deltaY < 0) return;
+      var viewPortPos = Camera.main.WorldToViewportPoint(rectTransform.position);
+
+      if (viewPortPos.x > 1.1 && deltaX > 0) return;
+      if (viewPortPos.x < -.1 && deltaX < 0) return;
+      if (viewPortPos.y > 1.35 && deltaY > 0) return;
+      if (viewPortPos.y < -.35 && deltaY < 0) return;
+
+      //rectTransform.pivot = new Vector2(1 - viewPortPos.x,  1 - viewPortPos.y);
 
       pos.x += deltaX;
       pos.y += deltaY;
       pos.z = 0;
-      //rectTransform.position = pos;
+
       rectTransform.localPosition = pos;
     }
   }

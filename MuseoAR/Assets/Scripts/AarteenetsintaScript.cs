@@ -17,47 +17,36 @@ public class AarteenetsintaScript : MonoBehaviour
     {
         infoText = GameObject.Find("InfoText");
 
-        int i = 0;
-        int.TryParse(identifier, out i);
+        int mark = 0;
+        string idString = "";
+        string item = "";
 
-        string valittu = SimpleJsonScript.Instance.getEntry(i, "aarreBank");
+        // Dividing the identifier to id and item name.
+        try
+        {
+            mark = identifier.IndexOf("_");
+            idString = identifier.Substring(mark + 1);
+            item = identifier.Substring(0, mark);
+            Debug.Log(idString);
+            Debug.Log(item);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+            idString = "0";
+            item = "HipsterGlasses";
+        }
+        
+        int id = 0;
+        int.TryParse(idString, out id);
 
+        // Finding the right celebratory text from the JSON-file.
+        string valittu = SimpleJsonScript.Instance.getEntry(id, "aarreBank");
+
+        // Finding the text slot and inserting the right string in it.
         var texbox = infoText.GetComponent<Text>();
         texbox.text = valittu;
-
-        // Adding the treasure to the list of found treasures.
-        GameControllerScript.Instance.LisaaAarre(i);
-
-        string item = "Tophat";
-
-        // Nyt tulee rumaa tavaraa mutta saa kelvata kun koitan pitää muutokset vain yhdessä tiedostossa ja yhdessä kohdassa.
-        switch (i)
-        {
-            case 0:
-                item = "Tophat";
-                break;
-            case 1:
-                item = "HipsterGlasses";
-                break;
-            case 2:
-                item = "Moustache";
-                break;
-            case 3:
-                item = "Mohawk";
-                break;
-            case 4:
-                item = "MohawkGreen";
-                break;
-            case 5:
-                item = "Pin";
-                break;
-            case 6:
-                item = "Shovel";
-                break;
-            default:
-                item = "Tophat";
-                break;
-        }
+   
         // Activating the treasure in selfie scene.
         GameControllerScript.Instance.ActivateDecorations(item);
     }

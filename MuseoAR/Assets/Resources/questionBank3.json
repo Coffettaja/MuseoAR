@@ -62,7 +62,7 @@
       "answerB": "Jazz-musiikkiin",
       "answerC": "Kilpaurheiluun",
       "correct": 0,
-	  "info": "&quot;Varpunen&quot; ja &quot;lahna&quot; olivat peitenimiä eri kokoisille peltisille taskumateille, joita käytettiin kieltolain aikaan viinan salakuljettamiseen."
+	  "info": "'Varpunen' ja 'lahna' olivat peitenimiä eri kokoisille peltisille taskumateille, joita käytettiin kieltolain aikaan viinan salakuljettamiseen."
     },
     {
       "question": "Kuinka monta luokka-astetta oli kansakoulussa?",
@@ -102,7 +102,7 @@
       "answerB": "Influenssaa",
       "answerC": "Tuberkuloosia",
       "correct": 2,
-	  "info": "Tuberkuloosi eli keuhkotauti oli 1900-luvun alun Suomessa yleinen ja vakava sairaus, joka oli usein kohtalokas etenkin pienille lapsille. Sotien välisenä aikana kiihtynyt taistelu tautia vastaan näkyi mm. sairauden hoitoon erikoistuneiden parantoloiden perustamisena ja terveysvalistuksen lisääntymisenä."
+	  "info": "Tuberkuloosi eli keuhkotauti oli 1900-luvun alun Suomessa yleinen ja vakava sairaus, joka oli usein kohtalokas. Sotien välisenä aikana tautia vastaan taisteltiin mm. sairauden hoitoon erikoistuneilla parantoloilla ja terveysvalistuksella."
     }
   ]
 }

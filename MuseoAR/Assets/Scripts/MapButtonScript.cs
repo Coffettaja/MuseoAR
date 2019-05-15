@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MapButtonScript : MonoBehaviour
@@ -10,6 +8,7 @@ public class MapButtonScript : MonoBehaviour
   public GameObject thirdFloorButton;
   public GameObject secondFloorPanel;
   public GameObject thirdFloorPanel;
+  public GameObject mapPanel;
 
   private Button m_button;
   private bool isOpen;
@@ -23,41 +22,30 @@ public class MapButtonScript : MonoBehaviour
     m_button.onClick.AddListener(ToggleMap);
     secondFloorButton.GetComponent<Button>().onClick.AddListener(ShowSecondFloor);
     thirdFloorButton.GetComponent<Button>().onClick.AddListener(ShowThirdFloor);
+
+    // Hide everything initially.
     SetSecondFloorActive(false);
     SetThirdFloorActive(false);
-    secondFloorButton.SetActive(false);
-    thirdFloorButton.SetActive(false);
+    SetMapPanelActive(false);
+
+    // Need this to set the map that will be moved (second or third floor).
     gestureManager = GameObject.FindWithTag("Canvas").GetComponent<MapGestureManager>();
-    isOpen = false;
   }
 
   private void ToggleMap()
   {
-    // Activate the first floor map and the button of the second floor map.
-    if (!isOpen)
+    SetMapPanelActive(!isOpen);
+
+    if (isOpen)
     {
-      secondFloorButton.SetActive(true);
-      thirdFloorButton.SetActive(true);
       if (activateSecondFloor)
       {
         ShowSecondFloor();
       }
-      else // Third floor
+      else
       {
         ShowThirdFloor();
       }
-
-
-      isOpen = true;
-    }
-    // Deactivate all maps and floor buttons.
-    else
-    {
-      SetSecondFloorActive(false);
-      SetThirdFloorActive(false);
-      secondFloorButton.SetActive(false);
-      thirdFloorButton.SetActive(false);
-      isOpen = false;
     }
   }
 
@@ -85,8 +73,10 @@ public class MapButtonScript : MonoBehaviour
   {
     if (active)
     {
+      // Initially on the scene the map have a scale of 0.6 for some reason so keeping it the same.
       secondFloorPanel.transform.localScale = Vector3.one * .6f;
-    } else
+    }
+    else
     {
       secondFloorPanel.transform.localScale = Vector3.zero;
     }
@@ -96,11 +86,25 @@ public class MapButtonScript : MonoBehaviour
   {
     if (active)
     {
+      // Initially on the scene the map have a scale of 0.6 for some reason so keeping it the same.
       thirdFloorPanel.transform.localScale = Vector3.one * .6f;
-    } else
+    }
+    else
     {
       thirdFloorPanel.transform.localScale = Vector3.zero;
     }
+  }
 
+  private void SetMapPanelActive(bool active)
+  {
+    isOpen = active;
+    if (active)
+    {
+      mapPanel.transform.localScale = Vector3.one;
+    }
+    else
+    {
+      mapPanel.transform.localScale = Vector3.zero;
+    }
   }
 }
