@@ -25,6 +25,7 @@ public class QuestionScript : MonoBehaviour
     private List<int> usedQuestions; //Maintain a list of the questions already used as to avoid duplicate questions during one run
     private string questionBank = "questionBank"; //Stores the filename of the JSON-file
     private bool flag; //Stores information about whether the present question has been answered or not
+    private Scene scene;
 
     #endregion
 
@@ -48,7 +49,7 @@ public class QuestionScript : MonoBehaviour
         blobGrid = GameObject.Find("BlobGrid");
 
         // Finding the name of the scene and choosing the right JSON-file 
-        var scene = SceneManager.GetActiveScene();
+        scene = SceneManager.GetActiveScene();
         Debug.Log("Name: " + scene.name);
         switch (scene.name)
         {
@@ -203,9 +204,8 @@ public class QuestionScript : MonoBehaviour
             performance = "Mahtavaa!";
         }
 
-        // Adds ten times the quiz score to the overall score.
-        int score = correctCounter * 10;
-        ScoreScript.Instance.IncreaseScoreBy(score);
+        // Add quiz score to the overall points.
+        GameControllerScript.Instance.AddPoints(correctCounter, scene.name);
 
         header.transform.GetChild(1).GetComponent<Text>().text = string.Format("Sait oikein {0}/10\n{1}", correctCounter, performance);
 

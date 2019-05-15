@@ -102,8 +102,12 @@ public class ShootingScript : MonoBehaviour {
     {
         if (Time.time > nextShoot)
         {
-            nextShoot = Time.time + rateOfFire;
-            Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation, imageTarget);
+            bool asd = InvadersManagerScript.gameOver;
+            if (asd == false)
+            {
+                nextShoot = Time.time + rateOfFire;
+                Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation, imageTarget);
+            }
         }
     }
 }
