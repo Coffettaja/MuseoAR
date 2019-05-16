@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -558,8 +558,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758349131}
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.15213354
+  m_Value: 0.984386
+  m_Size: 0.111249655
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1747,7 +1747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 684.6008}
+  m_AnchoredPosition: {x: -125, y: 625.516}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
@@ -1867,14 +1867,14 @@ RectTransform:
   m_GameObject: {fileID: 529533344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6687101, y: 0.6687101, z: 0.6687101}
   m_Children: []
   m_Father: {fileID: 713649872}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 92, y: 182}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529533346
@@ -7970,6 +7970,118 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0.497
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_text
+      value: "<b>Tervetuloa ottamaan selfieit\xE4!</b>\n\nL\xF6yd\xE4t sivupalkista
+        aarteenetsinn\xE4st\xE4 l\xF6yt\xE4mi\xE4si palkintoesineit\xE4, joilla voit
+        koristaa kuvaasi.\n\nSaat esineet k\xE4ytt\xF6\xF6si joko klikkaamalla tai
+        vet\xE4m\xE4ll\xE4 ne kuvaan. Voit poistaa esineit\xE4 kuvasta joko raahaamalla
+        ne takaisin sivupalkkiin tai painamalla alakulman nuolin\xE4pp\xE4int\xE4.\n\nPaina
+        lopuksi kameran nappia, niin kamera r\xE4ps\xE4ht\xE4\xE4!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 309
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 362
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_textInfo.wordCount
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_textInfo.lineCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 482.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1034.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -295
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_fontSize
+      value: 40.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_fontSizeBase
+      value: 40.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d33cc2cc3c8ce04790a2d921044da86,
+        type: 2}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21042599217191434, guid: 3d33cc2cc3c8ce04790a2d921044da86,
+        type: 2}
+    - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.68692863
+      objectReference: {fileID: 0}
+    - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.6869286
+      objectReference: {fileID: 0}
+    - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.6869286
+      objectReference: {fileID: 0}
+    - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 191
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8273e4c99aa1bf847ad5e2c89a2783a9, type: 2}

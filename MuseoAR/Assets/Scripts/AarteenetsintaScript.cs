@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AarteenetsintaScript : MonoBehaviour
 {
@@ -44,7 +45,7 @@ public class AarteenetsintaScript : MonoBehaviour
         string valittu = SimpleJsonScript.Instance.getEntry(id, "aarreBank");
 
         // Finding the text slot and inserting the right string in it.
-        var texbox = infoText.GetComponent<Text>();
+        var texbox = infoText.GetComponent<TextMeshProUGUI>();
         texbox.text = valittu;
    
         // Activating the treasure in selfie scene.
