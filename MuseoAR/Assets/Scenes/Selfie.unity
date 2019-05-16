@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -558,8 +558,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758349131}
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
-  m_Value: 0.984386
-  m_Size: 0.111249655
+  m_Value: 1
+  m_Size: 0.15676767
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1747,7 +1747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 625.516}
+  m_AnchoredPosition: {x: -125, y: 705.45447}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
@@ -8081,8 +8081,14 @@ Prefab:
     - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 191
+      value: 185
       objectReference: {fileID: 0}
+    - target: {fileID: 114985351787216760, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4ae3f66a77144ac4864f446023557c9,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8273e4c99aa1bf847ad5e2c89a2783a9, type: 2}
   m_IsPrefabParent: 0
