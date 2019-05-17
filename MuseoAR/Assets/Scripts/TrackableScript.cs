@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 
 /// <summary>
@@ -53,6 +54,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   private Vector2 scale;
   private UnityEngine.UI.Image img;
   private GameObject imgGO;
+  private Button imgButton;
 
   private void SetUpTransitionImage()
   {
@@ -60,6 +62,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     imgGO = new GameObject();
     img = imgGO.AddComponent<UnityEngine.UI.Image>();
+    imgButton = imgGO.AddComponent<Button>();
+
     imgGO.transform.SetParent(canvas.transform); // Transition image as the child of the canvas.
     imgGO.name = "TransitionImageFor" + gameObject.name;
     img.sprite = transitionImage;
@@ -159,9 +163,11 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
       yield break;
     }
-    Debug.Log("HAAAA");
+
 
     float z = -transitionBeginningZoom;
+    // Transition image effect can be finished instantly by clicking on it.
+    imgButton.onClick.AddListener(() => z = -1); 
     while (z < 0)
     {
       z = z + transitionSpeed;
