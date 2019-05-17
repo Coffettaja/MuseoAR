@@ -19,7 +19,7 @@ public class MapButtonScript : MonoBehaviour
   void Start()
   {
     m_button = GetComponent<Button>();
-    m_button.onClick.AddListener(ToggleMap);
+    Invoke("DelayToggleMap", 1);
     secondFloorButton.GetComponent<Button>().onClick.AddListener(ShowSecondFloor);
     thirdFloorButton.GetComponent<Button>().onClick.AddListener(ShowThirdFloor);
 
@@ -30,6 +30,11 @@ public class MapButtonScript : MonoBehaviour
 
     // Need this to set the map that will be moved (second or third floor).
     gestureManager = GameObject.FindWithTag("Canvas").GetComponent<MapGestureManager>();
+  }
+
+  private void DelayToggleMap()
+  {
+    m_button.onClick.AddListener(ToggleMap);
   }
 
   private void ToggleMap()

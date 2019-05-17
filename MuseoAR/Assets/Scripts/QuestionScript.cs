@@ -250,7 +250,7 @@ public class QuestionScript : MonoBehaviour
 
         for (int i = 0; i < ABC.Length; i++)
         {
-            if (i != answerInd)
+            //if (i != answerInd)
                 ABC[i].GetComponent<Button>().interactable = false;
         }
 
