@@ -65,12 +65,12 @@ public class BaseballManager : MonoBehaviour
         } else if (action == "miss") {
             speedy -= gravity;
             if (ball.transform.position.y > -44) ball.transform.position += new Vector3(0, speedy, 0);
-            if (time > 4) Reset();
+            if (time > 3) Reset();
         } else if (action == "hit") {
             speedy -= gravity;
             speedz -= gravity;
             if (ball.transform.position.y > -44) ball.transform.position += new Vector3(0, speedy, speedz);
-            if (time > 5) Reset();
+            if (time > 3) Reset();
         } else if (action == "reset") {
             if (time > 1) action = "";
         }
