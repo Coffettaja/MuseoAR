@@ -5359,9 +5359,10 @@ RectTransform:
   m_GameObject: {fileID: 518441689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.77602, y: 2.7760205, z: 2.7760205}
   m_Children:
   - {fileID: 1455873385}
+  - {fileID: 559589290}
   m_Father: {fileID: 2045451563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5668,16 +5669,16 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 559589289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6675411, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0, z: -1.3}
+  m_LocalScale: {x: 0.2584538, y: 0.2323037, z: 0.2323037}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 518441690}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.399999, y: 150}
-  m_SizeDelta: {x: 600, y: 160}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -1.7, y: -11.5}
+  m_SizeDelta: {x: 577.6, y: 39.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559589291
 MonoBehaviour:
@@ -5700,7 +5701,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: c614e6f09887c6243afc0cac3459c979, type: 3}
-    m_FontSize: 30
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -5711,8 +5712,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Osoita ja pid\xE4 \xE4lylaitteen kamera kohdistettuna n\xE4yttelyss\xE4
-    n\xE4kyviin markkereihin"
+  m_Text: "T\xE4ht\xE4\xE4 markkeriin ja odota"
 --- !u!222 &559589292
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9731,7 +9731,7 @@ Transform:
   - {fileID: 108891262}
   - {fileID: 74606715}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132814705
 GameObject:
@@ -17176,7 +17176,7 @@ RectTransform:
   - {fileID: 1999145450}
   - {fileID: 462692240}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18070,7 +18070,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!21 &2121788207
 Material:
