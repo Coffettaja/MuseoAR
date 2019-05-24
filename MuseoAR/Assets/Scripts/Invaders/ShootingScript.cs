@@ -104,11 +104,11 @@ public class ShootingScript : MonoBehaviour {
     {
         if (Time.time > nextShoot)
         {
-            bool asd = InvadersManagerScript.gameOver;
-            if (asd == false)
+            bool over = InvadersManagerScript.gameOver;
+            if (over == false)
             {
                 nextShoot = Time.time + rateOfFire;
-                Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation, imageTarget);
+                Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation, projectileSpawn);
             }
         }
     }
