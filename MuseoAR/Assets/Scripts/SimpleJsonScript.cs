@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ public class SimpleJsonScript : MonoBehaviour {
         textList = new List<Texts>();
         fromJsonToList();
 
-        // If i == -1, a random rumber will be generated.
+        // If i == -1, a random rumber (between given boundaries) will be generated.
         if (i == -1)
         {
             System.Random rnd = new System.Random();

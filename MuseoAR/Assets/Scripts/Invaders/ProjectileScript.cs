@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// @puupertti 2018-11-06
@@ -13,7 +11,6 @@ public class ProjectileScript : MonoBehaviour {
     public float lifetime = 4.0f;
 
     private Rigidbody rb;
-    private float aliveTime;
 
     void Start () {
         rb = GetComponent<Rigidbody>();

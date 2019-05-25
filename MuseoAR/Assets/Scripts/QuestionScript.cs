@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,11 +11,10 @@ public class QuestionScript : MonoBehaviour
     public Sprite blobYes, blobNo, blobEmpty, answerDummy;
     public Sprite correctSprite, arrowSprite;
     public GameObject fingerprintGO;
-    //public Vuforia.TrackableBehaviour tb;
 
     private GameObject questionTextGO;
     private GameObject answerTextGO;
-    private int correctCounter = 0, questionCounter = 0, tracking = 0, striking = 0;
+    private int correctCounter = 0, questionCounter = 0, tracking = 0;
     private int answer_index;
     private Question currentQuestion;
     private GameObject A, B, C, pointsGO, blobGrid;
@@ -250,8 +248,7 @@ public class QuestionScript : MonoBehaviour
 
         for (int i = 0; i < ABC.Length; i++)
         {
-            //if (i != answerInd)
-                ABC[i].GetComponent<Button>().interactable = false;
+            ABC[i].GetComponent<Button>().interactable = false;
         }
 
         // Delay showing correct answer

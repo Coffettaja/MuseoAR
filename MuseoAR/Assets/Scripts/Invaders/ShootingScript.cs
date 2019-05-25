@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 /// <summary>
@@ -100,6 +98,7 @@ public class ShootingScript : MonoBehaviour {
         };
     }
 
+    // Instantiates a projectile, if enough time has passed and game is not over.
     public void shoot()
     {
         if (Time.time > nextShoot)

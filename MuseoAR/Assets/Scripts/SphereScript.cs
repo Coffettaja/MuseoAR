@@ -9,7 +9,7 @@ public class SphereScript : MonoBehaviour {
     public float timeToDissolve, dissolveAmount;
 
     private MeshRenderer rend;
-    private GameObject videoSphere, dissolvingSphere, GameController;
+    private GameObject videoSphere, dissolvingSphere;
     private Camera cam;
 
 	// Use this for initialization

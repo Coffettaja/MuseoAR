@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class AarteenetsintaScript : MonoBehaviour
@@ -28,8 +25,6 @@ public class AarteenetsintaScript : MonoBehaviour
             mark = identifier.IndexOf("_");
             idString = identifier.Substring(mark + 1);
             item = identifier.Substring(0, mark);
-            Debug.Log(idString);
-            Debug.Log(item);
         }
         catch (Exception e)
         {

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
@@ -11,17 +10,14 @@ using Vuforia;
 public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
   private TrackableBehaviour _trackableBehaviour;
-
-  private SpriteRenderer spriteRenderer;
-  private GameObject backgroundGameObject;
   private GameObject canvas;
 
   /// <summary>
   /// The name of the scene to be launched when tracking the marker.
   /// </summary>
   public string sceneName;
-  public string tldrIdentifier = "not_defined";
-  public string aarreIdentifier = "not_defined";
+  public string tldrIdentifier = "";
+  public string aarreIdentifier = "";
 
   // Used for debugging purposes.
   //public string loadSceneWithKey = "";

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Updates the UI for the score display.

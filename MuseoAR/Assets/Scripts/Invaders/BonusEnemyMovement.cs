@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BonusEnemyMovement : MonoBehaviour {
 
@@ -13,6 +11,7 @@ public class BonusEnemyMovement : MonoBehaviour {
         moveEnemy();
 	}
 
+    // Moving bonus enemy in a wave-like pattern.
     private void moveEnemy()
     {
         Vector3 height = Mathf.Sin(Time.time * SinCurveMultiplier) * Vector3.up;

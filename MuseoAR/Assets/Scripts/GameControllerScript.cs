@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -209,12 +208,29 @@ public class GameControllerScript : MonoBehaviour {
         activatedDecorations = new List<string>();
 
         // Re-initializing the dict of scenes that player has visited.
-        SceneDictItem[] sceneDict = { new SceneDictItem("invaders", false), new SceneDictItem("360VideScene", false) };
+        SceneDictItem[] sceneDict = {
+            new SceneDictItem("invaders", false),
+            new SceneDictItem("360VideoScene", false),
+            new SceneDictItem("360PictureScene1", false),
+            new SceneDictItem("360PictureScene2", false),
+            new SceneDictItem("360VideoScene", false),
+            new SceneDictItem("Pesapallo", false),
+            new SceneDictItem("quizScene", false),
+            new SceneDictItem("quizScene2", false),
+            new SceneDictItem("quizScene3", false),
+            new SceneDictItem("init", false),
+            new SceneDictItem("Selfie", false) };
 
         // Resetting visited scenes.
         List<string> tldrScenes = new List<string>();
         List<string> aarreScenes = new List<string>();
         List<string> otherScenes = new List<string>();
+
+        // Resetting high scores.
+        invadersResult = 0;
+        quiz1Result = 0;
+        quiz2Result = 0;
+        quiz3Result = 0;
 
         // Transitioning back to Splash-scene.
         SceneManager.LoadScene("Splash");

@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class for handling the reset button after game over.
+/// </summary>
 public class InvadersResetButton : MonoBehaviour {
 
     InvadersManagerScript m_manager;

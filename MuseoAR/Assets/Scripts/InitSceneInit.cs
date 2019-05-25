@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Changes the orientation of the screen.
+/// </summary>
 public class InitSceneInit : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
     Screen.orientation = ScreenOrientation.LandscapeLeft;
   }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -476,7 +476,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114231705192700574, guid: 4f0817f43c5444fb69caa933bad321db, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4f0817f43c5444fb69caa933bad321db, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &243782847
@@ -1207,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 2
+  mWorldCenterMode: 3
   mWorldCenter: {fileID: 0}
 --- !u!81 &473629708
 AudioListener:
@@ -2410,7 +2411,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1215400633}
-  - component: {fileID: 1215400632}
   - component: {fileID: 1215400634}
   m_Layer: 0
   m_Name: Quiz
@@ -2419,25 +2419,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1215400632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1215400631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bef0253abbd7b24d917856e9d77ad07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blobYes: {fileID: 21300000, guid: 63b8766534ffb924da8220c13da9b8fd, type: 3}
-  blobNo: {fileID: 21300000, guid: 95e053b879970fd46b8872d9bb98d63e, type: 3}
-  blobEmpty: {fileID: 21300000, guid: ee11c98d465c82a44af05610b2dd335e, type: 3}
-  answerDummy: {fileID: 21300000, guid: 485d9a9828e397048a00e31fe9afa8b4, type: 3}
-  correctSprite: {fileID: 21300000, guid: 507539b14aa730f45b79893573e1d189, type: 3}
-  arrowSprite: {fileID: 21300000, guid: 561705a2eedca5d45a1a9b912901a224, type: 3}
-  fingerprintGO: {fileID: 1145481232645218, guid: a41022eef1368f5438196ecbc80e7147,
-    type: 2}
 --- !u!4 &1215400633
 Transform:
   m_ObjectHideFlags: 0
@@ -2986,7 +2967,9 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restart
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114088021345310144, guid: d2c401ca35f2c4d9aa41e9e2ff09e594, type: 2}
+    - {fileID: 114323435819484864, guid: d2c401ca35f2c4d9aa41e9e2ff09e594, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d2c401ca35f2c4d9aa41e9e2ff09e594, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1545276339 stripped
@@ -3233,7 +3216,8 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114262977030465422, guid: 846a35aeac65342ad8d76c59c3cb3935, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 846a35aeac65342ad8d76c59c3cb3935, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1776342713 stripped
@@ -3502,7 +3486,9 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114737765581770364, guid: 428d7f9a8d302410cb35268717eb5c08, type: 2}
+    - {fileID: 114664799070312688, guid: 428d7f9a8d302410cb35268717eb5c08, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 428d7f9a8d302410cb35268717eb5c08, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1883234326

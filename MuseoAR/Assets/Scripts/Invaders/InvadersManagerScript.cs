@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-//using NUnit.Framework.Constraints;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Vuforia;
-using UnityEngine.EventSystems;
 
 /// <summary>
 /// @haeejuut 10.17.2018
@@ -124,7 +119,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             for (int i = 0; i < enemiesOnRow; i++)
             {
                 GameObject enemyGO = Instantiate<GameObject>(EnemyPrefab, SpawnPoint);
-                //enemyGO.GetComponent<EnemyScript>().tickSpeed -= (((float)m_level) * 0.1f);
                 enemyGO.transform.localPosition += new Vector3(x, y, z);
                 enemyGO.transform.localRotation = Quaternion.Euler(-90, 0, 0);
                 EnemyList[j * enemiesOnRow + i] = enemyGO;
@@ -135,7 +129,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             x = -(enemiesOnRow - 1) * enemySpacing / 2.0f;
             //Update the y and z for the next row
             y += enemySpacing;
-            //z += enemySpacing;   //For some reason you have to add to make z smaller
         }
         
         SpawnBonusEnemy();
@@ -143,7 +136,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
 
     private void SpawnBonusEnemy()
     {
-        //Vector3 bonusSpawnDisplacement = Vector3.back + (Vector3.left * 3);
         GameObject bonus = Instantiate<GameObject>(BonusEnemyPrefab, SpawnPoint);
         bonus.transform.localPosition += BonusEnemySpawnpoint.localPosition;
     }
@@ -165,8 +157,8 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         SpawnEnemies();
         _gameOverPopup.SetActive(false);
         gameOver = false;
-        //SceneManager.LoadScene("invaders");
     }
+
     //Tell all the enemies to stop and show the popup screen about game over
     public void GameOver()
     {
@@ -204,7 +196,6 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
             m_level++;
             factor = factor + 0.2f; // Increase time that will be reduced from the tickspeed.
             Invoke("SpawnEnemies", 1.0f);
-            //Invoke("SpawnBonusEnemy", 10);
         }
     }
 

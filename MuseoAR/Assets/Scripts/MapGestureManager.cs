@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DigitalRubyShared;
-using System;
 
 public class MapGestureManager : MonoBehaviour
 {

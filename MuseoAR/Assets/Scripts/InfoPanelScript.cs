@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Checks if the scene has been visited previously. If not, displays info-message.
+/// </summary>
 public class InfoPanelScript : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
     if (GameControllerScript.Instance.IsSceneCompleted(SceneManager.GetActiveScene().name))
     {

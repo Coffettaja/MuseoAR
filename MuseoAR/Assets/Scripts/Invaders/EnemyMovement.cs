@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
     public float tickSpeed = 0.8f;  //How long between movement ticks
     public float movementSpeed = 7f;
     public int movementTicks = 6; //How many ticks the enemies move to one direction
-    private float change = 0;
 
     private Rigidbody rb;
     private bool moving = true;
