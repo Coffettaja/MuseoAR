@@ -36,7 +36,7 @@ public class DecorationListItem : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-    m_inputManager = GameObject.Find("ARCamera").GetComponent<SelfieInputManager>();
+    m_inputManager = Camera.main.GetComponent<SelfieInputManager>();
     m_button = GetComponent<Button>();
     m_button.onClick.AddListener(OnDecorationButtonClick);
     m_decorationSlotImage = GetComponent<Image>();
