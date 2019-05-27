@@ -66,56 +66,29 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
 
     var rt = imgGO.transform as RectTransform;
     rt.localPosition = new Vector3(0, 0, -transitionBeginningZoom);
-    rt.localScale = Vector3.one * 1.01f; // Just a tiny bit bigger just to make sure it fills the screen.
+    rt.localScale = Vector3.one * 1.05f; // Just a tiny bit bigger just to make sure it fills the screen.
     rt.offsetMin = new Vector2(0, 0);
     rt.offsetMax = new Vector2(0, 0);
+    ScaleImage();
     imgGO.SetActive(false);
   }
-  
-  private void ScaleTransitionImage()
+
+  // Sets the transition image to fit the screen (when at pos 0, 0, 0)
+  private void ScaleImage()
   {
-    if (transitionImage == null) return;
-    // Set up the camera and scale, so the image fits on any screen size.
-    float cameraHeight = Camera.main.orthographicSize * 2;
-    Vector2 cameraSize = new Vector2(Camera.main.aspect * cameraHeight, cameraHeight);
-    Vector2 spriteSize = transitionImage.bounds.size;
-    float spriteAspectRatio = transitionImage.bounds.size.x / transitionImage.bounds.size.y;
-
-    //Debug.Log(spriteAspectRatio);
-
-    var rectTransform = ((RectTransform)img.transform);
-
-    //Debug.Log("CameraHeight: " + cameraHeight);
-    //Debug.Log("Aspect: " + Camera.main.aspect);
-
-    // Landscape (or equal) --> Strech horizontally
-    if (Camera.main.aspect >= spriteAspectRatio)
-    {
-      rectTransform.anchorMin = new Vector2(0, .5f);
-      rectTransform.anchorMax = new Vector2(1f, .5f);
-      rectTransform.pivot = new Vector2(.5f, .5f);
-      rectTransform.sizeDelta = new Vector2(0, rectTransform.rect.width / spriteAspectRatio);
-    }
-    else
-    { // Portrait --> Stretch vertically
-      rectTransform.anchorMin = new Vector2(.5f, 0);
-      rectTransform.anchorMax = new Vector2(.5f, 1f);
-      rectTransform.pivot = new Vector2(.5f, .5f);
-      rectTransform.sizeDelta = new Vector2(rectTransform.rect.height * spriteAspectRatio, 0);
-    }
-    //Debug.Log("Imgheight: " + rect.rect.height);
-    //Debug.Log("Imgwidth: " + rect.rect.width);
-    //Debug.Log("Width: " + rect.sizeDelta.x);
-    //Debug.Log("Height: " + rect.sizeDelta.y);
+    var fitter = imgGO.AddComponent<AspectRatioFitter>();
+    fitter.aspectRatio = transitionImage.bounds.size.x / transitionImage.bounds.size.y;
+    fitter.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
   }
 
 	// Update is called once per frame
 	void Update () {
     if (Input.GetKeyDown("o"))
     {
-      if (transitionImage != null)
+      if (transitionImage != null && imgGO.name == "TransitionImageForQuizMarker")
       {
-        //StartSceneTransition();
+        //imgGO.SetActive(true);
+        //ScaleImage();
       }
     }
   }
@@ -129,10 +102,7 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     if (transitionImage != null)
     {
       imgGO.SetActive(true);
-      ScaleTransitionImage();
-      ScaleTransitionImage(); // Called twice on purpose... otherwise it doesn't work and I can't be bothered to look into it now.
-      Debug.Log("Transition image");
-     }
+    }
       StartCoroutine("TransitionToScene");
   }
 
@@ -159,7 +129,6 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       GameControllerScript.Instance.LoadSceneWithName(sceneName, tldrIdentifier, aarreIdentifier);
       yield break;
     }
-
 
     float z = -transitionBeginningZoom;
     // Transition image effect can be finished instantly by clicking on it.
