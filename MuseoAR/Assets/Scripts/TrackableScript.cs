@@ -81,18 +81,6 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
     fitter.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
   }
 
-	// Update is called once per frame
-	void Update () {
-    if (Input.GetKeyDown("o"))
-    {
-      if (transitionImage != null && imgGO.name == "TransitionImageForQuizMarker")
-      {
-        //imgGO.SetActive(true);
-        //ScaleImage();
-      }
-    }
-  }
-
   private bool isTransitioning = false;
 
   private void StartSceneTransition()
