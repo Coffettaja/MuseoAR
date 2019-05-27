@@ -20,4 +20,9 @@ public class InfoPanelScript : MonoBehaviour {
   {
     gameObject.SetActive(active);
   }
+
+  public void ToggleInfoPanel()
+  {
+    SetPanelActive(!gameObject.activeSelf);
+  }
 }
