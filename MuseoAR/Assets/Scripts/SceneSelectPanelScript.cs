@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +18,8 @@ public class SceneSelectPanelScript : MonoBehaviour {
 	void Start () {
     tldrPanel.SetActive(false);
     aarrePanel.SetActive(false);
+
+    // Get all the aarre markers from the aarteet and add them to the list.
     foreach (Transform aarre in aarteet.transform)
     {
       aarreTrackables.Add(aarre.gameObject.GetComponent<TrackableScript>());
@@ -28,13 +29,17 @@ public class SceneSelectPanelScript : MonoBehaviour {
     InitAarrePanel();
 	}
 
+  /// <summary>
+  /// Creates and sets the buttons and their behaviors for the main panel.
+  /// </summary>
   private void InitMainPanel()
   {
     for (int i = 0; i < normalTrackables.Count; i++)
     {
-      int j = i;
+      int j = i; // Need to do this to catch the value so the button activates the correct scene.
       CreateSceneButton(normalTrackables, j, defaultPanel.transform);
     }
+
     var tldrButton = CreateButton("tldr", defaultPanel.transform);
     tldrButton.GetComponent<Image>().color = Color.cyan;
     tldrButton.onClick.AddListener(ShowTldrPanel);
@@ -44,6 +49,9 @@ public class SceneSelectPanelScript : MonoBehaviour {
     aarreButton.onClick.AddListener(ShowAarrePanel);
   }
 
+  /// <summary>
+  /// Creates and sets the buttons and their behaviors for the tldr panel.
+  /// </summary>
   private void InitTldrPanel()
   {
     for (int i = 0; i < tldrTrackables.Count; i++)
@@ -56,6 +64,9 @@ public class SceneSelectPanelScript : MonoBehaviour {
     returnButton.onClick.AddListener(ShowMainPanel);
   }
 
+  /// <summary>
+  /// Creates and sets the buttons and their behaviors for the aarre panel.
+  /// </summary>
   private void InitAarrePanel()
   {
     for (int i = 0; i < aarreTrackables.Count - 13; i++)
@@ -84,19 +95,37 @@ public class SceneSelectPanelScript : MonoBehaviour {
     aarrePanel.SetActive(true);
   }
 
+  /// <summary>
+  /// Creates a new button from the sceneButtonPrefab, and childs it to the given parent transform.
+  /// </summary>
+  /// <param name="name">Button name</param>
+  /// <param name="parent">Parent transform for the created button</param>
+  /// <param name="append">Optionally add some text to the button name and text.</param>
+  /// <returns></returns>
   private Button CreateButton(string name, Transform parent, string append = "")
   {
+    // Create the button and set its position, name and inner text.
     var button = Instantiate(sceneButtonPrefab, Vector3.zero, Quaternion.identity, parent);
     button.transform.localPosition = Vector3.zero;
     button.name = name + append + "Button";
     button.GetComponentInChildren<Text>().text =
       "Scene: " + name + append;
+
     return button.GetComponent<Button>();
   }
 
+  /// <summary>
+  /// Creates a button that activates the scene transition for trackable given.
+  /// </summary>
+  /// <param name="trackables">List of trackableScripts from where to choose the scene.</param>
+  /// <param name="forTrackable">Index of the trackableScript that activates on click.</param>
+  /// <param name="parent">Parent for the created button.</param>
+  /// <param name="append">Optional text to be added to the name and text of the button.</param>
   private void CreateSceneButton(List<TrackableScript> trackables, int forTrackable, Transform parent, string append = "")
   {
     var sceneButton = CreateButton(trackables[forTrackable].sceneName, parent, append);
+
+    // Load the scene tied to the trackableScript on button click.
     sceneButton.onClick.AddListener(() => {
       transform.parent.gameObject.SetActive(false);
       trackables[forTrackable].LoadScene();
