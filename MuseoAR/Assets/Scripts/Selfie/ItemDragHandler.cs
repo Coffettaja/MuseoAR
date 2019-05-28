@@ -42,7 +42,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 #endif
 
     // Basically sets the item to be the front-most element after buttons.
-    transform.SetSiblingIndex(canvas.childCount - 8);
+    transform.SetSiblingIndex(canvas.childCount - 9);
     inputHandler.SetRectTransform(rectTransform);
   }
 
@@ -80,7 +80,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
       transform.SetParent(canvas);
       // Basically sets the item to be the front-most element after buttons.
-      transform.SetSiblingIndex(canvas.childCount - 8);
+      transform.SetSiblingIndex(canvas.childCount - 9);
 
       // Need this for consistent behaviour for activating items through both dragging and tapping.
       gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.None;
