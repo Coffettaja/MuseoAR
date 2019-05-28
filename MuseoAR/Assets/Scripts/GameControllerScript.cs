@@ -89,7 +89,7 @@ public class GameControllerScript : MonoBehaviour {
       new SceneDictItem("quizScene", false),
       new SceneDictItem("quizScene2", false),
       new SceneDictItem("quizScene3", false),
-      new SceneDictItem("init", false),
+      new SceneDictItem("init", true),
       new SceneDictItem("Selfie", false) };
 
   private string _currentScene;

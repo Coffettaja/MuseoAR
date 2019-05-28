@@ -390,9 +390,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Machete_10
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 5797a48b8c9e22b4985351b2cd4f416e, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &27569310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,9 +797,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Rose_25
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: d7181f6d398c6fe4d9992180ad807d41, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &81150289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,8 +1043,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: fa33bae820c1f78419bb4de899a0e327, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &108891268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1714,8 +1714,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 49d24c5a9b968134e9db45dd3284b680, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &162230039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1992,9 +1992,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Dogs_23
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 624382e8f600160439420406bc9ccdd8, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &198389808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,8 +2063,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 5
   transitionImage: {fileID: 0}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &201748370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,8 +2237,8 @@ MonoBehaviour:
   tldrIdentifier: 2
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: f635844e292c1d243ae9ee8f7117b365, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &248672058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2556,9 +2556,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Butterfly_22
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: aa23f6ab82a31f94bbda198aa28552cc, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &255132125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3014,8 +3014,8 @@ MonoBehaviour:
   tldrIdentifier: 0
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 4912b36cd397d134e942f1348a7a7dfe, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &333761491
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3627,9 +3627,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Bell_8
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 2b2f52e17a2f87d4698a8b9e44fd33d8, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &383890750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3954,9 +3954,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Scythe_11
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: b45865499a8766649acc6fcaa1a998a1, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &401118122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4152,8 +4152,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 914be4bb187da6a4f96ad0d999026840, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &423495270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4560,9 +4560,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: FigureBlack_1
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 27b0c7b8f92d3c44782dc790aab3b5ea, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &461567202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,9 +5242,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Flowers_26
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 5de1f9f07d769c341be1dc904c8c97e1, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &501404197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5304,8 +5304,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: bcf6aa4c739e1e1459f9a77b2e4a83bc, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &511667574
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6337,9 +6337,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Bird_7
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 85cfd0b0dcce4794cad6d55f6e3cfb20, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &625967803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6553,8 +6553,8 @@ MonoBehaviour:
   tldrIdentifier: 4
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: ae6511d9d60263c40a3b41ad5b68dea5, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &646898067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7028,9 +7028,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Sword_9
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: c2f7f01b5ab85b141a48afb147519054, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &707418516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8521,8 +8521,8 @@ MonoBehaviour:
   tldrIdentifier: 5
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: f49ab1a7110b24e40b39d5f501afdfe7, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &913989939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8735,9 +8735,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Doll_18
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: fa00de31a67c5b147a326c1f0beccc18, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &964635385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8950,9 +8950,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: HipsterGlasses_20
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: f842498e1b8065b4fab0a1b58e52d039, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &984448247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9146,8 +9146,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: f1cf56e9c60c01e498f4c5cc64386207, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1033698830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9667,8 +9667,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 645d21fe11d9aff4782b622d47fd08b8, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1065996246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10035,9 +10035,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: WeirdGuy_21
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 85707dafa0d8e804c92a011c22fddee8, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1097502810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11155,8 +11155,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 0}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1257225166
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11388,8 +11388,8 @@ MonoBehaviour:
   tldrIdentifier: 3
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: f1ee786689485bb43a28cbbb6efdca13, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1259898349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11498,9 +11498,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: StarWars_19
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 9b8fc6963a3979d47a04ccd8bee19d82, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1274070381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11719,9 +11719,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Shofar_6
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: d87e9c1a0beefc346b79813d84ad45dc, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1293774266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11952,9 +11952,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: FigureBlack_4
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: af936cb64024fb64abf1e72d36174855, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1298813099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12124,9 +12124,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Painting_16
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 8ac5b0142fb7f4f49844314d8df918e3, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1306027305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12409,8 +12409,8 @@ MonoBehaviour:
   tldrIdentifier: 6
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 4af157f07d0a7e64d8708fb374fc0e06, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1352472330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13261,8 +13261,8 @@ MonoBehaviour:
   tldrIdentifier: 1
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: c1ade15ee91a0aa4fad45a92ae93d606, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 200
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1441825372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13655,9 +13655,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Mug_5
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: be71ddf26091fd641b71f9f42e3b4c9c, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1502068819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13888,9 +13888,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Gun_14
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 940a99e9e454a9e4a8d952d853fdcdeb, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1503386777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14275,9 +14275,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Badge_17
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 2038b45333114dd4886fc4b50ebe932a, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1551144678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14492,8 +14492,8 @@ MonoBehaviour:
   tldrIdentifier: 7
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: d232a918803261b4aaf034d70a66ea72, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1567880553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14886,9 +14886,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Helmet_12
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: a97fe89f8380218468e0c1c021437bb1, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1685229973
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15291,9 +15291,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Moustache_0
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 8cce6235a894f4242a139f3cb24f8f4b, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1740097516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15483,8 +15483,8 @@ MonoBehaviour:
   tldrIdentifier: not_defined
   aarreIdentifier: 
   transitionImage: {fileID: 0}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &1779751404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15916,8 +15916,8 @@ MonoBehaviour:
   tldrIdentifier: 
   aarreIdentifier: 
   transitionImage: {fileID: 21300000, guid: 28118e4ba63170c41a81c738bc013285, type: 3}
-  transitionSpeed: 7
-  transitionBeginningZoom: 500
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!23 &1843273796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16715,9 +16715,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Shield_2
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 5f24c8e56e4202a4c901368827e62019, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1886347817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17060,9 +17060,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: FlowerBundle_24
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 15a7a70d19f1b5d4596da7b8ad657775, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &1963894201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17495,9 +17495,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Reindeer_3
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: afc539d29a6519347954e285e1242bf6, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!65 &2022978089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18497,9 +18497,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Badge2_15
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: d4ba5dbb964ac714eb4027a9b2fc6ac6, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &2089464405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19292,9 +19292,9 @@ MonoBehaviour:
   sceneName: aarteenetsinta
   tldrIdentifier: 
   aarreIdentifier: Axe_13
-  transitionImage: {fileID: 21300000, guid: f95895feb3d39a64a9996c18455015e2, type: 3}
-  transitionSpeed: 5
-  transitionBeginningZoom: 500
+  transitionImage: {fileID: 21300000, guid: 43846687c076aac44bbb378f1dad06a4, type: 3}
+  transitionSpeed: 20
+  transitionBeginningZoom: 800
 --- !u!114 &2133624538
 MonoBehaviour:
   m_ObjectHideFlags: 0

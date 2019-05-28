@@ -118,12 +118,12 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       yield break;
     }
 
-    float z = -transitionBeginningZoom;
+    float z = transitionBeginningZoom;
     // Transition image effect can be finished instantly by clicking on it.
-    imgButton.onClick.AddListener(() => z = -1); 
-    while (z < 0)
+    imgButton.onClick.AddListener(() => z = 1); 
+    while (z > 0)
     {
-      z = z + transitionSpeed;
+      z = z - transitionSpeed;
       imgGO.transform.localPosition = new Vector3(0, 0, z);
       yield return null;
     }
