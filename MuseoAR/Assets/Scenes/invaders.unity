@@ -861,9 +861,9 @@ MonoBehaviour:
   imageTarget: {fileID: 1659534212}
   aimPlane: {fileID: 92113591}
   drawCrosshair: 1
-  crosshairColor: {r: 1, g: 1, b: 1, a: 1}
-  width: 1
-  height: 3
+  crosshairColor: {r: 0, g: 0.2392157, b: 0.3529412, a: 1}
+  width: 4
+  height: 4
   spread:
     sSpread: 20
     maxSpread: 60

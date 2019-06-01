@@ -20,7 +20,7 @@ public class ShootingScript : MonoBehaviour {
 
     public bool drawCrosshair = true;
     public Color crosshairColor = Color.white; // Crosshair color
-    public float width = 1; // Crosshair width 
+    public float width = 1; // Crosshair width
     public float height = 3; // Crosshair height
 
     [System.Serializable]
@@ -43,6 +43,8 @@ public class ShootingScript : MonoBehaviour {
     void Awake ()
     {
         tex = new Texture2D(1, 1);
+        tex.SetPixel(0, 0, crosshairColor);
+        tex.Apply();
         lineStyle = new GUIStyle();
         lineStyle.normal.background = tex;
     }
