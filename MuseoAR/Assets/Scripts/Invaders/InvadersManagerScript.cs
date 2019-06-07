@@ -65,6 +65,7 @@ public class InvadersManagerScript : MonoBehaviour, ITrackableEventHandler
         {
             _trackableBehaviour.RegisterTrackableEventHandler(this);
         }
+        gameOver = false;
     }
 
     //If the marker is found for the first time, starts the game
