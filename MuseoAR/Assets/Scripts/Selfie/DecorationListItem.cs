@@ -23,7 +23,7 @@ public class DecorationListItem : MonoBehaviour
 
   public string m_activatingScene;
 
-  private bool m_isActive = true;
+  private bool m_isActive = false;
 
   private GameObject m_canvas;
 
@@ -70,6 +70,7 @@ public class DecorationListItem : MonoBehaviour
     {
       var rt = (RectTransform)m_decoration.transform;
       m_decoration.transform.SetParent(m_canvas.transform);
+      m_decoration.transform.SetSiblingIndex(m_canvas.transform.childCount - 9);
       rt.anchorMin = Vector2.one / 2;
       rt.anchorMax = Vector2.one / 2;
       rt.pivot = Vector2.one / 2;
@@ -91,6 +92,11 @@ public class DecorationListItem : MonoBehaviour
     if (m_decorationImage != null)
     {
       //m_decorationImage.color = m_originalColor;
+    }
+
+    if (activationState)
+    {
+      transform.SetAsFirstSibling();
     }
 
     m_isActive = activationState;
