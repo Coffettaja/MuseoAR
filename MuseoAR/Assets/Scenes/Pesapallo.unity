@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -645,12 +645,12 @@ Prefab:
     - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 224065806053939322, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
@@ -692,7 +692,7 @@ Prefab:
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_textInfo.lineCount
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
@@ -732,12 +732,12 @@ Prefab:
     - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 692.5
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 224790716706680338, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 299.3
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
@@ -747,12 +747,32 @@ Prefab:
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_fontSize
-      value: 33.9
+      value: 52.1
       objectReference: {fileID: 0}
     - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
         type: 2}
       propertyPath: m_fontSizeBase
-      value: 33.9
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114104184265266436, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114854142754518650, guid: 8273e4c99aa1bf847ad5e2c89a2783a9,
+        type: 2}
+      propertyPath: m_fontSizeMin
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8273e4c99aa1bf847ad5e2c89a2783a9, type: 2}
@@ -903,7 +923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1024384271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -954,7 +974,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click here to throw
+  m_Text: "Paina n\xE4ytt\xF6\xE4 heitt\xE4\xE4ksesi"
 --- !u!222 &1024384273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,10 +1011,10 @@ RectTransform:
   m_Father: {fileID: 1719330476}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.899994, y: 28.69}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -100}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1333355933
 MonoBehaviour:
@@ -1008,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.03137255, g: 0, b: 0.20000002, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1017,20 +1037,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 30
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Highscore: 0 meters
-
-'
+  m_Text: "Paina n\xE4ytt\xF6\xE4 heitt\xE4\xE4ksesi\n"
 --- !u!222 &1333355934
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1470,10 +1488,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
