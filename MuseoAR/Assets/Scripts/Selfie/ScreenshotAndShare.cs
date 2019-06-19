@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,12 @@ public class ScreenshotAndShare : MonoBehaviour {
   public bool publicDevice = false;
   public RectTransform canvasRectTransform;
   public GameObject screenshotPreviewPanel;
+  public GameObject emailPanel;
+  public Button sendEmailButton;
+  public Text emailInput;
+  public string emailServiceAccount;
+  public string emailServicePassword;
+  public TextMeshProUGUI emailInfoText;
   //private Vector3 initScale;
 
   // Use this for initialization
@@ -68,27 +75,36 @@ public class ScreenshotAndShare : MonoBehaviour {
     //ss.Apply();
 
     ssName = string.Format("{0}_{1}", Application.productName, System.DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss"));
-    Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
+    if (!publicDevice) {
+      NativeGallery.SaveImageToGallery(ss, Application.productName, name);
+    }
 
     ShowCanvas();
 
     DisplayScreenshot(ss);
   }
 
+  string filePath = "";
   public void ShareScreenshot()
   {
     if (ss == null) return;
 
     //Debug.Log("Permission result: " + NativeGallery.SaveImageToGallery(ss, Application.productName, name));
-    string filePath = Path.Combine(Application.temporaryCachePath, ssName + ".png");
+    filePath = Path.Combine(Application.temporaryCachePath, ssName + ".png");
     File.WriteAllBytes(filePath, ss.EncodeToPNG());
+
+    if (publicDevice)
+    {
+      PublicShare(filePath);
+      return;
+    }
 
     NativeShare nativeShare = new NativeShare();
 
-    nativeShare.SetSubject("MuseoAR Selfie!"); // Primarily for email.
+    nativeShare.SetSubject("KemuAR Selfie!"); // Primarily for email.
                                                //nativeShare.SetText("");
     nativeShare.AddFile(filePath, "image/png");
-    nativeShare.SetTitle("Score in Sunset Falls");
+    nativeShare.SetTitle("KemuAR Selfie");
     nativeShare.Share();
   }
 
@@ -119,10 +135,11 @@ public class ScreenshotAndShare : MonoBehaviour {
 
     MailMessage mail = new MailMessage();
 
-    mail.From = new MailAddress("museoartestemail@gmail.com");
+    mail.From = new MailAddress(emailServiceAccount);
     mail.To.Add(destinationEmail);
-    mail.Subject = "MuseoAR Selfie";
-    mail.Body = "Kawaii~";
+    mail.Subject = "KemuAR Selfie";
+    mail.Body = "Sinulle on lähetetty kuva Kemu AR sovelluksesta. Kuva on tämän viestin liitteenä." +
+      "Huom! Tästä sähköpostiosoitteesta ei voi tavoittaa Keski-Suomen museon henkilökuntaa.";
 
     Attachment data = new Attachment(filepath, System.Net.Mime.MediaTypeNames.Application.Octet);
 
@@ -136,7 +153,7 @@ public class ScreenshotAndShare : MonoBehaviour {
 
     SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
     smtpServer.Port = 587;
-    smtpServer.Credentials = new System.Net.NetworkCredential("museoartestmail@gmail.com", "somePassword") as ICredentialsByHost;
+    smtpServer.Credentials = new System.Net.NetworkCredential(emailServiceAccount, emailServicePassword) as ICredentialsByHost;
     smtpServer.EnableSsl = true;
     ServicePointManager.ServerCertificateValidationCallback =
         delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors) {
@@ -145,16 +162,26 @@ public class ScreenshotAndShare : MonoBehaviour {
     try
     {
       smtpServer.Send(mail);
+      emailInfoText.text = "Viesti lähetetty onnistuneesti!";
     }
     catch (Exception e)
     {
+      //emailInfoText.text = "Viestin lähetys epäonnistui.";
+      emailInfoText.text = e.GetBaseException().ToString();
+      emailInfoText.fontSize = 50f;
       Debug.Log(e.GetBaseException());
     }
   }
 
+  public void SendButtonAction()
+  {
+    string destinationEmail = emailInput.text;
+    SendEmail(destinationEmail, filePath);
+  }
   
   private void PublicShare(string filepath)
   {
-    SendEmail("destinationEmailHere", filepath);
+    emailPanel.transform.localScale = Vector3.one;
+    //SendEmail("destinationEmailHere", filepath);
   }
 }
