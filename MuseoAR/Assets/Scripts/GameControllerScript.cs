@@ -160,30 +160,35 @@ public class GameControllerScript : MonoBehaviour {
 
         // Determining which marker was scanned, adding it to corresponding list of scanned markers, and adding points to player
         // if marker was not scanned before.
-        if (paramTldr != "")
-        {
-            var exists = tldrScenes.Contains(paramTldr);
-            if (!exists) { tldrScenes.Add(paramTldr); ScoreScript.Instance.IncreaseScoreBy(10); }
-        }
-        else
-        {
-            if (paramAarre != "")
-            {
-                var exists = aarreScenes.Contains(paramAarre);
-                if (!exists) { aarreScenes.Add(paramAarre); ScoreScript.Instance.IncreaseScoreBy(20); }
-            }
-            else
-            {
-                var exists = otherScenes.Contains(name);
-                if (!exists) { otherScenes.Add(name); ScoreScript.Instance.IncreaseScoreBy(10); }
-            }
-        }
 
         if (name == "reset")
         {
             ResetAll();
         }
-        SceneManager.LoadScene(name);
+        else
+        {
+            if (paramTldr != "")
+            {
+                var exists = tldrScenes.Contains(paramTldr);
+                if (!exists) { tldrScenes.Add(paramTldr); ScoreScript.Instance.IncreaseScoreBy(10); }
+            }
+            else
+            {
+                if (paramAarre != "")
+                {
+                    var exists = aarreScenes.Contains(paramAarre);
+                    if (!exists) { aarreScenes.Add(paramAarre); ScoreScript.Instance.IncreaseScoreBy(20); }
+                }
+                else
+                {
+                    var exists = otherScenes.Contains(name);
+                    if (!exists) { otherScenes.Add(name); ScoreScript.Instance.IncreaseScoreBy(10); }
+                }
+            }
+            SceneManager.LoadScene(name);
+        }
+
+        
     }
 
     /// <summary>
@@ -201,6 +206,9 @@ public class GameControllerScript : MonoBehaviour {
     /// </summary>
     public void ResetAll()
     {
+        // Reset marks on the map.
+        MapMarkerScript.Instance.DeactivateMarkers();
+
         // Reseting player's score.
         ScoreScript.Instance.ResetScore();
 
@@ -208,23 +216,15 @@ public class GameControllerScript : MonoBehaviour {
         activatedDecorations = new List<string>();
 
         // Re-initializing the dict of scenes that player has visited.
-        SceneDictItem[] sceneDict = {
-            new SceneDictItem("invaders", false),
-            new SceneDictItem("360VideoScene", false),
-            new SceneDictItem("360PictureScene1", false),
-            new SceneDictItem("360PictureScene2", false),
-            new SceneDictItem("360VideoScene", false),
-            new SceneDictItem("Pesapallo", false),
-            new SceneDictItem("quizScene", false),
-            new SceneDictItem("quizScene2", false),
-            new SceneDictItem("quizScene3", false),
-            new SceneDictItem("init", false),
-            new SceneDictItem("Selfie", false) };
+        for (int i = 0; i < sceneDict.Length; i++)
+        {
+            sceneDict[i].completed = false;
+        }
 
         // Resetting visited scenes.
-        List<string> tldrScenes = new List<string>();
-        List<string> aarreScenes = new List<string>();
-        List<string> otherScenes = new List<string>();
+        tldrScenes = new List<string>();
+        aarreScenes = new List<string>();
+        otherScenes = new List<string>();
 
         // Resetting high scores.
         invadersResult = 0;
