@@ -52,4 +52,58 @@ public class MapMarkerScript : MonoBehaviour {
       markers.Find(marker => marker.name == scene).SetActive(true);
     }
   }
+
+    /// <summary>
+    /// Deactivate the markers that have been sctivated.
+    /// </summary>
+    public void DeactivateMarkers()
+    {
+        SetUpMarkers();
+        List<string> scenes = new List<string>();
+
+        foreach (var scene in GameControllerScript.tldrScenes)
+        {
+            scenes.Add("tldr" + scene);
+        }
+
+        foreach (var scene in GameControllerScript.aarreScenes)
+        {
+            scenes.Add("aarre" + scene);
+        }
+
+        scenes.AddRange(GameControllerScript.otherScenes);
+
+        foreach (var scene in scenes)
+        {
+            markers.Find(marker => marker.name == scene).SetActive(false);
+        }
+    }
+    private static object _lock = new object();
+
+    #region Singleton creation
+    private static MapMarkerScript _instance;
+    public static MapMarkerScript Instance
+    {
+        get
+        {
+            // Locks down the thread until the the Singleton instance has been created.
+            lock (_lock)
+            {
+                if (_instance == null)
+                {
+                    _instance = (MapMarkerScript)FindObjectOfType(
+                        typeof(MapMarkerScript));
+                    if (_instance == null)
+                    {
+                        GameObject singletonObject = new GameObject();
+                        _instance = singletonObject.AddComponent<MapMarkerScript>();
+                        singletonObject.name = typeof(MapMarkerScript).ToString() + " (Singleton)";
+                        DontDestroyOnLoad(singletonObject);
+                    }
+                }
+            }
+            return _instance;
+        }
+    }
+    #endregion
 }

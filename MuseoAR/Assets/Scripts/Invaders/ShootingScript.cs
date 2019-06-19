@@ -61,7 +61,7 @@ public class ShootingScript : MonoBehaviour {
         {
             GUI.Box(new Rect(centerPoint.x - (width / 2), centerPoint.y - (newHeight + spread.sSpread), newWidth, newHeight), GUIContent.none, lineStyle);
             GUI.Box(new Rect(centerPoint.x - (width / 2), (centerPoint.y + spread.sSpread), newWidth, newHeight), GUIContent.none, lineStyle);
-            GUI.Box(new Rect((centerPoint.x + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, newWidth), GUIContent.none, lineStyle);
+            GUI.Box(new Rect((centerPoint.x + spread.sSpread +2), (centerPoint.y - (width / 2)), newHeight, newWidth), GUIContent.none, lineStyle);
             GUI.Box(new Rect(centerPoint.x - (newHeight + spread.sSpread), (centerPoint.y - (width / 2)), newHeight, newWidth), GUIContent.none, lineStyle);
         }
 
