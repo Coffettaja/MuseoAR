@@ -21,21 +21,21 @@ public class DecorationListItem : MonoBehaviour
 
   private Sprite m_decorationSprite;
 
-  public string m_activatingScene;
-
   private bool m_isActive = false;
 
   private GameObject m_canvas;
 
   private AspectRatioFitter m_aspectRatioFitter;
 
-  //Color m_originalColor;
   Image m_decorationImage;
   Image m_decorationSlotImage;
+
+  GameObject dummyItem; // Used for correctly layering the elements on drag.
 
   // Use this for initialization
   void Start()
   {
+    dummyItem = GameObject.FindGameObjectWithTag("DummyItem");
     m_inputManager = Camera.main.GetComponent<SelfieInputManager>();
     m_button = GetComponent<Button>();
     m_button.onClick.AddListener(OnDecorationButtonClick);
@@ -51,10 +51,7 @@ public class DecorationListItem : MonoBehaviour
     m_decoration.sizeDelta = rectTransform.sizeDelta;
 
     m_decoration.GetComponent<Image>().sprite = m_decorationSprite;
-    //m_decoration.SetActive(false);
-    //m_decoration.transform.parent = gameObject.transform;
 
-    //m_originalColor = m_decorationImage.color;
     Color deactiveColor;
     ColorUtility.TryParseHtmlString("#0000007D", out deactiveColor);
     m_decorationSlotImage.color = deactiveColor;
@@ -70,7 +67,7 @@ public class DecorationListItem : MonoBehaviour
     {
       var rt = (RectTransform)m_decoration.transform;
       m_decoration.transform.SetParent(m_canvas.transform);
-      m_decoration.transform.SetSiblingIndex(m_canvas.transform.childCount - 9);
+      m_decoration.transform.SetSiblingIndex(dummyItem.transform.GetSiblingIndex());
       rt.anchorMin = Vector2.one / 2;
       rt.anchorMax = Vector2.one / 2;
       rt.pivot = Vector2.one / 2;

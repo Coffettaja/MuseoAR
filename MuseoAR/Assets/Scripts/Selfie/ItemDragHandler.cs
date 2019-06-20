@@ -11,6 +11,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
   private RectTransform canvas;
   private RectTransform itemSlot;
   private DecorationListItem item;
+  private GameObject dummyItem; // used for positioning the items correctly on the canvas
 
   public ItemInputHandler inputHandler;
 
@@ -42,7 +43,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 #endif
 
     // Basically sets the item to be the front-most element after buttons.
-    transform.SetSiblingIndex(canvas.childCount - 9);
+    transform.SetSiblingIndex(dummyItem.transform.GetSiblingIndex());
     inputHandler.SetRectTransform(rectTransform);
   }
 
@@ -80,7 +81,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
       transform.SetParent(canvas);
       // Basically sets the item to be the front-most element after buttons.
-      transform.SetSiblingIndex(canvas.childCount - 9);
+      transform.SetSiblingIndex(dummyItem.transform.GetSiblingIndex());
 
       // Need this for consistent behaviour for activating items through both dragging and tapping.
       gameObject.GetComponent<AspectRatioFitter>().aspectMode = AspectRatioFitter.AspectMode.None;
@@ -98,10 +99,11 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
   // Use this for initialization
   void Start() {
+    dummyItem = GameObject.FindGameObjectWithTag("DummyItem");
     rectTransform = gameObject.GetComponent<RectTransform>();
     itemSlot = transform.parent as RectTransform;
     itemPanel = GameObject.FindWithTag("Inventory").transform as RectTransform;
-    canvas = GameObject.FindGameObjectWithTag("Canvas").transform as RectTransform;
+    canvas = GameObject.FindWithTag("Canvas").transform as RectTransform;
     item = transform.parent.GetComponent<DecorationListItem>();
   }
 }

@@ -6,8 +6,8 @@ using System;
 
 public class ItemInputHandler : MonoBehaviour {
 
-  private float maxSize = 5f;
-  private float minSize = .2f;
+  private float maxSize = 5.5f;
+  private float minSize = .15f;
   private float rotationSpeed = 2.5f;
 
   public bool Dragging { get; set; }
@@ -27,7 +27,8 @@ public class ItemInputHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     Dragging = false;
-    rectTransform = transform.Find("DummyItem").transform as RectTransform;
+    // Set some default rectTransform to avoid checking if some exists eveytime before any action.
+    rectTransform = transform.Find("DummyItem").transform as RectTransform; 
     fingerScript = gameObject.GetComponent<FingersScript>();
 
     //CreateTapGesture();
