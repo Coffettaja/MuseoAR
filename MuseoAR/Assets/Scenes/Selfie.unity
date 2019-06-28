@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -566,8 +566,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758349131}
   m_HandleRect: {fileID: 758349130}
   m_Direction: 2
-  m_Value: 0.86290973
-  m_Size: 0.10937894
+  m_Value: 1
+  m_Size: 0.13816236
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1362,7 +1362,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0b889ef8a4c784e2b8877cd0817f2c58,
+      objectReference: {fileID: 21300000, guid: c6daeeaf019b641afb1b8e82c4d877ac,
         type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be23408f236166040b0fe47de4c1b437, type: 2}
@@ -2311,7 +2311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 1644.1002}
+  m_AnchoredPosition: {x: -125, y: 642.45496}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &478316747
@@ -2611,7 +2611,7 @@ RectTransform:
   m_GameObject: {fileID: 529533344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6687101, y: 0.6687101, z: 0.6687101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 713649872}
   m_RootOrder: 4
@@ -2619,7 +2619,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 90, y: 180}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529533346
 MonoBehaviour:
@@ -2692,7 +2692,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 53621ddc2c00542beace1e1f146f36b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 523643abccd314c4eb46163d2d7bb762, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2962,7 +2962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &573780856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4405,7 +4405,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6dcb345f38aa74163af8ce6672b0beef,
+      objectReference: {fileID: 21300000, guid: 22f16fc4ba611424b86af3cb95933b23,
         type: 3}
     - target: {fileID: 114352346833086986, guid: 9bb68212bd6b440c084a4cb68d68eeed,
         type: 2}
