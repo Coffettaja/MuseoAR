@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/OBBInitScene.unity
+    guid: 831c82a921439f74ebea153949b5ced6
   - enabled: 1
     path: Assets/Scenes/Splash.unity
     guid: b951e517a3954e5419bd0da72d7323a1
@@ -47,3 +50,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/profileInput.unity
     guid: cd1e10c480a4ec74e88fff1a44f4030b
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: df7f16d192f7cee4098472ead9c9636e,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9ade0a00ffdbaca498028d54c57dc76f,
+      type: 2}

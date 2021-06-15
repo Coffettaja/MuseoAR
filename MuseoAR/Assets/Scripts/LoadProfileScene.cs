@@ -8,15 +8,20 @@ public class LoadProfileScene : MonoBehaviour {
 	
 	void Start ()
 	{
-		coroutine = WaitAndLoad(2.0f);
+		coroutine = WaitAndLoad(5f);
 		StartCoroutine(coroutine);
 	}
 
     // Finds all obb-files and loads profileInput scene.
     private IEnumerator WaitAndLoad(float waitTime)
     {
-        yield return StartCoroutine(ObbExtractor.ExtractObbDatasets());
-        yield return new WaitForSeconds(waitTime);
-        SceneManager.LoadScene("profileInput");
+        yield return StartCoroutine(ObbExtractor.ExtractObbDatasets(LoadNextScene));
+		Debug.Log("Waiting for to load next Scene ");
+		yield return new WaitForSeconds(0.5f);
+       
+	}
+	void LoadNextScene() {
+		Debug.Log("Starting to load next Scene ");
+		SceneManager.LoadScene("profileInput");
 	}
 }

@@ -25,7 +25,8 @@ public class SelfieSceneInit : MonoBehaviour {
   // Use this for initialization
   void Start () {
     Application.RequestUserAuthorization(UserAuthorization.WebCam);
-    VuforiaBehaviour.Instance.enabled = false;
+    //VuforiaBehaviour.Instance.
+    //VuforiaBehaviour.Instance.enabled = false;
     Screen.autorotateToPortrait = true;
     defaultBackground = background.texture;
 
