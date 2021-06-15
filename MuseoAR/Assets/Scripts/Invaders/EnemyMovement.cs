@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour {
             movesToDirection = 0;
             moveRight = !moveRight;
 
-            transform.Translate(new Vector3(0, 0, -1) * Time.deltaTime * movementSpeed);
+            transform.Translate(new Vector3(0, -1, 0) * Time.deltaTime * movementSpeed);
         }
     }
 

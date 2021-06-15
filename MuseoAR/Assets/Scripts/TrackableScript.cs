@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
+
 
 /// <summary>
 /// This script, along with a BoxCollider, has to be added to any ImageTarget that is used
 /// to transition to another scene.
 /// </summary>
-public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
+public class TrackableScript : DefaultTrackableEventHandler { //, ITrackableEventHandler
 
   private TrackableBehaviour _trackableBehaviour;
-  private GameObject canvas;
+    private System.Action<TrackableBehaviour.StatusChangeResult> OnTrackableState;
+    private GameObject canvas;
 
   /// <summary>
   /// The name of the scene to be launched when tracking the marker.
@@ -35,12 +40,12 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
   void Start () {
         _trackableBehaviour = GetComponent<TrackableBehaviour>();
 
-        if(_trackableBehaviour)
-        {
-            _trackableBehaviour.RegisterTrackableEventHandler(this);
+        OnTrackableState = OnTrackableStateChanged;
+        if (_trackableBehaviour) {
+            _trackableBehaviour.RegisterOnTrackableStatusChanged(OnTrackableState);
         }
 
-    canvas = GameObject.FindGameObjectWithTag("Canvas");
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
     SetUpTransitionImage();
     
 
@@ -94,9 +99,8 @@ public class TrackableScript : MonoBehaviour, ITrackableEventHandler {
       StartCoroutine("TransitionToScene");
   }
 
-    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
-    {
-        if(newStatus == TrackableBehaviour.Status.TRACKED)
+    public void OnTrackableStateChanged(TrackableBehaviour.StatusChangeResult change) {
+        if(change.NewStatus == TrackableBehaviour.Status.TRACKED)
         {
         
         }
